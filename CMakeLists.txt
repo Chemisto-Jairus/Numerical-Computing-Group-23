@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(NumericalComputing2 VERSION 1.0)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+include_directories(include)
+
+# add everyone's .cpp files here as they get merged!
+# right now it is just root finding
+
+add_library(numcomp2 
+    src/root_finding.cpp
+)
