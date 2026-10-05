@@ -10,7 +10,8 @@ namespace numcomp {
 
         for (size_t i = 0; i < x_vals.size() - 1; ++i) 
         {
-            if (x >= x_vals[i] && x <= x_vals[i+1]) {
+            if (x >= x_vals[i] && x <= x_vals[i+1]) 
+            {
                 double x0 = x_vals[i], x1 = x_vals[i+1];
                 double y0 = y_vals[i], y1 = y_vals[i+1];
                 return y0 + (y1 - y0) * (x - x0) / (x1 - x0);
