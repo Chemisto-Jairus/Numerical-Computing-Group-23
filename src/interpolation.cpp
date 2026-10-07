@@ -1,6 +1,13 @@
 #include "numerical-computing/interpolation.hpp"
+#include <cmath>
+#include <stdexcept>
 
-namespace numcomp {
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
+namespace numcomp 
+{
     double linear_interpolate(double x, const std::vector<double>& x_vals, const std::vector<double>& y_vals) 
     {
         if (x_vals.size() != y_vals.size() || x_vals.size() < 2) 
@@ -18,5 +25,21 @@ namespace numcomp {
             }
         }
         throw std::out_of_range("Target x is out of the interpolation bounds.");
+    }
+
+    std::vector<double> chebyshev_nodes(double a, double b, int n) 
+    {
+        if (n <= 0) 
+        {
+            throw std::invalid_argument("Number of nodes must be strictly positive.");
+        }
+        
+        std::vector<double> nodes(n);
+        for (int k = 1; k <= n; ++k) 
+        {
+            // Formula for Chebyshev nodes on the interval [a, b]
+            nodes[k-1] = 0.5 * (a + b) + 0.5 * (b - a) * std::cos((2.0 * k - 1.0) * M_PI / (2.0 * n));
+        }
+        return nodes;
     }
 }
