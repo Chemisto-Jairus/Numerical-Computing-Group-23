@@ -3,8 +3,8 @@
 #include <vector>
 #include <cmath>
 
-namespace numcomp
- {
+namespace numcomp 
+{
     double AdvancedIntegrator::simpsons_rule(std::function<double(double)> f, double a, double b, int n) {
         if (n <= 0 || n % 2 != 0) throw std::invalid_argument("Requires positive even number of intervals.");
         
@@ -18,19 +18,21 @@ namespace numcomp
         return sum * h / 3.0;
     }
 
+    
     double AdvancedIntegrator::romberg_integration(std::function<double(double)> f, double a, double b, int max_iter) {
         if (max_iter <= 0) throw std::invalid_argument("max_iter must be positive.");
         
         std::vector<std::vector<double>> R(max_iter, std::vector<double>(max_iter, 0.0));
         
-        for (int i = 0; i < max_iter; ++i) 
-        {
+        for (int i = 0; i < max_iter; ++i)
+         {
             int n = 1 << i; 
             double h = (b - a) / n;
             double sum = 0.5 * (f(a) + f(b));
             for (int k = 1; k < n; ++k) sum += f(a + k * h);
             R[i][0] = sum * h;
         }
+
 
         for (int j = 1; j < max_iter; ++j) {
             for (int i = j; i < max_iter; ++i) {
