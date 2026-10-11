@@ -9,5 +9,6 @@ include_directories(include)
 
 add_library(numcomp2 
     src/root_finding.cpp
+    src/adv_roots.cpp
     src/adv_integration.cpp
 )
