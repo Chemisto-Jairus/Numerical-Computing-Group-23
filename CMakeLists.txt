@@ -14,3 +14,4 @@ add_library(numcomp2
     src/adv_roots.cpp
     src/adv_integration.cpp
 )
+add_subdirectory(tests)
