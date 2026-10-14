@@ -13,7 +13,7 @@
 
 ## In Progress
 - **Member 1 (Chemisto Jairus - Lead):**  Me and Bridget are still writing the main.cpp file 
-- **Member 2 (Batte Derrick Calvin):** 
+- **Member 2 (Batte Derrick Calvin):**  I am writing the other examples for my Interpolation code
 - **Member 3 (Aogon Sharon):** 
 - **Member 4 (Bakalu Valeria):** 
 - **Member 5 (Wasswa George Mpanga):** 
