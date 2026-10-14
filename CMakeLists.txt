@@ -13,6 +13,6 @@ add_library(numcomp2
     src/basic_integration.cpp
     src/adv_roots.cpp
     src/adv_integration.cpp
-    scr/basic_ode.cpp
+    src/basic_ode.cpp
 )
 add_subdirectory(tests)
