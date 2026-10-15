@@ -7,7 +7,7 @@
 - **Member 4 (Bakalu Valeria):** 
 - **Member 5 (Wasswa George Mpanga):** 
 - **Member 6 (Mwanje Ian):** 
-- **Member 7 (Muwanguzi Samuel):** 
+- **Member 7 (Muwanguzi Samuel):** I implemented advanced ODE solvers feature 
 - **Member 8 (Kyeyune Praise Pauline):** 
 - **Member 9 (Nabakooza Bridget Maria):** 
 
@@ -18,7 +18,7 @@
 - **Member 4 (Bakalu Valeria):** 
 - **Member 5 (Wasswa George Mpanga):** 
 - **Member 6 (Mwanje Ian):** 
-- **Member 7 (Muwanguzi Samuel):** 
+- **Member 7 (Muwanguzi Samuel):** I am checking my code for logic errors and building tests for it  
 - **Member 8 (Kyeyune Praise Pauline):** 
 - **Member 9 (Nabakooza Bridget Maria):** 
 
