@@ -8,7 +8,7 @@
 - **Member 5 (Wasswa George Mpanga):** 
 - **Member 6 (Mwanje Ian):** 
 - **Member 7 (Muwanguzi Samuel):** 
-- **Member 8 (Kyeyune Praise Pauline):** 
+- **Member 8 (Kyeyune Praise Pauline):** I built automatic testers for the modules that were implemented last week
 - **Member 9 (Nabakooza Bridget Maria):** 
 
 ## In Progress
@@ -19,12 +19,14 @@
 - **Member 5 (Wasswa George Mpanga):** 
 - **Member 6 (Mwanje Ian):** 
 - **Member 7 (Muwanguzi Samuel):** 
-- **Member 8 (Kyeyune Praise Pauline):** 
+- **Member 8 (Kyeyune Praise Pauline):** Type there... I am building testers for Samuel and Ian's modules
+While checking if there are errors
 - **Member 9 (Nabakooza Bridget Maria):** 
 
 
 ## Challenges/Blockers
-
+- **Member 8 (Kyeyune Praise Pauline):**  I found errors in some of the members code on running the testers. I am urging them to fix it
+They were giving wrong answers
 - 
 
 ## Next Week
