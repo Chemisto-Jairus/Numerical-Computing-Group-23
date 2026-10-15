@@ -24,14 +24,27 @@ void test_trapezoidal_rule()
     assert(std::abs(result - expected) < tolerance && "Trapezoidal rule output is outside acceptable tolerance!");
     std::cout << "[-] Trapezoidal Rule test passed!" << std::endl;
 }
+void test_midpoint_rule() 
+{
+    numcomp::BasicIntegrator integrator;
+    
+    double result = integrator.midpoint_rule(test_equation, 0.0, 1.0, 100);
+    double expected = 1.0 / 3.0;
+    
+    double tolerance = 1e-4;
+    
+    assert(std::abs(result - expected) < tolerance && "Midpoint rule output is outside acceptable tolerance!");
+    std::cout << "[-] Midpoint Rule test passed!" << std::endl;
+}
 
 int main() 
 {
     std::cout << "[*] Running Basic Integration Tests..." << std::endl;
     
     test_trapezoidal_rule();
+    test_midpoint_rule(); 
     
-    std::cout << "[+] Basic Integration tests (Part 1) passed successfully!" << std::endl;
+    std::cout << "[+] All Basic Integration tests passed successfully!" << std::endl;
     
     return 0;
 }
