@@ -39,7 +39,7 @@
 - **Member 9 (Nabakooza Bridget Maria):** 
 
 ## AI Use
-- **Member 3 (Aogon Sharon):**
+**Member 3 (Aogon Sharon):**
 - Tool: Claude
 - Purpose: Debugging
 - Reason: Due to time constraints and failure to debug efficiently
