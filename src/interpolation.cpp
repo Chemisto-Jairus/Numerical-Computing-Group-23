@@ -15,6 +15,15 @@ namespace numcomp
             throw std::invalid_argument("Input vectors must have the same size and at least 2 points.");
         }
 
+        // x values must be strictly increasing (no repeats, not unsorted)
+        for (size_t i = 0; i < x_vals.size() - 1; ++i) 
+        {
+            if (x_vals[i] >= x_vals[i+1]) 
+            {
+                throw std::invalid_argument("x values must be strictly increasing.");
+            }
+        }
+
         for (size_t i = 0; i < x_vals.size() - 1; ++i) 
         {
             if (x >= x_vals[i] && x <= x_vals[i+1]) 
@@ -34,6 +43,12 @@ namespace numcomp
             throw std::invalid_argument("Number of nodes must be strictly positive.");
         }
         
+        // the interval must be valid (a smaller than b)
+        if (a >= b) 
+        {
+            throw std::invalid_argument("a must be less than b.");
+        }
+
         std::vector<double> nodes(n);
         for (int k = 1; k <= n; ++k) 
         {
