@@ -44,3 +44,8 @@ They were giving wrong answers
 - Tool: Claude
 - Purpose: Debugging
 - Reason: Due to time constraints and failure to debug efficiently
+ **Member 8 (Kyeyune Praise Pauline):** 
+- Tool: Gemini
+- Purpose: Teaching me how to build the auto tester
+- Reason: I didn't know how to build an auto tester
+
