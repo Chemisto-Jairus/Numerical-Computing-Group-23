@@ -25,14 +25,28 @@ void test_simpsons_rule()
     assert(std::abs(result - expected) < tolerance && "Simpson's rule output is outside acceptable tolerance!");
     std::cout << "[-] Simpson's Rule test passed!" << std::endl;
 }
+void test_romberg_integration() {
+    numcomp::AdvancedIntegrator integrator;
+    
+    // Romberg integration typically takes 'depth' or 'iterations' instead of intervals
+    // We will pass 5 iterations, which is more than enough for a simple polynomial
+    double result = integrator.romberg_integration(test_equation, 0.0, 2.0, 5);
+    double expected = 4.0;
+    
+    double tolerance = 1e-6;
+    
+    assert(std::abs(result - expected) < tolerance && "Romberg Integration output is outside acceptable tolerance!");
+    std::cout << "[-] Romberg Integration test passed!" << std::endl;
+}
 
 int main() 
 {
     std::cout << "[*] Running Advanced Integration Tests..." << std::endl;
     
     test_simpsons_rule();
+    test_romberg_integration(); // Newly added test
     
-    std::cout << "[+] Advanced Integration tests (Part 1) passed successfully!" << std::endl;
+    std::cout << "[+] All Advanced Integration tests passed successfully!" << std::endl;
     
     return 0;
 }
