@@ -15,7 +15,7 @@
 
 ## In Progress
 - **Member 1 (Chemisto Jairus - Lead):**  Me and Bridget are still writing the main.cpp file 
-- **Member 2 (Batte Derrick Calvin):**  I am writing the other examples for my Interpolation code
+- **Member 2 (Batte Derrick Calvin):**  I am writing the other examples for my Interpolation code.
 - **Member 3 (Aogon Sharon):** Writing more examples for basic integration module.
 - **Member 4 (Bakalu Valeria):** 
 - **Member 5 (Wasswa George Mpanga):** I am testing the code to see if it works and checking for errors.
@@ -32,7 +32,7 @@ They were giving wrong answers
 
 ## Next Week
 - **Member 1 (Chemisto Jairus - Lead):** 
-- **Member 2 (Batte Derrick Calvin):** 
+- **Member 2 (Batte Derrick Calvin):** I have to implement matrix solvers and cubic spline interpolation modules
 - **Member 3 (Aogon Sharon):** I am debugging my branch and organizing the code and finalizing the module.
 - **Member 4 (Bakalu Valeria):** 
 - **Member 5 (Wasswa George Mpanga):** 
@@ -46,6 +46,7 @@ They were giving wrong answers
 - Tool: Claude
 - Purpose: Debugging
 - Reason: Due to time constraints and failure to debug efficiently
+
 **Member 8 (Kyeyune Praise Pauline):** 
 - Tool: Gemini
 - Purpose: Teaching me how to build the auto tester
