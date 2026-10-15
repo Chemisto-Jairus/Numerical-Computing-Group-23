@@ -30,7 +30,7 @@
 ## Next Week
 - **Member 1 (Chemisto Jairus - Lead):** 
 - **Member 2 (Batte Derrick Calvin):** 
-- **Member 3 (Aogon Sharon):** 
+- **Member 3 (Aogon Sharon):** I am debugging my branch and organizing the code and finalizing the module.
 - **Member 4 (Bakalu Valeria):** 
 - **Member 5 (Wasswa George Mpanga):** 
 - **Member 6 (Mwanje Ian):** 
@@ -39,7 +39,7 @@
 - **Member 9 (Nabakooza Bridget Maria):** 
 
 ## AI Use
-- **Member 3 (Aogon Sharon):**
+**Member 3 (Aogon Sharon):**
 - Tool: Claude
 - Purpose: Debugging
 - Reason: Due to time constraints and failure to debug efficiently
