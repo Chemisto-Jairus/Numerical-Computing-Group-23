@@ -21,8 +21,6 @@
 - **Member 5 (Wasswa George Mpanga):** I am testing the code to see if it works and checking for errors.
 - **Member 6 (Mwanje Ian):** 
 - **Member 7 (Muwanguzi Samuel):** I am checking my code for logic errors and building tests for it  
-- **Member 8 (Kyeyune Praise Pauline):** 
-- **Member 7 (Muwanguzi Samuel):** 
 - **Member 8 (Kyeyune Praise Pauline):** I am building testers for Samuel and Ian's modules while checking if there are errors.
 - **Member 9 (Nabakooza Bridget Maria):** 
 
@@ -48,7 +46,7 @@ They were giving wrong answers
 - Tool: Claude
 - Purpose: Debugging
 - Reason: Due to time constraints and failure to debug efficiently
- **Member 8 (Kyeyune Praise Pauline):** 
+**Member 8 (Kyeyune Praise Pauline):** 
 - Tool: Gemini
 - Purpose: Teaching me how to build the auto tester
 - Reason: I didn't know how to build an auto tester
