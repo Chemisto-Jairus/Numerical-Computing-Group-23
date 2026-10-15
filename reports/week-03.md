@@ -5,7 +5,7 @@
 - **Member 2 (Batte Derrick Calvin):** I added my first example for Interpolation feature which Pauline is building an automatic tester for.
 - **Member 3 (Aogon Sharon):** I created some examples for my module of basic integration.
 - **Member 4 (Bakalu Valeria):** 
-- **Member 5 (Wasswa George Mpanga):** 
+- **Member 5 (Wasswa George Mpanga):** I finalized the tests for Advanced Integration.
 - **Member 6 (Mwanje Ian):** 
 - **Member 7 (Muwanguzi Samuel):** 
 - **Member 8 (Kyeyune Praise Pauline):** I built automatic testers for the modules that were implemented last week
@@ -16,11 +16,10 @@
 - **Member 2 (Batte Derrick Calvin):**  I am writing the other examples for my Interpolation code
 - **Member 3 (Aogon Sharon):** Writing more examples for basic integration module.
 - **Member 4 (Bakalu Valeria):** 
-- **Member 5 (Wasswa George Mpanga):** 
+- **Member 5 (Wasswa George Mpanga):** I am testing the code to see if it works and checking for errors.
 - **Member 6 (Mwanje Ian):** 
 - **Member 7 (Muwanguzi Samuel):** 
-- **Member 8 (Kyeyune Praise Pauline):** Type there... I am building testers for Samuel and Ian's modules
-While checking if there are errors
+- **Member 8 (Kyeyune Praise Pauline):** I am building testers for Samuel and Ian's modules while checking if there are errors.
 - **Member 9 (Nabakooza Bridget Maria):** 
 
 
