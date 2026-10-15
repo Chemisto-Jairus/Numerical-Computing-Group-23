@@ -7,6 +7,8 @@
 - **Member 4 (Bakalu Valeria):** 
 - **Member 5 (Wasswa George Mpanga):** I finalized the tests for Advanced Integration.
 - **Member 6 (Mwanje Ian):** 
+- **Member 7 (Muwanguzi Samuel):** I implemented advanced ODE solvers feature 
+- **Member 8 (Kyeyune Praise Pauline):** 
 - **Member 7 (Muwanguzi Samuel):** 
 - **Member 8 (Kyeyune Praise Pauline):** I built automatic testers for the modules that were implemented last week
 - **Member 9 (Nabakooza Bridget Maria):** 
@@ -18,6 +20,8 @@
 - **Member 4 (Bakalu Valeria):** 
 - **Member 5 (Wasswa George Mpanga):** I am testing the code to see if it works and checking for errors.
 - **Member 6 (Mwanje Ian):** 
+- **Member 7 (Muwanguzi Samuel):** I am checking my code for logic errors and building tests for it  
+- **Member 8 (Kyeyune Praise Pauline):** 
 - **Member 7 (Muwanguzi Samuel):** 
 - **Member 8 (Kyeyune Praise Pauline):** I am building testers for Samuel and Ian's modules while checking if there are errors.
 - **Member 9 (Nabakooza Bridget Maria):** 
