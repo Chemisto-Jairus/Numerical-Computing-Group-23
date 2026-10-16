@@ -51,7 +51,7 @@ Numerical-Computing-Group-23/
 │       ├── basic_integration.hpp
 │       ├── basic_ode.hpp
 │       ├── interpolation.hpp
-│       └── root_finding.hpp
+│       └── basic_root_finder.hpp
 │
 ├── src/
 │   ├── adv_integration.cpp
@@ -61,7 +61,7 @@ Numerical-Computing-Group-23/
 │   ├── basic_ode.cpp
 │   ├── interpolation.cpp
 │   ├── main.cpp
-│   └── root_finding.cpp
+│   └── basic_root_finder.cpp
 │
 ├── tests/
 │   ├── CMakeLists.txt
