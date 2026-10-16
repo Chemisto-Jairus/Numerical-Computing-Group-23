@@ -6,6 +6,16 @@ namespace numcomp
 {
     double BasicRootFinder::bisection(std::function<double(double)> f, double a, double b, double tol, int max_iter) 
     {
+        // check the settings first
+        if (tol <= 0 || max_iter <= 0) 
+        {
+            throw std::invalid_argument("tol and max_iter must be positive.");
+        }
+
+        // if a root is exactly at an end point, return it
+        if (std::abs(f(a)) < tol) return a;
+        if (std::abs(f(b)) < tol) return b;
+
         if (f(a) * f(b) >= 0) 
         {
             throw std::invalid_argument("Function must have opposite signs at interval endpoints.");
@@ -33,6 +43,12 @@ namespace numcomp
 
     double BasicRootFinder::newton_raphson(std::function<double(double)> f, std::function<double(double)> df, double x0, double tol, int max_iter) 
     {
+        // check the settings first
+        if (tol <= 0 || max_iter <= 0) 
+        {
+            throw std::invalid_argument("tol and max_iter must be positive.");
+        }
+
         double x = x0;
         for (int iter = 0; iter < max_iter; ++iter) 
         {
