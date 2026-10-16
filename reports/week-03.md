@@ -1,7 +1,7 @@
 # Week 3 Progress Report
 
 ## Completed
-- **Member 1 (Chemisto Jairus - Lead):** 
+**Member 1 (Chemisto Jairus - Lead):** 
 - I finalized the week 2 report. 
 - I helped and helping Bridget write the main.cpp file which combines the source files for the modules the other members implemented.
 - I fixed logic of basic root finder module and some of the committed last week and fixed some arrnagement issues caused by other members.
