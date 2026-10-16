@@ -7,9 +7,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include_directories(include)
 
-add_library(numcomp2 
+add_library
+(numcomp2
+ 
     src/basic_root_finder.cpp
-    src/interpolation.cpp
+    src/interpolator.cpp
     src/basic_integration.cpp
     src/adv_roots.cpp
     src/adv_integration.cpp
