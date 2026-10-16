@@ -1,4 +1,4 @@
-#include "numerical-computing/root_finding.hpp"
+#include "numerical-computing/basic_root_finder.hpp"
 #include <cmath>
 #include <stdexcept>
 
