@@ -28,7 +28,8 @@
 ## Challenges/Blockers
 - **Member 8 (Kyeyune Praise Pauline):**  I found errors in some of the members code on running the testers. I am urging them to fix it
 They were giving wrong answers
-- 
+- **Member 9 (Nabakooza Bridget Maria):** I suffered with the logic of the main source file. It is very buggy.
+
 
 ## Next Week
 - **Member 1 (Chemisto Jairus - Lead):** 
@@ -39,7 +40,7 @@ They were giving wrong answers
 - **Member 6 (Mwanje Ian):** 
 - **Member 7 (Muwanguzi Samuel):** 
 - **Member 8 (Kyeyune Praise Pauline):** 
-- **Member 9 (Nabakooza Bridget Maria):** 
+- **Member 9 (Nabakooza Bridget Maria):**  Jairus has to build the tests for the basic root finder module so i will take over constructing the main source file next week and ask for help where i need it.
 
 ## AI Use
 **Member 3 (Aogon Sharon):**
@@ -55,4 +56,9 @@ They were giving wrong answers
 **Member 2 (Batte Derrick Calvin):**
 - Tool: Claude
 - Purpose: Learning cubic spline and logic of matrix solvers
-- Purpose: I didn't know about these methods so i had to research on them first 
+- Reason: I didn't know about these methods so i had to research on them first 
+
+**Member 9 (Nabakooza Bridget Maria):**
+- Tool: Claude
+- Purpose: To help understand logic of main source file
+- Reason: I couldnt easily understand the logic so i consulted the AI
