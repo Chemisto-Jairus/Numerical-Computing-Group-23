@@ -13,6 +13,9 @@
 - **Member 8 (Kyeyune Praise Pauline):** I built automatic testers for the modules that were implemented last week
 - **Member 9 (Nabakooza Bridget Maria):** 
 
+## NB
+We decided to properly arrange the repo and we agreed to make some changes to the names given to the files. It helps us all debug easily and the project be more organized. I (Jairus) encouraged everyone to rename their files. There were multiple conflicts in multiple files so we came up with this revolution. 
+
 ## In Progress
 - **Member 1 (Chemisto Jairus - Lead):**  Me and Bridget are still writing the main.cpp file 
 - **Member 2 (Batte Derrick Calvin):** I am writing the code for matrix solvers. I am also checking my code for logic errors.
@@ -32,7 +35,7 @@ They were giving wrong answers
 
 
 ## Next Week
-- **Member 1 (Chemisto Jairus - Lead):** 
+- **Member 1 (Chemisto Jairus - Lead):** I have to build the test for basic root  finding module as well as assist Calvin on his heavy load next week so Bridget will handle main.cpp construction next week.
 - **Member 2 (Batte Derrick Calvin):** Implementing matrix solvers and cubic spline interpolation modules
 - **Member 3 (Aogon Sharon):** I am debugging my branch and organizing the code and finalizing the module.
 - **Member 4 (Bakalu Valeria):** 
