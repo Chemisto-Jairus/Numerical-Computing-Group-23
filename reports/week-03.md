@@ -6,7 +6,7 @@
 - **Member 3 (Aogon Sharon):** I created some examples for my module of basic integration.
 - **Member 4 (Bakalu Valeria):** I added tests for my advanced root finder and looked for errors in my code for the module I uploaded last week.
 - **Member 5 (Wasswa George Mpanga):** I finalized the tests for Advanced Integration.
-- **Member 6 (Mwanje Ian):** 
+- **Member 6 (Mwanje Ian):** I implemented the basic ode module.
 - **Member 7 (Muwanguzi Samuel):** I implemented advanced ODE solvers feature 
 - **Member 8 (Kyeyune Praise Pauline):** 
 - **Member 7 (Muwanguzi Samuel):** 
@@ -19,7 +19,7 @@
 - **Member 3 (Aogon Sharon):** Writing more examples for basic integration module.
 - **Member 4 (Bakalu Valeria):** Testing if my module works properly and making final touches on it. Getting ready to write examples.
 - **Member 5 (Wasswa George Mpanga):** I am testing the code to see if it works and checking for errors.
-- **Member 6 (Mwanje Ian):** 
+- **Member 6 (Mwanje Ian):** Im writing tests for my basic ode module and looking for errors
 - **Member 7 (Muwanguzi Samuel):** I am checking my code for logic errors and building tests for it  
 - **Member 8 (Kyeyune Praise Pauline):** I am building testers for Samuel and Ian's modules while checking if there are errors.
 - **Member 9 (Nabakooza Bridget Maria):** 
