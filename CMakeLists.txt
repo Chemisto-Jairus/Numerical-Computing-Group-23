@@ -17,3 +17,6 @@ add_library(numcomp2
     src/advanced_ode.cpp
 )
 add_subdirectory(tests)
+
+add_executable(numcomp_app src/main.cpp)
+target_link_libraries(numcomp_app numcomp2)
