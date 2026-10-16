@@ -10,6 +10,8 @@
 
 **Member 2 (Batte Derrick Calvin):** 
 - I completed examples for Interpolation feature which Pauline is building an automatic tester for.
+- I debugged interpolation module
+- I renamed the interpolation files to interpolator.cpp
 
 **Member 3 (Aogon Sharon):** 
 - I created some examples for my module of basic integration.
