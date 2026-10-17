@@ -106,3 +106,8 @@ They were giving wrong answers
 - Tool: Claude
 - Purpose: To help understand logic of main source file
 - Reason: I couldnt easily understand the logic so i consulted the AI
+
+**Member 7 (Muwanguzi Samuel):** 
+- Tool: Claude
+- Purpose: Debugging
+- Reason: I had failed to debugg it effectively
