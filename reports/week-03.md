@@ -25,6 +25,7 @@
 
 **Member 6 (Mwanje Ian):** 
 - I implemented the basic ode module.
+- I debugged basic ode solvers and renamed
 
 **Member 7 (Muwanguzi Samuel):** 
 - I implemented advanced ODE solvers feature 
