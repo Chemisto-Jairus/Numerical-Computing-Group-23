@@ -28,7 +28,8 @@
 - I debugged basic ode solvers and renamed
 
 **Member 7 (Muwanguzi Samuel):** 
-- I implemented advanced ODE solvers feature 
+- I implemented advanced ODE solvers feature
+- I renamed and debugged advanced ode solvers 
 
 **Member 8 (Kyeyune Praise Pauline):** 
 - I built automatic testers for the modules that were implemented last week
@@ -105,3 +106,8 @@ They were giving wrong answers
 - Tool: Claude
 - Purpose: To help understand logic of main source file
 - Reason: I couldnt easily understand the logic so i consulted the AI
+
+**Member 7 (Muwanguzi Samuel):** 
+- Tool: Claude
+- Purpose: Debugging
+- Reason: I had failed to debugg it effectively

@@ -56,7 +56,7 @@ Numerical-Computing-Group-23/
 ├── src/
 │   ├── adv_integration.cpp
 │   ├── advanced_root_finder.cpp
-│   ├── advanced_ode.cpp
+│   ├── advanced_ode_solver.cpp
 │   ├── basic_integrator.cpp
 │   ├── basic_ode_solver.cpp
 │   ├── interpolator.cpp
@@ -76,7 +76,7 @@ Numerical-Computing-Group-23/
 │
 ├── examples/ (to be added in week 4)
 │   ├── example_advanced_integration.cpp
-│   ├── example_advanced_ode.cpp
+│   ├── example_advanced_ode_solver.cpp
 │   ├── example_basic_integration.cpp
 │   ├── example_basic_ode_solver.cpp
 │   ├── example_interpolation.cpp
