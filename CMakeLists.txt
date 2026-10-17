@@ -16,7 +16,7 @@ add_library
     src/advanced_root_finder.cpp
     src/adv_integration.cpp
     src/basic_ode_solver.cpp
-    src/advanced_ode.cpp
+    src/advanced_ode_solver.cpp
 )
 add_subdirectory(tests)
 
