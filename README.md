@@ -46,7 +46,7 @@ Numerical-Computing-Group-23/
 ├── include/
 │   └── numerical-computing/
 │       ├── adv_integration.hpp
-│       ├── adv_roots.hpp
+│       ├── advanced_root_finder.hpp
 │       ├── advanced_ode.hpp
 │       ├── basic_integrator.hpp
 │       ├── basic_ode.hpp
@@ -55,7 +55,7 @@ Numerical-Computing-Group-23/
 │
 ├── src/
 │   ├── adv_integration.cpp
-│   ├── adv_roots.cpp
+│   ├── advanced_root_finder.cpp
 │   ├── advanced_ode.cpp
 │   ├── basic_integrator.cpp
 │   ├── basic_ode.cpp
@@ -67,14 +67,14 @@ Numerical-Computing-Group-23/
 │   ├── CMakeLists.txt
 │   ├── run_all_tests.sh
 │   ├── test_advanced_integration.cpp
-│   ├── test_advanced_ode.cpp
+│   ├── test_advanced_ode.cpp (to be added in week 4)
 │   ├── test_advanced_root_finder.cpp
 │   ├── test_basic_integrator.cpp
 │   ├── test_basic_interpolator.cpp
-│   ├── test_basic_ode.cpp
-│   └── test_root_finding.cpp (to be added in week 4 by Jairus)
+│   ├── test_basic_ode.cpp (to be added in week 4)
+│   └── test_root_finding.cpp (to be added in week 4)
 │
-├── examples/
+├── examples/ (to be added in week 4)
 │   ├── example_advanced_integration.cpp
 │   ├── example_advanced_ode.cpp
 │   ├── example_basic_integration.cpp
