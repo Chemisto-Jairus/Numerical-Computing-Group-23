@@ -77,6 +77,7 @@ They were giving wrong answers
 **Member 5 (Wasswa George Mpanga):** 
 
 **Member 6 (Mwanje Ian):**
+- Building tests for basic ode solver
 
 **Member 7 (Muwanguzi Samuel):** 
 
