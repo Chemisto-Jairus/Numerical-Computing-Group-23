@@ -12,7 +12,7 @@ add_library
  
     src/basic_root_finder.cpp
     src/interpolator.cpp
-    src/basic_integration.cpp
+    src/basic_integrator.cpp
     src/adv_roots.cpp
     src/adv_integration.cpp
     src/basic_ode.cpp

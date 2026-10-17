@@ -1,4 +1,5 @@
-#include "numerical-computing/basic_integration.hpp"
+#undef NDEBUG  // keep assert() working even in Release builds, so the tests always check
+#include "numerical-computing/basic_integrator.hpp"
 #include <iostream>
 #include <cmath>
 #include <cassert>
