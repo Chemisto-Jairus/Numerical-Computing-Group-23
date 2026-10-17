@@ -30,10 +30,8 @@
 - I implemented advanced ODE solvers feature 
 
 **Member 8 (Kyeyune Praise Pauline):** 
-
-**Member 7 (Muwanguzi Samuel):** 
-
-**Member 8 (Kyeyune Praise Pauline):** I built automatic testers for the modules that were implemented last week
+- I built automatic testers for the modules that were implemented last week
+- I debugged the testers I built and checked if the current build modules were working
 
 **Member 9 (Nabakooza Bridget Maria):** 
 

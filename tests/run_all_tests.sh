@@ -1,26 +1,31 @@
-#!/bin/bash
+failed=0
+
+run_test() {
+    echo ">>> Running $1 ($2)..."
+    if ./$1; then
+        echo "    PASSED"
+    else
+        echo "    FAILED"
+        failed=1
+    fi
+    echo ""
+}
 
 echo "==================================================="
 echo "       GROUP 23: AUTOMATED TEST RUNNER             "
 echo "==================================================="
 echo ""
 
-echo ">>> 1. Running Basic Integration Tests (Sharon)..."
-./test_basic_integration
-echo ""
-
-echo ">>> 2. Running Advanced Integration Tests (George)..."
-./test_advanced_integration
-echo ""
-
-echo ">>> 3. Running Interpolation Tests (Derrick)..."
-./test_basic_interpolation
-echo ""
-
-echo ">>> 4. Running Advanced Root Finder Tests (Valeria)..."
-./test_advanced_root_finder
-echo ""
+run_test test_interpolator "Derrick"
+run_test test_basic_integrator "Sharon"
+run_test test_advanced_integrator "George"
+run_test test_advanced_root_finder "Valeria"
 
 echo "==================================================="
-echo "  ALL WEEK 3 TESTS EXECUTED SUCCESSFULLY!          "
+if [ $failed -eq 0 ]; then
+    echo "  ALL TESTS PASSED"
+else
+    echo "  SOME TESTS FAILED - see the messages above"
+    exit 1
+fi
 echo "==================================================="
