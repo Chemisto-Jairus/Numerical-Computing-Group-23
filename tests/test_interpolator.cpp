@@ -1,4 +1,4 @@
-#include "numerical-computing/interpolation.hpp"
+#include "numerical-computing/interpolator.hpp"
 #include <iostream>
 #include <vector>
 #include <cmath>
