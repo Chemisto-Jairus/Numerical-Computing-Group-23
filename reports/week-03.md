@@ -15,6 +15,7 @@
 
 **Member 3 (Aogon Sharon):** 
 - I created some examples for my module of basic integration.
+- I debugged and renamed basic integration to basic interpolator so that the repo is uniform and easy to test all modules as requested by Jairus and Pauline
 
 **Member 4 (Bakalu Valeria):** 
 - I added tests for my advanced root finder and looked for errors in my code for the module I uploaded last week.
