@@ -47,7 +47,7 @@ Numerical-Computing-Group-23/
 │   └── numerical-computing/
 │       ├── adv_integration.hpp
 │       ├── advanced_root_finder.hpp
-│       ├── advanced_ode.hpp
+│       ├── advanced_ode_solver.hpp
 │       ├── basic_integrator.hpp
 │       ├── basic_ode.hpp
 │       ├── interpolator.hpp
@@ -58,7 +58,7 @@ Numerical-Computing-Group-23/
 │   ├── advanced_root_finder.cpp
 │   ├── advanced_ode.cpp
 │   ├── basic_integrator.cpp
-│   ├── basic_ode.cpp
+│   ├── basic_ode_solver.cpp
 │   ├── interpolator.cpp
 │   ├── main.cpp
 │   └── basic_root_finder.cpp
@@ -71,14 +71,14 @@ Numerical-Computing-Group-23/
 │   ├── test_advanced_root_finder.cpp
 │   ├── test_basic_integrator.cpp
 │   ├── test_basic_interpolator.cpp
-│   ├── test_basic_ode.cpp (to be added in week 4)
+│   ├── test_basic_ode_solver.cpp (to be added in week 4)
 │   └── test_root_finding.cpp (to be added in week 4)
 │
 ├── examples/ (to be added in week 4)
 │   ├── example_advanced_integration.cpp
 │   ├── example_advanced_ode.cpp
 │   ├── example_basic_integration.cpp
-│   ├── example_basic_ode.cpp
+│   ├── example_basic_ode_solver.cpp
 │   ├── example_interpolation.cpp
 │   ├── example_matrix.cpp
 │   └── example_roots.cpp
