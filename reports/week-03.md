@@ -9,12 +9,12 @@
 
 
 **Member 2 (Batte Derrick Calvin):** 
-- I completed examples for Interpolation feature which Pauline is building an automatic tester for.
+- I completed tests for Interpolation feature which Pauline is building an automatic tester for.
 - I debugged interpolation module
 - I renamed the interpolation files to interpolator.cpp
 
 **Member 3 (Aogon Sharon):** 
-- I created some examples for my module of basic integration.
+- I created some tests for my module of basic integration.
 - I debugged and renamed basic integration to basic interpolator so that the repo is uniform and easy to test all modules as requested by Jairus and Pauline
 
 **Member 4 (Bakalu Valeria):** 
