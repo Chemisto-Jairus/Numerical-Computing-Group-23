@@ -1,4 +1,5 @@
-#include "numerical-computing/adv_roots.hpp"
+#undef NDEBUG  // keep assert() working even in Release builds, so the tests always check
+#include "numerical-computing/advanced_root_finder.hpp"
 #include <iostream>
 #include <cmath>
 #include <cassert>
@@ -47,7 +48,7 @@ int main()
     std::cout << "[*] Running Advanced Root Finder Tests..." << std::endl;
     
     test_secant_method();
-    test_fixed_point_iteration(); // Newly added test
+    test_fixed_point_iteration(); 
     
     std::cout << "[+] All Advanced Root Finder tests passed successfully!" << std::endl;
     

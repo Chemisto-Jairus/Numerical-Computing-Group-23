@@ -1,10 +1,16 @@
-#include "numerical-computing/adv_roots.hpp"
+#include "numerical-computing/advanced_root_finder.hpp"
 #include <cmath>
 #include <stdexcept>
 
 namespace numcomp 
 {
     double AdvancedRootFinder::secant_method(std::function<double(double)> f, double x0, double x1, double tol, int max_iter) {
+        // check the settings first
+        if (tol <= 0 || max_iter <= 0) 
+        {
+            throw std::invalid_argument("tol and max_iter must be positive.");
+        }
+
         for (int iter = 0; iter < max_iter; ++iter) 
         {
             double f_x0 = f(x0);
@@ -26,6 +32,12 @@ namespace numcomp
 
     double AdvancedRootFinder::fixed_point_iteration(std::function<double(double)> g, double x0, double tol, int max_iter) 
     {
+        // check the settings first
+        if (tol <= 0 || max_iter <= 0) 
+        {
+            throw std::invalid_argument("tol and max_iter must be positive.");
+        }
+
         double x_current = x0;
         for (int iter = 0; iter < max_iter; ++iter) 
         {
