@@ -1,4 +1,5 @@
-#include "numerical-computing/adv_integration.hpp"
+#undef NDEBUG  // keep assert() working even in Release builds, so the tests always check
+#include "numerical-computing/advanced_integrator.hpp"
 #include <iostream>
 #include <cmath>
 #include <cassert>
@@ -25,7 +26,8 @@ void test_simpsons_rule()
     assert(std::abs(result - expected) < tolerance && "Simpson's rule output is outside acceptable tolerance!");
     std::cout << "[-] Simpson's Rule test passed!" << std::endl;
 }
-void test_romberg_integration() {
+void test_romberg_integration() 
+{
     numcomp::AdvancedIntegrator integrator;
     
     // Romberg integration typically takes 'depth' or 'iterations' instead of intervals
@@ -44,7 +46,7 @@ int main()
     std::cout << "[*] Running Advanced Integration Tests..." << std::endl;
     
     test_simpsons_rule();
-    test_romberg_integration(); // Newly added test
+    test_romberg_integration(); 
     
     std::cout << "[+] All Advanced Integration tests passed successfully!" << std::endl;
     

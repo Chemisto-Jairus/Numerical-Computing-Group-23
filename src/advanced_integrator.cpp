@@ -1,4 +1,4 @@
-#include "numerical-computing/adv_integration.hpp"
+#include "numerical-computing/advanced_integrator.hpp"
 #include <stdexcept>
 #include <vector>
 #include <cmath>
