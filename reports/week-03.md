@@ -26,12 +26,22 @@
 - Jairus helped me rename my advanced integration files 
 
 **Member 6 (Mwanje Ian):** 
-- I implemented the basic ode module.
-- I debugged basic ode solvers and renamed
+- I implemented the basic ODE module, debugged basic ODE solvers, and renamed the files for repo uniformity.
+- **Class Structure & Implementation (`BasicODESolver`):**
+- I created the `BasicODESolver` class inside the `numcomp` namespace (`basic_ode.hpp` / `basic_ode.cpp`).
+- I created it to organize basic first-order Ordinary Differential Equation (ODE) solving algorithms into a clean, reusable object that separates step-by-step ODE integration from the rest of the mathematical modules.
+- The class is designed as a stateless solver (it has no persistent class-level data variables). Instead, the data—the differential equation `f(t, y)` (`std::function<double(double, double)>`), initial time `t0`, initial value `y0`, end time `t_end`, and step size `h`—are passed as parameters into the function, while the computed trajectory points `(t, y)` are stored locally in a `std::vector<std::pair<double, double>>`.
+- **4. What functions operate on that data?** The member function `euler(std::function<double(double, double)> f, double t0, double y0, double t_end, double h)` operates on the inputs by stepping from `t0` to `t_end` in increments of `h`, updating `y` using Euler's method, and returning the vector of `(t, y)` pairs.
+- The `euler` function is `public` so external files can call it directly, and no `private` data members are needed because keeping the class stateless prevents values from a previous calculation from corrupting future ODE runs. The rest of the program (`src/main.cpp` and `tests/test_basic_ode.cpp`) includes `numerical-computing/basic_ode.hpp`, creates an object `numcomp::BasicODESolver solver;`, calls `solver.euler(...)`, and loops through the returned `(t, y)` vector to display or test the results.
 
 **Member 7 (Muwanguzi Samuel):** 
-- I implemented advanced ODE solvers feature
-- I renamed and debugged advanced ode solvers 
+- I implemented the advanced ODE solvers feature, renamed the files, and debugged the module.
+- **Class Structure & Implementation (`AdvancedODESolver`):**
+- I created the `AdvancedODESolver` class inside the `numcomp` namespace (`advanced_ode.hpp` / `advanced_ode.cpp`).
+  - **2. Why?** I created it to encapsulate higher-order, multi-stage Runge-Kutta ODE methods into a dedicated class that provides high-precision ODE solving while keeping a uniform structure with the rest of the library.
+- Like `BasicODESolver`, `AdvancedODESolver` has no persistent class-level data members. It takes the derivative function `f(t, y)` (`std::function<double(double, double)>`), initial time `t0`, initial value `y0`, final time `t_end`, and step size `h` as function inputs, and uses local variables to hold the intermediate Runge-Kutta slopes ($k_1, k_2, k_3, k_4$) and a `std::vector<std::pair<double, double>>` to hold the resulting `(t, y)` solution curve.
+- Two member functions operate on the data: `rk4(std::function<double(double, double)> f, double t0, double y0, double t_end, double h)` (4th-Order Runge-Kutta) and `rk3(std::function<double(double, double)> f, double t0, double y0, double t_end, double h)` (3rd-Order Runge-Kutta), which calculate weighted intermediate slopes at each time step and return the full vector of `(t, y)` pairs.
+- Both `rk4` and `rk3` are `public` so the user interface and test runner can call them directly, while omitting `private` state variables ensures the solver is self-contained and can solve multiple ODEs back-to-back without state conflicts. The rest of the program (`src/main.cpp` and `tests/test_advanced_ode.cpp`) includes `numerical-computing/advanced_ode.hpp`, instantiates `numcomp::AdvancedODESolver solver;`, calls `solver.rk4(...)` or `solver.rk3(...)`, and reads the returned vector of `(t, y)` coordinate pairs.
 
 **Member 8 (Kyeyune Praise Pauline):** 
 - I built automatic testers for the modules that were implemented last week
@@ -41,6 +51,13 @@
 
 ## NB
 We decided to properly arrange the repo and we agreed to make some changes to the names given to the files. It helps us all debug easily and the project be more organized. I (Jairus) encouraged everyone to rename their files. There were multiple conflicts in multiple files so we came up with this revolution. 
+
+## NEW NAMES
+- root_finding changed to basic_root_finder
+- adv_roots changed to advanced_root_finder
+- interpolation changed to interpolator
+- basic_integration changed to basic_integrator
+- adv_integration changed to advanced_integrator
 
 ## In Progress
 **Member 1 (Chemisto Jairus - Lead):**  
