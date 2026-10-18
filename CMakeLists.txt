@@ -14,7 +14,7 @@ add_library
     src/interpolator.cpp
     src/basic_integrator.cpp
     src/advanced_root_finder.cpp
-    src/adv_integration.cpp
+    src/advanced_integrator.cpp
     src/basic_ode_solver.cpp
     src/advanced_ode_solver.cpp
 )

@@ -45,7 +45,7 @@ Numerical-Computing-Group-23/
 │
 ├── include/
 │   └── numerical-computing/
-│       ├── adv_integration.hpp
+│       ├── advanced_integrator.hpp
 │       ├── advanced_root_finder.hpp
 │       ├── advanced_ode_solver.hpp
 │       ├── basic_integrator.hpp
@@ -54,7 +54,7 @@ Numerical-Computing-Group-23/
 │       └── basic_root_finder.hpp
 │
 ├── src/
-│   ├── adv_integration.cpp
+│   ├── advanced_integrator.cpp
 │   ├── advanced_root_finder.cpp
 │   ├── advanced_ode_solver.cpp
 │   ├── basic_integrator.cpp
@@ -66,7 +66,7 @@ Numerical-Computing-Group-23/
 ├── tests/
 │   ├── CMakeLists.txt
 │   ├── run_all_tests.sh
-│   ├── test_advanced_integration.cpp
+│   ├── test_advanced_integrator.cpp
 │   ├── test_advanced_ode.cpp (to be added in week 4)
 │   ├── test_advanced_root_finder.cpp
 │   ├── test_basic_integrator.cpp
@@ -75,7 +75,7 @@ Numerical-Computing-Group-23/
 │   └── test_root_finding.cpp (to be added in week 4)
 │
 ├── examples/ (to be added in week 4)
-│   ├── example_advanced_integration.cpp
+│   ├── example_advanced_integrator.cpp
 │   ├── example_advanced_ode_solver.cpp
 │   ├── example_basic_integration.cpp
 │   ├── example_basic_ode_solver.cpp
@@ -87,8 +87,8 @@ Numerical-Computing-Group-23/
     ├── week-01.md
     ├── week-02.md
     ├── week-03.md
-    ├── week-04.md
-    └── final-report.md
+    ├── week-04.md (to be added in week 4)
+    └── final-report.md (to be added in week 5)
 ```
 
 ## 5. Build the Library
