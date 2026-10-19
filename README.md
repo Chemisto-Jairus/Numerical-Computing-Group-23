@@ -73,18 +73,25 @@ Numerical-Computing-Group-23/
 │   ├── test_basic_integrator.cpp
 │   ├── test_basic_interpolator.cpp
 │   ├── test_basic_ode_solver.cpp (to be added in week 4)
-│   └── test_root_finding.cpp (to be added in week 4)
+│   └── test_basic_root_finder.cpp (to be added in week 4)
 │
 ├── examples/ (to be added in week 4)
 │   ├── example_advanced_integrator.cpp
 │   ├── example_advanced_ode_solver.cpp
+    ├── example_advanced_roots_solver.cpp
 │   ├── example_basic_integration.cpp
 │   ├── example_basic_ode_solver.cpp
 │   ├── example_interpolation.cpp
-│   ├── example_matrix.cpp
-│   └── example_roots.cpp
+│   ├── example_matrix_solver.cpp (to be added in week 4)
+│   ├── example_basic_roots_solver.cpp
+    └── example_basic_root_finder.cpp  (to be added in week 4)
 │
 └── reports/
+    ├── documentation/
+    │       ├──oop_concepts GROUP 23.md
+    │       ├──Group 23 hand drawn classes layout .pdf
+    │       └──Group 23 Inheritance documented.pdf
+    │
     ├── week-01.md
     ├── week-02.md
     ├── week-03.md
