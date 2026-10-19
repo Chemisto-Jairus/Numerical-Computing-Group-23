@@ -3,6 +3,7 @@
 The objective of this project is to build a reusable numerical computing library from scratch using C++. It provides a set of mathematical tools for finding roots, interpolating data, numerical integration, numerical differentiation, and solving ordinary differential equations (ODEs). We built this to demonstrate object-oriented programming concepts and collaborative software development.
 
 ## Table of Contents
+
 - [2. Requirements and Dependencies](#2-requirements-and-dependencies)
 - [3. Main Features](#3-main-features)
 - [4. Project Structure](#4-project-structure)
@@ -94,28 +95,37 @@ Numerical-Computing-Group-23/
 ## 5. Build the Library
 
 ### Linux and macOS
+
 *(To be filled in Week 3/4 once our CMake setup is tested across OS platforms)*
 
 ### Windows
+
 *(To be filled in Week 3/4 - currently compiling with MinGW-w64 via VS Code)*
 
 ## 6. Install the Library (if your CMake supports it)
 
 ### Linux and macOS
+
 *(Placeholder - will be added later)*
 
 ### Windows
+
 *(Placeholder - will be added later)*
 
 ## 7. Use the Library in Your Own Program
+
 *(Placeholder - we will add a quick start guide here showing how to link the compiled library once it is fully built)*
 
 ## 8. Examples
+
 *(Placeholder - in Week 4, we will add instructions here on how to run the demo files from the `examples/` folder)*
 
 ## 9. Run the Tests
-**USING g++**
+
+**(USING g++)**
+
 **Follow these steps**
+
 - Open Vs code and open the folder (The main branch repository folder)
 - Open a new terminal and select git bash in the drop down menu next to the '+'
 - Enter the following block of code the way it appears in your git bash terminal.
@@ -127,7 +137,9 @@ cd ~/Group23
 mkdir -p tests
 cd tests
 ```
--Once done paste the one below there as well
+
+- Once done paste the one below there as well
+
 ```text
 # 1. Create the tests folder inside build and enter it
 mkdir -p tests
@@ -144,9 +156,11 @@ done
 bash ../../tests/run_all_tests.sh
 
 ```
+
 - It should display all tests passed
 
 ## 10. Limitations
+
 - Romberg is capped at 25 iterations
 - Linear interpolation needs strictly increasing x and does not extrapolate
 - Simpson needs an even n

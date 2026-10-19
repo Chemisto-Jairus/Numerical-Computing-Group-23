@@ -132,8 +132,8 @@ They were giving wrong answers
 
 **Member 2 (Batte Derrick Calvin):**
 - Tool: Claude
-- Purpose: Learning cubic spline and logic of matrix solvers
-- Reason: I didn't know about these methods so i had to research on them first 
+- Purpose: Learning cubic spline and logic of matrix solvers. Generating a license for the library.
+- Reason: I didn't know about these methods so i had to research on them first .
 
 **Member 9 (Nabakooza Bridget Maria):**
 - Tool: Claude
