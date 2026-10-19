@@ -16,6 +16,7 @@
 - I renamed the interpolation files to interpolator.cpp
 - I helped Pauline get the auto-tester working.
 - I wrote the report on our classes.
+- I updated the Run tests part of README with instructions on how to run the tests on behalf of Pauline.
 
 **Member 3 (Aogon Sharon):** 
 
