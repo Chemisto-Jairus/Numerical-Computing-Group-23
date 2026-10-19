@@ -78,13 +78,13 @@ Numerical-Computing-Group-23/
 ├── examples/ (to be added in week 4)
 │   ├── example_advanced_integrator.cpp
 │   ├── example_advanced_ode_solver.cpp
-    ├── example_advanced_roots_solver.cpp
+│   ├── example_advanced_roots_solver.cpp
 │   ├── example_basic_integration.cpp
 │   ├── example_basic_ode_solver.cpp
 │   ├── example_interpolation.cpp
 │   ├── example_matrix_solver.cpp (to be added in week 4)
 │   ├── example_basic_roots_solver.cpp
-    └── example_basic_root_finder.cpp  (to be added in week 4)
+│    └── example_basic_root_finder.cpp  (to be added in week 4)
 │
 └── reports/
     ├── documentation/
