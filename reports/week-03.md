@@ -76,7 +76,8 @@ We decided to properly arrange the repo and we agreed to make some changes to th
 
 **Member 1 (Chemisto Jairus - Lead):**  
 
-- Me and Bridget are still writing the main.cpp file 
+- I left Bridget to write main.cpp
+- i have to write the test and examples for Basic root solver module 
 
 **Member 2 (Batte Derrick Calvin):** 
 
@@ -143,6 +144,8 @@ We decided to properly arrange the repo and we agreed to make some changes to th
 - I am debugging my branch and organizing the code and finalizing the module.
 
 **Member 4 (Bakalu Valeria):** 
+
+- Writing examples for Advanced root solver module.
 
 **Member 5 (Wasswa George Mpanga):** 
 
