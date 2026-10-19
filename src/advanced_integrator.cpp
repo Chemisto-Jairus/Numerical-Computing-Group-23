@@ -21,6 +21,8 @@ namespace numcomp
     
     double AdvancedIntegrator::romberg_integration(std::function<double(double)> f, double a, double b, int max_iter) {
         if (max_iter <= 0) throw std::invalid_argument("max_iter must be positive.");
+        // 1 << i overflows an int at 32, and the work doubles every iteration
+        if (max_iter > 25) throw std::invalid_argument("max_iter must not be more than 25.");
         
         std::vector<std::vector<double>> R(max_iter, std::vector<double>(max_iter, 0.0));
         

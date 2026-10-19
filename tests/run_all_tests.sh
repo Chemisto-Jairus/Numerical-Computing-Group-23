@@ -1,3 +1,7 @@
+#!/bin/bash
+# Run this from the folder that holds the built test programs (build/tests).
+# It runs every test and only reports success if ALL of them passed.
+
 failed=0
 
 run_test() {
@@ -20,6 +24,10 @@ run_test test_interpolator "Derrick"
 run_test test_basic_integrator "Sharon"
 run_test test_advanced_integrator "George"
 run_test test_advanced_root_finder "Valeria"
+# Week 4: remove the # at the start of these lines when the tests exist
+# run_test test_basic_root_finder "Jairus"
+# run_test test_basic_ode_solver "Ian"
+# run_test test_advanced_ode_solver "Samuel"
 
 echo "==================================================="
 if [ $failed -eq 0 ]; then

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
+#include <limits>
 #include "numerical-computing/interpolator.hpp"
 #include "numerical-computing/basic_integrator.hpp"
 #include "numerical-computing/advanced_integrator.hpp"
@@ -30,7 +31,14 @@ int main() {
     while (true) {
         display_menu();
 
-        std::cin >> choice;
+        // If the input is not a number, clear the error and ask again
+        if (!(std::cin >> choice)) {
+            if (std::cin.eof()) break;   // the input has ended (for example Ctrl+Z), so stop
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "\n[!] Error: Please enter a valid number.\n";
+            continue;
+        }
 
         if (choice == 0) {
             std::cout << "Exiting application. Goodbye!\n";
