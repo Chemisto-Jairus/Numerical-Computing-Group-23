@@ -101,6 +101,8 @@ Numerical-Computing-Group-23/
 
 ## 5. Build the Library
 
+### Windows
+
 ## OPTION A: (USING Cmake/Git bash)
 
 **1. How to install Cmake**
@@ -212,13 +214,9 @@ echo "✅ Finished! Your root directory remained entirely untouched."
 - It should open the folder where the build was created and you can run the numcomp_app.
 
 
-### Linux and macOS
+### Linux and macOS (NOT YET TESTED)
 
-*(To be filled in Week 3/4 once our CMake setup is tested across OS platforms)*
 
-### Windows
-
-*(To be filled in Week 3/4 - currently compiling with MinGW-w64 via VS Code)*
 
 ## 6. Install the Library (if your CMake supports it)
 
