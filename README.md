@@ -129,7 +129,55 @@ Numerical-Computing-Group-23/
 
 ## 9. Run the Tests
 
-**(USING g++/git bash)**
+# OPTION A : (USING Cmake)
+
+**1. How to install Cmake**
+
+- Open Command prompt on your pc and enter this code
+
+```text
+winget install -e --id Kitware.CMake
+``` 
+
+**2. Building the library**
+
+- Run Git bash as administrator and right click on the repository folder and select open git bash here
+- Paste the code below in your git bash terminal
+
+```text
+# 1. Check for essential project files and report missing ones
+echo ">>> Checking project structure..."
+for item in "CMakeLists.txt" "include" "src" "tests" "tests/CMakeLists.txt"; do
+    if [ ! -e "$item" ]; then
+        echo "[!] WARNING: '$item' is missing!"
+    else
+        echo "[+] Found '$item'"
+    fi
+done
+echo ">>> Proceeding with build process..."
+
+# 2. Copy the entire project to a safe folder to bypass Windows Defender/OneDrive
+cp -r . ~/Group23_Safe_Build
+cd ~/Group23_Safe_Build
+
+# 3. Create the build directory and enter it
+mkdir -p build
+cd build
+
+# 4. Configure CMake (use MinGW Makefiles on Windows)
+cmake -G "MinGW Makefiles" ..
+
+# 5. Compile numcomp2 and all test executables
+cmake --build .
+
+# 6. Open the build folder in Windows File Explorer
+echo ">>> Opening build folder..."
+explorer .
+
+```
+- It should open the folder where the build was created and you can run the numcomp_app.
+
+# OPTION B : (USING g++/git bash)**
 
 **Follow these steps**
 
