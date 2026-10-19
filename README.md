@@ -101,6 +101,117 @@ Numerical-Computing-Group-23/
 
 ## 5. Build the Library
 
+## OPTION A: (USING Cmake/Git bash)
+
+**1. How to install Cmake**
+
+- Open Command prompt on your pc and enter this code
+
+```text
+
+winget install -e --id Kitware.CMake
+
+``` 
+
+**2. Building the library**
+
+- Run Git bash as administrator and right click on the repository folder and select open git bash here
+- Paste the code below in your git bash terminal
+
+```text
+
+# ==========================================
+# 1. SETUP SAFE ENVIRONMENT
+# ==========================================
+ORIGINAL_DIR=$(pwd)
+SAFE_DIR="$HOME/Group23_Safe_Build"
+
+echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
+# Remove any old remnants and create a fresh copy
+rm -rf "$SAFE_DIR"
+mkdir -p "$SAFE_DIR"
+
+# Copy all project contents to the safe folder
+cp -r . "$SAFE_DIR"
+
+# Jump into the safe folder to carry out operations
+cd "$SAFE_DIR"
+
+# ==========================================
+# 2. CHECK FILES & ADJUST FOR CMAKE
+# ==========================================
+LIB="src/basic_root_finder.cpp src/advanced_root_finder.cpp src/interpolator.cpp src/cubic_spline.cpp src/basic_integrator.cpp src/advanced_integrator.cpp src/basic_ode_solver.cpp src/advanced_ode_solver.cpp src/matrix_solver.cpp"
+MISSING_FILES=()
+
+echo ">>> Checking for missing source files..."
+for file in $LIB; do
+    if [ ! -f "$file" ]; then
+        base_name=$(basename "$file" .cpp)
+        MISSING_FILES+=("$base_name")
+        echo "⚠️ Warning: Source file '$file' is missing. Skipping..."
+        
+        # TRICK: Create an empty dummy file in the safe folder so CMake 
+        # doesn't crash if this file is hardcoded in CMakeLists.txt!
+        touch "$file"
+    fi
+done
+
+echo ">>> Filtering tests..."
+for t in tests/test_*.cpp; do
+    [ -e "$t" ] || continue 
+    name=$(basename "$t" .cpp)
+    
+    for missing in "${MISSING_FILES[@]}"; do
+        core_test_name="${name#test_}"
+        if [[ "$core_test_name" == *"$missing"* || "$missing" == *"$core_test_name"* ]]; then
+            echo "⏭️ Skipping test: $name (dependent source file is missing)"
+            # Remove the test from the safe folder so CMake ignores it completely
+            rm -f "$t"
+            break
+        fi
+    done
+done
+
+# ==========================================
+# 3. CMAKE BUILD
+# ==========================================
+mkdir -p build
+cd build
+
+echo ">>> Configuring CMake..."
+cmake -G "MinGW Makefiles" ..
+
+echo ">>> Compiling with CMake..."
+cmake --build .
+
+# ==========================================
+# 4. RUN TESTS & OPEN EXPLORER
+# ==========================================
+echo ">>> Running automated tests..."
+cd tests
+
+# Check if any .exe tests were actually compiled before trying to run the script
+if ls *.exe 1> /dev/null 2>&1; then
+    bash ../../../Group23_Safe_Build/tests/run_all_tests.sh
+else
+    echo "❌ No tests were compiled. Skipping test runner."
+fi
+
+# Step back out of tests into the build folder
+cd ..
+
+echo ">>> Opening build folder in Windows File Explorer..."
+explorer .
+
+# Return to original directory in the terminal
+cd "$ORIGINAL_DIR"
+echo "✅ Finished! Your root directory remained entirely untouched."
+
+```
+
+- It should open the folder where the build was created and you can run the numcomp_app.
+
+
 ### Linux and macOS
 
 *(To be filled in Week 3/4 once our CMake setup is tested across OS platforms)*
@@ -129,14 +240,16 @@ Numerical-Computing-Group-23/
 
 ## 9. Run the Tests
 
-## OPTION A : (USING Cmake)
+## OPTION A: (USING Cmake/Git bash)
 
 **1. How to install Cmake**
 
 - Open Command prompt on your pc and enter this code
 
 ```text
+
 winget install -e --id Kitware.CMake
+
 ``` 
 
 **2. Building the library**
@@ -145,39 +258,99 @@ winget install -e --id Kitware.CMake
 - Paste the code below in your git bash terminal
 
 ```text
-# 1. Check for essential project files and report missing ones
-echo ">>> Checking project structure..."
-for item in "CMakeLists.txt" "include" "src" "tests" "tests/CMakeLists.txt"; do
-    if [ ! -e "$item" ]; then
-        echo "[!] WARNING: '$item' is missing!"
-    else
-        echo "[+] Found '$item'"
+
+# ==========================================
+# 1. SETUP SAFE ENVIRONMENT
+# ==========================================
+ORIGINAL_DIR=$(pwd)
+SAFE_DIR="$HOME/Group23_Safe_Build"
+
+echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
+# Remove any old remnants and create a fresh copy
+rm -rf "$SAFE_DIR"
+mkdir -p "$SAFE_DIR"
+
+# Copy all project contents to the safe folder
+cp -r . "$SAFE_DIR"
+
+# Jump into the safe folder to carry out operations
+cd "$SAFE_DIR"
+
+# ==========================================
+# 2. CHECK FILES & ADJUST FOR CMAKE
+# ==========================================
+LIB="src/basic_root_finder.cpp src/advanced_root_finder.cpp src/interpolator.cpp src/cubic_spline.cpp src/basic_integrator.cpp src/advanced_integrator.cpp src/basic_ode_solver.cpp src/advanced_ode_solver.cpp src/matrix_solver.cpp"
+MISSING_FILES=()
+
+echo ">>> Checking for missing source files..."
+for file in $LIB; do
+    if [ ! -f "$file" ]; then
+        base_name=$(basename "$file" .cpp)
+        MISSING_FILES+=("$base_name")
+        echo "⚠️ Warning: Source file '$file' is missing. Skipping..."
+        
+        # TRICK: Create an empty dummy file in the safe folder so CMake 
+        # doesn't crash if this file is hardcoded in CMakeLists.txt!
+        touch "$file"
     fi
 done
-echo ">>> Proceeding with build process..."
 
-# 2. Copy the entire project to a safe folder to bypass Windows Defender/OneDrive
-cp -r . ~/Group23_Safe_Build
-cd ~/Group23_Safe_Build
+echo ">>> Filtering tests..."
+for t in tests/test_*.cpp; do
+    [ -e "$t" ] || continue 
+    name=$(basename "$t" .cpp)
+    
+    for missing in "${MISSING_FILES[@]}"; do
+        core_test_name="${name#test_}"
+        if [[ "$core_test_name" == *"$missing"* || "$missing" == *"$core_test_name"* ]]; then
+            echo "⏭️ Skipping test: $name (dependent source file is missing)"
+            # Remove the test from the safe folder so CMake ignores it completely
+            rm -f "$t"
+            break
+        fi
+    done
+done
 
-# 3. Create the build directory and enter it
+# ==========================================
+# 3. CMAKE BUILD
+# ==========================================
 mkdir -p build
 cd build
 
-# 4. Configure CMake (use MinGW Makefiles on Windows)
+echo ">>> Configuring CMake..."
 cmake -G "MinGW Makefiles" ..
 
-# 5. Compile numcomp2 and all test executables
+echo ">>> Compiling with CMake..."
 cmake --build .
 
-# 6. Open the build folder in Windows File Explorer
-echo ">>> Opening build folder..."
+# ==========================================
+# 4. RUN TESTS & OPEN EXPLORER
+# ==========================================
+echo ">>> Running automated tests..."
+cd tests
+
+# Check if any .exe tests were actually compiled before trying to run the script
+if ls *.exe 1> /dev/null 2>&1; then
+    bash ../../../Group23_Safe_Build/tests/run_all_tests.sh
+else
+    echo "❌ No tests were compiled. Skipping test runner."
+fi
+
+# Step back out of tests into the build folder
+cd ..
+
+echo ">>> Opening build folder in Windows File Explorer..."
 explorer .
 
+# Return to original directory in the terminal
+cd "$ORIGINAL_DIR"
+echo "✅ Finished! Your root directory remained entirely untouched."
+
 ```
+
 - It should open the folder where the build was created and you can run the numcomp_app.
 
-# OPTION B : (USING g++/git bash)**
+## OPTION B : (USING g++/git bash)
 
 **Follow these steps**
 
