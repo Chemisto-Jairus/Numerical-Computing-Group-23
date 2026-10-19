@@ -122,38 +122,88 @@ Numerical-Computing-Group-23/
 
 ## 9. Run the Tests
 
-**(USING g++)**
+**(USING g++/git bash)**
 
 **Follow these steps**
 
-- Open Vs code and open the folder (The main branch repository folder)
-- Open a new terminal and select git bash in the drop down menu next to the '+'
-- Enter the following block of code the way it appears in your git bash terminal.
+**1. Check your tools (once)**
 
 ```text
-cp -r . ~/Group23
-cd ~/Group23
 
-mkdir -p tests
-cd tests
+g++ --version        # needs C++17 support: g++ 8 or newer
+cmake --version      # needs 3.10 or newer
+git --version
+
 ```
 
-- Once done paste the one below there as well
+- Run git bash as administrator and open the root repository folder
+- Once you are inside the root folder. paste this code in your git bash terminal
 
 ```text
-# 1. Create the tests folder inside build and enter it
-mkdir -p tests
-cd tests
+# 1. Define ALL library files you want to compile
+LIB="src/basic_root_finder.cpp src/advanced_root_finder.cpp src/interpolator.cpp src/cubic_spline.cpp src/basic_integrator.cpp src/advanced_integrator.cpp src/basic_ode_solver.cpp src/advanced_ode_solver.cpp src/matrix_solver.cpp"
 
-# 2. Compile every test file in tests/ alongside all module .cpp files in src/
-for test_file in ../../tests/test_*.cpp; do
-    exe_name=$(basename "$test_file" .cpp)
-    echo "Compiling $exe_name..."
-    g++ -std=c++17 -I../../include "$test_file" $(ls ../../src/*.cpp | grep -v 'main.cpp') -o "$exe_name"
+# 2. Filter out missing files dynamically
+VALID_LIB=""
+MISSING_FILES=()
+
+for file in $LIB; do
+    if [ -f "$file" ]; then
+        VALID_LIB="$VALID_LIB $file"
+    else
+        # Extract just the name (e.g., "matrix_solver") to match against tests
+        base_name=$(basename "$file" .cpp)
+        MISSING_FILES+=("$base_name")
+        echo "⚠️ Warning: Source file '$file' is missing. Skipping..."
+    fi
 done
 
-# 3. Run Pauline's automatic test script!
-bash ../../tests/run_all_tests.sh
+# Keep track of compiled files for exact cleanup later
+COMPILED_EXES=()
+
+# 3. Compile tests into the tests/ folder
+for t in tests/test_*.cpp; do
+    name=$(basename "$t" .cpp)
+    
+    # Check if this test relies on any of the missing components
+    skip_test=false
+    for missing in "${MISSING_FILES[@]}"; do
+        # Truncate "test_" prefix from test name to see if it matches the missing component
+        core_test_name="${name#test_}"
+        if [[ "$core_test_name" == *"$missing"* || "$missing" == *"$core_test_name"* ]]; then
+            skip_test=true
+            break
+        fi
+    done
+
+    if [ "$skip_test" = true ]; then
+        echo "⏭️ Skipping test: $name (dependent source file is missing)"
+        continue
+    fi
+
+    echo "🔨 Building executable: tests/$name"
+    if g++ -std=c++17 -Wall -Wextra -I include "$t" $VALID_LIB -o "tests/$name"; then
+        COMPILED_EXES+=("tests/$name")
+    fi
+done
+
+# 4. Step inside the tests folder and run the script locally
+if [ ${#COMPILED_EXES[@]} -gt 0 ]; then
+    cd tests
+    bash run_all_tests.sh
+    cd ..
+else
+    echo "❌ No tests were compiled. Skipping test runner."
+fi
+
+# 5. Clean up ONLY the executable files that were successfully generated
+if [ ${#COMPILED_EXES[@]} -gt 0 ]; then
+    echo "🧹 Cleaning up generated executable files..."
+    for exe in "${COMPILED_EXES[@]}"; do
+        rm -f "$exe"
+        rm -f "${exe}.exe" 2>/dev/null  # Handles Windows specific extensions safely
+    done
+fi
 
 ```
 
