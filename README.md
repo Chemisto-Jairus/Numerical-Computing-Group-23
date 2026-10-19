@@ -114,7 +114,15 @@ Numerical-Computing-Group-23/
 *(Placeholder - in Week 4, we will add instructions here on how to run the demo files from the `examples/` folder)*
 
 ## 9. Run the Tests
-*(Placeholder - instructions for running the unit tests will be added here once the `tests/` directory is populated in Week 3)*
+**Follow these steps**
+- Open Vs code and open the folder.
+- Open a new terminal and select git bash in the drop down menu next to the '+'
+- Enter the following block of code the way it appears in your git bash terminal.
+
+```text
+
+```
+
 
 ## 10. Limitations
 *(Placeholder - we will document any edge cases or math limitations we find during testing)*
