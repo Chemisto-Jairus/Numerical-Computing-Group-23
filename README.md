@@ -151,35 +151,51 @@ git --version
 - Once you are inside the root folder. paste this code in your git bash terminal
 
 ```text
-# 1. Define ALL library files you want to compile
+
+# ==========================================
+# 1. SETUP SANDBOX ENVIRONMENT
+# ==========================================
+ORIGINAL_DIR=$(pwd)
+SANDBOX_DIR="$HOME/git_bash_sandbox"
+
+echo "📦 Creating restriction-free sandbox at: $SANDBOX_DIR"
+# Remove any old sandbox remnants and create a fresh copy
+rm -rf "$SANDBOX_DIR"
+mkdir -p "$SANDBOX_DIR"
+
+# Copy all project contents to the sandbox
+cp -r . "$SANDBOX_DIR"
+
+# Jump into the sandbox to carry out operations
+cd "$SANDBOX_DIR"
+
+# ==========================================
+# 2. GENERALIZED COMPILE AND TEST LOGIC
+# ==========================================
 LIB="src/basic_root_finder.cpp src/advanced_root_finder.cpp src/interpolator.cpp src/cubic_spline.cpp src/basic_integrator.cpp src/advanced_integrator.cpp src/basic_ode_solver.cpp src/advanced_ode_solver.cpp src/matrix_solver.cpp"
 
-# 2. Filter out missing files dynamically
 VALID_LIB=""
 MISSING_FILES=()
 
+# Filter out missing files dynamically
 for file in $LIB; do
     if [ -f "$file" ]; then
         VALID_LIB="$VALID_LIB $file"
     else
-        # Extract just the name (e.g., "matrix_solver") to match against tests
         base_name=$(basename "$file" .cpp)
         MISSING_FILES+=("$base_name")
         echo "⚠️ Warning: Source file '$file' is missing. Skipping..."
     fi
 done
 
-# Keep track of compiled files for exact cleanup later
 COMPILED_EXES=()
 
-# 3. Compile tests into the tests/ folder
+# Compile tests into the sandbox's tests/ folder
 for t in tests/test_*.cpp; do
     name=$(basename "$t" .cpp)
     
-    # Check if this test relies on any of the missing components
     skip_test=false
     for missing in "${MISSING_FILES[@]}"; do
-        # Truncate "test_" prefix from test name to see if it matches the missing component
         core_test_name="${name#test_}"
         if [[ "$core_test_name" == *"$missing"* || "$missing" == *"$core_test_name"* ]]; then
             skip_test=true
@@ -198,7 +214,7 @@ for t in tests/test_*.cpp; do
     fi
 done
 
-# 4. Step inside the tests folder and run the script locally
+# Run the test runner script inside the sandbox environment
 if [ ${#COMPILED_EXES[@]} -gt 0 ]; then
     cd tests
     bash run_all_tests.sh
@@ -207,14 +223,14 @@ else
     echo "❌ No tests were compiled. Skipping test runner."
 fi
 
-# 5. Clean up ONLY the executable files that were successfully generated
-if [ ${#COMPILED_EXES[@]} -gt 0 ]; then
-    echo "🧹 Cleaning up generated executable files..."
-    for exe in "${COMPILED_EXES[@]}"; do
-        rm -f "$exe"
-        rm -f "${exe}.exe" 2>/dev/null  # Handles Windows specific extensions safely
-    done
-fi
+# ==========================================
+# 3. TEARDOWN AND SANITIZATION
+# ==========================================
+echo "🧹 Tearing down sandbox and restoring focus..."
+cd "$ORIGINAL_DIR"
+rm -rf "$SANDBOX_DIR"
+echo "✅ Finished! Your root directory remained entirely untouched."
+
 
 ```
 
