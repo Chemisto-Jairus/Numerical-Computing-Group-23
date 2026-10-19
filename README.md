@@ -136,6 +136,9 @@ git --version
 
 ```
 
+**NB**
+-Make sure controlled folder access in windows security is turned off for the directory you put the folder or else git bash will throw errors
+
 - Run git bash as administrator and open the root repository folder
 - Once you are inside the root folder. paste this code in your git bash terminal
 

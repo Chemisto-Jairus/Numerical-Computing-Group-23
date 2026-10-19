@@ -15,6 +15,7 @@
 - I debugged interpolation module
 - I renamed the interpolation files to interpolator.cpp
 - I helped Pauline get the auto-tester working.
+- I wrote the report on our classes.
 
 **Member 3 (Aogon Sharon):** 
 
@@ -24,6 +25,7 @@
 **Member 4 (Bakalu Valeria):** 
 
 - I added tests for my advanced root finder and looked for errors in my code for the module I uploaded last week.
+- I debugged the advanced root finder module
 
 **Member 5 (Wasswa George Mpanga):** 
 
@@ -56,6 +58,8 @@
 
 **Member 9 (Nabakooza Bridget Maria):** 
 
+- I started building the main.cpp file with Jairus
+
 ## NB
 
 We decided to properly arrange the repo and we agreed to make some changes to the names given to the files. It helps us all debug easily and the project be more organized. I (Jairus) encouraged everyone to rename their files. There were multiple conflicts in multiple files so we came up with this revolution. 
@@ -76,7 +80,9 @@ We decided to properly arrange the repo and we agreed to make some changes to th
 
 **Member 2 (Batte Derrick Calvin):** 
 
-- I am writing the code for matrix solvers. I am also checking my code for logic errors.
+- I am writing the code for matrix solvers. 
+- I am also checking my code for logic errors.
+- I am writing code for the Cubic Spline.
 
 **Member 3 (Aogon Sharon):** 
 
@@ -102,8 +108,11 @@ We decided to properly arrange the repo and we agreed to make some changes to th
 **Member 8 (Kyeyune Praise Pauline):**
 
 - I am building testers for Samuel and Ian's modules while checking if there are errors.
+- I am also updating the tester to run even when some files are missing and it warns of any missing files
 
 **Member 9 (Nabakooza Bridget Maria):** 
+
+- Still building main.cpp
 
 
 ## Challenges/Blockers
@@ -118,7 +127,6 @@ We decided to properly arrange the repo and we agreed to make some changes to th
 
 - I suffered with the logic of the main source file. It is very buggy.
 
-
 ## Next Week
 
 **Member 1 (Chemisto Jairus - Lead):** 
@@ -126,23 +134,30 @@ We decided to properly arrange the repo and we agreed to make some changes to th
 - I have to build the test for basic root  finding module as well as assist Calvin on his heavy load next week so Bridget will handle main.cpp construction next week.
 
 **Member 2 (Batte Derrick Calvin):** 
+
 - Implementing matrix solvers and cubic spline interpolation modules.
 - Writing tests for those 2 modules. 
 
 **Member 3 (Aogon Sharon):** 
+
 - I am debugging my branch and organizing the code and finalizing the module.
 
 **Member 4 (Bakalu Valeria):** 
 
 **Member 5 (Wasswa George Mpanga):** 
+
 - Documenting my module and writing final examples
 
 **Member 6 (Mwanje Ian):**
+
 - Building tests for basic ode solver
 
 **Member 7 (Muwanguzi Samuel):** 
 
+- Building tests for advanced ode solvers
+
 **Member 8 (Kyeyune Praise Pauline):** 
+
 - Updating the auto build tester to include incoming tests by Samuel and Ian
 -I have so far to build the Test files using gpp++ (git bash) I am next going to use Cmake.
 
