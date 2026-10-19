@@ -7,9 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include_directories(include)
 
-add_library
-(numcomp2
- 
+add_library(numcomp2
     src/basic_root_finder.cpp
     src/interpolator.cpp
     src/basic_integrator.cpp
@@ -17,7 +15,10 @@ add_library
     src/advanced_integrator.cpp
     src/basic_ode_solver.cpp
     src/advanced_ode_solver.cpp
+    # Week 4: add src/cubic_spline.cpp and src/matrix_solver.cpp here
 )
+
+enable_testing()
 add_subdirectory(tests)
 
 add_executable(numcomp_app src/main.cpp)
