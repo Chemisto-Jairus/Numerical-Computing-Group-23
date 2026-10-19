@@ -129,7 +129,7 @@ Numerical-Computing-Group-23/
 
 ## 9. Run the Tests
 
-# OPTION A : (USING Cmake)
+## OPTION A : (USING Cmake)
 
 **1. How to install Cmake**
 
