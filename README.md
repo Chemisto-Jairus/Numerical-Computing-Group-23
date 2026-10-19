@@ -143,11 +143,17 @@ done
 # 3. Run Pauline's automatic test script!
 bash ../../tests/run_all_tests.sh
 
-- It should display all tests passed
 ```
+- It should display all tests passed
 
 ## 10. Limitations
-*(Placeholder - we will document any edge cases or math limitations we find during testing)*
+- Romberg is capped at 25 iterations
+- Linear interpolation needs strictly increasing x and does not extrapolate
+- Simpson needs an even n
+- Root finders can fail to converge
+- ODE solvers use a fixed step and a 1,000,000-step cap
+- Gaussian elimination is for small dense matrices and rejects singular ones
+- Differentiation, Adams methods and conjugate gradient were not built
 
 ## 11. Contributions by Group Members
 
