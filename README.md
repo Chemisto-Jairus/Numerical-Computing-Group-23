@@ -114,15 +114,37 @@ Numerical-Computing-Group-23/
 *(Placeholder - in Week 4, we will add instructions here on how to run the demo files from the `examples/` folder)*
 
 ## 9. Run the Tests
+**USING g++**
 **Follow these steps**
-- Open Vs code and open the folder.
+- Open Vs code and open the folder (The main branch repository folder)
 - Open a new terminal and select git bash in the drop down menu next to the '+'
 - Enter the following block of code the way it appears in your git bash terminal.
 
 ```text
+cp -r . ~/Group23
+cd ~/Group23
 
+mkdir -p tests
+cd tests
 ```
+-Once done paste the one below there as well
+```text
+# 1. Create the tests folder inside build and enter it
+mkdir -p tests
+cd tests
 
+# 2. Compile every test file in tests/ alongside all module .cpp files in src/
+for test_file in ../../tests/test_*.cpp; do
+    exe_name=$(basename "$test_file" .cpp)
+    echo "Compiling $exe_name..."
+    g++ -std=c++17 -I../../include "$test_file" $(ls ../../src/*.cpp | grep -v 'main.cpp') -o "$exe_name"
+done
+
+# 3. Run Pauline's automatic test script!
+bash ../../tests/run_all_tests.sh
+
+- It should display all tests passed
+```
 
 ## 10. Limitations
 *(Placeholder - we will document any edge cases or math limitations we find during testing)*
