@@ -1,4 +1,4 @@
-#include "numerical-computing/basic_integration.hpp"
+#include "numerical-computing/basic_integrator.hpp"
 #include <stdexcept>
 
 namespace numcomp 

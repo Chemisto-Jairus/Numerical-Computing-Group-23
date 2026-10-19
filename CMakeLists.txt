@@ -20,6 +20,5 @@ add_library(numcomp2
 
 enable_testing()
 add_subdirectory(tests)
-
 add_executable(numcomp_app src/main.cpp)
 target_link_libraries(numcomp_app numcomp2)
