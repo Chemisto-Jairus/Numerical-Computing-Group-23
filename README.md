@@ -95,7 +95,7 @@ Numerical-Computing-Group-23/
     ├── week-01.md
     ├── week-02.md
     ├── week-03.md
-    ├── week-04.md (to be added in week 4)
+    ├── week-04.md
     └── final-report.md (to be added in week 5)
 ```
 
