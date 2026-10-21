@@ -15,7 +15,8 @@
 
 **Member 3 (Aogon Sharon):** 
 
--
+- I added professional comments to basic integrator
+- Debugged basic integrator module. (no warnings were being given if a or b were infinity)
 
 **Member 4 (Bakalu Valeria):** 
 
@@ -45,10 +46,15 @@
 
 - I updated the main source file. It currently has errors because Calvin has not yet pushed the missing modules
 
+## NB
 
+- I (Sharon) noticed our code is very repetitive. I have urged Jairus the leader and other members that we have to fix this by week's end.
 
 ## In Progress
 
+**Member 3 (Aogon Sharon):** 
+
+- Writing examples files for the advanced integration module.
 
 
 ## Challenges/Blockers
@@ -56,6 +62,7 @@
 
 
 ## Next Week
+
 - **Member 1 (Chemisto Jairus - Lead):** 
 - **Member 2 (Batte Derrick Calvin):** 
 - **Member 3 (Aogon Sharon):** 
