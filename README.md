@@ -64,7 +64,7 @@ Numerical-Computing-Group-23/
 │   ├── interpolator.cpp
 │   ├── main.cpp
 │   ├── basic_root_finder.cpp
-│    └── cubic_spline.hpp
+│   └── cubic_spline.hpp
 │
 ├── tests/
 │   ├── CMakeLists.txt
@@ -76,8 +76,8 @@ Numerical-Computing-Group-23/
 │   ├── test_basic_interpolator.cpp
 │   ├── test_basic_ode_solver.cpp (to be added in week 4)
 │   ├── test_basic_root_finder.cpp (to be added in week 4)
-│    ├── test_cubic_spline.cpp (to be added in week 4)
-│    └── test_matrix-solver.cpp (to be added in week 4)
+│   ├── test_cubic_spline.cpp (to be added in week 4)
+│   └── test_matrix-solver.cpp (to be added in week 4)
 │
 ├── examples/ (to be added in week 4)
 │   ├── example_advanced_integrator.cpp
