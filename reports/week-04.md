@@ -39,7 +39,8 @@
 
 **Member 8 (Kyeyune Praise Pauline):** 
 
--
+- I updated the auto tester to include more modules soon to be done by other members
+- I fixed its logic so that it also shows if the tests failed
 
 
 **Member 9 (Nabakooza Bridget Maria):** 
@@ -55,6 +56,10 @@
 **Member 3 (Aogon Sharon):** 
 
 - Writing examples files for the advanced integration module.
+
+**Member 8 (Kyeyune Praise Pauline):** 
+
+- Checking if the auto tester works efficiently
 
 
 ## Challenges/Blockers
@@ -79,3 +84,9 @@
 - Tool: Claude
 - Purpose: Presentation of profession code and Debugging
 - Reason: Claude reccomended i add the comments so that it has professional aesthetic and helped me debug my module which Pauline reported to fail some tests.
+
+**Member 8 (Kyeyune Praise Pauline):** 
+- Tool: Gemini
+- Purpose: To get the auto tester working well.
+- Reason: I didn't know the syntax for writing the auto tester.
+
