@@ -22,7 +22,8 @@
 
 **Member 4 (Bakalu Valeria):** 
 
--
+- I added Doxygen comments to my header file.
+- I fixed the logic of the advanced integrator. NaN is now rejected (the check is now: not (tol > 0), which also catches NaN)
 
 **Member 5 (Wasswa George Mpanga):** 
 
@@ -74,6 +75,11 @@
 - I am trying to help Calvin with his heavy load this week and also write my tests and examples for basic root finder module.
 - I am checking to see if Bridget is building the main source file well.
 
+**Member 4 (Bakalu Valeria):** 
+
+- I am writing examples for my module and finalizing documenting it.
+- I am seeing if i can improve efficiency of the code
+
 
 ## Challenges/Blockers
 
@@ -113,4 +119,8 @@
 - Purpose: Debugging
 - Reason: I  added comments to the header file and then fixed the advanced integrator logic to ensure that it accounted for scenarios it had missed before.
 
+**Member 4 (Bakalu Valeria):** 
 
+- Tool: Chatgpt
+- Purpose: Help with Debugging
+- Reason: I needed to ensure my code worked perfectly so i asked chatgpt to review it and it gave me patches which i have implemented.
