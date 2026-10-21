@@ -4,7 +4,8 @@
 
 **Member 1 (Chemisto Jairus - Lead):** 
 
--
+- I added professional comments to basic root finder module to make it easy to understand.
+- I added catch and throw functions to the basic root finder code.
 
 
 
@@ -67,6 +68,11 @@
 
 - Checking if the auto tester works efficiently
 
+**Member 1 (Chemisto Jairus - Lead):** 
+
+- I am trying to help Calvin with his heavy load this week and also write my tests and examples for basic root finder module.
+- I am checking to see if Bridget is building the main source file well.
+
 
 ## Challenges/Blockers
 
@@ -96,3 +102,7 @@
 - Purpose: To get the auto tester working well.
 - Reason: I didn't know the syntax for writing the auto tester.
 
+**Member 1 (Chemisto Jairus - Lead):** 
+- Tool: Claude
+- Purpose: Debugging
+- Reason: I couldn't figure out why my code was failing some work so i used claude to help debug it.
