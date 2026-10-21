@@ -15,7 +15,8 @@ add_library(numcomp2
     src/advanced_integrator.cpp
     src/basic_ode_solver.cpp
     src/advanced_ode_solver.cpp
-    # Week 4: add src/cubic_spline.cpp and src/matrix_solver.cpp here
+    src/cubic_spline.cpp 
+    #src/matrix_solver.cpp 
 )
 
 enable_testing()
