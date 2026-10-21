@@ -1,4 +1,4 @@
-# Week 3 Progress Report
+# Week 4 Progress Report
 
 ## Completed
 
@@ -26,7 +26,8 @@
 
 **Member 5 (Wasswa George Mpanga):** 
 
--
+-I added comments to the header file and then fixed the advanced integrator logic.
+
 
 
 **Member 6 (Mwanje Ian):** 
@@ -106,3 +107,10 @@
 - Tool: Claude
 - Purpose: Debugging
 - Reason: I couldn't figure out why my code was failing some work so i used claude to help debug it.
+
+**Member 5 (Wasswa George Mpanga):** 
+- Tool: Claude
+- Purpose: Debugging
+- Reason: I  added comments to the header file and then fixed the advanced integrator logic to ensure that it accounted for scenarios it had missed before.
+
+
