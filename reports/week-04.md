@@ -12,6 +12,7 @@
 
 - Fixed logic for interpolator module.
 - Added Doxygen style comments to header files.
+- I implemented cubic spline module.
 
 **Member 3 (Aogon Sharon):** 
 
@@ -52,6 +53,11 @@
 - I (Sharon) noticed our code is very repetitive. I have urged Jairus the leader and other members that we have to fix this by week's end.
 
 ## In Progress
+
+**Member 2 (Batte Derrick Calvin):** 
+
+- I am writing examples for cubic spline interpolation module.
+- I am writing the matrix solver module.
 
 **Member 3 (Aogon Sharon):** 
 
