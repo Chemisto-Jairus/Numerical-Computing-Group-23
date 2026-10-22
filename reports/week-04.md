@@ -35,7 +35,8 @@ I updated tests for advanced integrator.
 
 **Member 6 (Mwanje Ian):** 
 
--
+- I added comments to the basic ode header file
+- I debugged the logic of the ode solver
 
 
 **Member 7 (Muwanguzi Samuel):** 
@@ -88,6 +89,10 @@ I updated tests for advanced integrator.
 
 - I am helping Calvin write the tester for the matrix solver module he is soon uploading
 
+**Member 6 (Mwanje Ian):**
+
+- I am building tests and examples for basic ode solver
+
 
 ## Challenges/Blockers
 
@@ -137,3 +142,8 @@ I updated tests for advanced integrator.
 - Tool: Claude
 - Purpose: Helped identify and fix bugs in my advanced ODE solver implementation
 - Reason: To help identify why the solver was failing, and to understand the cause of the errors
+
+**Member 6 (Mwanje Ian):**
+- Tool: Claude
+- Purpose: Debugging
+- Reason: I  added comments to the header file and then fixed the advanced integrator logic to ensure that it accounted for scenarios it had missed before.
