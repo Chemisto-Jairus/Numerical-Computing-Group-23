@@ -83,6 +83,10 @@ I updated tests for advanced integrator.
 - I am writing examples for my module and finalizing documenting it.
 - I am seeing if i can improve efficiency of the code
 
+**Member 8 (Kyeyune Praise Pauline):** 
+
+- I am helping Calvin write the tester for the matrix solver module he is soon uploading
+
 
 ## Challenges/Blockers
 
