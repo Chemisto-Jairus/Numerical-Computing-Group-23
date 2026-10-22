@@ -14,6 +14,7 @@
 - Fixed logic for interpolator module.
 - Added Doxygen style comments to header files.
 - I implemented cubic spline module.
+- I wrote the test for Cubic spline.
 
 **Member 3 (Aogon Sharon):** 
 
@@ -59,8 +60,9 @@
 
 **Member 2 (Batte Derrick Calvin):** 
 
-- I am writing examples for cubic spline interpolation module.
+- I am writing examples for cubic spline interpolation module and interpolator.
 - I am writing the matrix solver module.
+- I am documenting my modules.
 
 **Member 3 (Aogon Sharon):** 
 
