@@ -40,7 +40,8 @@ I updated tests for advanced integrator.
 
 **Member 7 (Muwanguzi Samuel):** 
 
--
+- I added Doxygen comments to my header file
+- I debugged advanced ode solver
 
 
 **Member 8 (Kyeyune Praise Pauline):** 
@@ -131,3 +132,8 @@ I updated tests for advanced integrator.
 - Tool: Chatgpt
 - Purpose: Help with Debugging
 - Reason: I needed to ensure my code worked perfectly so i asked chatgpt to review it and it gave me patches which i have implemented.
+
+**Member 7 (Muwanguzi Samuel):**
+- Tool: Claude
+- Purpose: Helped identify and fix bugs in my advanced ODE solver implementation
+- Reason: To help identify why the solver was failing, and to understand the cause of the errors
