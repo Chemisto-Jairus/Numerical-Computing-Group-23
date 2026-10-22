@@ -47,7 +47,7 @@ I updated tests for advanced integrator.
 
 - I updated the auto tester to include more modules soon to be done by other members
 - I fixed its logic so that it also shows if the tests failed
-
+- I updated the auto tester
 
 **Member 9 (Nabakooza Bridget Maria):** 
 
