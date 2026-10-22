@@ -29,6 +29,7 @@
 **Member 5 (Wasswa George Mpanga):** 
 
 -I added comments to the header file and then fixed the advanced integrator logic.
+I updated tests for advanced integrator.
 
 
 
