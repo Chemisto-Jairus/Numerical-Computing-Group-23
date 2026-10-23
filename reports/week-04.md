@@ -15,6 +15,7 @@
 - Added Doxygen style comments to header files.
 - I implemented cubic spline module.
 - I wrote the test for Cubic spline.
+- I wrote  the matrix solver module.
 
 **Member 3 (Aogon Sharon):** 
 
@@ -58,13 +59,15 @@ I updated tests for advanced integrator.
 ## NB
 
 - I (Sharon) noticed our code is very repetitive. I have urged Jairus the leader and other members that we have to fix this by week's end.
+- Noting Sharon's observation we are going to implement helper functions to avoid uneccesary repetition. (Calvin)
 
 ## In Progress
 
 **Member 2 (Batte Derrick Calvin):** 
 
 - I am writing examples for cubic spline interpolation module and interpolator.
-- I am writing the matrix solver module.
+- I am writing the matrix solver module. (DONE)
+- I am writing tests for the matrix solver module as well as examples.
 - I am documenting my modules.
 
 **Member 3 (Aogon Sharon):** 
