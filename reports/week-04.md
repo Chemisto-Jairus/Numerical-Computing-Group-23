@@ -54,7 +54,7 @@ We agreed to implement helper functions to prevent code repeatition so all the n
 
 - I added comments to the basic ode header file
 - I debugged the logic of the ode solver
-
+- I added helpers to my module and implemented its examples
 
 **Member 7 (Muwanguzi Samuel):** 
 
