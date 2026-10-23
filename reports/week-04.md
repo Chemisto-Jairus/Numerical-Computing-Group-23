@@ -21,6 +21,7 @@ We agreed to implement helper functions to prevent code repeatition so all the n
 
 - I added professional comments to basic root finder module to make it easy to understand.
 - I added catch and throw functions to the basic root finder code.
+- I added the internal helper functions for input checks to avoid repetition and urged the other members to implement them in their modules.
 
 **Member 2 (Batte Derrick Calvin):** 
 
@@ -114,6 +115,7 @@ I updated the main source file again.
 ## Challenges/Blockers
 
 **Member 8 (Kyeyune Praise Pauline):** 
+
 - VS code had issues so i committed the code twice. It's now been fixed.
 
 
