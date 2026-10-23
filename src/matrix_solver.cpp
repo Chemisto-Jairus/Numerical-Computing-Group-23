@@ -1,33 +1,61 @@
 #include "numerical-computing/matrix_solver.hpp"
+#include "internal/input_checks.hpp"
 #include <cmath>
 #include <stdexcept>
-#include <utility>   
+#include <utility>   // std::swap
 
 namespace numcomp
 {
-    /// Gaussian elimination. See matrix_solver.hpp.
-    std::vector<double> MatrixSolver::gaussian_elimination(const std::vector<std::vector<double>>& A, const std::vector<double>& b)
-    {
-        // Check 1: the matrix must have at least one row
-        if (A.empty())
-        {
-            throw std::invalid_argument("Matrix A must not be empty.");
-        }
+    // -----------------------------------------------------------------
+    // Helpers used by BOTH solvers. "static" means they are private to
+    // this file: they are not part of the public MatrixSolver API.
+    // Before, each solver had its own copy of this code.
+    // -----------------------------------------------------------------
 
-        // Check 2: every row must have n numbers (square matrix)
-        for (size_t i = 0; i < A.size(); ++i)
+    /// Finds the row (from k down) with the biggest absolute value in column k.
+    /// Picking the biggest value keeps rounding errors small.
+    /// @throws std::runtime_error If every candidate is (almost) zero: the matrix is singular.
+    static int find_pivot_row(const std::vector<std::vector<double>>& M, int k)
+    {
+        int n = static_cast<int>(M.size());
+        int pivot_row = k;
+        for (int i = k + 1; i < n; ++i)
         {
-            if (A[i].size() != A.size())
+            if (std::abs(M[i][k]) > std::abs(M[pivot_row][k]))
             {
-                throw std::invalid_argument("Matrix A must be square (n rows, each with n numbers).");
+                pivot_row = i;
             }
         }
 
-        // Check 3: b must have one number per row of A
-        if (b.size() != A.size())
+        // If even the biggest value is (almost) zero, we cannot divide by it
+        if (std::abs(M[pivot_row][k]) < 1e-12)
         {
-            throw std::invalid_argument("Vector b must have the same size as matrix A.");
+            throw std::runtime_error("Matrix is singular (no unique solution).");
         }
+        return pivot_row;
+    }
+
+    /// Solves U x = y when U is upper triangular, last row first.
+    static std::vector<double> back_substitution(const std::vector<std::vector<double>>& U, const std::vector<double>& y)
+    {
+        int n = static_cast<int>(U.size());
+        std::vector<double> x(n, 0.0);
+        for (int i = n - 1; i >= 0; --i)
+        {
+            double sum = 0.0;
+            for (int j = i + 1; j < n; ++j)
+            {
+                sum += U[i][j] * x[j];
+            }
+            x[i] = (y[i] - sum) / U[i][i];
+        }
+        return x;
+    }
+
+    /// Gaussian elimination. See matrix_solver.hpp.
+    std::vector<double> MatrixSolver::gaussian_elimination(const std::vector<std::vector<double>>& A, const std::vector<double>& b)
+    {
+        checks::check_square_system(A, b);   // shared helper: non-empty, square, b fits
 
         int n = static_cast<int>(A.size());
 
@@ -38,28 +66,12 @@ namespace numcomp
         // Step 1: forward elimination, one column at a time
         for (int k = 0; k < n; ++k)
         {
-            // Find the row (from k down) with the biggest value in column k.
-            // Picking the biggest value keeps rounding errors small.
-            int pivot_row = k;
-            for (int i = k + 1; i < n; ++i)
+            // Move the best pivot row up to row k
+            int p = find_pivot_row(M, k);
+            if (p != k)
             {
-                if (std::abs(M[i][k]) > std::abs(M[pivot_row][k]))
-                {
-                    pivot_row = i;
-                }
-            }
-
-            // If even the biggest value is (almost) zero, we cannot divide by it
-            if (std::abs(M[pivot_row][k]) < 1e-12)
-            {
-                throw std::runtime_error("Matrix is singular (no unique solution).");
-            }
-
-            // Move the pivot row up to row k
-            if (pivot_row != k)
-            {
-                std::swap(M[k], M[pivot_row]);
-                std::swap(rhs[k], rhs[pivot_row]);
+                std::swap(M[k], M[p]);
+                std::swap(rhs[k], rhs[p]);
             }
 
             // Make every entry below the pivot zero
@@ -74,44 +86,14 @@ namespace numcomp
             }
         }
 
-        // Step 2: back substitution, last row first
-        std::vector<double> x(n, 0.0);
-        for (int i = n - 1; i >= 0; --i)
-        {
-            double sum = 0.0;
-            for (int j = i + 1; j < n; ++j)
-            {
-                sum += M[i][j] * x[j];
-            }
-            x[i] = (rhs[i] - sum) / M[i][i];
-        }
-
-        return x;
+        // Step 2: M is now upper triangular, so solve from the bottom up
+        return back_substitution(M, rhs);
     }
 
     /// LU decomposition solve. See matrix_solver.hpp.
     std::vector<double> MatrixSolver::lu_solve(const std::vector<std::vector<double>>& A, const std::vector<double>& b)
     {
-        // Check 1: the matrix must have at least one row
-        if (A.empty())
-        {
-            throw std::invalid_argument("Matrix A must not be empty.");
-        }
-
-        // Check 2: every row must have n numbers (square matrix)
-        for (size_t i = 0; i < A.size(); ++i)
-        {
-            if (A[i].size() != A.size())
-            {
-                throw std::invalid_argument("Matrix A must be square (n rows, each with n numbers).");
-            }
-        }
-
-        // Check 3: b must have one number per row of A
-        if (b.size() != A.size())
-        {
-            throw std::invalid_argument("Vector b must have the same size as matrix A.");
-        }
+        checks::check_square_system(A, b);   // shared helper
 
         int n = static_cast<int>(A.size());
 
@@ -129,33 +111,18 @@ namespace numcomp
         // Step 1: build L and U, one column at a time
         for (int k = 0; k < n; ++k)
         {
-            // Find the row (from k down) with the biggest value in column k
-            int pivot_row = k;
-            for (int i = k + 1; i < n; ++i)
-            {
-                if (std::abs(U[i][k]) > std::abs(U[pivot_row][k]))
-                {
-                    pivot_row = i;
-                }
-            }
-
-            // If even the biggest value is (almost) zero, we cannot divide by it
-            if (std::abs(U[pivot_row][k]) < 1e-12)
-            {
-                throw std::runtime_error("Matrix is singular (no unique solution).");
-            }
-
-            if (pivot_row != k)
+            int p = find_pivot_row(U, k);
+            if (p != k)
             {
                 // Swap the rows in U and in rhs
-                std::swap(U[k], U[pivot_row]);
-                std::swap(rhs[k], rhs[pivot_row]);
+                std::swap(U[k], U[p]);
+                std::swap(rhs[k], rhs[p]);
 
                 // Swap only the multipliers already stored in L (columns before k).
                 // The 1s on the diagonal of L stay where they are.
                 for (int j = 0; j < k; ++j)
                 {
-                    std::swap(L[k][j], L[pivot_row][j]);
+                    std::swap(L[k][j], L[p][j]);
                 }
             }
 
@@ -183,18 +150,7 @@ namespace numcomp
             y[i] = rhs[i] - sum;
         }
 
-        // Step 3: back substitution, solve U x = y (last row first)
-        std::vector<double> x(n, 0.0);
-        for (int i = n - 1; i >= 0; --i)
-        {
-            double sum = 0.0;
-            for (int j = i + 1; j < n; ++j)
-            {
-                sum += U[i][j] * x[j];
-            }
-            x[i] = (y[i] - sum) / U[i][i];
-        }
-
-        return x;
+        // Step 3: back substitution, solve U x = y (shared helper)
+        return back_substitution(U, y);
     }
 }
