@@ -36,6 +36,7 @@ We agreed to implement helper functions to prevent code repeatition so all the n
 
 - I added professional comments to basic integrator
 - Debugged basic integrator module. (no warnings were being given if a or b were infinity)
+- I added the helper functions to my basic integrator
 
 **Member 4 (Bakalu Valeria):** 
 
@@ -89,6 +90,7 @@ I updated the main source file again.
 **Member 3 (Aogon Sharon):** 
 
 - Writing examples files for the advanced integration module.
+- Documenting the module
 
 **Member 8 (Kyeyune Praise Pauline):** 
 

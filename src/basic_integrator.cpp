@@ -1,17 +1,13 @@
 #include "numerical-computing/basic_integrator.hpp"
-#include <cmath>
-#include <stdexcept>
+#include "internal/input_checks.hpp"
 
 namespace numcomp
 {
     /// Trapezoidal rule. See basic_integrator.hpp.
+    /// AdvancedIntegrator::romberg_integration reuses this method for its first column.
     double BasicIntegrator::trapezoidal_rule(std::function<double(double)> f, double a, double b, int n)
     {
-        // Check 1: we need at least one strip
-        if (n <= 0) throw std::invalid_argument("Number of intervals must be strictly positive.");
-
-        // Check 2 (FIX): NaN or infinite limits gave "nan" with no warning
-        if (!std::isfinite(a) || !std::isfinite(b)) throw std::invalid_argument("Limits a and b must be finite numbers.");
+        checks::check_integration_inputs(a, b, n);   // shared helper: n > 0, finite a and b
 
         double h = (b - a) / n;                 // width of one strip
         double sum = 0.5 * (f(a) + f(b));       // the two ends count half
@@ -25,11 +21,7 @@ namespace numcomp
     /// Midpoint rule. See basic_integrator.hpp.
     double BasicIntegrator::midpoint_rule(std::function<double(double)> f, double a, double b, int n)
     {
-        // Check 1: we need at least one strip
-        if (n <= 0) throw std::invalid_argument("Number of intervals must be strictly positive.");
-
-        // Check 2 (FIX): NaN or infinite limits gave "nan" with no warning
-        if (!std::isfinite(a) || !std::isfinite(b)) throw std::invalid_argument("Limits a and b must be finite numbers.");
+        checks::check_integration_inputs(a, b, n);   // shared helper
 
         double h = (b - a) / n;                 // width of one strip
         double sum = 0.0;
