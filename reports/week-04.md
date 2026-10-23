@@ -52,7 +52,8 @@
 
 **Member 9 (Nabakooza Bridget Maria):** 
 
-- I updated the main source file. It currently has errors because Calvin has not yet pushed the missing modules
+- I updated the main source file. It currently has errors because Calvin has not yet pushed the missing modules. (Calvin finished pushing the modules so now no errors)
+I updated the main source file again.
 
 ## NB
 
@@ -150,3 +151,8 @@
 - Tool: Claude
 - Purpose: Debugging
 - Reason: I  added comments to the header file and then fixed the advanced integrator logic to ensure that it accounted for scenarios it had missed before.
+
+**Member 9 (Nabakooza Bridget Maria):** 
+- Tool: Chatpgt
+- Purpose: Debugging the main source file
+- Reason: It is a lot of code so i got lost and i needed its help.
