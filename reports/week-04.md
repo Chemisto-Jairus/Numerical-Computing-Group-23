@@ -1,5 +1,17 @@
 # Week 4 Progress Report
 
+## NB
+
+- Bridget reminded us about some modules we had completely forgotten to implement. We are going to work together in the remaining period to implement them in the remaining time.
+
+ The missing modules are the following
+ 
+- 
+- 
+- 
+- 
+- 
+- 
 ## Completed
 
 **Member 1 (Chemisto Jairus - Lead):** 
