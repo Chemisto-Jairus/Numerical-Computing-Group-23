@@ -7,8 +7,6 @@
 - I added professional comments to basic root finder module to make it easy to understand.
 - I added catch and throw functions to the basic root finder code.
 
-
-
 **Member 2 (Batte Derrick Calvin):** 
 
 - Fixed logic for interpolator module.
@@ -25,14 +23,14 @@
 **Member 4 (Bakalu Valeria):** 
 
 - I added Doxygen comments to my header file.
-- I fixed the logic of the advanced integrator. NaN is now rejected (the check is now: not (tol > 0), which also catches NaN)
+- I fixed the logic of the advanced root finder. NaN is now rejected (the check is now: not (tol > 0), which also catches NaN)
+- I added more tests for the advanced root finder.
 
 **Member 5 (Wasswa George Mpanga):** 
 
--I added comments to the header file and then fixed the advanced integrator logic.
-I updated tests for advanced integrator.
-
-
+- I added comments to the header file and then fixed the advanced integrator logic.
+- I updated tests for advanced integrator.
+- 
 
 **Member 6 (Mwanje Ian):** 
 
