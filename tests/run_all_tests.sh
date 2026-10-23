@@ -67,15 +67,22 @@ echo "       GROUP 23: AUTOMATED TEST RUNNER             "
 echo "==================================================="
 echo ""
 
-run_test test_interpolator "Derrick"
-run_test test_cubic_spline "Derrick"
-run_test test_matrix_solver "Pauline (Derrick's module)"
-run_test test_basic_root_finder "Jairus"
-run_test test_basic_integrator "Sharon"
-run_test test_advanced_root_finder "Valeria"
-run_test test_advanced_integrator "George"
-run_test test_basic_ode_solver "Ian"
-run_test test_advanced_ode_solver "Samuel"
+# HELPER: one list of "program:owner" pairs and one loop, instead of 9 run_test lines.
+# To add a new test, add one line to this list.
+TESTS=(
+    "test_interpolator:Derrick"
+    "test_cubic_spline:Derrick"
+    "test_matrix_solver:Pauline (Derrick's module)"
+    "test_basic_root_finder:Jairus"
+    "test_basic_integrator:Sharon"
+    "test_advanced_root_finder:Valeria"
+    "test_advanced_integrator:George"
+    "test_basic_ode_solver:Ian"
+    "test_advanced_ode_solver:Samuel"
+)
+for entry in "${TESTS[@]}"; do
+    run_test "${entry%%:*}" "${entry#*:}"     # text before ":" is the program, after ":" the owner
+done
 
 echo "==================================================="
 echo "  Ran: $ran   Failed: $failed   Skipped: $skipped"
