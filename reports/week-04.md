@@ -30,6 +30,7 @@ We agreed to implement helper functions to prevent code repeatition so all the n
 - I implemented cubic spline module.
 - I wrote the test for Cubic spline.
 - I wrote  the matrix solver module.
+- I added the helper functions to all my modules.
 
 **Member 3 (Aogon Sharon):** 
 
