@@ -1,92 +1,38 @@
 #include "numerical-computing/basic_ode_solver.hpp"
-#include <stdexcept>
+#include "internal/ode_stepper.hpp"
 
 namespace numcomp
 {
-    /// Heun's method. See basic_ode_solver.hpp.
-    std::vector<std::pair<double, double>> BasicODESolver::heun(std::function<double(double, double)> f, double t0, double y0, double t_end, double h)
+    // -----------------------------------------------------------------
+    // Step rules: ONE step of each method. The shared loop in
+    // internal/ode_stepper.cpp does the checks, the stepping and the
+    // landing on t_end, so it is no longer copied into every method.
+    // "static" keeps these helpers private to this file.
+    // -----------------------------------------------------------------
+
+    /// Euler: y_new = y + h * f(t, y)
+    static double euler_step(const ode::ODEFunction& f, double t, double y, double h)
     {
-        // FIX: "!(h > 0)" also catches NaN. With "h <= 0" a NaN step
-        // returned just the first point and no error.
-        if (!(h > 0) || !(t_end > t0))
-        {
-            throw std::invalid_argument("Step size h must be strictly positive and t_end must be greater than t0.");
-        }
+        return y + h * f(t, y);
+    }
 
-        // Stop absurdly small steps: they would need millions of points of memory
-        if ((t_end - t0) / h > 1000000)
-        {
-            throw std::invalid_argument("Too many steps: please use a bigger step size h.");
-        }
-
-        std::vector<std::pair<double, double>> result;
-        result.push_back({t0, y0}); // Store initial condition
-
-        double t = t0;
-        double y = y0;
-        double eps = 1e-9 * h;   // if less time than this is left, we are at the end
-
-        while (t_end - t > eps)
-        {
-            // Prevent overshooting the target time on the final step
-            if (t + h > t_end)
-            {
-                h = t_end - t;
-            }
-
-            // Predictor step (Standard Euler)
-            double k1 = f(t, y);
-
-            // Corrector step
-            double k2 = f(t + h, y + h * k1);
-
-            y = y + (h / 2.0) * (k1 + k2);
-            t = t + h;
-            if (t_end - t <= eps) t = t_end;   // land exactly on t_end
-
-            result.push_back({t, y});
-        }
-
-        return result;
+    /// Heun: predict with Euler, then average the start and end slopes
+    static double heun_step(const ode::ODEFunction& f, double t, double y, double h)
+    {
+        double k1 = f(t, y);              // predictor slope (standard Euler)
+        double k2 = f(t + h, y + h * k1); // corrector slope at the predicted point
+        return y + (h / 2.0) * (k1 + k2);
     }
 
     /// Euler's method. See basic_ode_solver.hpp.
     std::vector<std::pair<double, double>> BasicODESolver::euler(std::function<double(double, double)> f, double t0, double y0, double t_end, double h)
     {
-        // FIX: "!(h > 0)" also catches NaN (see heun above)
-        if (!(h > 0) || !(t_end > t0))
-        {
-            throw std::invalid_argument("Step size h must be strictly positive and t_end must be greater than t0.");
-        }
+        return ode::run_fixed_steps(f, t0, y0, t_end, h, euler_step);
+    }
 
-        // Stop absurdly small steps: they would need millions of points of memory
-        if ((t_end - t0) / h > 1000000)
-        {
-            throw std::invalid_argument("Too many steps: please use a bigger step size h.");
-        }
-
-        std::vector<std::pair<double, double>> result;
-        result.push_back({t0, y0}); // Store initial condition
-
-        double t = t0;
-        double y = y0;
-        double eps = 1e-9 * h;   // if less time than this is left, we are at the end
-
-        while (t_end - t > eps)
-        {
-            // Prevent overshooting the target time on the final step
-            if (t + h > t_end)
-            {
-                h = t_end - t;
-            }
-
-            y = y + h * f(t, y);
-            t = t + h;
-            if (t_end - t <= eps) t = t_end;   // land exactly on t_end
-
-            result.push_back({t, y});
-        }
-
-        return result;
+    /// Heun's method. See basic_ode_solver.hpp.
+    std::vector<std::pair<double, double>> BasicODESolver::heun(std::function<double(double, double)> f, double t0, double y0, double t_end, double h)
+    {
+        return ode::run_fixed_steps(f, t0, y0, t_end, h, heun_step);
     }
 }
