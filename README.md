@@ -470,7 +470,7 @@ echo "✅ Finished! Your root directory remained entirely untouched."
 - Root finders can fail to converge
 - ODE solvers use a fixed step and a 1,000,000-step cap
 - Gaussian elimination is for small dense matrices and rejects singular ones
-- Differentiation, Adams methods and conjugate gradient were not built
+- Differentiation, Adams methods and conjugate gradient were not yet built
 
 ## 11. Contributions by Group Members
 
