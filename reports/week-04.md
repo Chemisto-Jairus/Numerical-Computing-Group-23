@@ -97,6 +97,8 @@
 
 ## Challenges/Blockers
 
+**Member 8 (Kyeyune Praise Pauline):** 
+- VS code had issues so i committed the code twice. It's now been fixed.
 
 
 ## Next Week
