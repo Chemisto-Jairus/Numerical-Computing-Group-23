@@ -48,7 +48,7 @@ We agreed to implement helper functions to prevent code repeatition so all the n
 
 - I added comments to the header file and then fixed the advanced integrator logic.
 - I updated tests for advanced integrator.
-- 
+- I completed the examples for the advanced integrator and used the helper functions
 
 **Member 6 (Mwanje Ian):** 
 

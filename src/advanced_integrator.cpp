@@ -1,4 +1,6 @@
 #include "numerical-computing/advanced_integrator.hpp"
+#include "numerical-computing/basic_integrator.hpp"   // Romberg reuses the trapezoidal rule
+#include "internal/input_checks.hpp"
 #include <stdexcept>
 #include <vector>
 #include <cmath>
@@ -8,11 +10,10 @@ namespace numcomp
     /// Simpson's 1/3 rule. See advanced_integrator.hpp.
     double AdvancedIntegrator::simpsons_rule(std::function<double(double)> f, double a, double b, int n)
     {
-        // Check 1: Simpson pairs up the strips, so n must be positive and even
-        if (n <= 0 || n % 2 != 0) throw std::invalid_argument("Requires positive even number of intervals.");
+        checks::check_integration_inputs(a, b, n);   // shared helper: n > 0, finite a and b
 
-        // Check 2 (FIX): NaN or infinite limits gave "nan" with no warning
-        if (!std::isfinite(a) || !std::isfinite(b)) throw std::invalid_argument("Limits a and b must be finite numbers.");
+        // Simpson pairs up the strips, so n must also be even
+        if (n % 2 != 0) throw std::invalid_argument("Requires positive even number of intervals.");
 
         double h = (b - a) / n;
         double sum = f(a) + f(b);
@@ -35,19 +36,17 @@ namespace numcomp
         // Check 2: 1 << i overflows an int at 32, and the work doubles every row
         if (max_iter > 25) throw std::invalid_argument("max_iter must not be more than 25.");
 
-        // Check 3 (FIX): NaN or infinite limits gave "nan" with no warning
-        if (!std::isfinite(a) || !std::isfinite(b)) throw std::invalid_argument("Limits a and b must be finite numbers.");
+        checks::check_finite_limits(a, b);   // shared helper
 
         std::vector<std::vector<double>> R(max_iter, std::vector<double>(max_iter, 0.0));
 
-        // Column 0: trapezoidal rule with 1, 2, 4, 8, ... strips
+        // Column 0: trapezoidal rule with 1, 2, 4, 8, ... strips.
+        // HELPER REUSE: instead of copying the trapezoid loop here,
+        // call Sharon's BasicIntegrator::trapezoidal_rule.
+        BasicIntegrator trapezoid;
         for (int i = 0; i < max_iter; ++i)
         {
-            int n = 1 << i;                     // 2^i strips
-            double h = (b - a) / n;
-            double sum = 0.5 * (f(a) + f(b));
-            for (int k = 1; k < n; ++k) sum += f(a + k * h);
-            R[i][0] = sum * h;
+            R[i][0] = trapezoid.trapezoidal_rule(f, a, b, 1 << i);   // 2^i strips
         }
 
         // Other columns: Richardson extrapolation
