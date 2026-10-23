@@ -60,6 +60,8 @@ We agreed to implement helper functions to prevent code repeatition so all the n
 
 - I added Doxygen comments to my header file
 - I debugged advanced ode solver
+- I built examples and tests for advanced ode solver
+- I implemented the helpers for the examples
 
 
 **Member 8 (Kyeyune Praise Pauline):** 
