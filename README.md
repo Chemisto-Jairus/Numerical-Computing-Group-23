@@ -225,7 +225,10 @@ echo "✅ Finished! Your root directory remained entirely untouched."
 
 
 
-## 6. Install the Library (if your CMake supports it) (Installing means copy the three things another program needs into one folder (the prefix): the public headers, the static library, and the app. A program elsewhere on the computer can then #include the headers and link the library, without the source code.)
+## 6. Install the Library (if your CMake supports it) 
+
+- (Installing means copy the three things another program needs into one folder (the prefix): the public headers, the static library, and the app. A program elsewhere on the computer can then #include the headers and link the library, without the source code.)
+
 ##    NB (To install the library you must build it) 
 
 ### Windows
