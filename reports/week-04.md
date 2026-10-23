@@ -1,5 +1,20 @@
 # Week 4 Progress Report
 
+## NB
+
+Bridget reminded us about some modules we had completely forgotten to implement. We are going to work together in the remaining period to implement them in the remaining time.
+
+ The missing modules are the following
+ 
+- Numerical Differentiation
+- Finite Difference Method
+- Runge-Kutta_Fehlberg
+- Conjugate Gradient
+- Adams-Bashforth and Adams-Moulton
+- Chebyshev Approximation (some missing methods)
+
+We agreed to implement helper functions to prevent code repeatition so all the next code will be shorter and more efficient
+
 ## Completed
 
 **Member 1 (Chemisto Jairus - Lead):** 
