@@ -4,7 +4,7 @@
 
 Bridget reminded us about some modules we had completely forgotten to implement. We are going to work together in the remaining period to implement them in the remaining time.
 
- The missing modules are the following
+ The missing modules are the following (to be implemented next week by all of us together)
  
 - Numerical Differentiation
 - Finite Difference Method
@@ -69,6 +69,8 @@ We agreed to implement helper functions to prevent code repeatition so all the n
 - I updated the auto tester to include more modules soon to be done by other members
 - I fixed its logic so that it also shows if the tests failed
 - I updated the auto tester
+- I finalized the auto tester for the current modules
+- I helped Calvin create the test for his matrix solver module.
 
 **Member 9 (Nabakooza Bridget Maria):** 
 
@@ -110,7 +112,8 @@ I updated the main source file again.
 
 **Member 8 (Kyeyune Praise Pauline):** 
 
-- I am helping Calvin write the tester for the matrix solver module he is soon uploading
+- I am helping Calvin write the tester for the matrix solver module he is soon uploading (finished)
+
 
 **Member 6 (Mwanje Ian):**
 
