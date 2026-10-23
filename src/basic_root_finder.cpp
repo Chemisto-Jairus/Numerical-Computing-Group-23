@@ -1,4 +1,5 @@
 #include "numerical-computing/basic_root_finder.hpp"
+#include "internal/input_checks.hpp"
 #include <cmath>
 #include <stdexcept>
 #include <utility>   // std::swap
@@ -8,16 +9,10 @@ namespace numcomp
     /// Bisection method. See basic_root_finder.hpp.
     double BasicRootFinder::bisection(std::function<double(double)> f, double a, double b, double tol, int max_iter)
     {
-        // Check the settings first.
-        // "!(tol > 0)" also catches NaN, which "tol <= 0" lets through.
-        if (!(tol > 0) || max_iter <= 0)
-        {
-            throw std::invalid_argument("tol and max_iter must be positive.");
-        }
+        checks::check_tolerance(tol, max_iter);   // shared helper: tol > 0, max_iter > 0
 
-        // FIX: if the user gives the interval backwards (a > b), swap it.
-        // Before this fix (b - a) / 2 was negative, so the method stopped
-        // at once and returned the wrong answer.
+        // If the user gives the interval backwards (a > b), swap it.
+        // Without this, (b - a) / 2 is negative and the method stops at once.
         if (a > b)
         {
             std::swap(a, b);
@@ -27,7 +22,7 @@ namespace numcomp
         double fa = f(a);
         double fb = f(b);
 
-        // FIX: NaN passes the sign check below, so reject it here
+        // NaN passes the sign check below, so reject it here
         if (std::isnan(fa) || std::isnan(fb))
         {
             throw std::invalid_argument("f(a) or f(b) is not a number (NaN).");
@@ -71,11 +66,7 @@ namespace numcomp
     /// Newton-Raphson method. See basic_root_finder.hpp.
     double BasicRootFinder::newton_raphson(std::function<double(double)> f, std::function<double(double)> df, double x0, double tol, int max_iter)
     {
-        // Check the settings first ("!(tol > 0)" also catches NaN)
-        if (!(tol > 0) || max_iter <= 0)
-        {
-            throw std::invalid_argument("tol and max_iter must be positive.");
-        }
+        checks::check_tolerance(tol, max_iter);   // shared helper
 
         double x = x0;
         for (int iter = 0; iter < max_iter; ++iter)
