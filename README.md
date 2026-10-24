@@ -466,12 +466,17 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 **A. Standard Cubic Spline**
 
 [Hand-Checkable Case](<documentation/examples results/results_cubic_spline.md#hand-checkable-case>)
+
 [Spline vs Linear Interpolation](<documentation/examples results/results_cubic_spline.md#spline-vs-linear-interpolation>)
+
 [Straight Line Reproduction](<documentation/examples results/results_cubic_spline.md#straight-line-reproduction>)
+
 [Invalid Input Exceptions](<documentation/examples results/results_cubic_spline.md#invalid-input-exceptions>)
 
 **B. Applied Cubic Spline** 
+
 [Speedometer Data Smoothing](<documentation/examples results/results_cubic_spline.md#speedometer-data-smoothing>)
+
 [Convergence Study (Fourth-Order Accuracy)](<documentation/examples results/results_cubic_spline.md#convergence-study-fourth-order-accuracy>)
 
 ### Interpolator
@@ -479,25 +484,38 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 **A. Standard Interpolation**
 
 [Linear Interpolation Baseline](<documentation/examples results/results_interpolator.md#linear-interpolation-baseline>)
+
 [Uneven Spacing and Negative Values](<documentation/examples results/results_interpolator.md#uneven-spacing-and-negative-values>)
+
 [Chebyshev Nodes Generation](<documentation/examples results/results_interpolator.md#chebyshev-nodes-generation>)
+
 [Invalid Input Exceptions](<documentation/examples results/results_interpolator.md#invalid-input-exceptions>)
 
+
 **B. Applied Interpolation** 
+
 [Temperature Table Look-up](<documentation/examples results/results_interpolator.md#temperature-table-look-up>)
+
 [Node Distribution Error Comparison (Runge's Phenomenon)](<documentation/examples results/results_interpolator.md#node-distribution-error-comparison-runges-phenomenon>)
 
 ### Matrix_solver
 
 **A. Standard Linear Systems**
+
 [3x3 System Baseline](<documentation/examples results/results_matrix_solver.md#3x3-system-baseline>)
+
 [Zero Pivot Handling (Automatic Row Swapping)](<documentation/examples results/results_matrix_solver.md#zero-pivot-handling-automatic-row-swapping>)
+
 [4x4 System Reversing](<documentation/examples results/results_matrix_solver.md#4x4-system-reversing>)
+
 [Invalid Input Exceptions](<documentation/examples results/results_matrix_solver.md#invalid-input-exceptions>)
 
 **B. Applied Linear Systems** 
+
 [Kirchhoff's Voltage Law (3-Loop Circuit)](<documentation/examples results/results_matrix_solver.md#kirchhoffs-voltage-law-3-loop-circuit>)
+
 [Curve Fitting (Parabola through 3 points)](<documentation/examples results/results_matrix_solver.md#curve-fitting-parabola-through-3-points>)
+
 [Alloy Mixing Problem](<documentation/examples results/results_matrix_solver.md#alloy-mixing-problem>)
 
 ## 9. Run the Tests
