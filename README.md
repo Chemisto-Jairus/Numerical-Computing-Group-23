@@ -44,22 +44,28 @@ Numerical-Computing-Group-23/
 ├── LICENSE
 ├── .gitignore
 │
+│
+├── documents/
+│    └── Helpers report.md
+│
 ├── include/
 │   └── numerical-computing/
 │       ├── advanced_integrator.hpp
-│       ├── advanced_root_finder.hpp
 │       ├── advanced_ode_solver.hpp
-│       ├── basic_integrator.hpp
-│       ├── basic_ode.hpp
-│       ├── interpolator.hpp
+│       ├── advanced_root_finder.hpp 
+│       ├── basic_integrator.hpp     
+│       ├── basic_ode_solver.hpp
+│       ├── basic_root_finder.hpp
 │       ├── basic_root_finder.hpp
 │       ├── cubic_spline.hpp
-│       └── matrix_solver.hpp
+│       ├── interpolator.hpp
+│       ├── matrix_solver.hpp
+│       └── (last modules to be added this week)
 │
 ├── src/
 │   ├── advanced_integrator.cpp
-│   ├── advanced_root_finder.cpp
 │   ├── advanced_ode_solver.cpp
+│   ├── advanced_root_finder.cpp
 │   ├── basic_integrator.cpp
 │   ├── basic_ode_solver.cpp
 │   ├── interpolator.cpp
@@ -81,24 +87,28 @@ Numerical-Computing-Group-23/
 │   ├── test_cubic_spline.cpp 
 │   └── test_matrix-solver.cpp (to be added in week 4)
 │
-├── examples/ (to be added in week 4)
+├── examples/ 
+│   ├── example_advanced_integrator_applied.cpp
 │   ├── example_advanced_integrator.cpp
+│   ├── example_advanced_ode_solver_applied.cpp
 │   ├── example_advanced_ode_solver.cpp
-│   ├── example_advanced_roots_solver.cpp
-│   ├── example_basic_integration.cpp
+│   ├── example_advanced_roots_finder_applied.cpp
+│   ├── example_advanced_roots_finder.cpp
+│   ├── example_basic_integrator_applied.cpp
+│   ├── example_basic_integrator.cpp
+│   ├── example_basic_ode_solver_applied.cpp
 │   ├── example_basic_ode_solver.cpp
+│   ├── example_basic_roots_solver_applied.cpp
+│   ├── example_basic_root_finder.cpp  
+│   ├── example_interpolation_applied.cpp
 │   ├── example_interpolation.cpp
-│   ├── example_cubic_spline.cpp 
+│   ├── example_cubic_spline_applied.cpp 
+│   ├── example_cubic_spline.cpp
+│   ├── example_matrix_solver_applied.cpp
 │   ├── example_matrix_solver.cpp 
-│   ├── example_basic_roots_solver.cpp
-│   └── example_basic_root_finder.cpp  
+│   └── example_helpers.hpp
 │
 └── reports/
-    ├── documentation/
-    │       ├──oop_concepts GROUP 23.md
-    │       ├──Group 23 hand drawn classes layout .pdf
-    │       └──Group 23 Inheritance documented.pdf
-    │
     ├── week-01.md
     ├── week-02.md
     ├── week-03.md
