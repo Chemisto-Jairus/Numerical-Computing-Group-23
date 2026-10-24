@@ -34,7 +34,7 @@ The objective of this project is to build a reusable numerical computing library
 
 ## 4. Project Structure
 
-Use the following structure for your project:
+We used the following structure for our project:
 
 ```text
 Numerical-Computing-Group-23/
