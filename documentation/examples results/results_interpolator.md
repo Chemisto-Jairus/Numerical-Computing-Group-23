@@ -1,6 +1,6 @@
 # Interpolator Examples Documentation
 
-## 1. [Standard Interpolation](examples/example_interpolator.cpp)
+## 1. [Standard Interpolation](<examples/example_interpolator.cpp>)
 
 ### Linear Interpolation Baseline
 * **Tested:** Accuracy of piecewise linear interpolation against an exact convex curve.
@@ -29,7 +29,7 @@
 
 ---
 
-## 2. [Applied Interpolation](examples/example_interpolator_applied.cpp)
+## 2. [Applied Interpolation](<examples/example_interpolator_applied.cpp>)
 
 ### Temperature Table Look-up
 * **Tested:** Estimating values between discrete, real-world data points.

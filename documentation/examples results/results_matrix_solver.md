@@ -1,6 +1,6 @@
 # Matrix Solver Examples Documentation
 
-## 1.  [Standard Linear Systems](examples/example_matrix_solver.cpp)
+## 1.  [Standard Linear Systems](../../examples/example_matrix_solver.cpp)
 
 ### 3x3 System Baseline
 * **Tested:** Solving a standard 3x3 system using both Gaussian Elimination and LU Decomposition.
@@ -32,7 +32,7 @@
 
 ---
 
-## 2.  [Applied Linear Systems](examples/example_matrix_solver_applied.cpp)
+## 2.  [Applied Linear Systems](../../examples/example_matrix_solver_applied.cpp)
 
 ### Kirchhoff's Voltage Law (3-Loop Circuit)
 * **Tested:** Finding loop currents ($I_1, I_2, I_3$) using LU Decomposition.

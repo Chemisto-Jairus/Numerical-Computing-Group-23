@@ -438,7 +438,7 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 
 ## 8. Examples
 
-### Basic root finder
+## Basic root finder
 
 **A. Standard Equations**
 
@@ -451,17 +451,17 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 
 [Equation and values tested](<documentation/examples results/results_basic_root_finder.md#equations-and-values-tested-applied>)
 
-### Advanced_root_finder
+## Advanced_root_finder
 
-### Basic integrator
+## Basic integrator
 
-### Advanced integrator
+## Advanced integrator
 
-### Basic_ode_solver
+## Basic_ode_solver
 
-### Advanced ode solver
+## Advanced ode solver
 
-### Cubic_spline
+## Cubic_spline
 
 **A. Standard Cubic Spline**
 
@@ -479,7 +479,7 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 
 [Convergence Study (Fourth-Order Accuracy)](<documentation/examples results/results_cubic_spline.md#convergence-study-fourth-order-accuracy>)
 
-### Interpolator
+## Interpolator
 
 **A. Standard Interpolation**
 
@@ -498,7 +498,7 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 
 [Node Distribution Error Comparison (Runge's Phenomenon)](<documentation/examples results/results_interpolator.md#node-distribution-error-comparison-runges-phenomenon>)
 
-### Matrix_solver
+## Matrix_solver
 
 **A. Standard Linear Systems**
 
