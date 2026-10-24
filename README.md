@@ -27,21 +27,21 @@ The objective of this project is to build a reusable numerical computing library
 
 | Class | Methods | Module guide |
 |---|---|---|
-| `BasicRootFinder` | Bisection, Newton-Raphson | [modules/basic_root_finder.md](modules/basic_root_finder.md) |
-| `AdvancedRootFinder` | Secant, Fixed-point iteration | [modules/advanced_root_finder.md](modules/advanced_root_finder.md) |
-| `Interpolator` | Linear interpolation, Chebyshev nodes, Chebyshev approximation | [modules/interpolator.md](modules/interpolator.md) |
-| `CubicSpline` | Natural cubic spline | [modules/cubic_spline.md](modules/cubic_spline.md) |
-| `NumericalDifferentiator` | Forward, backward, central differences, second derivative, Richardson | [modules/numerical_differentiator.md](modules/numerical_differentiator.md) |
-| `BasicIntegrator` | Trapezoidal, Midpoint | [modules/basic_integrator.md](modules/basic_integrator.md) |
-| `AdvancedIntegrator` | Simpson's 1/3, Romberg | [modules/advanced_integrator.md](modules/advanced_integrator.md) |
-| `BasicODESolver` | Euler, Heun | [modules/basic_ode_solver.md](modules/basic_ode_solver.md) |
-| `AdvancedODESolver` | RK3, RK4 | [modules/advanced_ode_solver.md](modules/advanced_ode_solver.md) |
-| `AdamsBashforthSolver` | Adams-Bashforth 2 and 4 | [modules/adams_bashforth_solver.md](modules/adams_bashforth_solver.md) |
-| `AdamsMoultonSolver` | Adams-Moulton 2 and 4 | [modules/adams_moulton_solver.md](modules/adams_moulton_solver.md) |
-| `RungeKuttaFehlbergSolver` | Adaptive RKF45 | [modules/runge_kutta_fehlberg_solver.md](modules/runge_kutta_fehlberg_solver.md) |
-| `FiniteDifferenceSolver` | Finite difference method for boundary value problems | [modules/finite_difference_solver.md](modules/finite_difference_solver.md) |
-| `MatrixSolver` | Gaussian elimination, LU decomposition | [modules/matrix_solver.md](modules/matrix_solver.md) |
-| `ConjugateGradientSolver` | Conjugate gradient | [modules/conjugate_gradient_solver.md](modules/conjugate_gradient_solver.md) |
+| `BasicRootFinder` | Bisection, Newton-Raphson | [modules/basic_root_finder.md](documentation/modules/basic_root_finder.md) |
+| `AdvancedRootFinder` | Secant, Fixed-point iteration | [modules/advanced_root_finder.md](documentation/modules/advanced_root_finder.md) |
+| `Interpolator` | Linear interpolation, Chebyshev nodes, Chebyshev approximation | [modules/interpolator.md](documentation/modules/interpolator.md) |
+| `CubicSpline` | Natural cubic spline | [modules/cubic_spline.md](documentation/modules/cubic_spline.md) |
+| `NumericalDifferentiator` | Forward, backward, central differences, second derivative, Richardson | [modules/numerical_differentiator.md](documentation/modules/numerical_differentiator.md) |
+| `BasicIntegrator` | Trapezoidal, Midpoint | [modules/basic_integrator.md](documentation/modules/basic_integrator.md) |
+| `AdvancedIntegrator` | Simpson's 1/3, Romberg | [modules/advanced_integrator.md](documentation/modules/advanced_integrator.md) |
+| `BasicODESolver` | Euler, Heun | [modules/basic_ode_solver.md](documentation/modules/basic_ode_solver.md) |
+| `AdvancedODESolver` | RK3, RK4 | [modules/advanced_ode_solver.md](documentation/modules/advanced_ode_solver.md) |
+| `AdamsBashforthSolver` | Adams-Bashforth 2 and 4 | [modules/adams_bashforth_solver.md](documentation/modules/adams_bashforth_solver.md) |
+| `AdamsMoultonSolver` | Adams-Moulton 2 and 4 | [modules/adams_moulton_solver.md](documentation/modules/adams_moulton_solver.md) |
+| `RungeKuttaFehlbergSolver` | Adaptive RKF45 | [modules/runge_kutta_fehlberg_solver.md](documentation/modules/runge_kutta_fehlberg_solver.md) |
+| `FiniteDifferenceSolver` | Finite difference method for boundary value problems | [modules/finite_difference_solver.md](documentation/modules/finite_difference_solver.md) |
+| `MatrixSolver` | Gaussian elimination, LU decomposition | [modules/matrix_solver.md](documentation/modules/matrix_solver.md) |
+| `ConjugateGradientSolver` | Conjugate gradient | [modules/conjugate_gradient_solver.md](documentation/modules/conjugate_gradient_solver.md) |
 
 ## 4. Project Structure
 
