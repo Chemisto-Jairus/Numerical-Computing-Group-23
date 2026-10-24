@@ -78,6 +78,7 @@ We agreed to implement helper functions to prevent code repeatition so all the n
 
 - I updated the main source file. It currently has errors because Calvin has not yet pushed the missing modules. (Calvin finished pushing the modules so now no errors)
 I updated the main source file again.
+- I included the helpers in the main source file.
 
 ## NB
 
@@ -133,14 +134,24 @@ I updated the main source file again.
 ## Next Week
 
 - **Member 1 (Chemisto Jairus - Lead):** 
+
 - **Member 2 (Batte Derrick Calvin):** 
+
 - **Member 3 (Aogon Sharon):** 
+
 - **Member 4 (Bakalu Valeria):** 
+
 - **Member 5 (Wasswa George Mpanga):** 
+
 - **Member 6 (Mwanje Ian):** 
+
 - **Member 7 (Muwanguzi Samuel):** 
+
 - **Member 8 (Kyeyune Praise Pauline):** 
+
 - **Member 9 (Nabakooza Bridget Maria):** 
+
+ - Finalizing the UI for the main source file and including the remaining modules in the main.
 
 ## AI Use
 
