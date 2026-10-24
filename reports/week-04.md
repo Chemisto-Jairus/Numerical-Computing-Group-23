@@ -43,6 +43,8 @@ We agreed to implement helper functions to prevent code repeatition so all the n
 - I added Doxygen comments to my header file.
 - I fixed the logic of the advanced root finder. NaN is now rejected (the check is now: not (tol > 0), which also catches NaN)
 - I added more tests for the advanced root finder.
+- I implemented helpers in my module
+- I added examples for the module
 
 **Member 5 (Wasswa George Mpanga):** 
 
@@ -107,8 +109,9 @@ I updated the main source file again.
 
 **Member 4 (Bakalu Valeria):** 
 
-- I am writing examples for my module and finalizing documenting it.
+- I am writing examples for my module and finalizing documenting it. (done)
 - I am seeing if i can improve efficiency of the code
+- I am researching the missing modules and seeing which one i will contribute to next week.
 
 **Member 8 (Kyeyune Praise Pauline):** 
 
