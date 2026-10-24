@@ -670,12 +670,8 @@ echo "✅ Finished! Your root directory remained entirely untouched."
 
 ## 10. Limitations
 
-- Romberg is capped at 25 iterations
-- Linear interpolation needs strictly increasing x and does not extrapolate
-- Simpson needs an even n
-- Root finders can fail to converge
-- ODE solvers use a fixed step and a 1,000,000-step cap
-- Gaussian elimination is for small dense matrices and rejects singular ones
+- [Basic root finder ](documentation/modules/basic_root_finder.md#6-limitations)
+
 
 ## 11. Contributions by Group Members
 
