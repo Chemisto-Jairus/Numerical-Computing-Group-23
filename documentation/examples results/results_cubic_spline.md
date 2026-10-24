@@ -1,6 +1,6 @@
 # Cubic Spline Examples Documentation
 
-## 1. [Standard Cubic Spline](examples/example_cubic_spline.cpp) 
+##  [1. Standard Cubic Spline](../../examples/example_cubic_spline.cpp)
 
 ### Hand-Checkable Case
 * **Tested:** Correct calculation of second derivatives ($M$) and intermediate interpolation.
@@ -32,7 +32,7 @@
 
 ---
 
-## 2.  [Applied Cubic Spline](examples/example_cubic_spline_applied.cpp)
+## [2. Applied Cubic Spline](../../examples/example_cubic_spline_applied.cpp)
 
 ### Speedometer Data Smoothing
 * **Tested:** Generating a smooth continuous profile from discrete, real-world data points.
