@@ -52,6 +52,24 @@ Numerical-Computing-Group-23/
 ├── documentation/
 │   ├── helpers-report.md (to be added)
 │   │   
+│   │ 
+│   ├── examples results
+│   │       ├── results_adams_bashforth_solver.md
+│   │       ├── results_adams_moulton_solver.md
+│   │       ├── results_advanced_integrator.md
+│   │       ├── results_advanced_ode_solver.md
+│   │       ├── results_advanced_root_finder.md
+│   │       ├── results_basic_integrator.md
+│   │       ├── results_basic_ode_solver.md
+│   │       ├── results_basic_root_finder.md
+│   │       ├── results_conjugate_gradient_solver.md
+│   │       ├── results_cubic_spline.md
+│   │       ├── results_finite_difference_solver.md
+│   │       ├── results_interpolator.md
+│   │       ├── results_matrix_solver.md
+│   │       ├── results_numerical_differentiator.md
+│   │       └── results_runge_kutta_fehlberg_solver.md
+│   │        
 │   ├── modules/ (to be added)
 │   │   ├── adams_bashforth_solver.md
 │   │   ├── adams_moulton_solver.md
@@ -424,13 +442,13 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 
 **A. Standard Equations**
 
-[Equation and values tested](<documentation/examples results/basic_root_finder.md#equations-and-values-tested>)
+[Equation and values tested](<documentation/examples results/results_basic_root_finder.md#equations-and-values-tested>)
 
-[Error Handling & Edge Cases](<documentation/examples results/basic_root_finder.md#error-handling--edge-cases>)
+[Error Handling & Edge Cases](<documentation/examples results/results_basic_root_finder.md#error-handling--edge-cases>)
 
 **B. Applied Problems**
 
-[Equation and values tested](<documentation/examples results/basic_root_finder.md#equations-and-values-tested-applied>)
+[Equation and values tested](<documentation/examples results/results_basic_root_finder.md#equations-and-values-tested-applied>)
 
 ### Advanced_root_finder
 
