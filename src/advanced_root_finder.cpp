@@ -1,4 +1,5 @@
 #include "numerical-computing/advanced_root_finder.hpp"
+#include "internal/input_checks.hpp"
 #include <cmath>
 #include <stdexcept>
 
@@ -7,12 +8,7 @@ namespace numcomp
     /// Secant method. See advanced_root_finder.hpp.
     double AdvancedRootFinder::secant_method(std::function<double(double)> f, double x0, double x1, double tol, int max_iter)
     {
-        // Check the settings first.
-        // FIX: "!(tol > 0)" also catches NaN, which "tol <= 0" lets through.
-        if (!(tol > 0) || max_iter <= 0)
-        {
-            throw std::invalid_argument("tol and max_iter must be positive.");
-        }
+        checks::check_tolerance(tol, max_iter);   // shared helper: tol > 0, max_iter > 0
 
         for (int iter = 0; iter < max_iter; ++iter)
         {
@@ -39,11 +35,7 @@ namespace numcomp
     /// Fixed-point iteration. See advanced_root_finder.hpp.
     double AdvancedRootFinder::fixed_point_iteration(std::function<double(double)> g, double x0, double tol, int max_iter)
     {
-        // Check the settings first ("!(tol > 0)" also catches NaN)
-        if (!(tol > 0) || max_iter <= 0)
-        {
-            throw std::invalid_argument("tol and max_iter must be positive.");
-        }
+        checks::check_tolerance(tol, max_iter);   // shared helper
 
         double x_current = x0;
         for (int iter = 0; iter < max_iter; ++iter)
