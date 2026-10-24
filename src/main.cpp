@@ -4,6 +4,11 @@
 // Every module of the library is reachable from the menu.
 // The user types the inputs. Every number is checked before it is used,
 // the input limits are shown, and every library call is inside try/catch.
+//
+// HELPERS: the input reading and result printing that every menu option
+// needs are written once (read_number, read_root_settings, read_limits,
+// print_integral, read_ode_settings, print_ode_result, read_system,
+// print_solution). Each menu option is now only a few lines.
 
 #include <iostream>
 #include <vector>
@@ -12,6 +17,7 @@
 #include <cstdlib>
 #include <stdexcept>
 #include <limits>
+#include <utility>
 #include "numerical-computing/interpolator.hpp"
 #include "numerical-computing/cubic_spline.hpp"
 #include "numerical-computing/basic_root_finder.hpp"
@@ -22,6 +28,9 @@
 #include "numerical-computing/advanced_ode_solver.hpp"
 #include "numerical-computing/matrix_solver.hpp"
 
+using Curve = std::vector<std::pair<double, double>>;
+using Matrix = std::vector<std::vector<double>>;
+
 // Sample functions used by the demos
 double sample_equation(double x) { return x * x; }              // f(x) = x^2
 double root_equation(double x) { return (x * x) - 4.0; }        // f(x) = x^2 - 4, roots at -2 and 2
@@ -29,10 +38,16 @@ double root_derivative(double x) { return 2.0 * x; }            // f'(x) = 2x
 double fixed_point_g(double x) { return std::sqrt(x + 2.0); }   // g(x) = sqrt(x + 2), fixed point 2
 double sample_ode(double t, double y) { return t * y; }         // dy/dt = t * y, exact y = e^(t^2 / 2)
 
-// Reads one number. Keeps asking until the user types a valid number.
-// If the input ends (Ctrl+Z / Ctrl+D) the program closes cleanly.
-double read_double(const std::string& prompt) {
-    double value;
+// ------------------------------------------------------------------
+// Input helpers
+// ------------------------------------------------------------------
+
+/// Reads one number of type T (int or double). Keeps asking until it is valid.
+/// If the input ends (Ctrl+Z / Ctrl+D) the program closes cleanly.
+/// One template replaces the old read_int() and read_double() copies.
+template <typename T>
+T read_number(const std::string& prompt) {
+    T value;
     while (true) {
         std::cout << prompt;
         if (std::cin >> value) {
@@ -44,26 +59,62 @@ double read_double(const std::string& prompt) {
         }
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "[!] Please enter a number.\n";
+        std::cout << "[!] Please enter a valid number.\n";
     }
 }
 
-// Reads one whole number. Keeps asking until the user types a valid integer.
-int read_int(const std::string& prompt) {
-    int value;
-    while (true) {
-        std::cout << prompt;
-        if (std::cin >> value) {
-            return value;
-        }
-        if (std::cin.eof()) {
-            std::cout << "\nInput ended. Goodbye!\n";
-            std::exit(0);
-        }
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "[!] Please enter a whole number.\n";
+/// Tolerance and iteration limit, asked by all four root finders.
+void read_root_settings(double& tol, int& max_iter) {
+    tol = read_number<double>("Tolerance (for example 1e-6, must be > 0): ");
+    max_iter = read_number<int>("Maximum iterations (> 0): ");
+}
+
+/// Integration limits, asked by all four integrators.
+void read_limits(double& a, double& b) {
+    a = read_number<double>("Lower limit a: ");
+    b = read_number<double>("Upper limit b: ");
+}
+
+/// End time and step size, asked by all four ODE solvers.
+void read_ode_settings(double& t_end, double& h) {
+    t_end = read_number<double>("End time t_end (> 0): ");
+    h = read_number<double>("Step size h (> 0, at most 1,000,000 steps): ");
+}
+
+/// Uses the example system, or lets the user type a 3 x 3 system.
+void read_system(Matrix& A, std::vector<double>& b) {
+    int own = read_number<int>("1 = example system, 2 = type your own: ");
+    if (own != 2) {
+        return;
     }
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            A[i][j] = read_number<double>("A[" + std::to_string(i + 1) + "][" + std::to_string(j + 1) + "] = ");
+        }
+        b[i] = read_number<double>("b[" + std::to_string(i + 1) + "] = ");
+    }
+}
+
+// ------------------------------------------------------------------
+// Output helpers
+// ------------------------------------------------------------------
+
+/// Prints an integration result next to the exact answer for f(x) = x^2.
+void print_integral(const std::string& method, double result, double a, double b) {
+    std::cout << "\n" << method << " result: " << result << "\n";
+    std::cout << "Exact (b^3 - a^3) / 3: " << (b * b * b - a * a * a) / 3.0 << "\n";
+}
+
+/// Prints the end of an ODE curve next to the exact answer e^(t^2 / 2).
+void print_ode_result(const std::string& method, const Curve& curve, double t_end) {
+    std::cout << "\n" << method << ": " << curve.size() << " points.\n";
+    std::cout << "y(" << curve.back().first << ") = " << curve.back().second << "\n";
+    std::cout << "Exact e^(t^2/2) = " << std::exp(t_end * t_end / 2.0) << "\n";
+}
+
+/// Prints the solution of a 3 x 3 system.
+void print_solution(const std::string& method, const std::vector<double>& x) {
+    std::cout << "\n" << method << ": x1 = " << x[0] << ", x2 = " << x[1] << ", x3 = " << x[2] << "\n";
 }
 
 void display_menu() {
@@ -100,8 +151,19 @@ int main() {
     std::vector<double> data_y = {0.0, 1.0, 4.0, 9.0, 16.0};
 
     // Example 3 x 3 system with answer x = 2, y = 3, z = -1
-    std::vector<std::vector<double>> example_A = {{2.0, 1.0, -1.0}, {-3.0, -1.0, 2.0}, {-2.0, 1.0, 2.0}};
+    Matrix example_A = {{2.0, 1.0, -1.0}, {-3.0, -1.0, 2.0}, {-2.0, 1.0, 2.0}};
     std::vector<double> example_b = {8.0, -11.0, -3.0};
+
+    // One object of each class, reused by every menu option (they are stateless)
+    numcomp::Interpolator interp;
+    numcomp::CubicSpline spline;
+    numcomp::BasicRootFinder basic_roots;
+    numcomp::AdvancedRootFinder advanced_roots;
+    numcomp::BasicIntegrator basic_integrator;
+    numcomp::AdvancedIntegrator advanced_integrator;
+    numcomp::BasicODESolver basic_ode;
+    numcomp::AdvancedODESolver advanced_ode;
+    numcomp::MatrixSolver matrix;
 
     while (true) {
         display_menu();
@@ -121,197 +183,118 @@ int main() {
             break;
         }
 
-        // Every library call is inside try/catch, so bad input shows a message instead of crashing
+        // Every library call is inside try/catch, so bad input shows a message instead of crashing.
+        // Results are worked out BEFORE printing, so an error never leaves a half-printed line.
         try {
+            double a, b, tol, t_end, h;
+            int max_iter;
+
             switch (choice) {
                 case 1: {
-                    double x = read_double("x to estimate (0 to 4): ");
-                    numcomp::Interpolator interp;
-                    // Work out the answer first: if it throws, no half-printed line is left
+                    double x = read_number<double>("x to estimate (0 to 4): ");
                     double result = interp.linear_interpolate(x, data_x, data_y);
-                    std::cout << "\nLinear interpolation at x = " << x << ": " << result << "\n";
-                    std::cout << "Exact x^2: " << x * x << "\n";
+                    std::cout << "\nLinear interpolation at x = " << x << ": " << result << "\nExact x^2: " << x * x << "\n";
                     break;
                 }
                 case 2: {
-                    double a = read_double("Left end a: ");
-                    double b = read_double("Right end b (bigger than a): ");
-                    int n = read_int("Number of nodes n (1 to 1,000,000): ");
-                    numcomp::Interpolator interp;
+                    a = read_number<double>("Left end a: ");
+                    b = read_number<double>("Right end b (bigger than a): ");
+                    int n = read_number<int>("Number of nodes n (1 to 1,000,000): ");
                     std::vector<double> nodes = interp.chebyshev_nodes(a, b, n);
                     std::cout << "\nChebyshev nodes (first 10 shown):\n";
-                    for (size_t i = 0; i < nodes.size() && i < 10; ++i) {
+                    for (std::size_t i = 0; i < nodes.size() && i < 10; ++i) {
                         std::cout << "  x" << i + 1 << " = " << nodes[i] << "\n";
                     }
                     break;
                 }
                 case 3: {
-                    double x = read_double("x to estimate (0 to 4): ");
-                    numcomp::CubicSpline spline;
-                    // Work out the answer first: if it throws, no half-printed line is left
+                    double x = read_number<double>("x to estimate (0 to 4): ");
                     double result = spline.interpolate(x, data_x, data_y);
-                    std::cout << "\nCubic spline at x = " << x << ": " << result << "\n";
-                    std::cout << "Exact x^2: " << x * x << "\n";
+                    std::cout << "\nCubic spline at x = " << x << ": " << result << "\nExact x^2: " << x * x << "\n";
                     break;
                 }
                 case 4: {
-                    double a = read_double("Left end a: ");
-                    double b = read_double("Right end b: ");
-                    double tol = read_double("Tolerance (for example 1e-6, must be > 0): ");
-                    int max_iter = read_int("Maximum iterations (> 0): ");
-                    numcomp::BasicRootFinder finder;
-                    // Work out the answer first: if it throws, no half-printed line is left
-                    double result = finder.bisection(root_equation, a, b, tol, max_iter);
-                    std::cout << "\nBisection root: " << result << "\n";
+                    a = read_number<double>("Left end a: ");
+                    b = read_number<double>("Right end b: ");
+                    read_root_settings(tol, max_iter);
+                    double root = basic_roots.bisection(root_equation, a, b, tol, max_iter);
+                    std::cout << "\nBisection root: " << root << "\n";
                     break;
                 }
                 case 5: {
-                    double x0 = read_double("Starting guess x0: ");
-                    double tol = read_double("Tolerance (for example 1e-6, must be > 0): ");
-                    int max_iter = read_int("Maximum iterations (> 0): ");
-                    numcomp::BasicRootFinder finder;
-                    // Work out the answer first: if it throws, no half-printed line is left
-                    double result = finder.newton_raphson(root_equation, root_derivative, x0, tol, max_iter);
-                    std::cout << "\nNewton-Raphson root: " << result << "\n";
+                    double x0 = read_number<double>("Starting guess x0: ");
+                    read_root_settings(tol, max_iter);
+                    double root = basic_roots.newton_raphson(root_equation, root_derivative, x0, tol, max_iter);
+                    std::cout << "\nNewton-Raphson root: " << root << "\n";
                     break;
                 }
                 case 6: {
-                    double x0 = read_double("First guess x0: ");
-                    double x1 = read_double("Second guess x1: ");
-                    double tol = read_double("Tolerance (for example 1e-6, must be > 0): ");
-                    int max_iter = read_int("Maximum iterations (> 0): ");
-                    numcomp::AdvancedRootFinder finder;
-                    // Work out the answer first: if it throws, no half-printed line is left
-                    double result = finder.secant_method(root_equation, x0, x1, tol, max_iter);
-                    std::cout << "\nSecant root: " << result << "\n";
+                    double x0 = read_number<double>("First guess x0: ");
+                    double x1 = read_number<double>("Second guess x1: ");
+                    read_root_settings(tol, max_iter);
+                    double root = advanced_roots.secant_method(root_equation, x0, x1, tol, max_iter);
+                    std::cout << "\nSecant root: " << root << "\n";
                     break;
                 }
                 case 7: {
-                    double x0 = read_double("Starting guess x0 (>= -2): ");
-                    double tol = read_double("Tolerance (for example 1e-6, must be > 0): ");
-                    int max_iter = read_int("Maximum iterations (> 0): ");
-                    numcomp::AdvancedRootFinder finder;
-                    // Work out the answer first: if it throws, no half-printed line is left
-                    double result = finder.fixed_point_iteration(fixed_point_g, x0, tol, max_iter);
-                    std::cout << "\nFixed point: " << result << "\n";
+                    double x0 = read_number<double>("Starting guess x0 (>= -2): ");
+                    read_root_settings(tol, max_iter);
+                    double root = advanced_roots.fixed_point_iteration(fixed_point_g, x0, tol, max_iter);
+                    std::cout << "\nFixed point: " << root << "\n";
                     break;
                 }
                 case 8: {
-                    double a = read_double("Lower limit a: ");
-                    double b = read_double("Upper limit b: ");
-                    int n = read_int("Number of strips n (> 0): ");
-                    numcomp::BasicIntegrator integrator;
-                    // Work out the answer first: if it throws, no half-printed line is left
-                    double result = integrator.trapezoidal_rule(sample_equation, a, b, n);
-                    std::cout << "\nTrapezoidal result: " << result << "\n";
-                    std::cout << "Exact (b^3 - a^3) / 3: " << (b * b * b - a * a * a) / 3.0 << "\n";
+                    read_limits(a, b);
+                    int n = read_number<int>("Number of strips n (> 0): ");
+                    print_integral("Trapezoidal", basic_integrator.trapezoidal_rule(sample_equation, a, b, n), a, b);
                     break;
                 }
                 case 9: {
-                    double a = read_double("Lower limit a: ");
-                    double b = read_double("Upper limit b: ");
-                    int n = read_int("Number of strips n (> 0): ");
-                    numcomp::BasicIntegrator integrator;
-                    // Work out the answer first: if it throws, no half-printed line is left
-                    double result = integrator.midpoint_rule(sample_equation, a, b, n);
-                    std::cout << "\nMidpoint result: " << result << "\n";
-                    std::cout << "Exact (b^3 - a^3) / 3: " << (b * b * b - a * a * a) / 3.0 << "\n";
+                    read_limits(a, b);
+                    int n = read_number<int>("Number of strips n (> 0): ");
+                    print_integral("Midpoint", basic_integrator.midpoint_rule(sample_equation, a, b, n), a, b);
                     break;
                 }
                 case 10: {
-                    double a = read_double("Lower limit a: ");
-                    double b = read_double("Upper limit b: ");
-                    int n = read_int("Number of strips n (positive and EVEN): ");
-                    numcomp::AdvancedIntegrator integrator;
-                    // Work out the answer first: if it throws, no half-printed line is left
-                    double result = integrator.simpsons_rule(sample_equation, a, b, n);
-                    std::cout << "\nSimpson's result: " << result << "\n";
-                    std::cout << "Exact (b^3 - a^3) / 3: " << (b * b * b - a * a * a) / 3.0 << "\n";
+                    read_limits(a, b);
+                    int n = read_number<int>("Number of strips n (positive and EVEN): ");
+                    print_integral("Simpson's", advanced_integrator.simpsons_rule(sample_equation, a, b, n), a, b);
                     break;
                 }
                 case 11: {
-                    double a = read_double("Lower limit a: ");
-                    double b = read_double("Upper limit b: ");
-                    int max_iter = read_int("Romberg rows (1 to 25): ");
-                    numcomp::AdvancedIntegrator integrator;
-                    // Work out the answer first: if it throws, no half-printed line is left
-                    double result = integrator.romberg_integration(sample_equation, a, b, max_iter);
-                    std::cout << "\nRomberg result: " << result << "\n";
-                    std::cout << "Exact (b^3 - a^3) / 3: " << (b * b * b - a * a * a) / 3.0 << "\n";
+                    read_limits(a, b);
+                    max_iter = read_number<int>("Romberg rows (1 to 25): ");
+                    print_integral("Romberg", advanced_integrator.romberg_integration(sample_equation, a, b, max_iter), a, b);
                     break;
                 }
-                case 12: {
-                    double t_end = read_double("End time t_end (> 0): ");
-                    double h = read_double("Step size h (> 0, at most 1,000,000 steps): ");
-                    numcomp::BasicODESolver solver;
-                    std::vector<std::pair<double, double>> curve = solver.euler(sample_ode, 0.0, 1.0, t_end, h);
-                    std::cout << "\nEuler: " << curve.size() << " points.\n";
-                    std::cout << "y(" << curve.back().first << ") = " << curve.back().second << "\n";
-                    std::cout << "Exact e^(t^2/2) = " << std::exp(t_end * t_end / 2.0) << "\n";
+                case 12:
+                    read_ode_settings(t_end, h);
+                    print_ode_result("Euler", basic_ode.euler(sample_ode, 0.0, 1.0, t_end, h), t_end);
                     break;
-                }
-                case 13: {
-                    double t_end = read_double("End time t_end (> 0): ");
-                    double h = read_double("Step size h (> 0, at most 1,000,000 steps): ");
-                    numcomp::BasicODESolver solver;
-                    std::vector<std::pair<double, double>> curve = solver.heun(sample_ode, 0.0, 1.0, t_end, h);
-                    std::cout << "\nHeun: " << curve.size() << " points.\n";
-                    std::cout << "y(" << curve.back().first << ") = " << curve.back().second << "\n";
-                    std::cout << "Exact e^(t^2/2) = " << std::exp(t_end * t_end / 2.0) << "\n";
+                case 13:
+                    read_ode_settings(t_end, h);
+                    print_ode_result("Heun", basic_ode.heun(sample_ode, 0.0, 1.0, t_end, h), t_end);
                     break;
-                }
-                case 14: {
-                    double t_end = read_double("End time t_end (> 0): ");
-                    double h = read_double("Step size h (> 0, at most 1,000,000 steps): ");
-                    numcomp::AdvancedODESolver solver;
-                    std::vector<std::pair<double, double>> curve = solver.rk3(sample_ode, 0.0, 1.0, t_end, h);
-                    std::cout << "\nRK3: " << curve.size() << " points.\n";
-                    std::cout << "y(" << curve.back().first << ") = " << curve.back().second << "\n";
-                    std::cout << "Exact e^(t^2/2) = " << std::exp(t_end * t_end / 2.0) << "\n";
+                case 14:
+                    read_ode_settings(t_end, h);
+                    print_ode_result("RK3", advanced_ode.rk3(sample_ode, 0.0, 1.0, t_end, h), t_end);
                     break;
-                }
-                case 15: {
-                    double t_end = read_double("End time t_end (> 0): ");
-                    double h = read_double("Step size h (> 0, at most 1,000,000 steps): ");
-                    numcomp::AdvancedODESolver solver;
-                    std::vector<std::pair<double, double>> curve = solver.rk4(sample_ode, 0.0, 1.0, t_end, h);
-                    std::cout << "\nRK4: " << curve.size() << " points.\n";
-                    std::cout << "y(" << curve.back().first << ") = " << curve.back().second << "\n";
-                    std::cout << "Exact e^(t^2/2) = " << std::exp(t_end * t_end / 2.0) << "\n";
+                case 15:
+                    read_ode_settings(t_end, h);
+                    print_ode_result("RK4", advanced_ode.rk4(sample_ode, 0.0, 1.0, t_end, h), t_end);
                     break;
-                }
                 case 16: {
-                    std::vector<std::vector<double>> A = example_A;
-                    std::vector<double> b = example_b;
-                    int own = read_int("1 = example system, 2 = type your own: ");
-                    if (own == 2) {
-                        for (int i = 0; i < 3; ++i) {
-                            for (int j = 0; j < 3; ++j) {
-                                A[i][j] = read_double("A[" + std::to_string(i + 1) + "][" + std::to_string(j + 1) + "] = ");
-                            }
-                            b[i] = read_double("b[" + std::to_string(i + 1) + "] = ");
-                        }
-                    }
-                    numcomp::MatrixSolver solver;
-                    std::vector<double> x = solver.gaussian_elimination(A, b);
-                    std::cout << "\nGaussian elimination: x1 = " << x[0] << ", x2 = " << x[1] << ", x3 = " << x[2] << "\n";
+                    Matrix A = example_A;
+                    std::vector<double> rhs = example_b;
+                    read_system(A, rhs);
+                    print_solution("Gaussian elimination", matrix.gaussian_elimination(A, rhs));
                     break;
                 }
                 case 17: {
-                    std::vector<std::vector<double>> A = example_A;
-                    std::vector<double> b = example_b;
-                    int own = read_int("1 = example system, 2 = type your own: ");
-                    if (own == 2) {
-                        for (int i = 0; i < 3; ++i) {
-                            for (int j = 0; j < 3; ++j) {
-                                A[i][j] = read_double("A[" + std::to_string(i + 1) + "][" + std::to_string(j + 1) + "] = ");
-                            }
-                            b[i] = read_double("b[" + std::to_string(i + 1) + "] = ");
-                        }
-                    }
-                    numcomp::MatrixSolver solver;
-                    std::vector<double> x = solver.lu_solve(A, b);
-                    std::cout << "\nLU decomposition: x1 = " << x[0] << ", x2 = " << x[1] << ", x3 = " << x[2] << "\n";
+                    Matrix A = example_A;
+                    std::vector<double> rhs = example_b;
+                    read_system(A, rhs);
+                    print_solution("LU decomposition", matrix.lu_solve(A, rhs));
                     break;
                 }
                 default:
