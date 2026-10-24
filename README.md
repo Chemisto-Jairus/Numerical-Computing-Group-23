@@ -77,7 +77,7 @@ Numerical-Computing-Group-23/
 │   ├── README.md (to be added)
 │   ├── algorithm-report.md (to be added)
 │   └── testing.md (to be added)
-├── examples/
+├── examples
 │   ├── CMakeLists.txt
 │   ├── example_adams_bashforth_solver.cpp
 │   ├── example_adams_bashforth_solver_applied.cpp
