@@ -77,7 +77,7 @@ Numerical-Computing-Group-23/
 │   ├── README.md (to be added)
 │   ├── algorithm-report.md (to be added)
 │   └── testing.md (to be added)
-├── [examples/](examples)
+├── examples/
 │   ├── CMakeLists.txt
 │   ├── example_adams_bashforth_solver.cpp
 │   ├── example_adams_bashforth_solver_applied.cpp
@@ -424,10 +424,13 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 ### Basic root finder
 
 **A. Standard Equations**
+
 [Equation and values tested](<documentation/examples results/basic_root_finder.md#equations-and-values-tested>)
+
 [Error Handling & Edge Cases](<documentation/examples results/basic_root_finder.md#error-handling--edge-cases>)
 
 **B. Applied Problems**
+
 [Equation and values tested](<documentation/examples results/basic_root_finder.md#equations-and-values-tested-applied>)
 
 ### Advanced_root_finder
