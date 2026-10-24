@@ -5,7 +5,7 @@ The objective of this project is to build a reusable numerical computing library
 ## Table of Contents
 
 - [2. Requirements and Dependencies](#2-requirements-and-dependencies)
-- [3. Main Features](#3-main-features)
+- [3. The library at a glance](#3-the-library-at-a-glance-to-be-finalized)
 - [4. Project Structure](#4-project-structure)
 - [5. Build the Library](#5-build-the-library)
 - [6. Install the Library](#6-install-the-library-if-your-cmake-supports-it)
@@ -23,14 +23,25 @@ The objective of this project is to build a reusable numerical computing library
 - **Git:** only to clone the repository. 
 - **Outside libraries:** None, everything is written by us from scratch.
 
-## 3. Main Features
+## 3. The library at a glance to be finalized
 
-- **Root Finding:** Find roots of equations using Bisection, Newton-Raphson, Secant, and Fixed-Point Iteration methods.
-- **Interpolation & Approximation:** Estimate values between known data points using Linear Interpolation and Cubic Splines, plus Chebyshev Approximation for generating optimal nodes.
-- **Numerical Integration:** Approximate definite integrals using the Trapezoidal Rule, Midpoint Rule, Simpson's Rule, and Romberg Integration.
-- **Numerical Differentiation:** Approximate derivatives of given functions.
-- **ODE Solvers:** Solve ordinary differential equations using Euler's Method, Runge-Kutta-Fehlberg, Adams-Bashforth, Adams-Moulton, and the Finite Difference Method.
-- **Linear Algebra:** Solve systems of linear equations using the Conjugate Gradient method.
+| Class | Methods | Module guide |
+|---|---|---|
+| `BasicRootFinder` | Bisection, Newton-Raphson | [modules/basic_root_finder.md](modules/basic_root_finder.md) |
+| `AdvancedRootFinder` | Secant, Fixed-point iteration | [modules/advanced_root_finder.md](modules/advanced_root_finder.md) |
+| `Interpolator` | Linear interpolation, Chebyshev nodes, Chebyshev approximation | [modules/interpolator.md](modules/interpolator.md) |
+| `CubicSpline` | Natural cubic spline | [modules/cubic_spline.md](modules/cubic_spline.md) |
+| `NumericalDifferentiator` | Forward, backward, central differences, second derivative, Richardson | [modules/numerical_differentiator.md](modules/numerical_differentiator.md) |
+| `BasicIntegrator` | Trapezoidal, Midpoint | [modules/basic_integrator.md](modules/basic_integrator.md) |
+| `AdvancedIntegrator` | Simpson's 1/3, Romberg | [modules/advanced_integrator.md](modules/advanced_integrator.md) |
+| `BasicODESolver` | Euler, Heun | [modules/basic_ode_solver.md](modules/basic_ode_solver.md) |
+| `AdvancedODESolver` | RK3, RK4 | [modules/advanced_ode_solver.md](modules/advanced_ode_solver.md) |
+| `AdamsBashforthSolver` | Adams-Bashforth 2 and 4 | [modules/adams_bashforth_solver.md](modules/adams_bashforth_solver.md) |
+| `AdamsMoultonSolver` | Adams-Moulton 2 and 4 | [modules/adams_moulton_solver.md](modules/adams_moulton_solver.md) |
+| `RungeKuttaFehlbergSolver` | Adaptive RKF45 | [modules/runge_kutta_fehlberg_solver.md](modules/runge_kutta_fehlberg_solver.md) |
+| `FiniteDifferenceSolver` | Finite difference method for boundary value problems | [modules/finite_difference_solver.md](modules/finite_difference_solver.md) |
+| `MatrixSolver` | Gaussian elimination, LU decomposition | [modules/matrix_solver.md](modules/matrix_solver.md) |
+| `ConjugateGradientSolver` | Conjugate gradient | [modules/conjugate_gradient_solver.md](modules/conjugate_gradient_solver.md) |
 
 ## 4. Project Structure
 
@@ -38,82 +49,147 @@ We used the following structure for our project:
 
 ```text
 Numerical-Computing-Group-23/
-│
-├── README.md
-├── CMakeLists.txt
-├── LICENSE
-├── .gitignore
-│
-│
-├── documents/
-│    └── Helpers report.md
-│
+├── documentation/
+│   ├── helpers-report.md (to be added)
+│   │   
+│   │   
+│   ├── modules/ (to be added)
+│   │   ├── adams_bashforth_solver.md
+│   │   ├── adams_moulton_solver.md
+│   │   ├── advanced_integrator.md
+│   │   ├── advanced_ode_solver.md
+│   │   ├── advanced_root_finder.md
+│   │   ├── basic_integrator.md
+│   │   ├── basic_ode_solver.md
+│   │   ├── basic_root_finder.md
+│   │   ├── command_line_app.md
+│   │   ├── conjugate_gradient_solver.md
+│   │   ├── cubic_spline.md
+│   │   ├── examples.md
+│   │   ├── finite_difference_solver.md
+│   │   ├── interpolator.md
+│   │   ├── matrix_solver.md
+│   │   ├── numerical_differentiator.md
+│   │   ├── runge_kutta_fehlberg_solver.md
+│   │   ├── shared_helpers.md
+│   │   └── test_framework.md
+│   ├── Doxyfile (to be added)
+│   ├── README.md (to be added)
+│   ├── algorithm-report.md (to be added)
+│   └── testing.md (to be added)
+├── examples/
+│   ├── CMakeLists.txt
+│   ├── example_adams_bashforth_solver.cpp
+│   ├── example_adams_bashforth_solver_applied.cpp
+│   ├── example_adams_moulton_solver.cpp
+│   ├── example_adams_moulton_solver_applied.cpp
+│   ├── example_advanced_integrator.cpp
+│   ├── example_advanced_integrator_applied.cpp
+│   ├── example_advanced_ode_solver.cpp
+│   ├── example_advanced_ode_solver_applied.cpp
+│   ├── example_advanced_root_finder.cpp
+│   ├── example_advanced_root_finder_applied.cpp
+│   ├── example_basic_integrator.cpp
+│   ├── example_basic_integrator_applied.cpp
+│   ├── example_basic_ode_solver.cpp
+│   ├── example_basic_ode_solver_applied.cpp
+│   ├── example_basic_root_finder.cpp
+│   ├── example_basic_root_finder_applied.cpp
+│   ├── example_conjugate_gradient_solver.cpp
+│   ├── example_conjugate_gradient_solver_applied.cpp
+│   ├── example_cubic_spline.cpp
+│   ├── example_cubic_spline_applied.cpp
+│   ├── example_finite_difference_solver.cpp
+│   ├── example_finite_difference_solver_applied.cpp
+│   ├── example_helpers.hpp
+│   ├── example_interpolator.cpp
+│   ├── example_interpolator_applied.cpp
+│   ├── example_matrix_solver.cpp
+│   ├── example_matrix_solver_applied.cpp
+│   ├── example_numerical_differentiator.cpp
+│   ├── example_numerical_differentiator_applied.cpp
+│   ├── example_runge_kutta_fehlberg_solver.cpp
+│   └── example_runge_kutta_fehlberg_solver_applied.cpp
 ├── include/
 │   └── numerical-computing/
+│       ├── adams_bashforth_solver.hpp (to be added)
+│       ├── adams_moulton_solver.hpp (to be added)
 │       ├── advanced_integrator.hpp
 │       ├── advanced_ode_solver.hpp
-│       ├── advanced_root_finder.hpp 
-│       ├── basic_integrator.hpp     
+│       ├── advanced_root_finder.hpp
+│       ├── basic_integrator.hpp
 │       ├── basic_ode_solver.hpp
 │       ├── basic_root_finder.hpp
-│       ├── basic_root_finder.hpp
+│       ├── conjugate_gradient_solver.hpp (to be added)
 │       ├── cubic_spline.hpp
+│       ├── finite_difference_solver.hpp (to be added)
 │       ├── interpolator.hpp
 │       ├── matrix_solver.hpp
-│       └── (last modules to be added this week)
-│
+│       ├── numcomp.hpp (to be added)
+│       ├── numerical_differentiator.hpp (to be added)
+│       └── runge_kutta_fehlberg_solver.hpp (to be added)
+├── reports/
+│   ├── week-01.md
+│   ├── week-02.md
+│   ├── week-03.md
+│   ├── week-04.md
+│   └── final report (to be added)
 ├── src/
-│   ├── advanced_integrator.cpp
+│   ├── app/ (to be added)
+│   │   ├── catalog.cpp
+│   │   ├── catalog.hpp
+│   │   ├── console_ui.cpp
+│   │   ├── console_ui.hpp
+│   │   ├── module_menus.cpp
+│   │   └── module_menus.hpp
+│   ├── internal/
+│   │   ├── input_checks.cpp
+│   │   ├── input_checks.hpp
+│   │   ├── multistep.cpp (to be added)
+│   │   ├── multistep.hpp (to be added)
+│   │   ├── ode_stepper.cpp
+│   │   ├── ode_stepper.hpp
+│   │   ├── tridiagonal.cpp (to be added)
+│   │   └── tridiagonal.hpp (to be added)
+│   ├── adams_bashforth_solver.cpp (to be added)
+│   ├── adams_moulton_solver.cpp (to be added)
+│   ├── advanced_integrator.cpp 
 │   ├── advanced_ode_solver.cpp
 │   ├── advanced_root_finder.cpp
 │   ├── basic_integrator.cpp
 │   ├── basic_ode_solver.cpp
+│   ├── basic_root_finder.cpp
+│   ├── conjugate_gradient_solver.cpp (to be added)
+│   ├── cubic_spline.cpp
+│   ├── finite_difference_solver.cpp (to be added)
 │   ├── interpolator.cpp
 │   ├── main.cpp
-│   ├── basic_root_finder.cpp
-│   ├── cubic_spline.cpp
-│   └── matrix_solver.cpp
-│
+│   ├── matrix_solver.cpp
+│   ├── numerical_differentiator.cpp (to be added)
+│   └── runge_kutta_fehlberg_solver.cpp (to be added)
 ├── tests/
 │   ├── CMakeLists.txt
-│   ├── run_all_tests.sh
+│   ├── run_all_tests.sh (to be updated by Pauline)
+│   ├── test_adams_bashforth_solver.cpp (to be added)
+│   ├── test_adams_moulton_solver.cpp (to be added)
 │   ├── test_advanced_integrator.cpp
-│   ├── test_advanced_ode.cpp (to be added in week 4)
+│   ├── test_advanced_ode_solver.cpp
 │   ├── test_advanced_root_finder.cpp
 │   ├── test_basic_integrator.cpp
-│   ├── test_basic_interpolator.cpp
-│   ├── test_basic_ode_solver.cpp (to be added in week 4)
-│   ├── test_basic_root_finder.cpp (to be added in week 4)
-│   ├── test_cubic_spline.cpp 
-│   └── test_matrix-solver.cpp (to be added in week 4)
-│
-├── examples/ 
-│   ├── example_advanced_integrator_applied.cpp
-│   ├── example_advanced_integrator.cpp
-│   ├── example_advanced_ode_solver_applied.cpp
-│   ├── example_advanced_ode_solver.cpp
-│   ├── example_advanced_roots_finder_applied.cpp
-│   ├── example_advanced_roots_finder.cpp
-│   ├── example_basic_integrator_applied.cpp
-│   ├── example_basic_integrator.cpp
-│   ├── example_basic_ode_solver_applied.cpp
-│   ├── example_basic_ode_solver.cpp
-│   ├── example_basic_roots_solver_applied.cpp
-│   ├── example_basic_root_finder.cpp  
-│   ├── example_interpolation_applied.cpp
-│   ├── example_interpolation.cpp
-│   ├── example_cubic_spline_applied.cpp 
-│   ├── example_cubic_spline.cpp
-│   ├── example_matrix_solver_applied.cpp
-│   ├── example_matrix_solver.cpp 
-│   └── example_helpers.hpp
-│
-└── reports/
-    ├── week-01.md
-    ├── week-02.md
-    ├── week-03.md
-    ├── week-04.md
-    └── final-report.md (to be added in week 5)
+│   ├── test_basic_ode_solver.cpp
+│   ├── test_basic_root_finder.cpp
+│   ├── test_conjugate_gradient_solver.cpp (to be added)
+│   ├── test_cubic_spline.cpp
+│   ├── test_finite_difference_solver.cpp (to be added)
+│   ├── test_helpers.hpp
+│   ├── test_interpolator.cpp
+│   ├── test_matrix_solver.cpp
+│   ├── test_numerical_differentiator.cpp (to be added)
+│   └── test_runge_kutta_fehlberg_solver.cpp (to be added)
+├── .gitignore
+├── CMakeLists.txt
+├── LICENSE
+└── README.md
 ```
 
 ## 5. Build the Library
