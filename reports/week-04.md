@@ -2,18 +2,22 @@
 
 ## NB
 
-Bridget reminded us about some modules we had completely forgotten to implement. We are going to work together in the remaining period to implement them in the remaining time.
+- Bridget reminded us about some modules we had completely forgotten to implement. We are going to work together in the remaining period to implement them in the remaining time.
+- We are now restructing the entire repository and we divided the missing modules amongst ourselves and this time we are to all work together and help each other on all of them so as to meet the deadline
+- All files that need updating in the repository are going to be updated.
+- Our apologies if things seem messy at the moment (TRUST THE PROCESS)
 
  The missing modules are the following (to be implemented next week by all of us together)
  
-- Numerical Differentiation
-- Finite Difference Method
-- Runge-Kutta_Fehlberg
-- Conjugate Gradient
-- Adams-Bashforth and Adams-Moulton
-- Chebyshev Approximation (some missing methods)
+- Numerical Differentiation (to be worked upon mainly by Jairus(Leader)) 
+- Finite Difference Method (to be worked upon mainly by Sharon(Member 3)) 
+- Runge-Kutta-Fehlberg (RKF45) (to be worked upon mainly by George(Member 5)) 
+- Conjugate Gradient (to be worked upon mainly by Valeria(Member 4)) 
+- Adams-Bashforth (AB2, AB4) (to be worked upon mainly by Ian(Memer 6))
+- Adams-Moulton (AM2, AM4) (to be worked upon mainly by Samuel(Member 7)) 
+- Chebyshev Approximation updates (some missing methods) (to be worked upon mainly by Calvin(member 2)) 
 
-We agreed to implement helper functions to prevent code repeatition so all the next code will be shorter and more efficient
+- We agreed to implement helper functions to prevent code repeatition so all the next code will be shorter and more efficient
 
 ## Completed
 
@@ -22,6 +26,7 @@ We agreed to implement helper functions to prevent code repeatition so all the n
 - I added professional comments to basic root finder module to make it easy to understand.
 - I added catch and throw functions to the basic root finder code.
 - I added the internal helper functions for input checks to avoid repetition and urged the other members to implement them in their modules.
+- I added the examples and tests for the basic root finder module,
 
 **Member 2 (Batte Derrick Calvin):** 
 
@@ -131,26 +136,47 @@ I updated the main source file again.
 
 - VS code had issues so i committed the code twice. It's now been fixed.
 
+**ALL**
+
+- Restructure the work division to meet deadline due to miscounting required modules earlier.
+
+
 
 ## Next Week
 
-- **Member 1 (Chemisto Jairus - Lead):** 
+ **Member 1 (Chemisto Jairus - Lead):** 
 
-- **Member 2 (Batte Derrick Calvin):** 
+- Numerical Differentiation
 
-- **Member 3 (Aogon Sharon):** 
+**Member 2 (Batte Derrick Calvin):** 
 
-- **Member 4 (Bakalu Valeria):** 
+- Chebyshev Approximation updates
 
-- **Member 5 (Wasswa George Mpanga):** 
+**Member 3 (Aogon Sharon):** 
 
-- **Member 6 (Mwanje Ian):** 
+- Finite Difference Method 
 
-- **Member 7 (Muwanguzi Samuel):** 
+**Member 4 (Bakalu Valeria):** 
 
-- **Member 8 (Kyeyune Praise Pauline):** 
+- Conjugate Gradient
 
-- **Member 9 (Nabakooza Bridget Maria):** 
+**Member 5 (Wasswa George Mpanga):** 
+
+- Runge-Kutta-Fehlberg
+
+**Member 6 (Mwanje Ian):** 
+
+- Adams-Bashforth
+
+**Member 7 (Muwanguzi Samuel):** 
+
+- Adams-Moulton (AM2, AM4)
+
+**Member 8 (Kyeyune Praise Pauline):** 
+
+- Updating the auto tester and seeing whethr all the modules are functioning well
+
+**Member 9 (Nabakooza Bridget Maria):** 
 
  - Finalizing the UI for the main source file and including the remaining modules in the main.
 
