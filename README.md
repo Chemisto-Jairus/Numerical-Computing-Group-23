@@ -52,7 +52,6 @@ Numerical-Computing-Group-23/
 ├── documentation/
 │   ├── helpers-report.md (to be added)
 │   │   
-│   │   
 │   ├── modules/ (to be added)
 │   │   ├── adams_bashforth_solver.md
 │   │   ├── adams_moulton_solver.md
