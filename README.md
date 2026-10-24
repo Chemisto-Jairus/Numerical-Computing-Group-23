@@ -670,7 +670,7 @@ echo "✅ Finished! Your root directory remained entirely untouched."
 
 ## 10. Limitations
 
-- [Basic root finder ](documentation/modules/basic_root_finder.md#6-limitations)
+- Basic root finder [Limits](documentation/modules/basic_root_finder.md#6-limitations)
 
 
 ## 11. Contributions by Group Members
