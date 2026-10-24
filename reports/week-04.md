@@ -31,6 +31,7 @@ We agreed to implement helper functions to prevent code repeatition so all the n
 - I wrote the test for Cubic spline.
 - I wrote  the matrix solver module.
 - I added the helper functions to all my modules.
+- I wrote examples for the cubic spline and matrix solver modules.
 
 **Member 3 (Aogon Sharon):** 
 
@@ -89,9 +90,9 @@ I updated the main source file again.
 
 **Member 2 (Batte Derrick Calvin):** 
 
-- I am writing examples for cubic spline interpolation module and interpolator.
+- I am writing examples for cubic spline interpolation module and interpolator. (done)
 - I am writing the matrix solver module. (DONE)
-- I am writing tests for the matrix solver module as well as examples.
+- I am writing tests for the matrix solver module as well as examples. (done)
 - I am documenting my modules.
 
 **Member 3 (Aogon Sharon):** 
