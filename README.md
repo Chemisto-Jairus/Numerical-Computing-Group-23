@@ -403,6 +403,7 @@ cd "$ORIGINAL_DIR"
 echo "✅ Finished! Your library is built and installed inside the Safe Build folder."
 
 ```
+
 - It should open the folder where the library that can be used it located 
 
 
@@ -420,7 +421,31 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 
 ## 8. Examples
 
-*(Placeholder - in Week 4, we will add instructions here on how to run the demo files from the `examples/` folder)*
+### Basic root finder
+
+**A. Standard Equations**
+[Equation and values tested](<documentation/examples results/basic_root_finder.md#equations-and-values-tested>)
+[Error Handling & Edge Cases](<documentation/examples results/basic_root_finder.md#error-handling--edge-cases>)
+
+**B. Applied Problems**
+[Equation and values tested](<documentation/examples results/basic_root_finder.md#equations-and-values-tested-applied>)
+
+### Advanced_root_finder
+
+### Basic integrator
+
+### Advanced integrator
+
+### Basic_ode_solver
+
+### Advanced ode solver
+
+### Cubic_spline
+
+### Interpolator
+
+### Matrix_solver
+
 
 ## 9. Run the Tests
 
