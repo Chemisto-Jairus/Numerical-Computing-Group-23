@@ -37,6 +37,7 @@
 - I wrote  the matrix solver module.
 - I added the helper functions to all my modules.
 - I wrote examples for the cubic spline and matrix solver modules.
+- I documented my modules for the previous weeks
 
 **Member 3 (Aogon Sharon):** 
 
