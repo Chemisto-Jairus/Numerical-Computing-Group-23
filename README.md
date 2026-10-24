@@ -649,19 +649,18 @@ echo "✅ Finished! Your root directory remained entirely untouched."
 - Root finders can fail to converge
 - ODE solvers use a fixed step and a 1,000,000-step cap
 - Gaussian elimination is for small dense matrices and rejects singular ones
-- Differentiation, Adams methods and conjugate gradient were not yet built
 
 ## 11. Contributions by Group Members
 
 | Name | Student Number | Project Role / Assigned Module |
 | :--- | :--- | :--- |
-| CHEMISTO JAIRUS | 25/U/07928/PS | Member 1 (Lead) / Basic Root Finding |
-| BATTE DERRICK CALVIN | 25/U/0717 | Member 2 / Interpolation (Linear, Chebyshev, Spline) |
-| Aogon Sharon | 25/U/08690/PS | Member 3 / Basic Numerical Integration |
-| BAKALU VALERIA | 25/U/07924/PS | Member 4 / Advanced Root Finding |
-| WASSWA GEORGE MPANGA | 25/U/08793/PS | Member 5 / Advanced Numerical Integration |
-| MWANJE IAN | 25/U/08757/PS | Member 6 / Basic ODE Solvers |
-| MUWANGUZI SAMUEL | 25/U/0843 | Member 7 / Advanced ODE Solvers |
+| CHEMISTO JAIRUS | 25/U/07928/PS | Member 1 (Lead) / Basic Root Finding / Numerical Differentiation|
+| BATTE DERRICK CALVIN | 25/U/0717 | Member 2 / Interpolation (Linear, Chebyshev, Spline) / Matrix Solvers |
+| Aogon Sharon | 25/U/08690/PS | Member 3 / Basic Numerical Integration / Finite Difference Method |
+| BAKALU VALERIA | 25/U/07924/PS | Member 4 / Advanced Root Finding / Conjugate Gradient |
+| WASSWA GEORGE MPANGA | 25/U/08793/PS | Member 5 / Advanced Numerical Integration / Runge-Kutta-Fehlberg (RKF45) |
+| MWANJE IAN | 25/U/08757/PS | Member 6 / Basic ODE Solvers / Adams-Bashforth (AB2, AB4) |
+| MUWANGUZI SAMUEL | 25/U/0843 | Member 7 / Advanced ODE Solvers / Adams-Moulton (AM2, AM4) |
 | KYEYUNE PRAISE PAULINE | 25/U/07943/PS | Member 8 / Linear Algebra & Unit Testing |
 | Nabakooza Bridget Maria | 25/U/07592/PS | Member 9 / Demo Examples & Final Documentation |
 
