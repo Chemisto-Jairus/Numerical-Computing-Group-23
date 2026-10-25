@@ -52,6 +52,7 @@
 - I added more tests for the advanced root finder.
 - I implemented helpers in my module
 - I added examples for the module
+- I documented the advanced root finder module.
 
 **Member 5 (Wasswa George Mpanga):** 
 
