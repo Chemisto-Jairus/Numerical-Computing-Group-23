@@ -73,6 +73,7 @@
 - I debugged advanced ode solver
 - I built examples and tests for advanced ode solver
 - I implemented the helpers for the examples
+- I documented advanced ode solver
 
 
 **Member 8 (Kyeyune Praise Pauline):** 
