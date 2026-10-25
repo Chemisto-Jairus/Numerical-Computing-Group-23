@@ -50,10 +50,10 @@ We used the following structure for our project:
 ```text
 Numerical-Computing-Group-23/
 ├── documentation/
-│   ├── helpers-report.md (to be added)
+│   ├── Helpers report.md 
 │   │   
 │   │ 
-│   ├── examples results
+│   ├── examples results (to be added)
 │   │       ├── results_adams_bashforth_solver.md
 │   │       ├── results_adams_moulton_solver.md
 │   │       ├── results_advanced_integrator.md
@@ -469,6 +469,25 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 
 ## Basic integrator
 
+**A. Standard Integrals**
+
+[Trapezoidal and Midpoint Baselines](<documentation/examples results/results_basic_integrator.md#trapezoidal-and-midpoint-baselines>)
+
+[Second-Order Convergence](<documentation/examples results/results_basic_integrator.md#second-order-convergence>)
+
+[Reversed Limits](<documentation/examples results/results_basic_integrator.md#reversed-limits>)
+
+[Invalid Input Exceptions](<documentation/examples results/results_basic_integrator.md#invalid-input-exceptions>)
+
+**B. Applied Integrals**
+
+[Distance from Velocity](<documentation/examples results/results_basic_integrator.md#distance-from-velocity>)
+
+[Normal Distribution Probability](<documentation/examples results/results_basic_integrator.md#normal-distribution-probability>)
+
+[Work Done by a Spring](<documentation/examples results/results_basic_integrator.md#work-done-by-a-spring>)
+
+
 ## Advanced integrator
 
 ## Basic_ode_solver
@@ -758,6 +777,7 @@ echo "✅ Finished! Your root directory remained entirely untouched."
 - Cubic spline [See module report](documentation/modules/cubic_spline.md#6-limitations)
 - Matrix solver [See module report](documentation/modules/matrix_solver.md#7-limitations)
 - Advanced root finder [See module report](documentation/modules/advanced_root_finder.md#6-limitations)
+- Basic Integrator [See module report](documentation/modules/basic_integrator.md#6-limitations)
 
 
 ## 11. Contributions by Group Members

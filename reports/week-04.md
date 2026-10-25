@@ -44,6 +44,7 @@
 - I added professional comments to basic integrator
 - Debugged basic integrator module. (no warnings were being given if a or b were infinity)
 - I added the helper functions to my basic integrator
+- I documented the basic Integrator module.
 
 **Member 4 (Bakalu Valeria):** 
 
@@ -105,7 +106,7 @@ I updated the main source file again.
 **Member 3 (Aogon Sharon):** 
 
 - Writing examples files for the advanced integration module.
-- Documenting the module
+- Documenting the module (done)
 
 **Member 8 (Kyeyune Praise Pauline):** 
 
