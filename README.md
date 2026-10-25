@@ -453,6 +453,24 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 
 ## Advanced_root_finder
 
+**A. Standard Root Finding**
+
+[Secant Method Baseline](<documentation/examples results/results_advanced_root_finder.md#secant-method-baseline>)
+
+[Fixed-Point Iteration Baseline](<documentation/examples results/results_advanced_root_finder.md#fixed-point-iteration-baseline>)
+
+[Divergence and Algorithm Stability (Choice of $g$)](<documentation/examples results/results_advanced_root_finder.md#divergence-and-algorithm-stability-choice-of->)
+
+[Invalid Input Exceptions](<documentation/examples results/results_advanced_root_finder.md#invalid-input-exceptions>)
+
+**B. Applied Problems**
+
+[Loan Interest Rate](<documentation/examples results/results_advanced_root_finder.md#loan-interest-rate>)
+
+[Babylonian Square Roots](<documentation/examples results/results_advanced_root_finder.md#babylonian-square-roots>)
+
+[Spherical Tank Water Depth](<documentation/examples results/results_advanced_root_finder.md#spherical-tank-water-depth>)
+
 ## Basic integrator
 
 ## Advanced integrator
@@ -743,6 +761,7 @@ echo "✅ Finished! Your root directory remained entirely untouched."
 - Interpolator [See module report](documentation/modules/interpolator.md#7-limitations)
 - Cubic spline [See module report](documentation/modules/cubic_spline.md#6-limitations)
 - Matrix solver [See module report](documentation/modules/matrix_solver.md#7-limitations)
+- Advanced root finder [See module report](documentation/modules/advanced_root_finder.md#6-limitations)
 
 
 ## 11. Contributions by Group Members
