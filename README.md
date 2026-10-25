@@ -428,10 +428,6 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 
 *(Placeholder - will be added later)*
 
-### Windows
-
-*(Placeholder - will be added later)*
-
 ## 7. Use the Library in Your Own Program
 
 *(Placeholder - we will add a quick start guide here showing how to link the compiled library once it is fully built)*
