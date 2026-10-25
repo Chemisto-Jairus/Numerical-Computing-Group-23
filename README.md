@@ -494,6 +494,24 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 
 ## Advanced ode solver
 
+**A. Standard Runge-Kutta Methods**
+
+[Exponential Decay Baseline](<documentation/examples results/results_advanced_ode_solver.md#exponential-decay-baseline>)
+
+[Order of Accuracy Verification](<documentation/examples results/results_advanced_ode_solver.md#order-of-accuracy-verification>)
+
+[Alternative Right-Hand Sides](<documentation/examples results/results_advanced_ode_solver.md#alternative-right-hand-sides>)
+
+[Invalid Input Exceptions](<documentation/examples results/results_advanced_ode_solver.md#invalid-input-exceptions>)
+
+**B. Applied ODE Models**
+
+[RC Circuit Charging](<documentation/examples results/results_advanced_ode_solver.md#rc-circuit-charging>)
+
+[Pharmacokinetics (Drug Infusion)](<documentation/examples results/results_advanced_ode_solver.md#pharmacokinetics-drug-infusion>)
+
+
+
 ## Cubic_spline
 
 **A. Standard Cubic Spline**
@@ -778,6 +796,7 @@ echo "✅ Finished! Your root directory remained entirely untouched."
 - Matrix solver [See module report](documentation/modules/matrix_solver.md#7-limitations)
 - Advanced root finder [See module report](documentation/modules/advanced_root_finder.md#6-limitations)
 - Basic Integrator [See module report](documentation/modules/basic_integrator.md#6-limitations)
+- Advanced ODE solver [See module report](documentation/modules/advanced_ode_solver.md#6-limitations)
 
 
 ## 11. Contributions by Group Members
