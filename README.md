@@ -739,82 +739,105 @@ git --version
 ```text
 
 # ==========================================
-# 1. SETUP SANDBOX ENVIRONMENT
+# 1. SETUP SAFE ENVIRONMENT
 # ==========================================
 ORIGINAL_DIR=$(pwd)
-SANDBOX_DIR="$HOME/git_bash_sandbox"
+SAFE_DIR="$HOME/Group23_Safe_Build"
 
-echo "📦 Creating restriction-free sandbox at: $SANDBOX_DIR"
-# Remove any old sandbox remnants and create a fresh copy
-rm -rf "$SANDBOX_DIR"
-mkdir -p "$SANDBOX_DIR"
+echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
+# Remove any old remnants and create a fresh copy
+rm -rf "$SAFE_DIR"
+mkdir -p "$SAFE_DIR"
 
-# Copy all project contents to the sandbox
-cp -r . "$SANDBOX_DIR"
+# Copy all project contents to the safe folder
+cp -r . "$SAFE_DIR"
 
-# Jump into the sandbox to carry out operations
-cd "$SANDBOX_DIR"
+# Jump into the safe folder to carry out operations
+cd "$SAFE_DIR"
 
 # ==========================================
-# 2. GENERALIZED COMPILE AND TEST LOGIC
+# 2. CHECK FILES & ADJUST FOR CMAKE
 # ==========================================
-LIB="src/basic_root_finder.cpp src/advanced_root_finder.cpp src/interpolator.cpp src/cubic_spline.cpp src/basic_integrator.cpp src/advanced_integrator.cpp src/basic_ode_solver.cpp src/advanced_ode_solver.cpp src/matrix_solver.cpp"
+LIB="src/adams_bashforth_solver.cpp \
+src/adams_moulton_solver.cpp \
+src/advanced_integrator.cpp \
+src/advanced_ode_solver.cpp \
+src/advanced_root_finder.cpp \
+src/basic_integrator.cpp \
+src/basic_ode_solver.cpp \
+src/basic_root_finder.cpp \
+src/conjugate_gradient_solver.cpp \
+src/cubic_spline.cpp \
+src/finite_difference_solver.cpp \
+src/interpolator.cpp \
+src/matrix_solver.cpp \
+src/numerical_differentiator.cpp \
+src/runge_kutta_fehlberg_solver.cpp"
 
-VALID_LIB=""
 MISSING_FILES=()
 
-# Filter out missing files dynamically
+echo ">>> Checking for missing source files..."
 for file in $LIB; do
-    if [ -f "$file" ]; then
-        VALID_LIB="$VALID_LIB $file"
-    else
+    if [ ! -f "$file" ]; then
         base_name=$(basename "$file" .cpp)
         MISSING_FILES+=("$base_name")
         echo "⚠️ Warning: Source file '$file' is missing. Skipping..."
+        
+        # TRICK: Create an empty dummy file in the safe folder so CMake 
+        # doesn't crash if this file is hardcoded in CMakeLists.txt!
+        touch "$file"
     fi
 done
 
-COMPILED_EXES=()
-
-# Compile tests into the sandbox's tests/ folder
+echo ">>> Filtering tests..."
 for t in tests/test_*.cpp; do
+    [ -e "$t" ] || continue 
     name=$(basename "$t" .cpp)
     
-    skip_test=false
     for missing in "${MISSING_FILES[@]}"; do
         core_test_name="${name#test_}"
         if [[ "$core_test_name" == *"$missing"* || "$missing" == *"$core_test_name"* ]]; then
-            skip_test=true
+            echo "⏭️ Skipping test: $name (dependent source file is missing)"
+            # Remove the test from the safe folder so CMake ignores it completely
+            rm -f "$t"
             break
         fi
     done
-
-    if [ "$skip_test" = true ]; then
-        echo "⏭️ Skipping test: $name (dependent source file is missing)"
-        continue
-    fi
-
-    echo "🔨 Building executable: tests/$name"
-    if g++ -std=c++17 -Wall -Wextra -I include "$t" $VALID_LIB -o "tests/$name"; then
-        COMPILED_EXES+=("tests/$name")
-    fi
 done
 
-# Run the test runner script inside the sandbox environment
-if [ ${#COMPILED_EXES[@]} -gt 0 ]; then
-    cd tests
-    bash run_all_tests.sh
-    cd ..
+# ==========================================
+# 3. CMAKE BUILD
+# ==========================================
+mkdir -p build
+cd build
+
+echo ">>> Configuring CMake..."
+cmake -G "MinGW Makefiles" ..
+
+echo ">>> Compiling with CMake..."
+cmake --build .
+
+# ==========================================
+# 4. RUN TESTS & OPEN EXPLORER
+# ==========================================
+echo ">>> Running automated tests..."
+cd tests
+
+# Check if any .exe tests were actually compiled before trying to run the script
+if ls *.exe 1> /dev/null 2>&1; then
+    bash ../../../Group23_Safe_Build/tests/run_all_tests.sh
 else
     echo "❌ No tests were compiled. Skipping test runner."
 fi
 
-# ==========================================
-# 3. TEARDOWN AND SANITIZATION
-# ==========================================
-echo "🧹 Tearing down sandbox and restoring focus..."
+# Step back out of tests into the build folder
+cd ..
+
+echo ">>> Opening build folder in Windows File Explorer..."
+explorer .
+
+# Return to original directory in the terminal
 cd "$ORIGINAL_DIR"
-rm -rf "$SANDBOX_DIR"
 echo "✅ Finished! Your root directory remained entirely untouched."
 
 
