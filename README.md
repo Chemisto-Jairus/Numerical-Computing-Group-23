@@ -239,49 +239,36 @@ ORIGINAL_DIR=$(pwd)
 SAFE_DIR="$HOME/Group23_Safe_Build"
 
 echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
-# Remove any old remnants and create a fresh copy
 rm -rf "$SAFE_DIR"
 mkdir -p "$SAFE_DIR"
-
-# Copy all project contents to the safe folder
 cp -r . "$SAFE_DIR"
-
-# Jump into the safe folder to carry out operations
 cd "$SAFE_DIR"
 
 # ==========================================
 # 2. CHECK FILES & ADJUST FOR CMAKE
 # ==========================================
-LIB="src/basic_root_finder.cpp src/advanced_root_finder.cpp src/interpolator.cpp src/cubic_spline.cpp src/basic_integrator.cpp src/advanced_integrator.cpp src/basic_ode_solver.cpp src/advanced_ode_solver.cpp src/matrix_solver.cpp"
-MISSING_FILES=()
+LIB="src/adams_bashforth_solver.cpp \
+src/adams_moulton_solver.cpp \
+src/advanced_integrator.cpp \
+src/advanced_ode_solver.cpp \
+src/advanced_root_finder.cpp \
+src/basic_integrator.cpp \
+src/basic_ode_solver.cpp \
+src/basic_root_finder.cpp \
+src/conjugate_gradient_solver.cpp \
+src/cubic_spline.cpp \
+src/finite_difference_solver.cpp \
+src/interpolator.cpp \
+src/matrix_solver.cpp \
+src/numerical_differentiator.cpp \
+src/runge_kutta_fehlberg_solver.cpp"
 
 echo ">>> Checking for missing source files..."
 for file in $LIB; do
     if [ ! -f "$file" ]; then
-        base_name=$(basename "$file" .cpp)
-        MISSING_FILES+=("$base_name")
-        echo "⚠️ Warning: Source file '$file' is missing. Skipping..."
-        
-        # TRICK: Create an empty dummy file in the safe folder so CMake 
-        # doesn't crash if this file is hardcoded in CMakeLists.txt!
+        echo "⚠️ Warning: Source file '$file' is missing. Creating a dummy file to prevent CMake errors..."
         touch "$file"
     fi
-done
-
-echo ">>> Filtering tests..."
-for t in tests/test_*.cpp; do
-    [ -e "$t" ] || continue 
-    name=$(basename "$t" .cpp)
-    
-    for missing in "${MISSING_FILES[@]}"; do
-        core_test_name="${name#test_}"
-        if [[ "$core_test_name" == *"$missing"* || "$missing" == *"$core_test_name"* ]]; then
-            echo "⏭️ Skipping test: $name (dependent source file is missing)"
-            # Remove the test from the safe folder so CMake ignores it completely
-            rm -f "$t"
-            break
-        fi
-    done
 done
 
 # ==========================================
@@ -297,27 +284,13 @@ echo ">>> Compiling with CMake..."
 cmake --build .
 
 # ==========================================
-# 4. RUN TESTS & OPEN EXPLORER
+# 4. FINISH & OPEN EXPLORER
 # ==========================================
-echo ">>> Running automated tests..."
-cd tests
-
-# Check if any .exe tests were actually compiled before trying to run the script
-if ls *.exe 1> /dev/null 2>&1; then
-    bash ../../../Group23_Safe_Build/tests/run_all_tests.sh
-else
-    echo "❌ No tests were compiled. Skipping test runner."
-fi
-
-# Step back out of tests into the build folder
-cd ..
-
 echo ">>> Opening build folder in Windows File Explorer..."
 explorer .
 
-# Return to original directory in the terminal
 cd "$ORIGINAL_DIR"
-echo "✅ Finished! Your root directory remained entirely untouched."
+echo "✅ Finished! The library has been built inside $SAFE_DIR/build."
 
 ```
 
@@ -357,7 +330,6 @@ winget install -e --id Kitware.CMake
 # ==========================================
 ORIGINAL_DIR=$(pwd)
 SAFE_DIR="$HOME/Group23_Safe_Build"
-INSTALL_DIR="$SAFE_DIR/numcomp2"
 
 echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
 rm -rf "$SAFE_DIR"
@@ -366,58 +338,56 @@ cp -r . "$SAFE_DIR"
 cd "$SAFE_DIR"
 
 # ==========================================
-# 2. CHECK FILES TO PREVENT COMPILER CRASHES
+# 2. CHECK FILES & ADJUST FOR CMAKE
 # ==========================================
-LIB="src/basic_root_finder.cpp src/advanced_root_finder.cpp src/interpolator.cpp src/cubic_spline.cpp src/basic_integrator.cpp src/advanced_integrator.cpp src/basic_ode_solver.cpp src/advanced_ode_solver.cpp src/matrix_solver.cpp"
-MISSING_FILES=()
+LIB="src/adams_bashforth_solver.cpp \
+src/adams_moulton_solver.cpp \
+src/advanced_integrator.cpp \
+src/advanced_ode_solver.cpp \
+src/advanced_root_finder.cpp \
+src/basic_integrator.cpp \
+src/basic_ode_solver.cpp \
+src/basic_root_finder.cpp \
+src/conjugate_gradient_solver.cpp \
+src/cubic_spline.cpp \
+src/finite_difference_solver.cpp \
+src/interpolator.cpp \
+src/matrix_solver.cpp \
+src/numerical_differentiator.cpp \
+src/runge_kutta_fehlberg_solver.cpp"
 
 echo ">>> Checking for missing source files..."
 for file in $LIB; do
     if [ ! -f "$file" ]; then
-        base_name=$(basename "$file" .cpp)
-        MISSING_FILES+=("$base_name")
-        echo "⚠️ Warning: Source file '$file' is missing. Creating dummy file..."
+        echo "⚠️ Warning: Source file '$file' is missing. Creating a dummy file to prevent CMake errors..."
         touch "$file"
     fi
-done
-
-echo ">>> Removing broken tests so compilation succeeds..."
-for t in tests/test_*.cpp; do
-    [ -e "$t" ] || continue 
-    name=$(basename "$t" .cpp)
-    
-    for missing in "${MISSING_FILES[@]}"; do
-        core_test_name="${name#test_}"
-        if [[ "$core_test_name" == *"$missing"* || "$missing" == *"$core_test_name"* ]]; then
-            rm -f "$t"
-            break
-        fi
-    done
 done
 
 # ==========================================
 # 3. CMAKE BUILD & INSTALL
 # ==========================================
-echo ">>> Configuring CMake (Release Mode)..."
-cmake -S . -B build -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release
+mkdir -p build
+cd build
+
+echo ">>> Configuring CMake with local install directory..."
+cmake -G "MinGW Makefiles" -DCMAKE_INSTALL_PREFIX="../install" ..
 
 echo ">>> Compiling with CMake..."
-cmake --build build
+cmake --build .
 
-echo ">>> Installing library..."
-cmake --install build --prefix "$INSTALL_DIR"
+echo ">>> Installing the library..."
+cmake --install .
 
 # ==========================================
 # 4. FINISH & OPEN EXPLORER
 # ==========================================
-echo ">>> Opening the INSTALLED folder in Windows File Explorer..."
-# Convert the Git Bash path to a Windows path so Explorer can read it
-WIN_PATH=$(cygpath -w "$INSTALL_DIR")
-explorer "$WIN_PATH"
+echo ">>> Opening install folder in Windows File Explorer..."
+cd ../install
+explorer .
 
-# Return to original directory in the terminal
 cd "$ORIGINAL_DIR"
-echo "✅ Finished! Your library is built and installed inside the Safe Build folder."
+echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/install."
 
 ```
 

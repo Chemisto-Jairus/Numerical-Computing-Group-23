@@ -84,6 +84,7 @@
 - I updated the auto tester
 - I finalized the auto tester for the current modules
 - I helped Calvin create the test for his matrix solver module.
+- I updated the auto tester and build model to prepare for the new modules that are coming using the names we agreed on.
 
 **Member 9 (Nabakooza Bridget Maria):** 
 
