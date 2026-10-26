@@ -5,7 +5,8 @@
 - Bridget reminded us about some modules we had completely forgotten to implement. We are going to work together in the remaining period to implement them in the remaining time.
 - We are now restructing the entire repository and we divided the missing modules amongst ourselves and this time we are to all work together and help each other on all of them so as to meet the deadline
 - All files that need updating in the repository are going to be updated.
-- Our apologies if things seem messy at the moment (TRUST THE PROCESS)
+- Our apologies if things seem messy at the moment (TRUST THE PROCESS) .
+- We are organizing the new documentation to cater for the other modules.
 
  The missing modules are the following (to be implemented next week by all of us together)
  
