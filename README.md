@@ -402,7 +402,9 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 
 *(Placeholder - we will add a quick start guide here showing how to link the compiled library once it is fully built)*
 
-## 8. Examples
+## 8. Examples 
+
+**Find more about the examples for all modules** [here](documentation/modules/examples.md)
 
 ## Basic root finder
 

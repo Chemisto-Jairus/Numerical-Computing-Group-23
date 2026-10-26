@@ -2,7 +2,7 @@
 /**
  * @file example_helpers.hpp
  * @brief Shared output and error-handling helpers for the example programs in examples/.
- * @author Muwanguzi Samuel (Member 7)
+ * @author Nabakooza Bridget Maria (Member 9)
  *
  * Every example prints a title, groups its work into sections, and shows
  * results next to the exact answer where one is known. Each section runs
