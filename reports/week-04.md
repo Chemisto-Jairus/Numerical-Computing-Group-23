@@ -60,6 +60,7 @@
 - I added comments to the header file and then fixed the advanced integrator logic.
 - I updated tests for advanced integrator.
 - I completed the examples for the advanced integrator and used the helper functions
+- I  documented Advanced Integrator
 
 **Member 6 (Mwanje Ian):** 
 
