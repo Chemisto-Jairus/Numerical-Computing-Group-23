@@ -28,10 +28,15 @@ enable_testing()
 add_subdirectory(tests)
 
 # The command-line app
-add_executable(numcomp_app src/main.cpp)
+add_executable(numcomp_app
+    src/main.cpp
+    src/app/console_ui.cpp
+    src/app/catalog.cpp
+    src/app/module_menus.cpp
+)
 target_link_libraries(numcomp_app numcomp2)
 
-# Install rules (optional step, see README "Install the Library"):
+# Install rules 
 #   cmake --install build --prefix <folder>
 # copies the library to <folder>/lib, the headers to <folder>/include
 # and the app to <folder>/bin.
