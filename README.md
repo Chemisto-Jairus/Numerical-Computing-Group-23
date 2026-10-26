@@ -490,6 +490,24 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 
 ## Advanced integrator
 
+**A. Standard Integrals**
+
+[Simpson's Rule Baseline Tests](<documentation/examples results/results_advanced_integrator.md#simpsons-rule-baseline-tests>)
+
+[Simpson's Rule Convergence](<documentation/examples results/results_advanced_integrator.md#simpsons-rule-convergence>)
+
+[Romberg Integration Accuracy](<documentation/examples results/results_advanced_integrator.md#romberg-integration-accuracy>)
+
+[Invalid Input Exceptions](<documentation/examples results/results_advanced_integrator.md#invalid-input-exceptions>)
+
+**B. Applied Integrals**
+
+[Error Function $\text{erf}(1)$](<documentation/examples results/results_advanced_integrator.md#error-function>)
+
+[Arc Length of Parabola $y = x^2$](<documentation/examples results/results_advanced_integrator.md#arc-length-of-parabola>)
+
+[Algorithm Cost Comparison](<documentation/examples results/results_advanced_integrator.md#algorithm-cost-comparison>)
+
 ## Basic_ode_solver
 
 ## Advanced ode solver
@@ -797,6 +815,7 @@ echo "✅ Finished! Your root directory remained entirely untouched."
 - Advanced root finder [See module report](documentation/modules/advanced_root_finder.md#6-limitations)
 - Basic Integrator [See module report](documentation/modules/basic_integrator.md#6-limitations)
 - Advanced ODE solver [See module report](documentation/modules/advanced_ode_solver.md#6-limitations)
+- Advanced Integrator [See module repor](documentation/modules/advanced_integrator.md#6-limitations)
 
 
 ## 11. Contributions by Group Members
