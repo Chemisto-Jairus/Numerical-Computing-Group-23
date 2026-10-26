@@ -510,6 +510,22 @@ echo "✅ Finished! Your library is built and installed inside the Safe Build fo
 
 ## Basic_ode_solver
 
+**A. Standard ODE Solving**
+
+[Exponential Growth Baseline](<documentation/examples results/results_basic_ode_solver.md#exponential-growth-baseline>)
+
+[Order of Accuracy](<documentation/examples results/results_basic_ode_solver.md#order-of-accuracy>)
+
+[Additional Right-Hand Sides](<documentation/examples results/results_basic_ode_solver.md#additional-right-hand-sides>)
+
+[Invalid Input Exceptions](<documentation/examples results/results_basic_ode_solver.md#invalid-input-exceptions>)
+
+**B. Applied Models**
+
+[Newton's Law of Cooling](<documentation/examples results/results_basic_ode_solver.md#newtons-law-of-cooling>)
+
+[Logistic Population Growth](<documentation/examples results/results_basic_ode_solver.md#logistic-population-growth>)
+
 ## Advanced ode solver
 
 **A. Standard Runge-Kutta Methods**
@@ -815,7 +831,8 @@ echo "✅ Finished! Your root directory remained entirely untouched."
 - Advanced root finder [See module report](documentation/modules/advanced_root_finder.md#6-limitations)
 - Basic Integrator [See module report](documentation/modules/basic_integrator.md#6-limitations)
 - Advanced ODE solver [See module report](documentation/modules/advanced_ode_solver.md#6-limitations)
-- Advanced Integrator [See module repor](documentation/modules/advanced_integrator.md#6-limitations)
+- Advanced Integrator [See module report](documentation/modules/advanced_integrator.md#6-limitations)
+- Basic ODE solver  [See module report](documentation/modules/basic_ode_solver.md#6-limitations)
 
 
 ## 11. Contributions by Group Members

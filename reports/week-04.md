@@ -145,6 +145,10 @@ I updated the main source file again.
 
 - Restructure the work division to meet deadline due to miscounting required modules earlier.
 
+**Member 6 (Mwanje Ian):**
+
+- Had PC issues so he asked me (Member 7) to push for him his documentation for Basic ODE solver
+
 
 
 ## Next Week
