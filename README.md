@@ -230,7 +230,7 @@ winget install -e --id Kitware.CMake
 - Run Git bash as administrator and right click on the repository folder and select open git bash here
 - Paste the code below in your git bash terminal
 
-```text
+```code
 
 # ==========================================
 # 1. SETUP SAFE ENVIRONMENT
@@ -313,7 +313,7 @@ echo "✅ Finished! The library has been built inside $SAFE_DIR/build."
 
 - Open Command prompt on your pc and enter this code
 
-```text
+```code
 
 winget install -e --id Kitware.CMake
 
@@ -323,7 +323,7 @@ winget install -e --id Kitware.CMake
 - Right click on it and select open Git bash here and paste the code below. 
 
 
-```text
+```code
 
 # ==========================================
 # 1. SETUP SAFE ENVIRONMENT
@@ -581,18 +581,18 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 
 - Open Command prompt on your pc and enter this code
 
-```text
+```code
 
 winget install -e --id Kitware.CMake
 
 ``` 
 
-**2. Building the library**
+**2. Building the library and testing**
 
 - Run Git bash as administrator and right click on the repository folder and select open git bash here
 - Paste the code below in your git bash terminal
 
-```text
+```code
 
 # ==========================================
 # 1. SETUP SAFE ENVIRONMENT
@@ -706,7 +706,7 @@ git --version
 - Run git bash as administrator and open the root repository folder
 - Once you are inside the root folder. paste this code in your git bash terminal
 
-```text
+```code
 
 # ==========================================
 # 1. SETUP SAFE ENVIRONMENT
