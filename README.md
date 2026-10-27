@@ -577,6 +577,8 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 
 ## 9. Run the Tests
 
+**The documentation of the testing framework can be found**  [here](documentation/modules/test_framework.md)
+
 ## OPTION A: (USING Cmake/Git bash)
 
 **1. How to install Cmake**
