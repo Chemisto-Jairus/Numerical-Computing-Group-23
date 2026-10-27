@@ -4,6 +4,7 @@
  * @author Batte Derrick Calvin (Member 2)
  *
  * - Reading values between the rows of a measured temperature table.
+ * - Replacing the Runge function by one Chebyshev approximation polynomial.
  * - Comparing equally spaced samples with Chebyshev samples when a curve
  *   is rebuilt by linear interpolation, and explaining which wins and why.
  */
@@ -45,7 +46,7 @@ double max_linear_error(numcomp::Interpolator& interp, F f, const std::vector<do
 int main()
 {
     numcomp::Interpolator interp;
-    demo::title("Interpolator (applied)", "Temperature table look-up and choosing sample points");
+    demo::title("Interpolator (applied)", "Table look-up, sample points and a global Chebyshev polynomial");
 
     demo::section("Hourly temperature readings (deg C) between 06:00 and 18:00", [&] {
         std::vector<double> hour = {6, 8, 10, 12, 14, 16, 18};
@@ -76,6 +77,24 @@ int main()
         std::cout << "  Equal spacing wins here: Chebyshev nodes pay off for one global polynomial\n";
         std::cout << "  through all the points (they stop Runge oscillations), not for piecewise\n";
         std::cout << "  linear interpolation, where the error depends on the widest gap.\n";
+    });
+
+    demo::section("One global polynomial for 1 / (1 + 25 x^2): Chebyshev approximation", [&] {
+        auto f = [](double x) { return 1.0 / (1.0 + 25.0 * x * x); };
+        demo::table_header({"degree", "max error"});
+        for (int n : {5, 9, 17, 33, 65})
+        {
+            std::vector<double> c = interp.chebyshev_coefficients(f, -1.0, 1.0, n);
+            double worst = 0.0;
+            for (int k = 0; k <= 400; ++k)
+            {
+                double x = -1.0 + k / 200.0;
+                worst = std::max(worst, std::abs(interp.chebyshev_approximate(c, -1.0, 1.0, x) - f(x)));
+            }
+            demo::table_row({static_cast<double>(n - 1), worst}, 4);
+        }
+        std::cout << "  Built on Chebyshev nodes, a single polynomial converges to the Runge function\n";
+        std::cout << "  as the degree grows. Through equally spaced points it would oscillate instead.\n";
     });
 
     return demo::finish();

@@ -1,6 +1,11 @@
-// Tests for numcomp::CubicSpline (natural cubic spline)
-// Owner: Batte Derrick Calvin (Member 2)
-// Uses the shared helpers in test_helpers.hpp.
+/**
+ * @file test_cubic_spline.cpp
+ * @brief Unit tests for numcomp::CubicSpline (natural cubic spline).
+ * @author Batte Derrick Calvin (Member 2)
+ *
+ * Covers normal use, edge cases and invalid input. Each check prints [PASS] or [FAIL];
+ * the program returns 0 only if every check passed (see test_helpers.hpp).
+ */
 
 #include "numerical-computing/cubic_spline.hpp"
 #include "test_helpers.hpp"
@@ -11,6 +16,7 @@
 using test::check;
 using test::close;
 
+/// Typical inputs compared with known exact answers.
 void normal_cases()
 {
     numcomp::CubicSpline spline;
@@ -56,6 +62,7 @@ void normal_cases()
     check("Spline of sin(x) with 11 points is within 1e-3", near_sin);
 }
 
+/// Boundary situations: end points, reversed intervals, minimum sizes.
 void edge_cases()
 {
     numcomp::CubicSpline spline;
@@ -70,6 +77,7 @@ void edge_cases()
     check("Uneven spacing and negative x: line is exact", close(spline.interpolate(-2.0, {-4.0, -3.5, -1.0, 0.0, 2.5}, {-7.0, -6.0, -1.0, 1.0, 6.0}), -3.0, 1e-12));
 }
 
+/// Invalid arguments must throw the exception documented in the header.
 void invalid_input()
 {
     numcomp::CubicSpline spline;
@@ -82,6 +90,10 @@ void invalid_input()
     test::expect_throw<std::out_of_range>("x above the data throws out_of_range", [&] { spline.interpolate(2.1, {0.0, 1.0, 2.0}, {0.0, 1.0, 0.0}); });
 }
 
+/**
+ * @brief Runs every test group.
+ * @return 0 if all checks passed, 1 otherwise.
+ */
 int main()
 {
     std::cout << "[*] Running Cubic Spline Tests..." << std::endl;
