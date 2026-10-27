@@ -219,7 +219,7 @@ Numerical-Computing-Group-23/
 
 - Open Command prompt on your pc and enter this code
 
-```text
+```bash
 
 winget install -e --id Kitware.CMake
 
@@ -230,7 +230,7 @@ winget install -e --id Kitware.CMake
 - Run Git bash as administrator and right click on the repository folder and select open git bash here
 - Paste the code below in your git bash terminal
 
-```code
+```bash
 
 # ==========================================
 # 1. SETUP SAFE ENVIRONMENT
@@ -313,7 +313,7 @@ echo "✅ Finished! The library has been built inside $SAFE_DIR/build."
 
 - Open Command prompt on your pc and enter this code
 
-```code
+```bash
 
 winget install -e --id Kitware.CMake
 
@@ -323,7 +323,7 @@ winget install -e --id Kitware.CMake
 - Right click on it and select open Git bash here and paste the code below. 
 
 
-```code
+```bash
 
 # ==========================================
 # 1. SETUP SAFE ENVIRONMENT
@@ -597,7 +597,7 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 
 - Open Command prompt on your pc and enter this code
 
-```code
+```bash
 
 winget install -e --id Kitware.CMake
 
@@ -608,7 +608,7 @@ winget install -e --id Kitware.CMake
 - Run Git bash as administrator and right click on the repository folder and select open git bash here
 - Paste the code below in your git bash terminal
 
-```code
+```bash
 
 # ==========================================
 # 1. SETUP SAFE ENVIRONMENT
@@ -707,7 +707,7 @@ echo "✅ Finished! Your root directory remained entirely untouched."
 
 **1. Check your tools (once)**
 
-```text
+```bash
 
 g++ --version        # needs C++17 support: g++ 8 or newer
 cmake --version      # needs 3.10 or newer
@@ -722,7 +722,7 @@ git --version
 - Run git bash as administrator and open the root repository folder
 - Once you are inside the root folder. paste this code in your git bash terminal
 
-```code
+```bash
 
 # ==========================================
 # 1. SETUP SAFE ENVIRONMENT
