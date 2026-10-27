@@ -59,4 +59,4 @@ Every test file covers the three groups required by the project instructions (Se
 
 - `ctest` in the build folder runs the 15 test programs and the 30 examples (45 entries).
 - `bash tests/run_all_tests.sh` from the repository root does the same, with a per-program PASSED / FAILED / SKIPPED summary. It also works for a g++ build: `bash tests/run_all_tests.sh build-gpp`.
-- Full instructions for g++ and CMake are in `docs/guides/pauline-test-guide.html`.
+- Full instructions for g++ and CMake are in README file. (Pauline_guide was given by AI to help me understand how to run the file)
