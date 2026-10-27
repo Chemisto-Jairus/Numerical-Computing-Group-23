@@ -50,7 +50,7 @@ We used the following structure for our project:
 ```text
 Numerical-Computing-Group-23/
 ├── documentation/
-│   ├── Helpers report.md 
+│   │
 │   │   
 │   │ 
 │   ├── examples results (to be added)
