@@ -40,7 +40,7 @@ I made the following changes to my modules
 
 **Member 7 (Muwanguzi Samuel):** 
 
--
+- I implemented the first part of adams_moulton_solver
 
 **Member 8 (Kyeyune Praise Pauline):** 
 
@@ -86,3 +86,8 @@ I made the following changes to my modules
 - Tool: Claude 
 - Purpose: To learn how to add helpers to the main.cpp file i had built in the previous weeks.
 - Reason: I did not know how to efficiently do this and i needed to get it done in time.
+
+**Member 7 (Muwanguzi Samuel):** 
+- Tool: Claude
+- Purpose:  Helped me get the basic idea of the adams moulton method and identify and fix bugs
+- Reason: To understand the solver and to help find out the cause of the errors
