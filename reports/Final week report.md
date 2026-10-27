@@ -13,6 +13,7 @@
 **Member 2 (Batte Derrick Calvin):** 
 
 I made the following changes to my modules
+
 - CubicSpline now uses the shared tridiagonal solver instead of its own copy.
 - Added Chebyshev approximation to Interpolator.
 - Add full Doxygen documentation to Interpolator, CubicSpline and MatrixSolver.
@@ -25,7 +26,8 @@ I made the following changes to my modules
 
 **Member 4 (Bakalu Valeria):** 
 
--
+- I implemented the Conjugate gradient module.
+- I uploaded some tests for that module as well.
 
 **Member 5 (Wasswa George Mpanga):** 
 
@@ -64,6 +66,10 @@ I made the following changes to my modules
 **Member 2 (Batte Derrick Calvin):** 
 
 - Helping other members who need a hand and making sure everything is running efficiently.
+
+**Member 4 (Bakalu Valeria):** 
+
+- I am building the examples and handling the documentation of all my Modules
 
 ## Challenges/Blockers
 - 
