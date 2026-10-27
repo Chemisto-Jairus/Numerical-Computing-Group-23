@@ -1,9 +1,14 @@
 # Final Week Progress Report
 
 ## Completed
+
 **Member 1 (Chemisto Jairus - Lead):** 
 
--
+- I implemented part of the Numerical differentiator module.
+- I uploaded the updated Helpers report for all the modules. Find it at [shared_helpers](../documentation/modules/shared_helpers.md)
+- I wrote the numcomp file that includes all our header files. Find it at [numcomp](../include/numerical-computing/numcomp.hpp)
+- I added the multi step helper functions to be used by the Adams-Bashforth and Adams-Moulton methods. Find them at [multistep](../src/internal)
+- I added the trigiagonal helper functions to be used for tridiagonal linear systems. Find them at [text](../src/internal)
 
 **Member 2 (Batte Derrick Calvin):** 
 
@@ -45,6 +50,11 @@
 **Member 9 (Nabakooza Bridget Maria):** 
 
 - Still building the UI of the app.
+
+**Member 1 (Chemisto Jairus - Lead):** 
+
+- Finalizing the Numerical Differentiator.
+- Documenting my modules.
 
 ## Challenges/Blockers
 - 
