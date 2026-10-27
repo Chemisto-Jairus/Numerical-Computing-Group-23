@@ -31,7 +31,8 @@
 
 **Member 8 (Kyeyune Praise Pauline):** 
 
--
+- I updated the auto tester to include the missing modules soon to be added.
+- I documented the testing framework.
 
 **Member 9 (Nabakooza Bridget Maria):** 
 
