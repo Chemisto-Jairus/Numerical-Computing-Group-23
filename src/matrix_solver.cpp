@@ -1,20 +1,28 @@
+/**
+ * @file matrix_solver.cpp
+ * @brief Implementation of numcomp::MatrixSolver (Gaussian elimination and LU decomposition).
+ * @author Batte Derrick Calvin (Member 2)
+ */
+
 #include "numerical-computing/matrix_solver.hpp"
 #include "internal/input_checks.hpp"
 #include <cmath>
 #include <stdexcept>
-#include <utility>   // std::swap
+#include <utility>
 
 namespace numcomp
 {
-    // -----------------------------------------------------------------
-    // Helpers used by BOTH solvers. "static" means they are private to
-    // this file: they are not part of the public MatrixSolver API.
-    // Before, each solver had its own copy of this code.
-    // -----------------------------------------------------------------
-
-    /// Finds the row (from k down) with the biggest absolute value in column k.
-    /// Picking the biggest value keeps rounding errors small.
-    /// @throws std::runtime_error If every candidate is (almost) zero: the matrix is singular.
+    /**
+     * @brief Finds the partial-pivoting row for column k.
+     *
+     * Searches rows k..n-1 for the largest absolute value in column k.
+     * Shared by both solvers; static, so it is private to this file.
+     *
+     * @param M  Matrix being reduced.
+     * @param k  Current column, which is also the first candidate row.
+     * @return Index of the pivot row.
+     * @throws std::runtime_error If the largest candidate is below 1e-12 (singular matrix).
+     */
     static int find_pivot_row(const std::vector<std::vector<double>>& M, int k)
     {
         int n = static_cast<int>(M.size());
@@ -27,7 +35,6 @@ namespace numcomp
             }
         }
 
-        // If even the biggest value is (almost) zero, we cannot divide by it
         if (std::abs(M[pivot_row][k]) < 1e-12)
         {
             throw std::runtime_error("Matrix is singular (no unique solution).");
@@ -35,7 +42,16 @@ namespace numcomp
         return pivot_row;
     }
 
-    /// Solves U x = y when U is upper triangular, last row first.
+    /**
+     * @brief Solves U x = y for an upper triangular U, from the last row upwards.
+     *
+     * x_i = ( y_i - sum_{j > i} U_ij x_j ) / U_ii.
+     * Shared by both solvers; static, so it is private to this file.
+     *
+     * @param U  Upper triangular matrix with non-zero diagonal.
+     * @param y  Right-hand side.
+     * @return The solution x.
+     */
     static std::vector<double> back_substitution(const std::vector<std::vector<double>>& U, const std::vector<double>& y)
     {
         int n = static_cast<int>(U.size());
@@ -52,21 +68,19 @@ namespace numcomp
         return x;
     }
 
-    /// Gaussian elimination. See matrix_solver.hpp.
     std::vector<double> MatrixSolver::gaussian_elimination(const std::vector<std::vector<double>>& A, const std::vector<double>& b)
     {
-        checks::check_square_system(A, b);   // shared helper: non-empty, square, b fits
+        checks::check_square_system(A, b);
 
         int n = static_cast<int>(A.size());
 
-        // Work on copies so the caller's A and b are not changed
+        // Copies: the elimination overwrites them, the caller's data stays intact.
         std::vector<std::vector<double>> M = A;
         std::vector<double> rhs = b;
 
-        // Step 1: forward elimination, one column at a time
+        // Forward elimination, column by column.
         for (int k = 0; k < n; ++k)
         {
-            // Move the best pivot row up to row k
             int p = find_pivot_row(M, k);
             if (p != k)
             {
@@ -74,7 +88,7 @@ namespace numcomp
                 std::swap(rhs[k], rhs[p]);
             }
 
-            // Make every entry below the pivot zero
+            // Subtract a multiple of the pivot row to zero every entry below the pivot.
             for (int i = k + 1; i < n; ++i)
             {
                 double factor = M[i][k] / M[k][k];
@@ -86,20 +100,19 @@ namespace numcomp
             }
         }
 
-        // Step 2: M is now upper triangular, so solve from the bottom up
+        // M is now upper triangular.
         return back_substitution(M, rhs);
     }
 
-    /// LU decomposition solve. See matrix_solver.hpp.
     std::vector<double> MatrixSolver::lu_solve(const std::vector<std::vector<double>>& A, const std::vector<double>& b)
     {
-        checks::check_square_system(A, b);   // shared helper
+        checks::check_square_system(A, b);
 
         int n = static_cast<int>(A.size());
 
-        // U starts as a copy of A and becomes upper triangular.
-        // L starts as the identity matrix and collects the multipliers.
-        // rhs is b, with the same row swaps applied to it.
+        // U starts as A and is reduced to upper triangular form.
+        // L starts as the identity and collects the elimination multipliers.
+        // rhs receives the same row swaps as A (that is, it becomes P b).
         std::vector<std::vector<double>> U = A;
         std::vector<std::vector<double>> L(n, std::vector<double>(n, 0.0));
         for (int i = 0; i < n; ++i)
@@ -108,25 +121,23 @@ namespace numcomp
         }
         std::vector<double> rhs = b;
 
-        // Step 1: build L and U, one column at a time
+        // Factorisation P A = L U.
         for (int k = 0; k < n; ++k)
         {
             int p = find_pivot_row(U, k);
             if (p != k)
             {
-                // Swap the rows in U and in rhs
                 std::swap(U[k], U[p]);
                 std::swap(rhs[k], rhs[p]);
 
-                // Swap only the multipliers already stored in L (columns before k).
-                // The 1s on the diagonal of L stay where they are.
+                // Only the multipliers already stored (columns 0..k-1) move with the row;
+                // the unit diagonal of L stays in place.
                 for (int j = 0; j < k; ++j)
                 {
                     std::swap(L[k][j], L[p][j]);
                 }
             }
 
-            // Eliminate below the pivot and store each multiplier in L
             for (int i = k + 1; i < n; ++i)
             {
                 L[i][k] = U[i][k] / U[k][k];
@@ -137,8 +148,7 @@ namespace numcomp
             }
         }
 
-        // Step 2: forward substitution, solve L y = rhs (top row first).
-        // L has 1s on its diagonal, so there is no division.
+        // Forward substitution L y = P b. L has a unit diagonal, so no division is needed.
         std::vector<double> y(n, 0.0);
         for (int i = 0; i < n; ++i)
         {
@@ -150,7 +160,7 @@ namespace numcomp
             y[i] = rhs[i] - sum;
         }
 
-        // Step 3: back substitution, solve U x = y (shared helper)
+        // Back substitution U x = y.
         return back_substitution(U, y);
     }
 }

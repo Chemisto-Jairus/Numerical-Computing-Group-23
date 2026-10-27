@@ -1,11 +1,13 @@
 /**
  * @file example_interpolator.cpp
- * @brief Demo 1 of 2 for numcomp::Interpolator: linear interpolation and Chebyshev nodes.
+ * @brief Demo 1 of 2 for numcomp::Interpolator: linear interpolation, Chebyshev nodes
+ *        and Chebyshev approximation.
  * @author Batte Derrick Calvin (Member 2)
  */
 
 #include "numerical-computing/interpolator.hpp"
 #include "example_helpers.hpp"
+#include <algorithm>
 #include <cmath>
 #include <vector>
 
@@ -16,7 +18,7 @@
 int main()
 {
     numcomp::Interpolator interp;
-    demo::title("Interpolator", "Linear interpolation and Chebyshev nodes");
+    demo::title("Interpolator", "Linear interpolation, Chebyshev nodes and Chebyshev approximation");
 
     demo::section("Linear interpolation of y = x^2 sampled at x = 0, 1, 2, 3, 4", [&] {
         std::vector<double> x = {0.0, 1.0, 2.0, 3.0, 4.0};
@@ -49,10 +51,32 @@ int main()
         std::cout << "  The nodes crowd towards the ends of the interval.\n";
     });
 
+    demo::section("Chebyshev approximation of e^x on [0, 1]", [&] {
+        auto f = [](double x) { return std::exp(x); };
+        demo::table_header({"terms n", "max error", "last coeff"});
+        for (int n : {2, 4, 6, 8, 10, 12})
+        {
+            std::vector<double> c = interp.chebyshev_coefficients(f, 0.0, 1.0, n);
+            double worst = 0.0;
+            for (int k = 0; k <= 100; ++k)
+            {
+                double x = k / 100.0;
+                worst = std::max(worst, std::abs(interp.chebyshev_approximate(c, 0.0, 1.0, x) - f(x)));
+            }
+            demo::table_row({static_cast<double>(n), worst, c[n - 1]}, 4);
+        }
+        std::cout << "  The error falls by a constant factor with each extra term, and the size\n";
+        std::cout << "  of the last coefficient shows roughly how large the error is.\n";
+    });
+
     demo::section("Invalid input is rejected", [&] {
         demo::show_rejected("x outside the data (x = 5)", [&] { interp.linear_interpolate(5.0, {0.0, 1.0, 2.0}, {0.0, 1.0, 4.0}); });
         demo::show_rejected("x values not increasing", [&] { interp.linear_interpolate(0.5, {0.0, 2.0, 1.0}, {0.0, 4.0, 1.0}); });
         demo::show_rejected("Chebyshev with a > b", [&] { interp.chebyshev_nodes(2.0, 1.0, 4); });
+        demo::show_rejected("Approximation evaluated outside [a, b]", [&] {
+            std::vector<double> c = interp.chebyshev_coefficients([](double x) { return x; }, 0.0, 1.0, 3);
+            interp.chebyshev_approximate(c, 0.0, 1.0, 2.0);
+        });
     });
 
     return demo::finish();
