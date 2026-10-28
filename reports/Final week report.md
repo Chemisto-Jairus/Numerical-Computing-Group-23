@@ -19,6 +19,7 @@ I made the following changes to my modules
 - Add full Doxygen documentation to Interpolator, CubicSpline and MatrixSolver.
 - Sources, tests and examples: file headers and comments that explain the algorithm steps.
 - I helped Pauline check the build on macOS as these were not easily available. (macOS machines)
+- I built the Doxyfile that easily documents the project for other programmers to understand.
 
 
 **Member 3 (Aogon Sharon):** 
@@ -90,12 +91,21 @@ I made the following changes to my modules
 
 
 ## AI Use
+
 **Member 9 (Nabakooza Bridget Maria):** 
+
 - Tool: Claude 
 - Purpose: To learn how to add helpers to the main.cpp file i had built in the previous weeks.
 - Reason: I did not know how to efficiently do this and i needed to get it done in time.
 
 **Member 7 (Muwanguzi Samuel):** 
+
 - Tool: Claude
 - Purpose:  Helped me get the basic idea of the adams moulton method and identify and fix bugs
 - Reason: To understand the solver and to help find out the cause of the errors
+
+**Member 2 (Batte Derrick Calvin):** 
+
+- Tool: Claude
+- Purpose: Documenting using Doxy
+- Reason: I asked claude how to efficiently document the project besides what we have done in regards to the rule of documenting, and it reccomended using the Doxyfile. So it taught me how to use it and made the count of how many doxy comments were made.
