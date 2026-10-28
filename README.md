@@ -8,7 +8,11 @@ The objective of this project is to build a reusable numerical computing library
 - [3. The library at a glance](#3-the-library-at-a-glance-to-be-finalized)
 - [4. Project Structure](#4-project-structure)
 - [5. Build the Library](#5-build-the-library)
+    - [Windows](README.md#windows-build)
+    - [macOS/Linux](README.md#macoslinux-build)
 - [6. Install the Library](#6-install-the-library-if-your-cmake-supports-it)
+    - [Windows](README.md#windows-installation)
+    - [macOS/Linux](README.md#linux-and-macos--installation)
 - [7. Use the Library in Your Own Program](#7-use-the-library-in-your-own-program)
 - [8. Examples](#8-examples)
 - [9. Run the Tests](#9-run-the-tests)
@@ -211,7 +215,7 @@ Numerical-Computing-Group-23/
 
 ## 5. Build the Library
 
-## Windows
+## Windows Build
 
 ### (USING Cmake/Git bash)
 
@@ -297,7 +301,7 @@ echo "✅ Finished! The library has been built inside $SAFE_DIR/build."
 - It should open the folder where the build was created and you can run the numcomp_app.
 
 
-## macOS/Linux 
+## macOS/Linux build
 
 ### Using CMake and Homebrew
 
@@ -392,7 +396,7 @@ echo "✅ Finished! The library has been built inside $SAFE_DIR/build."
 
 ##    NB (To install the library you must build it) 
 
-### Windows
+### Windows Installation
 
 **How to install Cmake**
 
@@ -479,7 +483,7 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 - It should open the folder where the library that can be used it located 
 
 
-### Linux and macOS
+### Linux and macOS  installation
 
 *(Placeholder - will be added later)*
 
