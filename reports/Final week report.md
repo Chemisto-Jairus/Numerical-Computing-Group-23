@@ -18,6 +18,7 @@ I made the following changes to my modules
 - Added Chebyshev approximation to Interpolator.
 - Add full Doxygen documentation to Interpolator, CubicSpline and MatrixSolver.
 - Sources, tests and examples: file headers and comments that explain the algorithm steps.
+- I helped Pauline check the build on macOS as these were not easily available. (macOS machines)
 
 
 **Member 3 (Aogon Sharon):** 
