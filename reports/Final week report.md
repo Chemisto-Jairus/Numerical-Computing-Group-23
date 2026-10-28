@@ -22,7 +22,8 @@ I made the following changes to my modules
 
 **Member 3 (Aogon Sharon):** 
 
--
+- Implemented finite difference solver module.
+
 
 **Member 4 (Bakalu Valeria):** 
 
@@ -76,6 +77,12 @@ I made the following changes to my modules
 
 - I am writing examples and tests for the Runge-Kutta-Fehlberg-Solver.
 - I am documenting all my modules properly and checking if they run efficiently.
+
+**Member 3 (Aogon Sharon):**
+
+- Writing tests and examples for finte difference solver module.
+- Documenting all my implemented modules.
+- Ensuring all the modules' test run efficiemtly.
 
 ## Challenges/Blockers
 - 
