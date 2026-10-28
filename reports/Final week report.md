@@ -31,6 +31,7 @@ I made the following changes to my modules
 
 - I implemented the Conjugate gradient module.
 - I uploaded some tests for that module as well.
+- I added comments to the conjugate gradient and advanced root finder.
 
 **Member 5 (Wasswa George Mpanga):** 
 
@@ -109,3 +110,9 @@ I made the following changes to my modules
 - Tool: Claude
 - Purpose: Documenting using Doxy
 - Reason: I asked claude how to efficiently document the project besides what we have done in regards to the rule of documenting, and it reccomended using the Doxyfile. So it taught me how to use it and made the count of how many doxy comments were made.
+
+**Member 4 (Bakalu Valeria):** 
+
+- Tool: Claude
+- Purpose: Utilizing Doxygen commenting
+- Reason: I wanted to learn how to effectively use the comments
