@@ -40,4 +40,4 @@ Supporting parts:
 
 ## Configuration
 
-- [Doxyfile](Doxyfile): Doxygen settings. Every undocumented item produces a warning, and the current code produces none.
+- [Doxyfile](../Doxyfile): Doxygen settings. Every undocumented item produces a warning, and the current code produces none.
