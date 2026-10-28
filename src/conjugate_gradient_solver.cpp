@@ -1,3 +1,12 @@
+/**
+ * @file conjugate_gradient_solver.cpp
+ * @brief Implementation of numcomp::ConjugateGradientSolver.
+ * @author Bakalu Valeria (Member 4)
+ *
+ * The vector operations the method needs (dot product and matrix-vector
+ * product) are small static helpers, private to this file.
+ */
+
 #include "numerical-computing/conjugate_gradient_solver.hpp"
 #include "internal/input_checks.hpp"
 #include <algorithm>
@@ -6,6 +15,12 @@
 
 namespace numcomp
 {
+    /**
+     * @brief Dot product u . v of two vectors of the same size.
+     * @param u  First vector.
+     * @param v  Second vector.
+     * @return The sum of u_i v_i.
+     */
     static double dot(const std::vector<double>& u, const std::vector<double>& v)
     {
         double sum = 0.0;
@@ -16,6 +31,12 @@ namespace numcomp
         return sum;
     }
 
+    /**
+     * @brief Matrix-vector product A v.
+     * @param A  Square matrix, stored as a vector of rows.
+     * @param v  Vector with as many entries as A has columns.
+     * @return The vector A v.
+     */
     static std::vector<double> multiply(const std::vector<std::vector<double>>& A, const std::vector<double>& v)
     {
         std::vector<double> result(A.size(), 0.0);
@@ -26,6 +47,15 @@ namespace numcomp
         return result;
     }
 
+    /**
+     * @brief Rejects a matrix that is not symmetric (A_ij must equal A_ji).
+     *
+     * A small relative difference is allowed so that values typed with
+     * rounding (for example 0.1 + 0.2 and 0.3) are still accepted.
+     *
+     * @param A  Square matrix.
+     * @throws std::invalid_argument If some A_ij and A_ji differ.
+     */
     static void check_symmetric(const std::vector<std::vector<double>>& A)
     {
         for (std::size_t i = 0; i < A.size(); ++i)
