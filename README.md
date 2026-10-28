@@ -19,6 +19,7 @@ The objective of this project is to build a reusable numerical computing library
 - [10. Limitations](#10-limitations)
 - [11. Contributions by Group Members](#11-contributions-by-group-members)
 - [12. How We Collaborated as a Team](#12-how-we-collaborated-as-a-team)
+- [13. DOXY Documentation](README.md#13-doxy-documentation)
 
 ## 2. Requirements and Dependencies
 
@@ -57,6 +58,12 @@ Numerical-Computing-Group-23/
 │   │
 │   │   
 │   │ 
+│   ├── guides/
+│   │       ├── doxygen_comments_guide.md
+│   │       ├── install_guide.md
+│   │       └── build_guide.md
+│   │
+│   │
 │   ├── examples results (to be added)
 │   │       ├── results_adams_bashforth_solver.md
 │   │       ├── results_adams_moulton_solver.md
@@ -956,3 +963,7 @@ Because we have a large group of 9 people, we had to be very organized so we did
 - **Version Control Strategy:** We used Git and GitHub. Our Project Lead (Chemisto Jairus) set up the initial repository, the empty folder structure (`include`, `src`, `tests`, `examples`, `reports`), and the basic `CMakeLists.txt` on the `main` branch. 
 - **Branching and Pull Requests:** The rest of the team cloned the repository to their local machines. Nobody is allowed to push code directly to `main`. Instead, everyone creates a new branch for their specific assigned module (for example, `feature-interp` for interpolation). Once their C++ code works locally, they push their branch to GitHub and open a Pull Request (PR).
 - **Code Review:** Before a PR is merged into the main branch, at least one other group member reviews the code on GitHub, leaves a comment confirming it looks correct, and then hits the merge button. This ensures everyone understands how the whole library is coming together, not just their own part.
+
+## 13. DOXY Documentation
+
+- To learn how to use the Doxywizard to document the project, visit [doxygen_comments_guide](documentation/guides/doxygen_comments_guide.md)
