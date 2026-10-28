@@ -7,27 +7,34 @@ namespace numcomp
     {
         std::vector<std::pair<double, double>> run_fixed_steps(const ODEFunction& f, double t0, double y0, double t_end, double h, StepRule step)
         {
-            // Same checks for every ODE method, written once
             checks::check_ode_inputs(t0, t_end, h);
 
+            // One (t, y) pair per step plus the start point; reserving the memory
+            // once avoids repeated reallocation of a long curve.
             std::vector<std::pair<double, double>> result;
-            result.push_back({t0, y0});    // store the initial condition
+            result.reserve(static_cast<std::size_t>((t_end - t0) / h) + 2);
+            result.push_back({t0, y0});
 
             double t = t0;
             double y = y0;
-            double eps = 1e-9 * h;         // if less time than this is left, we are at the end
+
+            // Remaining time below eps counts as "arrived": avoids a tiny extra step
+            // caused by floating-point rounding in t + h + h + ...
+            double eps = 1e-9 * h;
 
             while (t_end - t > eps)
             {
-                // Prevent overshooting the target time on the final step
+                // Shorten the final step so it does not overshoot t_end.
                 if (t + h > t_end)
                 {
                     h = t_end - t;
                 }
 
-                y = step(f, t, y, h);      // the only line that differs between methods
+                y = step(f, t, y, h);
                 t = t + h;
-                if (t_end - t <= eps) t = t_end;   // land exactly on t_end
+
+                // Snap the last time value to exactly t_end.
+                if (t_end - t <= eps) t = t_end;
 
                 result.push_back({t, y});
             }

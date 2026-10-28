@@ -40,7 +40,8 @@ I made the following changes to my modules
 
 **Member 6 (Mwanje Ian):** 
 
--
+- I added comments to the ode stepper helpers
+- I implemented the Adam's bashforth module
 
 **Member 7 (Muwanguzi Samuel):** 
 
@@ -88,7 +89,10 @@ I made the following changes to my modules
 - Ensuring all the modules' test run efficiemtly.
 
 ## Challenges/Blockers
-- 
+
+**Member 6 (Mwanje Ian):**
+
+- My pc has issues so my friend Samuel helped me push the work, but it is now fixed
 
 
 ## AI Use
