@@ -94,10 +94,10 @@ Numerical-Computing-Group-23/
 │   │   ├── runge_kutta_fehlberg_solver.md
 │   │   ├── shared_helpers.md
 │   │   └── test_framework.md
-│   ├── Doxyfile (to be added)
-│   ├── README.md (to be added)
-│   ├── algorithm-report.md (to be added)
-│   └── testing.md (to be added)
+│   ├── README.md 
+│   ├── algorithm-report.md 
+│   ├── algorithm-report.md 
+│   └── testing.md 
 ├── examples/
 │   ├── CMakeLists.txt
 │   ├── example_adams_bashforth_solver.cpp
@@ -156,7 +156,7 @@ Numerical-Computing-Group-23/
 │   ├── week-04.md
 │   └── final report (to be added)
 ├── src/
-│   ├── app/ (to be added)
+│   ├── app/ 
 │   │   ├── catalog.cpp
 │   │   ├── catalog.hpp
 │   │   ├── console_ui.cpp
@@ -166,12 +166,12 @@ Numerical-Computing-Group-23/
 │   ├── internal/
 │   │   ├── input_checks.cpp
 │   │   ├── input_checks.hpp
-│   │   ├── multistep.cpp (to be added)
-│   │   ├── multistep.hpp (to be added)
+│   │   ├── multistep.cpp 
+│   │   ├── multistep.hpp 
 │   │   ├── ode_stepper.cpp
 │   │   ├── ode_stepper.hpp
-│   │   ├── tridiagonal.cpp (to be added)
-│   │   └── tridiagonal.hpp (to be added)
+│   │   ├── tridiagonal.cpp 
+│   │   └── tridiagonal.hpp 
 │   ├── adams_bashforth_solver.cpp (to be added)
 │   ├── adams_moulton_solver.cpp (to be added)
 │   ├── advanced_integrator.cpp 
@@ -209,6 +209,7 @@ Numerical-Computing-Group-23/
 │   └── test_runge_kutta_fehlberg_solver.cpp (to be added)
 ├── .gitignore
 ├── CMakeLists.txt
+├── Doxyfile
 ├── LICENSE
 └── README.md
 ```
