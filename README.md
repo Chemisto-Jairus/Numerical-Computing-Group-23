@@ -693,15 +693,15 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 
 **A. Standard Differentiation Formulas**
 
-[First and Second Derivatives Baseline](<documentation/examples results/results_numerical_differentiator_documentation.md#first-and-second-derivatives-baseline>)
+[First and Second Derivatives Baseline](<documentation/examples results/results_numerical_differentiator.md#first-and-second-derivatives-baseline>)
 
-[Order of Accuracy](<documentation/examples results/results_numerical_differentiator_documentation.md#order-of-accuracy>)
+[Order of Accuracy](<documentation/examples results/results_numerical_differentiator.md#order-of-accuracy>)
 
-[Rounding Error Limits](<documentation/examples results/results_numerical_differentiator_documentation.md#rounding-error-limits>)
+[Rounding Error Limits](<documentation/examples results/results_numerical_differentiator.md#rounding-error-limits>)
 
-[Non-Differentiable Corners](<documentation/examples results/results_numerical_differentiator_documentation.md#non-differentiable-corners>)
+[Non-Differentiable Corners](<documentation/examples results/results_numerical_differentiator.md#non-differentiable-corners>)
 
-[Invalid Input Exceptions](<documentation/examples results/results_numerical_differentiator_documentation.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<documentation/examples results/results_numerical_differentiator.md#invalid-input-exceptions>)
 
 **B. Applied Problems** 
 
