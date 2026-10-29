@@ -796,13 +796,21 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 
 ## FiniteDifferenceSolver
 
-## HOW TO RUN THE TESTS 
+## HOW TO RUN THE TESTS INDIVIDUALLY
 
-- If you want to run the tests individually, go to the tests folder in the repository, right click anywhere inside and select open in terminal. It will open windows powershell and paste this code inside.
+- If you want to run the tests individually, go to the tests folder in the build folder, right click anywhere inside and select open in terminal. It will open windows powershell and paste this code inside.
 
 ```shell 
 
-.\test_(filename).exe
+.\test_(module name).exe
+
+```
+
+- For example for the matrix solver test, paste this in the powershell terminal.
+
+```shell 
+
+.\test_matrix_solver.exe
 
 ```
 
