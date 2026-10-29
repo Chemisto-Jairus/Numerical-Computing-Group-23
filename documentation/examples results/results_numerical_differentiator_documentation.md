@@ -1,6 +1,6 @@
 # Numerical Differentiator Examples Documentation
 
-## 1. Standard Differentiation Formulas (`example_numerical_differentiator.cpp`)
+## 1. [Standard Differentiation Formulas](../../examples/example_numerical_differentiator.cpp)
 
 ### First and Second Derivatives Baseline
 * **Tested:** Accuracy of forward, backward, central, Richardson extrapolation, and second derivative formulas at a specific point.
@@ -39,7 +39,7 @@
 
 ---
 
-## 2. Applied Problems (`example_numerical_differentiator_applied.cpp`)
+## 2. [Applied Problems](../../examples/example_numerical_differentiator_applied.cpp)
 
 ### Kinematics (Velocity and Acceleration)
 * **Tested:** Calculating instantaneous velocity (1st derivative) and acceleration (2nd derivative) from a position formula.
