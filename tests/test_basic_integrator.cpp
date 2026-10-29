@@ -1,6 +1,11 @@
-// Tests for numcomp::BasicIntegrator (Trapezoidal + Midpoint rules)
-// Owner: Aogon Sharon (Member 3)
-// Uses the shared helpers in test_helpers.hpp.
+/**
+ * @file test_basic_integrator.cpp
+ * @brief Unit tests for numcomp::BasicIntegrator (Trapezoidal and Midpoint rules).
+ * @author Aogon Sharon (Member 3)
+ *
+ * Covers normal use, edge cases and invalid input. Each check prints [PASS] or [FAIL];
+ * the program returns 0 only if every check passed (see test_helpers.hpp).
+ */
 
 #include "numerical-computing/basic_integrator.hpp"
 #include "test_helpers.hpp"
@@ -11,23 +16,30 @@
 using test::check;
 using test::close;
 
-// Test functions
-double square(double x) { return x * x; }          // integral 0..1 = 1/3
-double line(double x) { return 2.0 * x + 1.0; }    // integral 0..3 = 12
+// Functions with known roots, integrals or fixed points.
+/// @brief Test function: returns x * x (integral 0..1 = 1/3).
+/// @param x  Point of evaluation.
+/// @return The function value.
+double square(double x) { return x * x; }
+/// @brief Test function: returns 2.0 * x + 1.0 (integral 0..3 = 12).
+/// @param x  Point of evaluation.
+/// @return The function value.
+double line(double x) { return 2.0 * x + 1.0; }
 
+/// Typical inputs compared with known exact answers.
 void normal_cases()
 {
     numcomp::BasicIntegrator integrator;
     const double pi = std::acos(-1.0);
     auto s = [](double x) { return std::sin(x); };
 
-    // From Week 3
     check("Trapezoidal: x^2 on [0, 1] with n = 100 is close to 1/3", close(integrator.trapezoidal_rule(square, 0.0, 1.0, 100), 1.0 / 3.0, 1e-4));
     check("Midpoint: x^2 on [0, 1] with n = 100 is close to 1/3", close(integrator.midpoint_rule(square, 0.0, 1.0, 100), 1.0 / 3.0, 1e-4));
     check("Trapezoidal: sin on [0, pi] is close to 2", close(integrator.trapezoidal_rule(s, 0.0, pi, 1000), 2.0, 1e-5));
     check("Midpoint: sin on [0, pi] is close to 2", close(integrator.midpoint_rule(s, 0.0, pi, 1000), 2.0, 1e-5));
 }
 
+/// Cases where the method is exact, so the tolerance can be very tight.
 void exact_results()
 {
     numcomp::BasicIntegrator integrator;
@@ -41,6 +53,7 @@ void exact_results()
     check("Midpoint: x^2 with n = 10 is exactly 1/3 - 1/1200", close(integrator.midpoint_rule(square, 0.0, 1.0, 10), 1.0 / 3.0 - 1.0 / 1200.0, 1e-12));
 }
 
+/// Boundary situations: end points, reversed intervals, minimum sizes.
 void edge_cases()
 {
     numcomp::BasicIntegrator integrator;
@@ -52,6 +65,7 @@ void edge_cases()
     check("Trapezoidal: 2x + 1 on [-2, -1] is exactly -2", close(integrator.trapezoidal_rule(line, -2.0, -1.0, 4), -2.0, 1e-12));
 }
 
+/// Invalid arguments must throw the exception documented in the header.
 void invalid_input()
 {
     numcomp::BasicIntegrator integrator;
@@ -65,6 +79,10 @@ void invalid_input()
     test::expect_throw<std::invalid_argument>("Midpoint: b = infinity throws invalid_argument", [&] { integrator.midpoint_rule(square, 0.0, inf, 10); });
 }
 
+/**
+ * @brief Runs every test group.
+ * @return 0 if all checks passed, 1 otherwise.
+ */
 int main()
 {
     std::cout << "[*] Running Basic Integration Tests..." << std::endl;

@@ -721,6 +721,24 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 
 ## FiniteDifferenceSolver
 
+**A. Linear Two-Point Boundary Value Problems**
+
+[Poisson Equation Baseline](<documentation/examples results/results_finite_difference_solver.md#poisson-equation-baseline>)
+
+[Order of Accuracy](<documentation/examples results/results_finite_difference_solver.md#order-of-accuracy>)
+
+[Variable Coefficients BVP](<documentation/examples results/results_finite_difference_solver.md#variable-coefficients-bvp>)
+
+[Invalid Input Exceptions](<documentation/examples results/results_finite_difference_solver.md#invalid-input-exceptions>)
+
+**B. Applied Boundary Value Problems** 
+
+[Cooling Fin Heat Transfer](<documentation/examples results/results_finite_difference_solver.md#cooling-fin-heat-transfer>)
+
+[Hanging Cable Sag](<documentation/examples results/results_finite_difference_solver.md#hanging-cable-sag>)
+
+
+
 ## 9. Run the Tests and Documentation
 
 **The documentation of the testing framework can be found**  [here](documentation/modules/test_framework.md)
@@ -823,6 +841,14 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 ## ConjugateGradientSolver
 
 ## FiniteDifferenceSolver
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_finite_difference_solver.md#accuracy-on-standard-problems>)
+
+[Observed Order of Convergence](<documentation/tests results/test_results_finite_difference_solver.md#observed-order-of-convergence>)
+
+[Boundaries and Grid Structure](<documentation/tests results/test_results_finite_difference_solver.md#boundaries-and-grid-structure>)
+
+[Invalid Input and Singular Systems](<documentation/tests results/test_results_finite_difference_solver.md#invalid-input-and-singular-systems>)
 
 ## HOW TO RUN THE TESTS INDIVIDUALLY
 
