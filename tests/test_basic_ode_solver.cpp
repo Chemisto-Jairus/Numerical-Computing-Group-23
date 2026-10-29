@@ -1,6 +1,11 @@
-// Tests for numcomp::BasicODESolver (Euler + Heun)
-// Owner: Mwanje Ian (Member 6)
-// Uses the shared helpers in test_helpers.hpp.
+/**
+ * @file test_basic_ode_solver.cpp
+ * @brief Unit tests for numcomp::BasicODESolver (Euler and Heun).
+ * @author Mwanje Ian (Member 6)
+ *
+ * Covers normal use, edge cases and invalid input. Each check prints [PASS] or [FAIL];
+ * the program returns 0 only if every check passed (see test_helpers.hpp).
+ */
 
 #include "numerical-computing/basic_ode_solver.hpp"
 #include "test_helpers.hpp"
@@ -13,12 +18,24 @@
 using test::check;
 using test::close;
 
-// Test ODEs: dy/dt = f(t, y)
-double constant_rhs(double, double) { return 1.0; }          // y = t
-double linear_rhs(double t, double) { return 2.0 * t; }      // y = t^2
-double cos_rhs(double t, double) { return std::cos(t); }     // y = sin(t)
-double growth_rhs(double, double y) { return y; }            // y = e^t
+// Right-hand sides f(t, y) of the test problems dy/dt = f(t, y).
+/// @brief Test function: returns 1.0 (exact solution y = t).
+/// @return The function value.
+double constant_rhs(double, double) { return 1.0; }
+/// @brief Test function: returns 2.0 * t (exact solution y = t^2).
+/// @param t  Time.
+/// @return The function value.
+double linear_rhs(double t, double) { return 2.0 * t; }
+/// @brief Test function: returns std::cos(t) (exact solution y = sin(t)).
+/// @param t  Time.
+/// @return The function value.
+double cos_rhs(double t, double) { return std::cos(t); }
+/// @brief Test function: returns y (exact solution y = e^t).
+/// @param y  Current value.
+/// @return The function value.
+double growth_rhs(double, double y) { return y; }
 
+/// Accuracy on polynomial, trigonometric and exponential problems, plus the observed order of convergence.
 void accuracy()
 {
     numcomp::BasicODESolver solver;
@@ -48,6 +65,7 @@ void accuracy()
     check("Heun: halving h quarters the error (ratio close to 4)", heun_ratio > 3.6 && heun_ratio < 4.4);
 }
 
+/// Structure of the returned curve: first point, number of points, exact final time.
 void curve_shape()
 {
     numcomp::BasicODESolver solver;
@@ -66,12 +84,13 @@ void curve_shape()
     check("Heun: works from t0 = -1 to t_end = 1 (dy/dt = 2t, y(-1) = 1)", close(solver.heun(linear_rhs, -1.0, 1.0, 1.0, 0.1).back().second, 1.0, 1e-12));
 }
 
+/// Every invalid time interval or step size must throw std::invalid_argument.
 void errors()
 {
     numcomp::BasicODESolver solver;
     double nan = std::numeric_limits<double>::quiet_NaN();
 
-    // The same 6 bad inputs are tried on both methods
+    // The same six invalid inputs are applied to both methods.
     struct BadInput { const char* label; double t0; double t_end; double h; };
     std::vector<BadInput> bad = {
         {"h = 0", 0.0, 1.0, 0.0},
@@ -91,6 +110,10 @@ void errors()
     }
 }
 
+/**
+ * @brief Runs every test group.
+ * @return 0 if all checks passed, 1 otherwise.
+ */
 int main()
 {
     std::cout << "[*] Running Basic ODE Solver Tests..." << std::endl;
