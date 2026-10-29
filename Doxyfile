@@ -1,20 +1,20 @@
 # =====================================================================
 # Doxygen configuration for the Group 23 Numerical Computing 2 library.
-# Run from the repository root:   doxygen docs/Doxyfile
-# Open the result:                docs/api/html/index.html
+# Run from the repository root:   Doxyfile
+# Open the result:                documentation/api/html/index.html
 # =====================================================================
 PROJECT_NAME           = "Group 23 Numerical Computing 2"
 PROJECT_BRIEF          = "A C++17 library for root finding, interpolation, integration, ODEs and linear systems"
 PROJECT_NUMBER         = 1.0
-OUTPUT_DIRECTORY       = docs/api
+OUTPUT_DIRECTORY       = documentation/api
 CREATE_SUBDIRS         = NO
 
 # ---- What to read ----------------------------------------------------
-INPUT                  = include src tests examples docs/modules docs/README.md docs/algorithm-report.md docs/testing.md
+INPUT                  = include src tests examples documentation/modules documentation/README.md documentation/algorithm-report.md documentation/testing.md documentation/example results documentation/tests results
 FILE_PATTERNS          = *.hpp *.cpp *.md
 RECURSIVE              = YES
 EXCLUDE_PATTERNS       = */build/* */build-gpp/*
-USE_MDFILE_AS_MAINPAGE = docs/README.md
+USE_MDFILE_AS_MAINPAGE = documentation/README.md
 FULL_PATH_NAMES        = YES
 STRIP_FROM_PATH        = .
 STRIP_FROM_INC_PATH    = include
