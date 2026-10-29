@@ -1,3 +1,9 @@
+/**
+ * @file catalog.cpp
+ * @brief The preset problems offered by the app, with their exact answers.
+ * @author Nabakooza Bridget Maria (Member 9)
+ */
+
 #include "catalog.hpp"
 #include <cmath>
 
@@ -5,6 +11,7 @@ namespace app
 {
     namespace catalog
     {
+        /// Pi to double precision.
         static const double PI = std::acos(-1.0);
 
         const std::vector<RootProblem>& root_problems()
@@ -107,6 +114,58 @@ namespace app
                 {"4 x 4:  diagonally dominant                  (answer 1, -2, 3, 0.5)",
                  {{4, -1, 0, 2}, {1, 5, -2, 0}, {0, 2, 6, -1}, {3, 0, 1, 7}}, {7, -15, 13.5, 9.5}},
                 {"2 x 2:  singular (rows are multiples)        (shows the error)", {{1, 2}, {2, 4}}, {3, 6}},
+                {"3 x 3:  symmetric positive definite, for CG  (answer 1, 2, 3)", {{4, 1, 0}, {1, 3, 1}, {0, 1, 2}}, {6, 10, 8}},
+                {"6 x 6:  spring chain stiffness matrix, SPD   (answer all 1)",
+                 {{2, -1, 0, 0, 0, 0}, {-1, 2, -1, 0, 0, 0}, {0, -1, 2, -1, 0, 0},
+                  {0, 0, -1, 2, -1, 0}, {0, 0, 0, -1, 2, -1}, {0, 0, 0, 0, -1, 2}}, {1, 0, 0, 0, 0, 1}},
+            };
+            return list;
+        }
+
+        const std::vector<DerivativeProblem>& derivative_problems()
+        {
+            static const std::vector<DerivativeProblem> list = {
+                {"sin(x)",            [](double x) { return std::sin(x); }, [](double x) { return std::cos(x); },
+                 [](double x) { return -std::sin(x); }, 1.0},
+                {"e^x",               [](double x) { return std::exp(x); }, [](double x) { return std::exp(x); },
+                 [](double x) { return std::exp(x); }, 0.0},
+                {"x^3 - 2x",          [](double x) { return x * x * x - 2.0 * x; }, [](double x) { return 3.0 * x * x - 2.0; },
+                 [](double x) { return 6.0 * x; }, 2.0},
+                {"ln(x)",             [](double x) { return std::log(x); }, [](double x) { return 1.0 / x; },
+                 [](double x) { return -1.0 / (x * x); }, 2.0},
+                {"sqrt(x)",           [](double x) { return std::sqrt(x); }, [](double x) { return 0.5 / std::sqrt(x); },
+                 [](double x) { return -0.25 / (x * std::sqrt(x)); }, 4.0},
+                {"1 / (1 + x^2)",     [](double x) { return 1.0 / (1.0 + x * x); },
+                 [](double x) { return -2.0 * x / ((1.0 + x * x) * (1.0 + x * x)); },
+                 [](double x) { return (6.0 * x * x - 2.0) / ((1.0 + x * x) * (1.0 + x * x) * (1.0 + x * x)); }, 0.5},
+                {"car position 2t^3 - 3t^2 + 5t (m)", [](double t) { return 2.0 * t * t * t - 3.0 * t * t + 5.0 * t; },
+                 [](double t) { return 6.0 * t * t - 6.0 * t + 5.0; }, [](double t) { return 12.0 * t - 6.0; }, 2.0},
+            };
+            return list;
+        }
+
+        const std::vector<BVPProblem>& bvp_problems()
+        {
+            static auto zero = [](double) { return 0.0; };
+            // Constants of the Burden & Faires test problem's exact solution.
+            static const double c2 = (8.0 - 12.0 * std::sin(std::log(2.0)) - 4.0 * std::cos(std::log(2.0))) / 70.0;
+            static const double c1 = 1.1 - c2;
+            static const std::vector<BVPProblem> list = {
+                {"y'' = -pi^2 sin(pi x),  y(0) = 0, y(1) = 0     (y = sin(pi x))",
+                 zero, zero, [](double x) { return -PI * PI * std::sin(PI * x); }, 0.0, 1.0, 0.0, 0.0,
+                 [](double x) { return std::sin(PI * x); }},
+                {"y'' = 2,                y(0) = 0, y(1) = 1     (y = x^2)",
+                 zero, zero, [](double) { return 2.0; }, 0.0, 1.0, 0.0, 1.0, [](double x) { return x * x; }},
+                {"y'' = y,                y(0) = 0, y(1) = sinh 1 (y = sinh x)",
+                 zero, [](double) { return 1.0; }, zero, 0.0, 1.0, 0.0, std::sinh(1.0), [](double x) { return std::sinh(x); }},
+                {"y'' = -(2/x)y' + (2/x^2)y + sin(ln x)/x^2 on [1, 2]   (textbook)",
+                 [](double x) { return -2.0 / x; }, [](double x) { return 2.0 / (x * x); },
+                 [](double x) { return std::sin(std::log(x)) / (x * x); }, 1.0, 2.0, 1.0, 2.0,
+                 [](double x) { return c1 * x + c2 / (x * x) - 0.3 * std::sin(std::log(x)) - 0.1 * std::cos(std::log(x)); }},
+                {"Cooling fin: T'' = 400 (T - 25), T(0) = 100, T(0.1) = 40",
+                 zero, [](double) { return 400.0; }, [](double) { return -10000.0; }, 0.0, 0.1, 100.0, 40.0,
+                 [](double x) { double B = (15.0 - 75.0 * std::cosh(2.0)) / std::sinh(2.0);
+                                return 25.0 + 75.0 * std::cosh(20.0 * x) + B * std::sinh(20.0 * x); }},
             };
             return list;
         }
