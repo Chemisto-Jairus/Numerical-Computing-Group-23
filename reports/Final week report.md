@@ -9,6 +9,8 @@
 - I wrote the numcomp file that includes all our header files. Find it at [numcomp](../include/numerical-computing/numcomp.hpp)
 - I added the multi step helper functions to be used by the Adams-Bashforth and Adams-Moulton methods. Find them at [multistep](../src/internal)
 - I added the trigiagonal helper functions to be used for tridiagonal linear systems. Find them at [text](../src/internal)
+- I documented my modules 
+- I added the examples and tests as well as their results for Numerical differentiator.
 
 **Member 2 (Batte Derrick Calvin):** 
 
