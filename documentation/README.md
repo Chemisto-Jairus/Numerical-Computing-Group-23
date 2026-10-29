@@ -38,6 +38,14 @@ Supporting parts:
 | [algorithm-report.pdf](algorithm-report.pdf) / [.md](algorithm-report.md) | The algorithms implemented |
 | [testing.md](testing.md) | Testing approach and results |
 
+## Examples Results
+
+The examples results were documented and added to [examples results](<examples results>)
+
+## Tests Results
+
+The test results were documented and added to [tests results](<tests results>)
+
 ## Configuration
 
 - [Doxyfile](../Doxyfile): Doxygen settings. Every undocumented item produces a warning, and the current code produces none.
