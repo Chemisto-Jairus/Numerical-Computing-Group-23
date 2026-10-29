@@ -802,7 +802,7 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 
 ```shell 
 
-.\example_adams_moulton_solver.exe
+.\test_(filename).exe
 
 ```
 
