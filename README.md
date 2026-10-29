@@ -15,7 +15,7 @@ The objective of this project is to build a reusable numerical computing library
     - [macOS/Linux](README.md#linux-and-macos--installation)
 - [7. Use the Library in Your Own Program](#7-use-the-library-in-your-own-program)
 - [8. Examples](#8-examples)
-- [9. Run the Tests](#9-run-the-tests)
+- [9. Run the Tests](#9-run-the-tests-and-documentation)
 - [10. Limitations](#10-limitations)
 - [11. Contributions by Group Members](#11-contributions-by-group-members)
 - [12. How We Collaborated as a Team](#12-how-we-collaborated-as-a-team)
@@ -101,9 +101,26 @@ Numerical-Computing-Group-23/
 │   │   ├── runge_kutta_fehlberg_solver.md
 │   │   ├── shared_helpers.md
 │   │   └── test_framework.md
+│   │
+│   ├── test results (to be added)
+│   │       ├── test_results_adams_bashforth_solver.md
+│   │       ├── test_results_adams_moulton_solver.md
+│   │       ├── test_results_advanced_integrator.md
+│   │       ├── test_results_advanced_ode_solver.md
+│   │       ├── test_results_advanced_root_finder.md
+│   │       ├── test_results_basic_integrator.md
+│   │       ├── test_results_basic_ode_solver.md
+│   │       ├── test_results_basic_root_finder.md
+│   │       ├── test_results_conjugate_gradient_solver.md
+│   │       ├── test_results_cubic_spline.md
+│   │       ├── test_results_finite_difference_solver.md
+│   │       ├── test_results_interpolator.md
+│   │       ├── test_results_matrix_solver.md
+│   │       ├── test_results_numerical_differentiator.md
+│   │       └── test_results_runge_kutta_fehlberg_solver.md
 │   ├── README.md 
 │   ├── algorithm-report.md 
-│   ├── algorithm-report.md 
+│   ├── algorithm-report.pdf 
 │   └── testing.md 
 ├── examples/
 │   ├── CMakeLists.txt
@@ -684,9 +701,102 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 
 ## FiniteDifferenceSolver
 
-## 9. Run the Tests
+## 9. Run the Tests and Documentation
 
 **The documentation of the testing framework can be found**  [here](documentation/modules/test_framework.md)
+
+## Basic root finder
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_basic_root_finder.md#accuracy-on-standard-problems>)
+
+[Boundaries and Edge Cases](<documentation/tests results/test_results_basic_root_finder.md#boundaries-and-edge-cases>)
+
+[Invalid Input and Divergence Exceptions](<documentation/tests results/test_results_basic_root_finder.md#invalid-input-and-divergence-exceptions>)
+
+## Advanced_root_finder
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_advanced_root_finder.md#accuracy-on-standard-problems>)
+
+[Boundaries and Edge Cases](<documentation/tests results/test_results_advanced_root_finder.md#boundaries-and-edge-cases>)
+
+[Invalid Input and Divergence Exceptions](<documentation/tests results/test_results_advanced_root_finder.md#invalid-input-and-divergence-exceptions>)
+
+## Basic integrator
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_basic_integrator.md#accuracy-on-standard-problems>)
+
+[Exactness Properties and Known Errors](<documentation/tests results/test_results_basic_integrator.md#exactness-properties-and-known-errors>)
+
+[Boundaries and Edge Cases](<documentation/tests results/test_results_basic_integrator.md#boundaries-and-edge-cases>)
+
+[Invalid Input Exceptions](<documentation/tests results/test_results_basic_integrator.md#invalid-input-exceptions>)
+
+## Advanced integrator
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_advanced_integrator.md#accuracy-on-standard-problems>)
+
+[Exactness Properties](<documentation/tests results/test_results_advanced_integrator.md#exactness-properties>)
+
+[Edge Cases and Boundaries](<documentation/tests results/test_results_advanced_integrator.md#edge-cases-and-boundaries>)
+
+[Invalid Input Exceptions](<documentation/tests results/test_results_advanced_integrator.md#invalid-input-exceptions>)
+
+## Basic_ode_solver
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_basic_ode_solver.md#accuracy-on-standard-problems>)
+
+[Observed Order of Convergence](<documentation/tests results/test_results_basic_ode_solver.md#observed-order-of-convergence>)
+
+[Boundaries and Curve Shape](<documentation/tests results/test_results_basic_ode_solver.md#boundaries-and-curve-shape>)
+
+[Invalid Input Exceptions](<documentation/tests results/test_results_basic_ode_solver.md#invalid-input-exceptions>)
+
+## Advanced ode solver
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_advanced_ode_solver.md#accuracy-on-standard-problems>)
+
+[Observed Order of Convergence](<documentation/tests results/test_results_advanced_ode_solver.md#observed-order-of-convergence>)
+
+[Boundaries and Curve Shape](<documentation/tests results/test_results_advanced_ode_solver.md#boundaries-and-curve-shape>)
+
+[Invalid Input Exceptions](<documentation/tests results/test_results_advanced_ode_solver.md#invalid-input-exceptions>)
+
+## Cubic_spline
+[Accuracy on Standard Problems](<documentation/tests results/test_results_cubic_spline.md#accuracy-on-standard-problems>)
+
+[Boundaries and Edge Cases](<documentation/tests results/test_results_cubic_spline.md#boundaries-and-edge-cases>)
+
+[Invalid Input and Extrapolation Exceptions](<documentation/tests results/test_results_cubic_spline.md#invalid-input-and-extrapolation-exceptions>)
+
+## Interpolator
+
+[Linear Interpolation](<documentation/tests results/test_results_interpolator.md#linear-interpolation>)
+
+[Chebyshev Nodes](<documentation/tests results/test_results_interpolator.md#chebyshev-nodes>)
+
+[Chebyshev Approximation](<documentation/tests results/test_results_interpolator.md#chebyshev-nodes>)
+
+## Matrix_solver
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_matrix_solver.md#accuracy-on-standard-problems>)
+
+[Boundaries and Edge Cases](<documentation/tests results/test_results_matrix_solver.md#boundaries-and-edge-cases>)
+
+[Invalid Input and Singularity Exceptions](<documentation/tests results/test_results_matrix_solver.md#invalid-input-and-singularity-exceptions>)
+
+## NumericalDifferentiator
+
+## AdamsBashforthSolver
+
+## AdamsMoultonSolver
+
+## RungeKuttaFehlbergSolver
+
+## ConjugateGradientSolver
+
+## FiniteDifferenceSolver
+
+## HOW TO RUN THE TESTS 
 
 ## OPTION A: (USING Cmake/Git bash)
 
