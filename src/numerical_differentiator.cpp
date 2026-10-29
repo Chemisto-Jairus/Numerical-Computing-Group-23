@@ -1,3 +1,12 @@
+/**
+ * @file numerical_differentiator.cpp
+ * @brief Implementation of numcomp::NumericalDifferentiator (finite difference formulas).
+ * @author Chemisto Jairus (Member 1)
+ *
+ * Every formula first validates x and h with the shared check_difference_inputs()
+ * and finally confirms the result is finite with check_finite_result().
+ */
+
 #include "numerical-computing/numerical_differentiator.hpp"
 #include "internal/input_checks.hpp"
 

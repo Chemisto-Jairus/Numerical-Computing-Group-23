@@ -1,38 +1,42 @@
+/**
+ * @file basic_root_finder.cpp
+ * @brief Implementation of numcomp::BasicRootFinder (Bisection and Newton-Raphson).
+ * @author Chemisto Jairus (Member 1)
+ */
+
 #include "numerical-computing/basic_root_finder.hpp"
 #include "internal/input_checks.hpp"
 #include <cmath>
 #include <stdexcept>
-#include <utility>   // std::swap
+#include <utility>
 
 namespace numcomp
 {
-    /// Bisection method. See basic_root_finder.hpp.
     double BasicRootFinder::bisection(std::function<double(double)> f, double a, double b, double tol, int max_iter)
     {
-        checks::check_tolerance(tol, max_iter);   // shared helper: tol > 0, max_iter > 0
+        checks::check_tolerance(tol, max_iter);
 
-        // If the user gives the interval backwards (a > b), swap it.
-        // Without this, (b - a) / 2 is negative and the method stops at once.
+        // Work with a <= b so that (b - a) / 2 is always the true half-width.
         if (a > b)
         {
             std::swap(a, b);
         }
 
-        // Work out f at the two ends once, and reuse the values
+        // f is evaluated once per point; fa is kept up to date as a moves.
         double fa = f(a);
         double fb = f(b);
 
-        // NaN passes the sign check below, so reject it here
+        // NaN compares false with everything, so it must be rejected explicitly.
         if (std::isnan(fa) || std::isnan(fb))
         {
             throw std::invalid_argument("f(a) or f(b) is not a number (NaN).");
         }
 
-        // If a root is exactly at an end point, return it
+        // A root sitting exactly on an end point is returned straight away.
         if (std::abs(fa) < tol) return a;
         if (std::abs(fb) < tol) return b;
 
-        // The signs must be different, or there may be no root in between
+        // Without a sign change the interval is not guaranteed to contain a root.
         if (fa * fb > 0)
         {
             throw std::invalid_argument("Function must have opposite signs at interval endpoints.");
@@ -40,16 +44,16 @@ namespace numcomp
 
         for (int iter = 0; iter < max_iter; ++iter)
         {
-            double c = (a + b) / 2.0;   // middle of the interval
+            double c = (a + b) / 2.0;
             double fc = f(c);
 
-            // Stop if f(c) is small enough or the interval is small enough
+            // Converged: the residual is small or the bracket is narrower than tol.
             if (std::abs(fc) < tol || (b - a) / 2.0 < tol)
             {
                 return c;
             }
 
-            // Keep the half where the sign changes
+            // Keep the half [a, c] or [c, b] in which f still changes sign.
             if (fc * fa < 0)
             {
                 b = c;
@@ -63,22 +67,22 @@ namespace numcomp
         throw std::runtime_error("Bisection method failed to converge.");
     }
 
-    /// Newton-Raphson method. See basic_root_finder.hpp.
     double BasicRootFinder::newton_raphson(std::function<double(double)> f, std::function<double(double)> df, double x0, double tol, int max_iter)
     {
-        checks::check_tolerance(tol, max_iter);   // shared helper
+        checks::check_tolerance(tol, max_iter);
 
         double x = x0;
         for (int iter = 0; iter < max_iter; ++iter)
         {
             double derivative = df(x);
 
-            // We divide by the derivative, so it must not be (almost) zero
+            // A (nearly) flat tangent never reaches the x-axis, so the step is undefined.
             if (std::abs(derivative) < 1e-12)
             {
                 throw std::runtime_error("Derivative too close to zero.");
             }
 
+            // Move to where the tangent line at x crosses the x-axis.
             double next_x = x - f(x) / derivative;
             if (std::abs(next_x - x) < tol)
             {

@@ -1,6 +1,11 @@
-// Tests for numcomp::BasicRootFinder (Bisection + Newton-Raphson)
-// Owner: Chemisto Jairus (Member 1)
-// Uses the shared helpers in test_helpers.hpp (check, close, expect_throw, finish).
+/**
+ * @file test_basic_root_finder.cpp
+ * @brief Unit tests for numcomp::BasicRootFinder (Bisection and Newton-Raphson).
+ * @author Chemisto Jairus (Member 1)
+ *
+ * Covers normal use, edge cases and invalid input. Each check prints [PASS] or [FAIL];
+ * the program returns 0 only if every check passed (see test_helpers.hpp).
+ */
 
 #include "numerical-computing/basic_root_finder.hpp"
 #include "test_helpers.hpp"
@@ -11,14 +16,33 @@
 using test::check;
 using test::close;
 
-// Test functions
-double f_square(double x) { return x * x - 4.0; }        // roots at -2 and 2
+// Functions with known roots, integrals or fixed points.
+/// @brief Test function: returns x * x - 4.0 (roots at -2 and 2).
+/// @param x  Point of evaluation.
+/// @return The function value.
+double f_square(double x) { return x * x - 4.0; }
+/// @brief Test function: returns 2.0 * x.
+/// @param x  Point of evaluation.
+/// @return The function value.
 double df_square(double x) { return 2.0 * x; }
-double f_cubic(double x) { return x * x * x - x - 2.0; }  // one root near 1.5213797068
+/// @brief Test function: returns x * x * x - x - 2.0 (one root near 1.5213797068).
+/// @param x  Point of evaluation.
+/// @return The function value.
+double f_cubic(double x) { return x * x * x - x - 2.0; }
+/// @brief Test function: returns 3.0 * x * x - 1.0.
+/// @param x  Point of evaluation.
+/// @return The function value.
 double df_cubic(double x) { return 3.0 * x * x - 1.0; }
-double f_cos(double x) { return std::cos(x) - x; }        // root near 0.7390851332
+/// @brief Test function: returns std::cos(x) - x (root near 0.7390851332).
+/// @param x  Point of evaluation.
+/// @return The function value.
+double f_cos(double x) { return std::cos(x) - x; }
+/// @brief Test function: returns -std::sin(x) - 1.0.
+/// @param x  Point of evaluation.
+/// @return The function value.
 double df_cos(double x) { return -std::sin(x) - 1.0; }
 
+/// Typical inputs compared with known exact answers.
 void normal_cases()
 {
     numcomp::BasicRootFinder finder;
@@ -29,10 +53,11 @@ void normal_cases()
     check("Newton: cos(x) - x from x0 = 1", close(finder.newton_raphson(f_cos, df_cos, 1.0, 1e-12, 50), 0.7390851332, 1e-9));
 }
 
+/// Boundary situations: end points, reversed intervals, minimum sizes.
 void edge_cases()
 {
     numcomp::BasicRootFinder finder;
-    // Regression test for the Week 3 bug: [3, 0] used to return 1.5
+    // A reversed interval must give the same root as the ordered one.
     check("Bisection: reversed interval [3, 0] still gives 2", close(finder.bisection(f_square, 3.0, 0.0, 1e-8, 100), 2.0, 1e-6));
     check("Bisection: [-3, 0] finds the negative root -2", close(finder.bisection(f_square, -3.0, 0.0, 1e-8, 100), -2.0, 1e-6));
     check("Bisection: root exactly at a = 2 is returned", finder.bisection(f_square, 2.0, 5.0, 1e-8, 100) == 2.0);
@@ -40,6 +65,7 @@ void edge_cases()
     check("Newton: starting on the root stays there", close(finder.newton_raphson(f_square, df_square, 2.0, 1e-10, 5), 2.0, 1e-12));
 }
 
+/// Invalid arguments must throw the exception documented in the header.
 void invalid_input()
 {
     numcomp::BasicRootFinder finder;
@@ -58,6 +84,10 @@ void invalid_input()
     test::expect_throw<std::runtime_error>("Newton: max_iter = 2 throws runtime_error", [&] { finder.newton_raphson(f_square, df_square, 100.0, 1e-12, 2); });
 }
 
+/**
+ * @brief Runs every test group.
+ * @return 0 if all checks passed, 1 otherwise.
+ */
 int main()
 {
     std::cout << "[*] Running Basic Root Finder Tests..." << std::endl;
