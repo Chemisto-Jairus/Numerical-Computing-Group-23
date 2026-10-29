@@ -691,6 +691,26 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 
 ## NumericalDifferentiator
 
+**A. Standard Differentiation Formulas**
+
+[First and Second Derivatives Baseline](<documentation/examples results/results_numerical_differentiator_documentation.md#first-and-second-derivatives-baseline>)
+
+[Order of Accuracy](<documentation/examples results/results_numerical_differentiator_documentation.md#order-of-accuracy>)
+
+[Rounding Error Limits](<documentation/examples results/results_numerical_differentiator_documentation.md#rounding-error-limits>)
+
+[Non-Differentiable Corners](<documentation/examples results/results_numerical_differentiator_documentation.md#non-differentiable-corners>)
+
+[Invalid Input Exceptions](<documentation/examples results/results_numerical_differentiator_documentation.md#invalid-input-exceptions>)
+
+**B. Applied Problems** 
+
+[Kinematics (Velocity and Acceleration)](<documentation/examples results/results_numerical_differentiator_documentation.md#kinematics-velocity-and-acceleration>)
+
+[Economics (Marginal Cost)](<documentation/examples results/results_numerical_differentiator_documentation.md#economics-marginal-cost>)
+
+[Derivative-Free Newton-Raphson](<documentation/examples results/results_numerical_differentiator_documentation.md#derivative-free-newton-raphson>)
+
 ## AdamsBashforthSolver
 
 ## AdamsMoultonSolver
@@ -785,6 +805,14 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 [Invalid Input and Singularity Exceptions](<documentation/tests results/test_results_matrix_solver.md#invalid-input-and-singularity-exceptions>)
 
 ## NumericalDifferentiator
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_numerical_differentiator.md#accuracy-on-standard-problems>)
+
+[Exactness and Observed Order of Convergence](<documentation/tests results/test_results_numerical_differentiator.md#exactness-and-observed-order-of-convergence>)
+
+[Boundaries and Edge Cases](<documentation/tests results/test_results_numerical_differentiator.md#boundaries-and-edge-cases>)
+
+[Invalid Input and Mathematical Exceptions](<documentation/tests results/test_results_numerical_differentiator.md#invalid-input-and-mathematical-exceptions>)
 
 ## AdamsBashforthSolver
 
