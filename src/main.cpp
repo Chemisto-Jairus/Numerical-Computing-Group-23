@@ -1,19 +1,28 @@
-// Group 23: Numerical Computing command-line app
-// Owners: Nabakooza Bridget Maria (Member 9) with Chemisto Jairus (Member 1)
-//
-// Every module of the library is reachable from the menu.
-// The user types the inputs. Every number is checked before it is used,
-// the input limits are shown, and every library call is inside try/catch.
-//
-// HELPERS: the input reading and result printing that every menu option
-// needs are written once (read_number, read_root_settings, read_limits,
-// print_integral, read_ode_settings, print_ode_result, read_system,
-// print_solution). Each menu option is now only a few lines.
+/**
+ * @file main.cpp
+ * @brief Entry point of numcomp_app, the interactive Group 23 command-line application.
+ * @author Nabakooza Bridget Maria (Member 9) and Chemisto Jairus (Member 1)
+ *
+ * Shows the GROUP 23 banner and the main menu. Each menu entry opens the
+ * menu for one topic of the library (see src/app/module_menus.hpp). The
+ * app runs until the user chooses Exit or the input ends.
+ *
+ * Build it together with the library:
+ * @code
+ * cmake -S . -B build
+ * cmake --build build
+ * ./build/numcomp_app            (Windows: build\numcomp_app.exe)
+ * @endcode
+ */
 
 #include "app/console_ui.hpp"
 #include "app/module_menus.hpp"
 #include <iostream>
 
+/**
+ * @brief Shows the main menu until the user exits.
+ * @return 0 on a normal exit.
+ */
 int main()
 {
     try
@@ -24,21 +33,25 @@ int main()
         {
             app::ui::print_header("MAIN MENU", "Choose a topic, then a method and a problem");
             int choice = app::ui::choose("Topics", {
-                "Root finding            Bisection, Newton-Raphson, Secant, Fixed-point",
-                "Interpolation           Linear, Cubic spline, Chebyshev nodes",
-                "Numerical integration   Trapezoidal, Midpoint, Simpson, Romberg",
-                "Differential equations  Euler, Heun, RK3, RK4",
-                "Linear systems          Gaussian elimination, LU decomposition",
+                "Root finding           Bisection, Newton, Secant, Fixed-point",
+                "Interpolation          Linear, Spline, Chebyshev nodes & approx.",
+                "Differentiation        Forward, Backward, Central, Richardson",
+                "Integration            Trapezoidal, Midpoint, Simpson, Romberg",
+                "Initial value ODEs     Euler, RK, Adams-Bashforth/Moulton, RKF45",
+                "Boundary value ODEs    Finite difference method",
+                "Linear systems         Gaussian, LU, Conjugate gradient",
                 "About this library"}, "Exit");
 
             switch (choice)
             {
                 case 1: app::root_finding_menu(); break;
                 case 2: app::interpolation_menu(); break;
-                case 3: app::integration_menu(); break;
-                case 4: app::ode_menu(); break;
-                case 5: app::linear_systems_menu(); break;
-                case 6: app::about_screen(); break;
+                case 3: app::differentiation_menu(); break;
+                case 4: app::integration_menu(); break;
+                case 5: app::ode_menu(); break;
+                case 6: app::bvp_menu(); break;
+                case 7: app::linear_systems_menu(); break;
+                case 8: app::about_screen(); break;
                 default:
                     std::cout << "\n  Thank you for using the Group 23 numerical computing library. Goodbye!\n";
                     return 0;

@@ -1,3 +1,9 @@
+/**
+ * @file console_ui.cpp
+ * @brief Implementation of the console helpers in app::ui.
+ * @author Nabakooza Bridget Maria (Member 9)
+ */
+
 #include "console_ui.hpp"
 #include <cmath>
 #include <iomanip>
@@ -8,6 +14,12 @@ namespace app
 {
     namespace ui
     {
+        /**
+         * @brief Reads one line from standard input after printing a prompt.
+         * @param prompt  Text printed before reading.
+         * @return The line without its trailing newline or carriage return.
+         * @throws InputEnded If no more input is available.
+         */
         static std::string read_line(const std::string& prompt)
         {
             std::cout << "  " << prompt << std::flush;
@@ -21,6 +33,11 @@ namespace app
             return line;
         }
 
+        /**
+         * @brief Removes leading and trailing spaces and tabs.
+         * @param text  The text to trim.
+         * @return The trimmed text.
+         */
         static std::string trim(const std::string& text)
         {
             std::size_t first = text.find_first_not_of(" \t");
@@ -29,6 +46,11 @@ namespace app
             return text.substr(first, last - first + 1);
         }
 
+        /**
+         * @brief Centres text within the frame width.
+         * @param text  The text to centre.
+         * @return The text padded on the left.
+         */
         static std::string centred(const std::string& text)
         {
             int pad = (WIDTH - static_cast<int>(text.size())) / 2;
@@ -42,9 +64,36 @@ namespace app
 
         void print_banner()
         {
+            // 5-row block letters, 6 columns wide each, drawn with '#'.
+            // Order of glyphs: G R O U P (space) 2 3
+            const char* glyphs[8][5] = {
+                {" #####", "#     ", "#  ###", "#    #", " #### "},   // G
+                {"##### ", "#    #", "##### ", "#   # ", "#    #"},   // R
+                {" #### ", "#    #", "#    #", "#    #", " #### "},   // O
+                {"#    #", "#    #", "#    #", "#    #", " #### "},   // U
+                {"##### ", "#    #", "##### ", "#     ", "#     "},   // P
+                {"   ",    "   ",    "   ",    "   ",    "   "},      // space
+                {" #### ", "#    #", "   ## ", " ##   ", "######"},   // 2
+                {"##### ", "     #", "  ### ", "     #", "##### "},   // 3
+            };
+
             std::cout << "\n";
             print_rule('=');
-            std::cout << centred("GROUP 23: NUMERICAL COMPUTING 2") << "\n";
+            std::cout << "\n";
+            for (int row = 0; row < 5; ++row)
+            {
+                std::string line;
+                for (int g = 0; g < 8; ++g)
+                {
+                    line += glyphs[g][row];
+                    if (g < 7) line += "  ";
+                }
+                std::cout << centred(line) << "\n";
+            }
+            std::cout << "\n";
+            std::cout << centred("N U M E R I C A L   C O M P U T I N G   2") << "\n";
+            std::cout << centred("C++17 library: roots, approximation, calculus, ODEs, BVPs, linear systems") << "\n";
+            std::cout << "\n";
             print_rule('=');
         }
 
@@ -162,17 +211,30 @@ namespace app
                       << std::fixed << "\n";
         }
 
+        /**
+         * @brief Width of one table column, so that a row never exceeds WIDTH characters.
+         * @param columns  Number of columns in the table.
+         * @return 18 for up to four columns, narrower for wider tables.
+         */
+        static int column_width(std::size_t columns)
+        {
+            return columns <= 4 ? 18 : (WIDTH - 2) / static_cast<int>(columns);
+        }
+
         void print_table_header(const std::vector<std::string>& columns)
         {
+            int width = column_width(columns.size());
             std::cout << "  ";
-            for (const std::string& c : columns) std::cout << std::setw(18) << c;
-            std::cout << "\n  " << std::string(18 * columns.size(), '-') << "\n";
+            for (const std::string& c : columns) std::cout << std::setw(width) << c;
+            std::cout << "\n  " << std::string(width * columns.size(), '-') << "\n";
         }
 
         void print_table_row(const std::vector<double>& values)
         {
+            int width = column_width(values.size());
+            int digits = (width >= 18) ? 10 : 8;   // narrower columns show fewer significant digits
             std::cout << "  ";
-            for (double v : values) std::cout << std::setw(18) << std::setprecision(10) << std::defaultfloat << v;
+            for (double v : values) std::cout << std::setw(width) << std::setprecision(digits) << std::defaultfloat << v;
             std::cout << std::fixed << "\n";
         }
 
@@ -183,7 +245,26 @@ namespace app
 
         void print_error(const std::string& kind, const std::string& message)
         {
-            std::cout << "  [!] " << kind << ": " << message << "\n";
+            // Long messages are wrapped at word boundaries so no line exceeds WIDTH;
+            // continuation lines are indented under the start of the message.
+            std::string line = "  [!] " + kind + ": ";
+            const std::string indent = "      ";
+            std::istringstream words(message);
+            std::string word;
+            bool line_has_word = false;
+            while (words >> word)
+            {
+                if (line_has_word && line.size() + 1 + word.size() > static_cast<std::size_t>(WIDTH))
+                {
+                    std::cout << line << "\n";
+                    line = indent;
+                    line_has_word = false;
+                }
+                if (line_has_word) line += " ";
+                line += word;
+                line_has_word = true;
+            }
+            std::cout << line << "\n";
         }
     }
 }

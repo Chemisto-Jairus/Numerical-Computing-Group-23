@@ -5,7 +5,7 @@
  * @author Chemisto Jairus (Member 1, Repo Lead)
  *
  * A program that uses several modules can include this one file instead
- * of ten separate headers:
+ * of fifteen separate headers:
  * @code
  * #include "numerical-computing/numcomp.hpp"
  *
@@ -24,14 +24,20 @@
 #include "numerical-computing/advanced_ode_solver.hpp"
 #include "numerical-computing/matrix_solver.hpp"
 #include "numerical-computing/numerical_differentiator.hpp"
+#include "numerical-computing/conjugate_gradient_solver.hpp"
+#include "numerical-computing/adams_bashforth_solver.hpp"
+#include "numerical-computing/adams_moulton_solver.hpp"
+#include "numerical-computing/runge_kutta_fehlberg_solver.hpp"
+#include "numerical-computing/finite_difference_solver.hpp"
 
 /**
  * @namespace numcomp
  * @brief Everything in the Group 23 numerical computing library.
  *
- * The library is split into stateless classes covering root finding,
- * interpolation, numerical differentiation, integration, ODE solving and
- * linear systems.
+ * The library is split into fifteen stateless classes covering root finding,
+ * interpolation and Chebyshev approximation, numerical differentiation,
+ * integration, initial value problems (one-step, multistep and adaptive ODE
+ * solvers), boundary value problems and linear systems (direct and iterative).
  * Every class has a default constructor and only public member functions.
  * Invalid input is reported with standard exceptions:
  * - std::invalid_argument: a parameter is outside its allowed range.

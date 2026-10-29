@@ -65,13 +65,14 @@ I made the following changes to my modules
 
 - I wrote the examples list the members are going to create, some were already completed.
 - I started upgrading the main app, rather a new version of the library using helpers.
+- I completed the numcomp_app that uses our library.
 
 
 ## In Progress
 
 **Member 9 (Nabakooza Bridget Maria):** 
 
-- Still building the UI of the app.
+- Still building the UI of the app. (Done)
 
 **Member 1 (Chemisto Jairus - Lead):** 
 
