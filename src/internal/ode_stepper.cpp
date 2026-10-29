@@ -1,3 +1,9 @@
+/**
+ * @file ode_stepper.cpp
+ * @brief Implementation of numcomp::ode::run_fixed_steps.
+ * @author Mwanje Ian (Member 6) and Muwanguzi Samuel (Member 7)
+ */
+
 #include "ode_stepper.hpp"
 #include "input_checks.hpp"
 

@@ -1,56 +1,72 @@
 #pragma once
-#include <vector>
+/**
+ * @file basic_ode_solver.hpp
+ * @brief Low-order fixed-step ODE solvers: Euler and Heun.
+ * @author Mwanje Ian (Member 6)
+ */
+
 #include <functional>
 #include <utility>
+#include <vector>
 
 namespace numcomp
 {
     /**
-     * @brief Basic ODE solvers for dy/dt = f(t, y): Euler and Heun.
+     * @brief Solves first-order initial value problems dy/dt = f(t, y), y(t0) = y0.
      *
-     * Both methods use a fixed step h from t0 to t_end. The last step is
-     * shortened if needed, so the curve always ends exactly at t_end.
+     * - Euler: one slope per step, global error ~ h (first order).
+     * - Heun (improved Euler / explicit trapezoid): two slopes per step, error ~ h^2.
      *
-     * The class is stateless (it stores no data). Create one object and
-     * call its methods as many times as you like.
+     * Both march from t0 to t_end with a fixed step h. The last step is shortened
+     * when needed so the curve ends exactly at t_end. The stepping loop itself is
+     * shared with AdvancedODESolver (see src/internal/ode_stepper.hpp).
+     *
+     * The class is stateless.
+     *
+     * @code
+     * numcomp::BasicODESolver solver;
+     * auto curve = solver.heun([](double t, double y) { return y; }, 0.0, 1.0, 1.0, 0.01);
+     * double y_end = curve.back().second;   // close to e = 2.71828
+     * @endcode
      */
     class BasicODESolver
     {
     public:
+        /// Creates a solver. The class holds no state, so nothing needs to be set up.
         BasicODESolver() = default;
 
         /**
-         * @brief Solves dy/dt = f(t, y) with Euler's method: y_new = y + h * f(t, y).
+         * @brief Solves dy/dt = f(t, y) with the explicit Euler method.
          *
-         * First-order: halving h roughly halves the error.
+         * @details One step: y_(k+1) = y_k + h f(t_k, y_k).
          *
-         * @param f      The right-hand side f(t, y).
+         * @param f      Right-hand side f(t, y).
          * @param t0     Start time.
-         * @param y0     Value of y at t0.
+         * @param y0     Initial value y(t0).
          * @param t_end  End time. Must be greater than t0.
          * @param h      Step size. Must be > 0.
-         * @return The solution curve as (t, y) pairs, from (t0, y0) to t_end.
+         * @return The solution curve as (t, y) pairs, from (t0, y0) to t = t_end.
          *
-         * @throws std::invalid_argument If h <= 0, t_end <= t0 (or any of them is NaN),
-         *         or the run would need more than 1,000,000 steps.
+         * @throws std::invalid_argument If h <= 0, t_end <= t0 (either may be NaN),
+         *         or more than 1,000,000 steps would be needed.
          */
         std::vector<std::pair<double, double>> euler(std::function<double(double, double)> f, double t0, double y0, double t_end, double h);
 
         /**
-         * @brief Solves dy/dt = f(t, y) with Heun's method (improved Euler).
+         * @brief Solves dy/dt = f(t, y) with Heun's method (predictor-corrector).
          *
-         * Predicts with an Euler step, then averages the start and end slopes.
-         * Second-order: halving h divides the error by about 4.
+         * @details Predictor: k1 = f(t, y). Corrector: k2 = f(t + h, y + h k1).
+         * Step: y_(k+1) = y_k + h/2 (k1 + k2).
          *
-         * @param f      The right-hand side f(t, y).
+         * @param f      Right-hand side f(t, y).
          * @param t0     Start time.
-         * @param y0     Value of y at t0.
+         * @param y0     Initial value y(t0).
          * @param t_end  End time. Must be greater than t0.
          * @param h      Step size. Must be > 0.
-         * @return The solution curve as (t, y) pairs, from (t0, y0) to t_end.
+         * @return The solution curve as (t, y) pairs, from (t0, y0) to t = t_end.
          *
-         * @throws std::invalid_argument If h <= 0, t_end <= t0 (or any of them is NaN),
-         *         or the run would need more than 1,000,000 steps.
+         * @throws std::invalid_argument If h <= 0, t_end <= t0 (either may be NaN),
+         *         or more than 1,000,000 steps would be needed.
          */
         std::vector<std::pair<double, double>> heun(std::function<double(double, double)> f, double t0, double y0, double t_end, double h);
     };

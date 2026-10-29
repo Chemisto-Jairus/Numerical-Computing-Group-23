@@ -47,6 +47,9 @@ I made the following changes to my modules
 
 - I added comments to the ode stepper helpers
 - I implemented the Adam's bashforth module
+- I documented Basic ode solver  and Adams bashforth modules
+- I wrote their examples and tests
+- I am finalizing my modules and documenting my contributions
 
 **Member 7 (Muwanguzi Samuel):** 
 
