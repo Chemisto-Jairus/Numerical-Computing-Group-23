@@ -1,3 +1,9 @@
+/**
+ * @file finite_difference_solver.cpp
+ * @brief Implementation of numcomp::FiniteDifferenceSolver (linear two-point boundary value problems).
+ * @author Aogon Sharon (Member 3)
+ */
+
 #include "numerical-computing/finite_difference_solver.hpp"
 #include "internal/input_checks.hpp"
 #include "internal/tridiagonal.hpp"

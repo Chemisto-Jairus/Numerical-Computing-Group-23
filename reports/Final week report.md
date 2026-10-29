@@ -27,6 +27,9 @@ I made the following changes to my modules
 **Member 3 (Aogon Sharon):** 
 
 - Implemented finite difference solver module.
+- I implemented the examples for both my modules.
+- I documented all the tests and examples and their results.
+- I checked if the examples and tesrs work.
 
 
 **Member 4 (Bakalu Valeria):** 
