@@ -798,7 +798,16 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 
 ## HOW TO RUN THE TESTS 
 
-## OPTION A: (USING Cmake/Git bash)
+- If you want to run the tests individually, go to the tests folder in the repository, right click anywhere inside and select open in terminal. It will open windows powershell and paste this code inside.
+
+```shell 
+
+.\test_(filename).exe
+
+```
+
+
+## RUNNING ALL TESTS AND EXAMPLES AT ONCE (USING Cmake/Git bash)
 
 **1. How to install Cmake**
 
@@ -906,137 +915,7 @@ echo "✅ Finished! Your root directory remained entirely untouched."
 
 ```
 
-- It should open the folder where the build was created and you can run the numcomp_app.
-
-## OPTION B : (USING g++/git bash)
-
-**Follow these steps**
-
-**1. Check your tools (once)**
-
-```bash
-
-g++ --version        # needs C++17 support: g++ 8 or newer
-cmake --version      # needs 3.10 or newer
-git --version
-
-```
-
-**NB**
-
-- Make sure controlled folder access in windows security is turned off for the directory you put the folder or else git bash will throw errors
-
-- Run git bash as administrator and open the root repository folder
-- Once you are inside the root folder. paste this code in your git bash terminal
-
-```bash
-
-# ==========================================
-# 1. SETUP SAFE ENVIRONMENT
-# ==========================================
-ORIGINAL_DIR=$(pwd)
-SAFE_DIR="$HOME/Group23_Safe_Build"
-
-echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
-# Remove any old remnants and create a fresh copy
-rm -rf "$SAFE_DIR"
-mkdir -p "$SAFE_DIR"
-
-# Copy all project contents to the safe folder
-cp -r . "$SAFE_DIR"
-
-# Jump into the safe folder to carry out operations
-cd "$SAFE_DIR"
-
-# ==========================================
-# 2. CHECK FILES & ADJUST FOR CMAKE
-# ==========================================
-LIB="src/adams_bashforth_solver.cpp \
-src/adams_moulton_solver.cpp \
-src/advanced_integrator.cpp \
-src/advanced_ode_solver.cpp \
-src/advanced_root_finder.cpp \
-src/basic_integrator.cpp \
-src/basic_ode_solver.cpp \
-src/basic_root_finder.cpp \
-src/conjugate_gradient_solver.cpp \
-src/cubic_spline.cpp \
-src/finite_difference_solver.cpp \
-src/interpolator.cpp \
-src/matrix_solver.cpp \
-src/numerical_differentiator.cpp \
-src/runge_kutta_fehlberg_solver.cpp"
-
-MISSING_FILES=()
-
-echo ">>> Checking for missing source files..."
-for file in $LIB; do
-    if [ ! -f "$file" ]; then
-        base_name=$(basename "$file" .cpp)
-        MISSING_FILES+=("$base_name")
-        echo "⚠️ Warning: Source file '$file' is missing. Skipping..."
-        
-        # TRICK: Create an empty dummy file in the safe folder so CMake 
-        # doesn't crash if this file is hardcoded in CMakeLists.txt!
-        touch "$file"
-    fi
-done
-
-echo ">>> Filtering tests..."
-for t in tests/test_*.cpp; do
-    [ -e "$t" ] || continue 
-    name=$(basename "$t" .cpp)
-    
-    for missing in "${MISSING_FILES[@]}"; do
-        core_test_name="${name#test_}"
-        if [[ "$core_test_name" == *"$missing"* || "$missing" == *"$core_test_name"* ]]; then
-            echo "⏭️ Skipping test: $name (dependent source file is missing)"
-            # Remove the test from the safe folder so CMake ignores it completely
-            rm -f "$t"
-            break
-        fi
-    done
-done
-
-# ==========================================
-# 3. CMAKE BUILD
-# ==========================================
-mkdir -p build
-cd build
-
-echo ">>> Configuring CMake..."
-cmake -G "MinGW Makefiles" ..
-
-echo ">>> Compiling with CMake..."
-cmake --build .
-
-# ==========================================
-# 4. RUN TESTS & OPEN EXPLORER
-# ==========================================
-echo ">>> Running automated tests..."
-cd tests
-
-# Check if any .exe tests were actually compiled before trying to run the script
-if ls *.exe 1> /dev/null 2>&1; then
-    bash ../../../Group23_Safe_Build/tests/run_all_tests.sh
-else
-    echo "❌ No tests were compiled. Skipping test runner."
-fi
-
-# Step back out of tests into the build folder
-cd ..
-
-echo ">>> Opening build folder in Windows File Explorer..."
-explorer .
-
-# Return to original directory in the terminal
-cd "$ORIGINAL_DIR"
-echo "✅ Finished! Your root directory remained entirely untouched."
-
-
-```
-
-- It should display all tests passed
+- It should show all tests passed and open the folder with the full build having the tests and examples executables.
 
 ## 10. Limitations
 
