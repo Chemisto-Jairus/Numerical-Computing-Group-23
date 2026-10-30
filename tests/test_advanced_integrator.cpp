@@ -1,6 +1,11 @@
-// Tests for numcomp::AdvancedIntegrator (Simpson's rule + Romberg integration)
-// Owner: Wasswa George Mpanga (Member 5)
-// Uses the shared helpers in test_helpers.hpp.
+/**
+ * @file test_advanced_integrator.cpp
+ * @brief Unit tests for numcomp::AdvancedIntegrator (Simpson's rule and Romberg integration).
+ * @author Wasswa George Mpanga (Member 5)
+ *
+ * Covers normal use, edge cases and invalid input. Each check prints [PASS] or [FAIL];
+ * the program returns 0 only if every check passed (see test_helpers.hpp).
+ */
 
 #include "numerical-computing/advanced_integrator.hpp"
 #include "test_helpers.hpp"
@@ -11,23 +16,30 @@
 using test::check;
 using test::close;
 
-// Test functions
-double cube(double x) { return x * x * x; }             // integral 0..2 = 4
-double quartic(double x) { return x * x * x * x; }      // integral 0..1 = 1/5
+// Functions with known roots, integrals or fixed points.
+/// @brief Test function: returns x * x * x (integral 0..2 = 4).
+/// @param x  Point of evaluation.
+/// @return The function value.
+double cube(double x) { return x * x * x; }
+/// @brief Test function: returns x * x * x * x (integral 0..1 = 1/5).
+/// @param x  Point of evaluation.
+/// @return The function value.
+double quartic(double x) { return x * x * x * x; }
 
+/// Typical inputs compared with known exact answers.
 void normal_cases()
 {
     numcomp::AdvancedIntegrator integrator;
     const double pi = std::acos(-1.0);
     auto s = [](double x) { return std::sin(x); };
 
-    // From Week 3
     check("Simpson: x^3 on [0, 2] with n = 100 gives 4", close(integrator.simpsons_rule(cube, 0.0, 2.0, 100), 4.0, 1e-6));
     check("Romberg: x^3 on [0, 2] with 5 rows gives 4", close(integrator.romberg_integration(cube, 0.0, 2.0, 5), 4.0, 1e-6));
     check("Simpson: sin on [0, pi] with n = 100 is close to 2", close(integrator.simpsons_rule(s, 0.0, pi, 100), 2.0, 1e-7));
     check("Romberg: sin on [0, pi] with 8 rows is close to 2", close(integrator.romberg_integration(s, 0.0, pi, 8), 2.0, 1e-10));
 }
 
+/// Cases where the method is exact, so the tolerance can be very tight.
 void exact_results()
 {
     numcomp::AdvancedIntegrator integrator;
@@ -38,6 +50,7 @@ void exact_results()
     check("Romberg: x^4 on [0, 1] with 3 rows is exactly 1/5", close(integrator.romberg_integration(quartic, 0.0, 1.0, 3), 0.2, 1e-12));
 }
 
+/// Boundary situations: end points, reversed intervals, minimum sizes.
 void edge_cases()
 {
     numcomp::AdvancedIntegrator integrator;
@@ -48,6 +61,7 @@ void edge_cases()
     test::expect_no_throw("Romberg: 20 rows runs without error", [&] { integrator.romberg_integration(cube, 0.0, 2.0, 20); });
 }
 
+/// Invalid arguments must throw the exception documented in the header.
 void invalid_input()
 {
     numcomp::AdvancedIntegrator integrator;
@@ -62,6 +76,10 @@ void invalid_input()
     test::expect_throw<std::invalid_argument>("Romberg: b = infinity throws invalid_argument", [&] { integrator.romberg_integration(cube, 0.0, inf, 5); });
 }
 
+/**
+ * @brief Runs every test group.
+ * @return 0 if all checks passed, 1 otherwise.
+ */
 int main()
 {
     std::cout << "[*] Running Advanced Integration Tests..." << std::endl;

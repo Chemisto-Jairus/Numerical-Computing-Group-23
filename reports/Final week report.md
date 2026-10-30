@@ -43,6 +43,8 @@ I made the following changes to my modules
 **Member 5 (Wasswa George Mpanga):** 
 
 - I implemented the first part of Runge-Kutta-Fehlberg-Solver.
+- I documented all my modules.
+- I implemented the tests and examples of the RungeKuttaFehlbergSolver.
 
 
 **Member 6 (Mwanje Ian):** 
@@ -91,8 +93,8 @@ I made the following changes to my modules
 
 **Member 5 (Wasswa George Mpanga):** 
 
-- I am writing examples and tests for the Runge-Kutta-Fehlberg-Solver.
-- I am documenting all my modules properly and checking if they run efficiently.
+- I am writing examples and tests for the Runge-Kutta-Fehlberg-Solver. (done)
+- I am documenting all my modules properly and checking if they run efficiently. (done)
 
 **Member 3 (Aogon Sharon):**
 
