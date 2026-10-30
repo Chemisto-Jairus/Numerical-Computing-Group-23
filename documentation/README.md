@@ -1,6 +1,6 @@
 # Group 23 Numerical Computing 2: documentation
 
-This folder holds all project documentation apart from the top-level `README.md`. Generated API documentation goes to `docs/api/` (run `doxygen docs/Doxyfile` from the repository root; the folder is not stored in Git).
+This folder holds all project documentation apart from the top-level `README.md`. Generated API documentation goes to `documentation/api/` (run `doxygen Doxyfile` from the repository root; the folder is not stored in Git).
 
 ## The library at a glance
 
