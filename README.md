@@ -1049,6 +1049,12 @@ echo "✅ Finished! Your root directory remained entirely untouched."
 - Advanced ODE solver [See module report](documentation/modules/advanced_ode_solver.md#6-limitations)
 - Advanced Integrator [See module report](documentation/modules/advanced_integrator.md#6-limitations)
 - Basic ODE solver  [See module report](documentation/modules/basic_ode_solver.md#6-limitations)
+- Numerical Differentiation [See module report](documentation/modules/numerical_differentiator.md#6-limitations)
+- Finite Difference Method [See module report](documentation/modules/finite_difference_solver.md#5-limitations)
+- Conjugate Gradient [See module report](documentation/modules/conjugate_gradient_solver.md#5-limitations)
+- Runge-Kutta-Fehlberg [See module report](documentation/modules/runge_kutta_fehlberg_solver.md#5-limitations)
+- Adams-Bashforth [See module report](documentation/modules/adams_bashforth_solver.md#5-limitations)
+- Adams-Moulton
 
 
 ## 11. Contributions by Group Members
