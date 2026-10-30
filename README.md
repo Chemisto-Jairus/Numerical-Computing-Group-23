@@ -347,6 +347,7 @@ brew install cmake
 ```
 
 - Now to build the library and the app, paste this code in your new terminal in vs code while inside the repository folder.
+- It should open the folder where the numcomp_app executable is located.
 
 ```bash
 
@@ -412,7 +413,6 @@ echo "✅ Finished! The library has been built inside $SAFE_DIR/build."
 
 ```
 
-- It should open the folder where the numcomp_app executable is located.
 
 
 ## 6. Install the Library (if your CMake supports it) 
@@ -435,7 +435,7 @@ winget install -e --id Kitware.CMake
 
 - Download the repository and save it anywhere on your pc
 - Right click on it and select open Git bash here and paste the code below. 
-
+- It should open the folder where the library that can be used it located 
 
 ```bash
 
@@ -504,8 +504,6 @@ cd "$ORIGINAL_DIR"
 echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/install."
 
 ```
-
-- It should open the folder where the library that can be used it located 
 
 
 ### Linux and macOS  installation
@@ -943,7 +941,8 @@ winget install -e --id Kitware.CMake
 **2. Building the library and testing**
 
 - Run Git bash as administrator and right click on the repository folder and select open git bash here
-- Paste the code below in your git bash terminal
+- Paste the code below in your git bash terminal.
+- It should show all tests passed and open the folder with the full build having the tests and examples executables.
 
 ```bash
 
@@ -1035,8 +1034,6 @@ cd "$ORIGINAL_DIR"
 echo "✅ Finished! Your root directory remained entirely untouched."
 
 ```
-
-- It should show all tests passed and open the folder with the full build having the tests and examples executables.
 
 ## 10. Limitations
 
