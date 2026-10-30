@@ -1,3 +1,12 @@
+/**
+ * @file test_conjugate_gradient_solver.cpp
+ * @brief Unit tests for numcomp::ConjugateGradientSolver.
+ * @author Bakalu Valeria (Member 4)
+ *
+ * Covers normal use, edge cases and invalid input. Each check prints [PASS] or [FAIL];
+ * the program returns 0 only if every check passed (see test_helpers.hpp).
+ */
+
 #include "numerical-computing/conjugate_gradient_solver.hpp"
 #include "test_helpers.hpp"
 #include <cmath>
@@ -8,8 +17,16 @@
 using test::check;
 using test::close;
 
+/// Matrix type used in the tests (a vector of rows).
 using Matrix = std::vector<std::vector<double>>;
 
+/**
+ * @brief Checks that two vectors agree entry by entry.
+ * @param a    First vector.
+ * @param b    Second vector.
+ * @param tol  Largest allowed difference per entry.
+ * @return true if the sizes match and every |a_i - b_i| < tol.
+ */
 bool vectors_close(const std::vector<double>& a, const std::vector<double>& b, double tol)
 {
     if (a.size() != b.size()) return false;
@@ -20,6 +37,11 @@ bool vectors_close(const std::vector<double>& a, const std::vector<double>& b, d
     return true;
 }
 
+/**
+ * @brief Builds the n x n matrix of the second-difference operator: 2 on the diagonal, -1 next to it.
+ * @param n  Size of the matrix.
+ * @return The symmetric positive definite tridiagonal matrix.
+ */
 Matrix second_difference_matrix(int n)
 {
     Matrix A(n, std::vector<double>(n, 0.0));
@@ -32,6 +54,7 @@ Matrix second_difference_matrix(int n)
     return A;
 }
 
+/// Normal SPD systems of several sizes, and convergence within n steps.
 void normal_cases()
 {
     numcomp::ConjugateGradientSolver cg;
@@ -59,6 +82,7 @@ void normal_cases()
           vectors_close(cg.solve_from({{4, 1}, {1, 3}}, {1, 2}, {10, -10}, 1e-12, 100), {1.0 / 11.0, 7.0 / 11.0}, 1e-10));
 }
 
+/// Edge cases: 1 x 1 system, zero right-hand side, input left unchanged.
 void edge_cases()
 {
     numcomp::ConjugateGradientSolver cg;
@@ -71,6 +95,7 @@ void edge_cases()
     check("The caller's A and b are not changed", A[0][0] == 4 && A[0][1] == 1 && A[1][1] == 3 && b[0] == 1 && b[1] == 2);
 }
 
+/// Invalid shapes, settings and matrices.
 void errors()
 {
     numcomp::ConjugateGradientSolver cg;
@@ -90,6 +115,10 @@ void errors()
         [&] { cg.solve(second_difference_matrix(50), std::vector<double>(50, 1.0), 1e-12, 2); });
 }
 
+/**
+ * @brief Runs every test group.
+ * @return 0 if all checks passed, 1 otherwise.
+ */
 int main()
 {
     std::cout << "[*] Running Conjugate Gradient Solver Tests..." << std::endl;
