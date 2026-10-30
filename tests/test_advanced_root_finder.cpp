@@ -1,6 +1,11 @@
-// Tests for numcomp::AdvancedRootFinder (Secant + Fixed-Point Iteration)
-// Owner: Bakalu Valeria (Member 4)
-// Uses the shared helpers in test_helpers.hpp.
+/**
+ * @file test_advanced_root_finder.cpp
+ * @brief Unit tests for numcomp::AdvancedRootFinder (Secant and Fixed-Point Iteration).
+ * @author Bakalu Valeria (Member 4)
+ *
+ * Covers normal use, edge cases and invalid input. Each check prints [PASS] or [FAIL];
+ * the program returns 0 only if every check passed (see test_helpers.hpp).
+ */
 
 #include "numerical-computing/advanced_root_finder.hpp"
 #include "test_helpers.hpp"
@@ -11,11 +16,21 @@
 using test::check;
 using test::close;
 
-// Test functions
-double f_square(double x) { return x * x - 4.0; }          // root at 2
-double g_sqrt(double x) { return std::sqrt(x + 2.0); }     // fixed point at 2 (x^2 - x - 2 = 0)
-double g_cos(double x) { return std::cos(x); }             // fixed point near 0.7390851332
+// Functions with known roots, integrals or fixed points.
+/// @brief Test function: returns x * x - 4.0 (root at 2).
+/// @param x  Point of evaluation.
+/// @return The function value.
+double f_square(double x) { return x * x - 4.0; }
+/// @brief Test function: returns std::sqrt(x + 2.0) (fixed point at 2 (x^2 - x - 2 = 0)).
+/// @param x  Point of evaluation.
+/// @return The function value.
+double g_sqrt(double x) { return std::sqrt(x + 2.0); }
+/// @brief Test function: returns std::cos(x) (fixed point near 0.7390851332).
+/// @param x  Point of evaluation.
+/// @return The function value.
+double g_cos(double x) { return std::cos(x); }
 
+/// Typical inputs compared with known exact answers.
 void normal_cases()
 {
     numcomp::AdvancedRootFinder finder;
@@ -25,6 +40,7 @@ void normal_cases()
     check("Fixed-point: g(x) = cos(x) from 1", close(finder.fixed_point_iteration(g_cos, 1.0, 1e-12, 1000), 0.7390851332, 1e-9));
 }
 
+/// Boundary situations: end points, reversed intervals, minimum sizes.
 void edge_cases()
 {
     numcomp::AdvancedRootFinder finder;
@@ -32,6 +48,7 @@ void edge_cases()
     check("Fixed-point: starting on the answer returns it", close(finder.fixed_point_iteration(g_sqrt, 2.0, 1e-10, 10), 2.0, 1e-12));
 }
 
+/// Invalid arguments must throw the exception documented in the header.
 void invalid_input()
 {
     numcomp::AdvancedRootFinder finder;
@@ -53,6 +70,10 @@ void invalid_input()
     test::expect_throw<std::runtime_error>("Fixed-point: diverging g throws runtime_error", [&] { finder.fixed_point_iteration([](double x) { return 2.0 * x + 1.0; }, 1.0, 1e-8, 100); });
 }
 
+/**
+ * @brief Runs every test group.
+ * @return 0 if all checks passed, 1 otherwise.
+ */
 int main()
 {
     std::cout << "[*] Running Advanced Root Finder Tests..." << std::endl;

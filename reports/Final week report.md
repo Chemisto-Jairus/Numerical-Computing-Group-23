@@ -37,6 +37,8 @@ I made the following changes to my modules
 - I implemented the Conjugate gradient module.
 - I uploaded some tests for that module as well.
 - I added comments to the conjugate gradient and advanced root finder.
+- I finished documenting all my modules.
+
 
 **Member 5 (Wasswa George Mpanga):** 
 
