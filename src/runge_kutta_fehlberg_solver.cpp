@@ -1,3 +1,9 @@
+/**
+ * @file runge_kutta_fehlberg_solver.cpp
+ * @brief Implementation of numcomp::RungeKuttaFehlbergSolver (adaptive RKF45).
+ * @author Wasswa George Mpanga (Member 5)
+ */
+
 #include "numerical-computing/runge_kutta_fehlberg_solver.hpp"
 #include "internal/input_checks.hpp"
 #include <algorithm>
@@ -6,12 +12,23 @@
 
 namespace numcomp
 {
+    /**
+     * @brief Result of one trial RKF45 step.
+     */
     struct FehlbergStep
     {
-        double y4;
-        double error;
+        double y4;      ///< Fourth-order estimate of y(t + h), used to advance.
+        double error;   ///< |y5 - y4|, the estimated error of the step.
     };
 
+    /**
+     * @brief Takes one trial RKF45 step with Fehlberg's coefficients.
+     * @param f  Right-hand side f(t, y).
+     * @param t  Current time.
+     * @param y  Current value.
+     * @param h  Trial step size.
+     * @return The fourth-order value and the error estimate.
+     */
     static FehlbergStep fehlberg_step(const std::function<double(double, double)>& f, double t, double y, double h)
     {
         double k1 = h * f(t, y);
