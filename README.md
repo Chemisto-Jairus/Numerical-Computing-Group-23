@@ -717,7 +717,41 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 
 ## RungeKuttaFehlbergSolver
 
+**A. Adaptive Step Size Control**
+
+[Tolerance-Based Error Control](<documentation/examples results/results_runge_kutta_fehlberg_solver.md#tolerance-based-error-control>)
+
+[Dynamic Step Adjustment](<documentation/examples results/results_runge_kutta_fehlberg_solver.md#dynamic-step-adjustment>)
+
+[Direct Value Extraction (`rkf45_value`)](<documentation/examples results/results_runge_kutta_fehlberg_solver.md#direct-value-extraction-rkf45_value>)
+
+[Invalid Input Exceptions](<documentation/examples results/results_runge_kutta_fehlberg_solver.md#invalid-input-exceptions>)
+
+**B. Applied Models** 
+
+[Skydiver with Rapidly Opening Parachute](<documentation/examples results/results_runge_kutta_fehlberg_solver.md#skydiver-with-rapidly-opening-parachute>)
+
+[Drug Elimination (Michaelis-Menten Kinetics)](<documentation/examples results/results_runge_kutta_fehlberg_solver.md#drug-elimination-michaelis-menten-kinetics>)
+
 ## ConjugateGradientSolver
+
+**A. Standard Iterative Solving**
+
+[3x3 Symmetric Positive Definite (SPD) System Baseline](<documentation/examples results/results_conjugate_gradient_solver.md#3x3-symmetric-positive-definite-spd-system-baseline>)
+
+[Tridiagonal System Convergence Rate](<documentation/examples results/results_conjugate_gradient_solver.md#tridiagonal-system-convergence-rate>)
+
+[Comparison with Direct Gaussian Elimination](<documentation/examples results/results_conjugate_gradient_solver.md>)
+
+[Invalid Input Exceptions](<documentation/examples results/results_conjugate_gradient_solver.md#invalid-input-exceptions>)
+
+**B. Applied SPD Systemss**
+
+[Spring Chain Displacements (Stiffness Matrix)](<documentation/examples results/results_conjugate_gradient_solver.md#spring-chain-displacements-stiffness-matrix>)
+
+[Heated Rod (Steady Temperature Distribution)](<documentation/examples results/results_conjugate_gradient_solver.md#heated-rod-steady-temperature-distribution>)
+
+[Line of Best Fit (Linear Regression)](<documentation/examples results/results_conjugate_gradient_solver.md#line-of-best-fit-linear-regression>)
 
 ## FiniteDifferenceSolver
 
@@ -834,11 +868,36 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 
 ## AdamsBashforthSolver
 
+[Accuracy on Standard Problems](<documentation/tests results/test_results_adams_bashforth_solver.md#accuracy-on-standard-problems>)
+
+[Observed Order of Accuracy](<documentation/tests results/test_results_adams_bashforth_solver.md#observed-order-of-accuracy>)
+
+[Boundaries and Curve Shape](<documentation/tests results/test_results_adams_bashforth_solver.md#boundaries-and-curve-shape>)
+
+[Invalid Input Exceptions](<documentation/tests results/test_results_adams_bashforth_solver.md#invalid-input-exceptions>)
+
 ## AdamsMoultonSolver
 
 ## RungeKuttaFehlbergSolver
 
+[Accuracy and Adaptive Tolerance](<documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#accuracy-and-adaptive-tolerance>)
+
+[Exactness and Step-Size Adaptation](<documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#exactness-and-step-size-adaptation>)
+
+[Boundaries and Curve Shape](<documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#boundaries-and-curve-shape>)
+
+[Invalid Input and Mathematical Blow-up](<documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#invalid-input-and-mathematical-blow-up>)
+
 ## ConjugateGradientSolver
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_conjugate_gradient_solver.md#accuracy-on-standard-problems>)
+
+[Initial Guess Behaviors (`solve_from`)](<documentation/tests results/test_results_conjugate_gradient_solver.md#initial-guess-behaviors-solve_from>)
+
+[Boundaries and Edge Cases](<documentation/tests results/test_results_conjugate_gradient_solver.md#boundaries-and-edge-cases>)
+
+[Invalid Input and Divergence Exceptions](<documentation/tests results/test_results_conjugate_gradient_solver.md#invalid-input-and-divergence-exceptions>)
+
 
 ## FiniteDifferenceSolver
 
