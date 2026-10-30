@@ -64,7 +64,7 @@ Numerical-Computing-Group-23/
 │   │       └── build_guide.md
 │   │
 │   │
-│   ├── examples results (to be added)
+│   ├── examples results 
 │   │       ├── results_adams_bashforth_solver.md
 │   │       ├── results_adams_moulton_solver.md
 │   │       ├── results_advanced_integrator.md
@@ -81,7 +81,7 @@ Numerical-Computing-Group-23/
 │   │       ├── results_numerical_differentiator.md
 │   │       └── results_runge_kutta_fehlberg_solver.md
 │   │        
-│   ├── modules/ (to be added)
+│   ├── modules/ 
 │   │   ├── adams_bashforth_solver.md
 │   │   ├── adams_moulton_solver.md
 │   │   ├── advanced_integrator.md
@@ -102,7 +102,7 @@ Numerical-Computing-Group-23/
 │   │   ├── shared_helpers.md
 │   │   └── test_framework.md
 │   │
-│   ├── test results (to be added)
+│   ├── test results 
 │   │       ├── test_results_adams_bashforth_solver.md
 │   │       ├── test_results_adams_moulton_solver.md
 │   │       ├── test_results_advanced_integrator.md
@@ -157,28 +157,28 @@ Numerical-Computing-Group-23/
 │   └── example_runge_kutta_fehlberg_solver_applied.cpp
 ├── include/
 │   └── numerical-computing/
-│       ├── adams_bashforth_solver.hpp (to be added)
-│       ├── adams_moulton_solver.hpp (to be added)
+│       ├── adams_bashforth_solver.hpp 
+│       ├── adams_moulton_solver.hpp 
 │       ├── advanced_integrator.hpp
 │       ├── advanced_ode_solver.hpp
 │       ├── advanced_root_finder.hpp
 │       ├── basic_integrator.hpp
 │       ├── basic_ode_solver.hpp
 │       ├── basic_root_finder.hpp
-│       ├── conjugate_gradient_solver.hpp (to be added)
+│       ├── conjugate_gradient_solver.hpp 
 │       ├── cubic_spline.hpp
-│       ├── finite_difference_solver.hpp (to be added)
+│       ├── finite_difference_solver.hpp 
 │       ├── interpolator.hpp
 │       ├── matrix_solver.hpp
-│       ├── numcomp.hpp (to be added)
-│       ├── numerical_differentiator.hpp (to be added)
-│       └── runge_kutta_fehlberg_solver.hpp (to be added)
+│       ├── numcomp.hpp 
+│       ├── numerical_differentiator.hpp 
+│       └── runge_kutta_fehlberg_solver.hpp 
 ├── reports/
 │   ├── week-01.md
 │   ├── week-02.md
 │   ├── week-03.md
 │   ├── week-04.md
-│   └── final report (to be added)
+│   └── Final week report 
 ├── src/
 │   ├── app/ 
 │   │   ├── catalog.cpp
@@ -196,41 +196,41 @@ Numerical-Computing-Group-23/
 │   │   ├── ode_stepper.hpp
 │   │   ├── tridiagonal.cpp 
 │   │   └── tridiagonal.hpp 
-│   ├── adams_bashforth_solver.cpp (to be added)
-│   ├── adams_moulton_solver.cpp (to be added)
+│   ├── adams_bashforth_solver.cpp 
+│   ├── adams_moulton_solver.cpp 
 │   ├── advanced_integrator.cpp 
 │   ├── advanced_ode_solver.cpp
 │   ├── advanced_root_finder.cpp
 │   ├── basic_integrator.cpp
 │   ├── basic_ode_solver.cpp
 │   ├── basic_root_finder.cpp
-│   ├── conjugate_gradient_solver.cpp (to be added)
+│   ├── conjugate_gradient_solver.cpp 
 │   ├── cubic_spline.cpp
-│   ├── finite_difference_solver.cpp (to be added)
+│   ├── finite_difference_solver.cpp 
 │   ├── interpolator.cpp
 │   ├── main.cpp
 │   ├── matrix_solver.cpp
-│   ├── numerical_differentiator.cpp (to be added)
-│   └── runge_kutta_fehlberg_solver.cpp (to be added)
+│   ├── numerical_differentiator.cpp
+│   └── runge_kutta_fehlberg_solver.cpp 
 ├── tests/
 │   ├── CMakeLists.txt
-│   ├── run_all_tests.sh (to be updated by Pauline)
-│   ├── test_adams_bashforth_solver.cpp (to be added)
-│   ├── test_adams_moulton_solver.cpp (to be added)
+│   ├── run_all_tests.sh 
+│   ├── test_adams_bashforth_solver.cpp 
+│   ├── test_adams_moulton_solver.cpp 
 │   ├── test_advanced_integrator.cpp
 │   ├── test_advanced_ode_solver.cpp
 │   ├── test_advanced_root_finder.cpp
 │   ├── test_basic_integrator.cpp
 │   ├── test_basic_ode_solver.cpp
 │   ├── test_basic_root_finder.cpp
-│   ├── test_conjugate_gradient_solver.cpp (to be added)
+│   ├── test_conjugate_gradient_solver.cpp 
 │   ├── test_cubic_spline.cpp
-│   ├── test_finite_difference_solver.cpp (to be added)
+│   ├── test_finite_difference_solver.cpp 
 │   ├── test_helpers.hpp
 │   ├── test_interpolator.cpp
 │   ├── test_matrix_solver.cpp
-│   ├── test_numerical_differentiator.cpp (to be added)
-│   └── test_runge_kutta_fehlberg_solver.cpp (to be added)
+│   ├── test_numerical_differentiator.cpp 
+│   └── test_runge_kutta_fehlberg_solver.cpp 
 ├── .gitignore
 ├── CMakeLists.txt
 ├── Doxyfile

@@ -10,7 +10,7 @@ OUTPUT_DIRECTORY       = documentation/api
 CREATE_SUBDIRS         = NO
 
 # ---- What to read ----------------------------------------------------
-INPUT                  = include src tests examples documentation/modules documentation/README.md documentation/algorithm-report.md documentation/testing.md documentation/example results documentation/tests results
+INPUT                  = include src tests examples documentation/modules documentation/README.md documentation/algorithm-report.md documentation/testing.md
 FILE_PATTERNS          = *.hpp *.cpp *.md
 RECURSIVE              = YES
 EXCLUDE_PATTERNS       = */build/* */build-gpp/*
