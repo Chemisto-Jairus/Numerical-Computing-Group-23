@@ -58,6 +58,7 @@ I made the following changes to my modules
 **Member 7 (Muwanguzi Samuel):** 
 
 - I implemented the first part of adams_moulton_solver
+- Final documentation of my modules by Samuel
 
 **Member 8 (Kyeyune Praise Pauline):** 
 
