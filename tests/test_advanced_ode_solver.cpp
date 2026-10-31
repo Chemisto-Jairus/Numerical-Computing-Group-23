@@ -1,6 +1,11 @@
-// Tests for numcomp::AdvancedODESolver (RK3 + RK4)
-// Owner: Muwanguzi Samuel (Member 7)
-// Uses the shared helpers in test_helpers.hpp.
+/**
+ * @file test_advanced_ode_solver.cpp
+ * @brief Unit tests for numcomp::AdvancedODESolver (RK3 and RK4).
+ * @author Muwanguzi Samuel (Member 7)
+ *
+ * Covers normal use, edge cases and invalid input. Each check prints [PASS] or [FAIL];
+ * the program returns 0 only if every check passed (see test_helpers.hpp).
+ */
 
 #include "numerical-computing/advanced_ode_solver.hpp"
 #include "test_helpers.hpp"
@@ -13,11 +18,21 @@
 using test::check;
 using test::close;
 
-// Test ODEs: dy/dt = f(t, y)
-double cubic_rhs(double t, double) { return 4.0 * t * t * t; }   // y = t^4
-double sin_rhs(double t, double) { return -std::sin(t); }       // y = cos(t)
-double decay_rhs(double, double y) { return -2.0 * y; }         // y = e^(-2t)
+// Right-hand sides f(t, y) of the test problems dy/dt = f(t, y).
+/// @brief Test function: returns 4.0 * t * t * t (exact solution y = t^4).
+/// @param t  Time.
+/// @return The function value.
+double cubic_rhs(double t, double) { return 4.0 * t * t * t; }
+/// @brief Test function: returns -std::sin(t) (exact solution y = cos(t)).
+/// @param t  Time.
+/// @return The function value.
+double sin_rhs(double t, double) { return -std::sin(t); }
+/// @brief Test function: returns -2.0 * y (exact solution y = e^(-2t)).
+/// @param y  Current value.
+/// @return The function value.
+double decay_rhs(double, double y) { return -2.0 * y; }
 
+/// Accuracy on polynomial, trigonometric and exponential problems, plus the observed order of convergence.
 void accuracy()
 {
     numcomp::AdvancedODESolver solver;
@@ -45,6 +60,7 @@ void accuracy()
     check("RK4: halving h divides the error by about 16", rk4_ratio > 14.0 && rk4_ratio < 18.0);
 }
 
+/// Structure of the returned curve: first point, number of points, exact final time.
 void boundaries()
 {
     numcomp::AdvancedODESolver solver;
@@ -60,12 +76,13 @@ void boundaries()
     check("RK4: h bigger than the interval gives one step to t_end", one_step.size() == 2 && one_step.back().first == 1.0);
 }
 
+/// Every invalid time interval or step size must throw std::invalid_argument.
 void errors()
 {
     numcomp::AdvancedODESolver solver;
     double nan = std::numeric_limits<double>::quiet_NaN();
 
-    // The same 6 bad inputs are tried on both methods
+    // The same six invalid inputs are applied to both methods.
     struct BadInput { const char* label; double t0; double t_end; double h; };
     std::vector<BadInput> bad = {
         {"h = 0", 0.0, 1.0, 0.0},
@@ -85,6 +102,10 @@ void errors()
     }
 }
 
+/**
+ * @brief Runs every test group.
+ * @return 0 if all checks passed, 1 otherwise.
+ */
 int main()
 {
     std::cout << "[*] Running Advanced ODE Solver Tests..." << std::endl;
