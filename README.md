@@ -853,7 +853,39 @@ g++ -std=c++17 -I "%USERPROFILE%\Group23_Safe_Build\install\include" my_program.
 
 ## AdamsBashforthSolver
 
+**A. Standard Implicit Multistep Methods**
+
+[Exponential Decay Baseline](<documentation/examples results/results_adams_bashforth_solver.md#exponential-decay-baseline>)
+
+[Order of Accuracy](<documentation/examples results/results_adams_bashforth_solver.md#order-of-accuracy>)
+
+[Computational Cost Comparison (AB4 vs. RK4)](<documentation/examples results/results_adams_bashforth_solver.md#computational-cost-comparison-ab4-vs-rk4>)
+
+[Invalid Input Exceptions](<documentation/examples results/results_adams_bashforth_solver.md#invalid-input-exceptions>)
+
+**B. Applied Models** 
+
+[Skydiver with Air Resistance](<documentation/examples results/results_adams_bashforth_solver.md#skydiver-with-air-resistance>)
+
+[Bacterial Growth (Logistic Model)](<documentation/examples results/results_adams_bashforth_solver.md#bacterial-growth-logistic-model>)
+
 ## AdamsMoultonSolver
+
+**A. Standard Implicit Multistep Methods**
+
+[Exponential Decay Baseline](<documentation/examples results/results_adams_moulton_solver.md#exponential-decay-baseline>)
+
+[Implicit vs. Explicit Error Comparison](<documentation/examples results/results_adams_moulton_solver.md#implicit-vs-explicit-error-comparison>)
+
+[Fast-Decaying (Stiff) Problem Stability](<documentation/examples results/results_adams_moulton_solver.md#fast-decaying-stiff-problem-stability>)
+
+[Invalid Input Exceptions](<documentation/examples results/results_adams_moulton_solver.md#invalid-input-exceptions>)
+
+**B. Applied Models** 
+
+[Second-Order Chemical Reaction](<documentation/examples results/results_adams_moulton_solver.md#second-order-chemical-reaction>)
+
+[Draining Tank (Torricelli's Law)](<documentation/examples results/results_adams_moulton_solver.md#draining-tank-torricellis-law>)
 
 ## RungeKuttaFehlbergSolver
 
@@ -1017,6 +1049,14 @@ g++ -std=c++17 -I "%USERPROFILE%\Group23_Safe_Build\install\include" my_program.
 [Invalid Input Exceptions](<documentation/tests results/test_results_adams_bashforth_solver.md#invalid-input-exceptions>)
 
 ## AdamsMoultonSolver
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_adams_moulton_solver.md#accuracy-on-standard-problems>)
+
+[Observed Order of Accuracy](<documentation/tests results/test_results_adams_moulton_solver.md#observed-order-of-accuracy>)
+
+[Boundaries and Curve Shape](<documentation/tests results/test_results_adams_moulton_solver.md#boundaries-and-curve-shape>)
+
+[Invalid Input Exceptions & Corrector Convergence](<documentation/tests results/test_results_adams_moulton_solver.md#invalid-input-exceptions--corrector-convergence>)
 
 ## RungeKuttaFehlbergSolver
 
