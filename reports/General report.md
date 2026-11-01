@@ -947,7 +947,7 @@ For an in-depth look at our testing framework, example results, and API document
 
 * **Examples Documentation:** [Examples Guide](documentation/modules/examples.md)
 
-## Algorithm Implementation Summary - Group 23
+## Algorithm Implementation Summary [See module reports](../documentation/modules)
 
 The `numcomp2` library implements eighteen core algorithms and five related methods across seven mathematical areas. All logic is implemented in stateless classes, sharing central helpers (like tridiagonal solvers and generic ODE loops) to keep code DRY.
 
