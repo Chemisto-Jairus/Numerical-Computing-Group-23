@@ -1,6 +1,6 @@
 # Adams-Bashforth Solver Examples Documentation
 
-## 1. Standard Explicit Multistep Methods (`example_adams_bashforth_solver.cpp`)
+## 1. [ Standard Explicit Multistep Methods](../../examples/example_adams_bashforth_solver.cpp)
 
 ### Exponential Decay Baseline
 * **Tested:** Accuracy of AB2 (2-step) and AB4 (4-step) methods against an exact decay curve.
@@ -31,7 +31,7 @@
 
 ---
 
-## 2. Applied Models (`example_adams_bashforth_solver_applied.cpp`)
+## 2. [ Applied Models](../../examples/example_adams_bashforth_solver_applied.cpp)
 
 ### Skydiver with Air Resistance
 * **Tested:** Modeling velocity over time including quadratic drag to find terminal velocity using AB4.
