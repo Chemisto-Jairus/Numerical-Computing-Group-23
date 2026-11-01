@@ -120,7 +120,7 @@ Numerical-Computing-Group-23/
 │   │       └── test_results_runge_kutta_fehlberg_solver.md
 │   ├── README.md 
 │   ├── algorithm-report.md 
-│   ├── algorithm-report.pdf 
+│   ├── Inheritance of Numcomp2 by Valeria.jpg
 │   └── testing.md 
 ├── examples/
 │   ├── CMakeLists.txt
@@ -178,7 +178,8 @@ Numerical-Computing-Group-23/
 │   ├── week-02.md
 │   ├── week-03.md
 │   ├── week-04.md
-│   └── Final week report 
+│   ├── Final week report 
+│   └── General report 
 ├── src/
 │   ├── app/ 
 │   │   ├── catalog.cpp
@@ -1236,7 +1237,7 @@ echo "✅ Finished! All tests have been executed inside $SAFE_DIR/build."
 - Conjugate Gradient [See module report](documentation/modules/conjugate_gradient_solver.md#5-limitations)
 - Runge-Kutta-Fehlberg [See module report](documentation/modules/runge_kutta_fehlberg_solver.md#5-limitations)
 - Adams-Bashforth [See module report](documentation/modules/adams_bashforth_solver.md#5-limitations)
-- Adams-Moulton
+- Adams-Moulton [See module repor](documentation/modules/adams_moulton_solver.md#5-limitations)
 
 
 ## 11. Contributions by Group Members
