@@ -1,6 +1,6 @@
 # 1. Numerical Computing 2 - C++ Library (Group 23)
 
-The objective of this project is to build a reusable numerical computing library from scratch using C++. It provides a set of mathematical tools for finding roots, interpolating data, numerical integration, numerical differentiation, and solving ordinary differential equations (ODEs). We built this to demonstrate object-oriented programming concepts and collaborative software development.
+The objective of this project is to build a reusable numerical computing library from scratch using C++. It has 7 areas (root finding, interpolation and approximation, differentiation, integration, initial value problems, boundary value problems, linear systems), an interactive app, 15 test programs, 30 examples.. It includes 15 classes, all 18 methods on the course list (plus Heun, RK3, RK4, LU decomposition and Chebyshev nodes).
 
 ## Table of Contents
 
@@ -508,11 +508,152 @@ echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/inst
 
 ### Linux and macOS  installation
 
-*(Placeholder - will be added later)*
+- Paste the code below in your terminal.
+- It should open the library folder where you find the files you need to use our library in your program.
+
+```bash
+
+#!/bin/bash
+
+# ==========================================
+# 1. SETUP SAFE ENVIRONMENT
+# ==========================================
+ORIGINAL_DIR=$(pwd)
+SAFE_DIR="$HOME/Group23_Safe_Build"
+
+echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
+rm -rf "$SAFE_DIR"
+mkdir -p "$SAFE_DIR"
+cp -R . "$SAFE_DIR"
+cd "$SAFE_DIR" || exit 1
+
+# ==========================================
+# 2. CHECK FILES & ADJUST FOR CMAKE
+# ==========================================
+LIB="src/adams_bashforth_solver.cpp \
+src/adams_moulton_solver.cpp \
+src/advanced_integrator.cpp \
+src/advanced_ode_solver.cpp \
+src/advanced_root_finder.cpp \
+src/basic_integrator.cpp \
+src/basic_ode_solver.cpp \
+src/basic_root_finder.cpp \
+src/conjugate_gradient_solver.cpp \
+src/cubic_spline.cpp \
+src/finite_difference_solver.cpp \
+src/interpolator.cpp \
+src/matrix_solver.cpp \
+src/numerical_differentiator.cpp \
+src/runge_kutta_fehlberg_solver.cpp"
+
+echo ">>> Checking for missing source files..."
+for file in $LIB; do
+    if [ ! -f "$file" ]; then
+        echo "⚠️ Warning: Source file '$file' is missing. Creating a dummy file to prevent CMake errors..."
+        touch "$file"
+    fi
+done
+
+# ==========================================
+# 3. CMAKE BUILD & INSTALL
+# ==========================================
+mkdir -p build
+cd build || exit 1
+
+echo ">>> Configuring CMake with local install directory..."
+cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="../install" ..
+
+echo ">>> Compiling with CMake..."
+cmake --build . -j$(sysctl -n hw.ncpu)
+
+echo ">>> Installing the library..."
+cmake --install .
+
+# ==========================================
+# 4. FINISH & OPEN FINDER
+# ==========================================
+echo ">>> Opening install folder in macOS Finder..."
+cd ../install || exit 1
+open .
+
+cd "$ORIGINAL_DIR" || exit 1
+echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/install."
+
+```
 
 ## 7. Use the Library in Your Own Program
 
-*(Placeholder - we will add a quick start guide here showing how to link the compiled library once it is fully built)*
+- **Headers**: include/numerical-computing/; one include for everything: #include "numerical-computing/numcomp.hpp".
+- **Namespace numcomp**; link the library numcomp2 (target_link_libraries(... numcomp2) or -lnumcomp2).
+
+- **Exceptions**: invalid_argument (bad parameter), out_of_range (point outside the data or interval), runtime_error (method failed: no convergence, singular or non-SPD matrix, non-finite result). Wrap calls in try/catch.
+
+**A small example**
+
+```cpp 
+
+/**
+ * @file my_program.cpp
+ * @brief An independent test program for the numcomp2 library.
+ */
+
+#include <iostream>
+#include <cmath>
+
+// Include the headers from your installed library
+#include "numerical-computing/basic_root_finder.hpp"
+#include "numerical-computing/basic_integrator.hpp"
+#include "numerical-computing/numerical_differentiator.hpp"
+
+int main() 
+{
+    numcomp::BasicRootFinder finder;
+    numcomp::BasicIntegrator integrator;
+    numcomp::NumericalDifferentiator diff;
+
+    // 1. Find sqrt(2) by solving x^2 - 2 = 0
+    auto f1 = [](double x) { return x * x - 2.0; };
+    double root = finder.bisection(f1, 0.0, 2.0, 1e-6, 100);
+
+    // 2. Integrate sin(x) from 0 to pi (exact area is 2)
+    const double pi = std::acos(-1.0);
+    auto f2 = [](double x) { return std::sin(x); };
+    double integral = integrator.trapezoidal_rule(f2, 0.0, pi, 100);
+
+    // 3. Find the slope of sin(x) at x = 0 (exact slope is 1)
+    double slope = diff.central_difference(f2, 0.0, 1e-4);
+
+    // Print the results
+    std::cout << "sqrt(2)  = " << root << "\n";
+    std::cout << "integral = " << integral << "\n";
+    std::cout << "slope    = " << slope << "\n";
+
+    return 0;
+}
+
+```
+
+- To tell your compiler where to find the library;
+
+### With g++
+
+**For macOS/Linux(or git bash)**
+
+```bash
+
+g++ -std=c++17 -I "$HOME/Group23_Safe_Build/install/include" my_program.cpp -L "$HOME/Group23_Safe_Build/install/lib" -lnumcomp2 -o my_program
+./my_program
+
+```
+
+**Windows Command Prompt**
+
+```bash
+
+g++ -std=c++17 -I "%USERPROFILE%\Group23_Safe_Build\install\include" my_program.cpp -L "%USERPROFILE%\Group23_Safe_Build\install\lib" -lnumcomp2 -o my_program.exe
+.\my_program.exe
+
+```
 
 ## 8. Examples 
 
@@ -940,11 +1081,15 @@ winget install -e --id Kitware.CMake
 
 **2. Building the library and testing**
 
+### WINDOWS
+
 - Run Git bash as administrator and right click on the repository folder and select open git bash here
 - Paste the code below in your git bash terminal.
 - It should show all tests passed and open the folder with the full build having the tests and examples executables.
 
 ```bash
+
+#!/bin/bash
 
 # ==========================================
 # 1. SETUP SAFE ENVIRONMENT
@@ -953,56 +1098,43 @@ ORIGINAL_DIR=$(pwd)
 SAFE_DIR="$HOME/Group23_Safe_Build"
 
 echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
-# Remove any old remnants and create a fresh copy
 rm -rf "$SAFE_DIR"
 mkdir -p "$SAFE_DIR"
-
-# Copy all project contents to the safe folder
 cp -r . "$SAFE_DIR"
-
-# Jump into the safe folder to carry out operations
-cd "$SAFE_DIR"
+cd "$SAFE_DIR" || exit 1
 
 # ==========================================
 # 2. CHECK FILES & ADJUST FOR CMAKE
 # ==========================================
-LIB="src/basic_root_finder.cpp src/advanced_root_finder.cpp src/interpolator.cpp src/cubic_spline.cpp src/basic_integrator.cpp src/advanced_integrator.cpp src/basic_ode_solver.cpp src/advanced_ode_solver.cpp src/matrix_solver.cpp"
-MISSING_FILES=()
+LIB="src/adams_bashforth_solver.cpp \
+src/adams_moulton_solver.cpp \
+src/advanced_integrator.cpp \
+src/advanced_ode_solver.cpp \
+src/advanced_root_finder.cpp \
+src/basic_integrator.cpp \
+src/basic_ode_solver.cpp \
+src/basic_root_finder.cpp \
+src/conjugate_gradient_solver.cpp \
+src/cubic_spline.cpp \
+src/finite_difference_solver.cpp \
+src/interpolator.cpp \
+src/matrix_solver.cpp \
+src/numerical_differentiator.cpp \
+src/runge_kutta_fehlberg_solver.cpp"
 
 echo ">>> Checking for missing source files..."
 for file in $LIB; do
     if [ ! -f "$file" ]; then
-        base_name=$(basename "$file" .cpp)
-        MISSING_FILES+=("$base_name")
-        echo "⚠️ Warning: Source file '$file' is missing. Skipping..."
-        
-        # TRICK: Create an empty dummy file in the safe folder so CMake 
-        # doesn't crash if this file is hardcoded in CMakeLists.txt!
+        echo "⚠️ Warning: Source file '$file' is missing. Creating a dummy file to prevent CMake errors..."
         touch "$file"
     fi
 done
 
-echo ">>> Filtering tests..."
-for t in tests/test_*.cpp; do
-    [ -e "$t" ] || continue 
-    name=$(basename "$t" .cpp)
-    
-    for missing in "${MISSING_FILES[@]}"; do
-        core_test_name="${name#test_}"
-        if [[ "$core_test_name" == *"$missing"* || "$missing" == *"$core_test_name"* ]]; then
-            echo "⏭️ Skipping test: $name (dependent source file is missing)"
-            # Remove the test from the safe folder so CMake ignores it completely
-            rm -f "$t"
-            break
-        fi
-    done
-done
-
 # ==========================================
-# 3. CMAKE BUILD
+# 3. CMAKE BUILD & RUN TESTS
 # ==========================================
 mkdir -p build
-cd build
+cd build || exit 1
 
 echo ">>> Configuring CMake..."
 cmake -G "MinGW Makefiles" ..
@@ -1010,31 +1142,84 @@ cmake -G "MinGW Makefiles" ..
 echo ">>> Compiling with CMake..."
 cmake --build .
 
+echo ">>> Executing Test Suite..."
+ctest --output-on-failure
+
 # ==========================================
-# 4. RUN TESTS & OPEN EXPLORER
+# 4. FINISH
 # ==========================================
-echo ">>> Running automated tests..."
-cd tests
-
-# Check if any .exe tests were actually compiled before trying to run the script
-if ls *.exe 1> /dev/null 2>&1; then
-    bash ../../../Group23_Safe_Build/tests/run_all_tests.sh
-else
-    echo "❌ No tests were compiled. Skipping test runner."
-fi
-
-# Step back out of tests into the build folder
-cd ..
-
-echo ">>> Opening build folder in Windows File Explorer..."
-explorer .
-
-# Return to original directory in the terminal
-cd "$ORIGINAL_DIR"
-echo "✅ Finished! Your root directory remained entirely untouched."
+cd "$ORIGINAL_DIR" || exit 1
+echo "✅ Finished! All tests have been executed inside $SAFE_DIR/build."
 
 ```
 
+### MacOS
+
+```bash
+
+#!/bin/bash
+
+# ==========================================
+# 1. SETUP SAFE ENVIRONMENT
+# ==========================================
+ORIGINAL_DIR=$(pwd)
+SAFE_DIR="$HOME/Group23_Safe_Build"
+
+echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
+rm -rf "$SAFE_DIR"
+mkdir -p "$SAFE_DIR"
+cp -R . "$SAFE_DIR"
+cd "$SAFE_DIR" || exit 1
+
+# ==========================================
+# 2. CHECK FILES & ADJUST FOR CMAKE
+# ==========================================
+LIB="src/adams_bashforth_solver.cpp \
+src/adams_moulton_solver.cpp \
+src/advanced_integrator.cpp \
+src/advanced_ode_solver.cpp \
+src/advanced_root_finder.cpp \
+src/basic_integrator.cpp \
+src/basic_ode_solver.cpp \
+src/basic_root_finder.cpp \
+src/conjugate_gradient_solver.cpp \
+src/cubic_spline.cpp \
+src/finite_difference_solver.cpp \
+src/interpolator.cpp \
+src/matrix_solver.cpp \
+src/numerical_differentiator.cpp \
+src/runge_kutta_fehlberg_solver.cpp"
+
+echo ">>> Checking for missing source files..."
+for file in $LIB; do
+    if [ ! -f "$file" ]; then
+        echo "⚠️ Warning: Source file '$file' is missing. Creating a dummy file to prevent CMake errors..."
+        touch "$file"
+    fi
+done
+
+# ==========================================
+# 3. CMAKE BUILD & RUN TESTS (macOS)
+# ==========================================
+mkdir -p build
+cd build || exit 1
+
+echo ">>> Configuring CMake..."
+cmake -G "Unix Makefiles" ..
+
+echo ">>> Compiling with CMake (Multi-core)..."
+cmake --build . -j$(sysctl -n hw.ncpu)
+
+echo ">>> Executing Test Suite..."
+ctest --output-on-failure
+
+# ==========================================
+# 4. FINISH
+# ==========================================
+cd "$ORIGINAL_DIR" || exit 1
+echo "✅ Finished! All tests have been executed inside $SAFE_DIR/build."
+
+```
 ## 10. Limitations
 
 - Basic root finder [See module report](documentation/modules/basic_root_finder.md#6-limitations)
