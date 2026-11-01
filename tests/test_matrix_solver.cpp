@@ -1,7 +1,11 @@
-// Tests for numcomp::MatrixSolver (Gaussian elimination + LU decomposition)
-// Owner: Kyeyune Praise Pauline (Member 8), independent tester for Derrick's module
-// Uses the shared helpers in test_helpers.hpp.
-// Every system is solved by BOTH methods.
+/**
+ * @file test_matrix_solver.cpp
+ * @brief Independent unit tests for numcomp::MatrixSolver (Gaussian elimination and LU).
+ * @author Kyeyune Praise Pauline (Member 8)
+ *
+ * Covers normal use, edge cases and invalid input. Each check prints [PASS] or [FAIL];
+ * the program returns 0 only if every check passed (see test_helpers.hpp).
+ */
 
 #include "numerical-computing/matrix_solver.hpp"
 #include "test_helpers.hpp"
@@ -11,10 +15,18 @@
 #include <vector>
 
 using test::check;
+/// A dense matrix stored as a vector of rows.
 using Matrix = std::vector<std::vector<double>>;
+/// A column vector.
 using Vector = std::vector<double>;
 
-// True if every entry of a matches b within tol
+/**
+ * @brief Compares two vectors entry by entry.
+ * @param a    First vector.
+ * @param b    Second vector.
+ * @param tol  Largest allowed difference per entry.
+ * @return true if the sizes match and every |a[i] - b[i]| <= tol.
+ */
 bool vectors_close(const Vector& a, const Vector& b, double tol)
 {
     if (a.size() != b.size()) return false;
@@ -25,7 +37,14 @@ bool vectors_close(const Vector& a, const Vector& b, double tol)
     return true;
 }
 
-// Checks one system with both solvers (removes the copy-pasted Gaussian/LU pairs)
+/**
+ * @brief Solves one system with both Gaussian elimination and LU and checks both answers.
+ * @param name      Description used in the two result lines.
+ * @param A         Coefficient matrix.
+ * @param b         Right-hand side.
+ * @param expected  Known exact solution.
+ * @param tol       Allowed error per entry.
+ */
 void check_both(const std::string& name, const Matrix& A, const Vector& b, const Vector& expected, double tol)
 {
     numcomp::MatrixSolver solver;
@@ -33,6 +52,7 @@ void check_both(const std::string& name, const Matrix& A, const Vector& b, const
     check("LU: " + name, vectors_close(solver.lu_solve(A, b), expected, tol));
 }
 
+/// Typical inputs compared with known exact answers.
 void normal_cases()
 {
     // 2x + y = 5,  x + 3y = 10  ->  x = 1, y = 3
@@ -57,6 +77,7 @@ void normal_cases()
     check("Gaussian and LU give the same answer", vectors_close(solver.gaussian_elimination(A, b), solver.lu_solve(A, b), 1e-12));
 }
 
+/// Boundary situations: end points, reversed intervals, minimum sizes.
 void edge_cases()
 {
     check_both("1x1 system", {{4.0}}, {8.0}, {2.0}, 1e-12);
@@ -75,6 +96,7 @@ void edge_cases()
     check("Solvers do not change the caller's A and b", A == A_copy && b == b_copy);
 }
 
+/// Invalid arguments must throw the exception documented in the header.
 void invalid_input()
 {
     numcomp::MatrixSolver solver;
@@ -90,6 +112,10 @@ void invalid_input()
     test::expect_throw<std::runtime_error>("All-zero matrix throws runtime_error", [&] { solver.gaussian_elimination({{0.0, 0.0}, {0.0, 0.0}}, {1.0, 1.0}); });
 }
 
+/**
+ * @brief Runs every test group.
+ * @return 0 if all checks passed, 1 otherwise.
+ */
 int main()
 {
     std::cout << "[*] Running Matrix Solver Tests..." << std::endl;
