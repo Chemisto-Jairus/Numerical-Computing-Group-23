@@ -1,6 +1,6 @@
 # General Report - Numerical Computing 2 (Group 23)
 
-## 1. Group Members and Contributions
+## Group Members and Contributions
 
 | Name | Student Number | Project Role / Assigned Module | 
 | ----- | ----- | ----- | 
@@ -14,14 +14,14 @@
 | KYEYUNE PRAISE PAULINE | 25/U/07943/PS | Member 8 / test framework/  test runner / Matrix Solver tests / QA; not linear algebra | 
 | Nabakooza Bridget Maria | 25/U/07592/PS | Member 9 /  numcomp_app / examples build / example helpers | 
 
-## 2. Requirements and Dependencies
+## Requirements and Dependencies
 
 - **Compiler:** needs C++17 support. 
 - **CMake:** version 3.10 or newer. 
 - **Git:** only to clone the repository. 
 - **Outside libraries:** None, everything is written by us from scratch.
 
-## 3. The Library at a Glance
+## The Library at a Glance
 
 | Class | Methods | Module guide | 
 | ----- | ----- | ----- | 
@@ -41,7 +41,7 @@
 | `MatrixSolver` | Gaussian elimination, LU decomposition | [modules/matrix_solver.md](documentation/modules/matrix_solver.md) | 
 | `ConjugateGradientSolver` | Conjugate gradient | [modules/conjugate_gradient_solver.md](documentation/modules/conjugate_gradient_solver.md) | 
 
-## 4. Project Structure
+## Project Structure
 
 We used the following structure for our project:
 
@@ -235,57 +235,420 @@ Numerical-Computing-Group-23/
 
 ```
 
-## 5. Building and Installation
+## Building the library
 
-### Windows Build & Install
+## Windows Build
 
-**Building the Library:**
+### (USING Cmake/Git bash)
 
-1. Install CMake using the command `winget install -e --id Kitware.CMake` in the Command prompt.
+**1. How to install Cmake**
 
-2. Run Git bash as administrator, right-click the repository folder, and select "open git bash here".
+- Open Command prompt on your pc and enter this code
 
-3. Paste the provided setup script into the terminal to create a safe environment, adjust files, configure CMake with `cmake -G "MinGW Makefiles" ..`, compile with `cmake --build .`, and open the build folder in Windows File Explorer.
+```bash
 
-**Installing the Library:**
+winget install -e --id Kitware.CMake
 
-1. Install CMake via Command prompt using `winget install -e --id Kitware.CMake`.
+``` 
 
-2. Download the repository, right-click it, and open Git bash.
+**2. Building the library**
 
-3. Run the installation script to create a safe environment, configure CMake with `cmake -G "MinGW Makefiles" -DCMAKE_INSTALL_PREFIX="../install" ..`, compile with `cmake --build .`, install with `cmake --install .`, and open the install folder in Windows File Explorer.
+- Run Git bash as administrator and right click on the repository folder and select open git bash here
+- Paste the code below in your git bash terminal
 
-### macOS / Linux Build & Install
+```bash
 
-**Building the Library:**
+# ==========================================
+# 1. SETUP SAFE ENVIRONMENT
+# ==========================================
+ORIGINAL_DIR=$(pwd)
+SAFE_DIR="$HOME/Group23_Safe_Build"
 
-1. Install the compiler via `xcode-select --install` in the terminal.
+echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
+rm -rf "$SAFE_DIR"
+mkdir -p "$SAFE_DIR"
+cp -r . "$SAFE_DIR"
+cd "$SAFE_DIR"
 
-2. Install CMake using `brew install cmake` via Homebrew.
+# ==========================================
+# 2. CHECK FILES & ADJUST FOR CMAKE
+# ==========================================
+LIB="src/adams_bashforth_solver.cpp \
+src/adams_moulton_solver.cpp \
+src/advanced_integrator.cpp \
+src/advanced_ode_solver.cpp \
+src/advanced_root_finder.cpp \
+src/basic_integrator.cpp \
+src/basic_ode_solver.cpp \
+src/basic_root_finder.cpp \
+src/conjugate_gradient_solver.cpp \
+src/cubic_spline.cpp \
+src/finite_difference_solver.cpp \
+src/interpolator.cpp \
+src/matrix_solver.cpp \
+src/numerical_differentiator.cpp \
+src/runge_kutta_fehlberg_solver.cpp"
 
-3. Run the provided setup script in the VS Code terminal inside the repository folder to create a safe environment, configure CMake with `cmake ..`, compile with `cmake --build .`, and open the build folder in Finder.
+echo ">>> Checking for missing source files..."
+for file in $LIB; do
+    if [ ! -f "$file" ]; then
+        echo "⚠️ Warning: Source file '$file' is missing. Creating a dummy file to prevent CMake errors..."
+        touch "$file"
+    fi
+done
 
-**Installing the Library:**
+# ==========================================
+# 3. CMAKE BUILD
+# ==========================================
+mkdir -p build
+cd build
 
-1. Paste the installation script into the terminal to create a safe environment, configure CMake with `cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="../install" ..`, compile with `cmake --build . -j$(sysctl -n hw.ncpu)`, install with `cmake --install .`, and open the install folder in Finder.
+echo ">>> Configuring CMake..."
+cmake -G "MinGW Makefiles" ..
 
-## 6. Testing
+echo ">>> Compiling with CMake..."
+cmake --build .
 
-### Running Tests Individually
+# ==========================================
+# 4. FINISH & OPEN EXPLORER
+# ==========================================
+echo ">>> Opening build folder in Windows File Explorer..."
+explorer .
 
-To run tests individually, navigate to the `tests` folder inside the `build` folder, right-click, open in the terminal (Windows PowerShell), and run `.\test_(module name).exe` (e.g., `.\test_matrix_solver.exe`).
+cd "$ORIGINAL_DIR"
+echo "✅ Finished! The library has been built inside $SAFE_DIR/build."
 
-### Running All Tests and Examples (Windows)
+```
 
-1. Install CMake using `winget install -e --id Kitware.CMake`.
+- It should open the folder where the build was created and you can run the numcomp_app.
 
-2. Run Git bash as administrator in the repository folder.
 
-3. Execute the testing script to configure CMake with `cmake -G "MinGW Makefiles" ..`, compile with `cmake --build .`, and run the test suite with `ctest --output-on-failure`.
+## macOS/Linux build
 
-### Running All Tests and Examples (macOS)
+### Using CMake and Homebrew
 
-Execute the testing script to configure CMake with `cmake -G "Unix Makefiles" ..`, compile across multiple cores with `cmake --build . -j$(sysctl -n hw.ncpu)`, and run the test suite with `ctest --output-on-failure`.
+- If your macOS has no compiler, paste this code in the terminal to get it.
+
+```bash
+
+xcode-select --install
+
+```
+
+- If you also do not have CMake installed on your macOS, paste this code inside Homebrew.
+
+```bash
+
+brew install cmake
+
+```
+
+- Now to build the library and the app, paste this code in your new terminal in vs code while inside the repository folder.
+- It should open the folder where the numcomp_app executable is located.
+
+```bash
+
+# ==========================================
+# 1. SETUP SAFE ENVIRONMENT
+# ==========================================
+ORIGINAL_DIR=$(pwd)
+SAFE_DIR="$HOME/Group23_Safe_Build"
+
+echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
+rm -rf "$SAFE_DIR"
+mkdir -p "$SAFE_DIR"
+cp -r . "$SAFE_DIR"
+cd "$SAFE_DIR"
+
+# ==========================================
+# 2. CHECK FILES & ADJUST FOR CMAKE
+# ==========================================
+LIB="src/adams_bashforth_solver.cpp \
+src/adams_moulton_solver.cpp \
+src/advanced_integrator.cpp \
+src/advanced_ode_solver.cpp \
+src/advanced_root_finder.cpp \
+src/basic_integrator.cpp \
+src/basic_ode_solver.cpp \
+src/basic_root_finder.cpp \
+src/conjugate_gradient_solver.cpp \
+src/cubic_spline.cpp \
+src/finite_difference_solver.cpp \
+src/interpolator.cpp \
+src/matrix_solver.cpp \
+src/numerical_differentiator.cpp \
+src/runge_kutta_fehlberg_solver.cpp"
+
+echo ">>> Checking for missing source files..."
+for file in $LIB; do
+    if [ ! -f "$file" ]; then
+        echo "⚠️ Warning: Source file '$file' is missing. Creating a dummy file to prevent CMake errors..."
+        touch "$file"
+    fi
+done
+
+# ==========================================
+# 3. CMAKE BUILD
+# ==========================================
+mkdir -p build
+cd build
+
+echo ">>> Configuring CMake..."
+cmake ..
+
+echo ">>> Compiling with CMake..."
+cmake --build .
+
+# ==========================================
+# 4. FINISH & OPEN FINDER
+# ==========================================
+echo ">>> Opening build folder in macOS Finder..."
+open .
+
+cd "$ORIGINAL_DIR"
+echo "✅ Finished! The library has been built inside $SAFE_DIR/build."
+
+```
+
+## Install the Library (if your CMake supports it) 
+
+- (Installing means copy the three things another program needs into one folder (the prefix): the public headers, the static library, and the app. A program elsewhere on the computer can then #include the headers and link the library, without the source code.)
+
+##  NB (To install the library you must build it) 
+
+### Windows Installation
+
+**How to install Cmake**
+
+- Open Command prompt on your pc and enter this code
+
+```bash
+
+winget install -e --id Kitware.CMake
+
+``` 
+
+- Download the repository and save it anywhere on your pc
+- Right click on it and select open Git bash here and paste the code below. 
+- It should open the folder where the library that can be used it located 
+
+```bash
+
+# ==========================================
+# 1. SETUP SAFE ENVIRONMENT
+# ==========================================
+ORIGINAL_DIR=$(pwd)
+SAFE_DIR="$HOME/Group23_Safe_Build"
+
+echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
+rm -rf "$SAFE_DIR"
+mkdir -p "$SAFE_DIR"
+cp -r . "$SAFE_DIR"
+cd "$SAFE_DIR"
+
+# ==========================================
+# 2. CHECK FILES & ADJUST FOR CMAKE
+# ==========================================
+LIB="src/adams_bashforth_solver.cpp \
+src/adams_moulton_solver.cpp \
+src/advanced_integrator.cpp \
+src/advanced_ode_solver.cpp \
+src/advanced_root_finder.cpp \
+src/basic_integrator.cpp \
+src/basic_ode_solver.cpp \
+src/basic_root_finder.cpp \
+src/conjugate_gradient_solver.cpp \
+src/cubic_spline.cpp \
+src/finite_difference_solver.cpp \
+src/interpolator.cpp \
+src/matrix_solver.cpp \
+src/numerical_differentiator.cpp \
+src/runge_kutta_fehlberg_solver.cpp"
+
+echo ">>> Checking for missing source files..."
+for file in $LIB; do
+    if [ ! -f "$file" ]; then
+        echo "⚠️ Warning: Source file '$file' is missing. Creating a dummy file to prevent CMake errors..."
+        touch "$file"
+    fi
+done
+
+# ==========================================
+# 3. CMAKE BUILD & INSTALL
+# ==========================================
+mkdir -p build
+cd build
+
+echo ">>> Configuring CMake with local install directory..."
+cmake -G "MinGW Makefiles" -DCMAKE_INSTALL_PREFIX="../install" ..
+
+echo ">>> Compiling with CMake..."
+cmake --build .
+
+echo ">>> Installing the library..."
+cmake --install .
+
+# ==========================================
+# 4. FINISH & OPEN EXPLORER
+# ==========================================
+echo ">>> Opening install folder in Windows File Explorer..."
+cd ../install
+explorer .
+
+cd "$ORIGINAL_DIR"
+echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/install."
+
+```
+
+
+### Linux and macOS  installation
+
+- Paste the code below in your terminal.
+- It should open the library folder where you find the files you need to use our library in your program.
+
+```bash
+
+#!/bin/bash
+
+# ==========================================
+# 1. SETUP SAFE ENVIRONMENT
+# ==========================================
+ORIGINAL_DIR=$(pwd)
+SAFE_DIR="$HOME/Group23_Safe_Build"
+
+echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
+rm -rf "$SAFE_DIR"
+mkdir -p "$SAFE_DIR"
+cp -R . "$SAFE_DIR"
+cd "$SAFE_DIR" || exit 1
+
+# ==========================================
+# 2. CHECK FILES & ADJUST FOR CMAKE
+# ==========================================
+LIB="src/adams_bashforth_solver.cpp \
+src/adams_moulton_solver.cpp \
+src/advanced_integrator.cpp \
+src/advanced_ode_solver.cpp \
+src/advanced_root_finder.cpp \
+src/basic_integrator.cpp \
+src/basic_ode_solver.cpp \
+src/basic_root_finder.cpp \
+src/conjugate_gradient_solver.cpp \
+src/cubic_spline.cpp \
+src/finite_difference_solver.cpp \
+src/interpolator.cpp \
+src/matrix_solver.cpp \
+src/numerical_differentiator.cpp \
+src/runge_kutta_fehlberg_solver.cpp"
+
+echo ">>> Checking for missing source files..."
+for file in $LIB; do
+    if [ ! -f "$file" ]; then
+        echo "⚠️ Warning: Source file '$file' is missing. Creating a dummy file to prevent CMake errors..."
+        touch "$file"
+    fi
+done
+
+# ==========================================
+# 3. CMAKE BUILD & INSTALL
+# ==========================================
+mkdir -p build
+cd build || exit 1
+
+echo ">>> Configuring CMake with local install directory..."
+cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="../install" ..
+
+echo ">>> Compiling with CMake..."
+cmake --build . -j$(sysctl -n hw.ncpu)
+
+echo ">>> Installing the library..."
+cmake --install .
+
+# ==========================================
+# 4. FINISH & OPEN FINDER
+# ==========================================
+echo ">>> Opening install folder in macOS Finder..."
+cd ../install || exit 1
+open .
+
+cd "$ORIGINAL_DIR" || exit 1
+echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/install."
+
+```
+
+## Use the Library in Your Own Program
+
+- **Headers**: include/numerical-computing/; one include for everything: #include "numerical-computing/numcomp.hpp".
+- **Namespace numcomp**; link the library numcomp2 (target_link_libraries(... numcomp2) or -lnumcomp2).
+
+- **Exceptions**: invalid_argument (bad parameter), out_of_range (point outside the data or interval), runtime_error (method failed: no convergence, singular or non-SPD matrix, non-finite result). Wrap calls in try/catch.
+
+**A small example**
+
+```cpp 
+
+/**
+ * @file my_program.cpp
+ * @brief An independent test program for the numcomp2 library.
+ */
+
+#include <iostream>
+#include <cmath>
+
+// Include the headers from your installed library
+#include "numerical-computing/basic_root_finder.hpp"
+#include "numerical-computing/basic_integrator.hpp"
+#include "numerical-computing/numerical_differentiator.hpp"
+
+int main() 
+{
+    numcomp::BasicRootFinder finder;
+    numcomp::BasicIntegrator integrator;
+    numcomp::NumericalDifferentiator diff;
+
+    // 1. Find sqrt(2) by solving x^2 - 2 = 0
+    auto f1 = [](double x) { return x * x - 2.0; };
+    double root = finder.bisection(f1, 0.0, 2.0, 1e-6, 100);
+
+    // 2. Integrate sin(x) from 0 to pi (exact area is 2)
+    const double pi = std::acos(-1.0);
+    auto f2 = [](double x) { return std::sin(x); };
+    double integral = integrator.trapezoidal_rule(f2, 0.0, pi, 100);
+
+    // 3. Find the slope of sin(x) at x = 0 (exact slope is 1)
+    double slope = diff.central_difference(f2, 0.0, 1e-4);
+
+    // Print the results
+    std::cout << "sqrt(2)  = " << root << "\n";
+    std::cout << "integral = " << integral << "\n";
+    std::cout << "slope    = " << slope << "\n";
+
+    return 0;
+}
+
+```
+
+- To tell your compiler where to find the library;
+
+### With g++
+
+**For macOS/Linux(or git bash)**
+
+```bash
+
+g++ -std=c++17 -I "$HOME/Group23_Safe_Build/install/include" my_program.cpp -L "$HOME/Group23_Safe_Build/install/lib" -lnumcomp2 -o my_program
+./my_program
+
+```
+
+**Windows Command Prompt**
+
+```bash
+
+g++ -std=c++17 -I "%USERPROFILE%\Group23_Safe_Build\install\include" my_program.cpp -L "%USERPROFILE%\Group23_Safe_Build\install\lib" -lnumcomp2 -o my_program.exe
+.\my_program.exe
+
+```
 
 ##  Examples 
 
