@@ -1,26 +1,49 @@
 #pragma once
-// =====================================================================
-// Group 23: shared mini test framework (tests only, not part of the library)
-// Owner: Batte Derrick Calvin (Member 2)
-//
-// Before: every test file had its own copy of report(), close(), the
-// pass/fail counters and a 15-line try/catch block for every "should
-// throw" test. Now all test files include this one header.
-//
-// No outside test framework and no assert(), so it works the same in
-// Debug and Release builds and needs nothing to be downloaded.
-// =====================================================================
+/**
+ * @file test_helpers.hpp
+ * @brief Minimal header-only test framework shared by every Group 23 test program.
+ * @author Kyeyune Praise Pauline (Member 8)
+ *
+ * Each test program includes this header, records results with check() and
+ * the expect_* helpers, and returns test::finish() from main(). The exit code
+ * is 0 when every check passed and 1 otherwise, which is what ctest and
+ * tests/run_all_tests.sh look at.
+ *
+ * Plain C++17 with no external dependencies. It does not rely on assert(),
+ * so the checks run identically in Debug and Release builds.
+ *
+ * @code
+ * #include "test_helpers.hpp"
+ * int main()
+ * {
+ *     test::check("1 + 1 is 2", 1 + 1 == 2);
+ *     test::expect_throw<std::invalid_argument>("bad n throws", [] { throw std::invalid_argument("n"); });
+ *     return test::finish("Example");
+ * }
+ * @endcode
+ */
+
 #include <cmath>
 #include <iostream>
 #include <string>
 
+/**
+ * @namespace test
+ * @brief Counters and assertion helpers used by the test programs.
+ */
 namespace test
 {
-    // "inline" (C++17) lets these counters live in a header safely
+    /// Number of checks that passed so far in this program.
     inline int passed = 0;
+
+    /// Number of checks that failed so far in this program.
     inline int failed = 0;
 
-    /// Records one test result and prints [PASS] or [FAIL].
+    /**
+     * @brief Records one test result and prints "[PASS] name" or "[FAIL] name".
+     * @param name  Description of what is being checked.
+     * @param ok    true if the check succeeded.
+     */
     inline void check(const std::string& name, bool ok)
     {
         if (ok)
@@ -35,15 +58,28 @@ namespace test
         }
     }
 
-    /// True if a and b are equal within tol.
+    /**
+     * @brief Compares two floating-point numbers with an absolute tolerance.
+     * @param a    First value.
+     * @param b    Second value.
+     * @param tol  Largest allowed difference.
+     * @return true if |a - b| < tol.
+     */
     inline bool close(double a, double b, double tol)
     {
         return std::abs(a - b) < tol;
     }
 
-    /// Passes only if calling "code" throws the exception type Expected.
-    /// Example: test::expect_throw<std::invalid_argument>("n = 0 throws", [&] { solver.f(0); });
-    /// Any other exception type, or no exception, is a FAIL.
+    /**
+     * @brief Passes only if running @p code throws an exception of type @p Expected.
+     *
+     * Any other exception type, or no exception at all, is recorded as a failure.
+     *
+     * @tparam Expected  Exception type that must be thrown, for example std::invalid_argument.
+     * @tparam Code      Any callable taking no arguments (usually a lambda).
+     * @param name  Description of what is being checked.
+     * @param code  The code that should throw.
+     */
     template <typename Expected, typename Code>
     void expect_throw(const std::string& name, Code code)
     {
@@ -62,7 +98,12 @@ namespace test
         check(name, ok);
     }
 
-    /// Passes only if calling "code" does not throw anything.
+    /**
+     * @brief Passes only if running @p code does not throw anything.
+     * @tparam Code  Any callable taking no arguments (usually a lambda).
+     * @param name  Description of what is being checked.
+     * @param code  The code that must complete normally.
+     */
     template <typename Code>
     void expect_no_throw(const std::string& name, Code code)
     {
@@ -78,9 +119,11 @@ namespace test
         check(name, ok);
     }
 
-    /// Prints the summary line and gives main() its return value:
-    /// 0 if everything passed, 1 if anything failed (ctest and
-    /// run_all_tests.sh read this exit code).
+    /**
+     * @brief Prints the summary line for a test program.
+     * @param module_name  Name shown in the summary, for example "Cubic Spline".
+     * @return 0 if every check passed, 1 if any failed. Return this from main().
+     */
     inline int finish(const std::string& module_name)
     {
         std::cout << std::endl << module_name << ": " << passed << " passed, " << failed << " failed" << std::endl;

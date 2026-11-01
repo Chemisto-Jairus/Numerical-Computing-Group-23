@@ -65,6 +65,7 @@ I made the following changes to my modules
 - I updated the auto tester to include the missing modules soon to be added.
 - I documented the testing framework.
 - I documented the test results.
+- I finished documenting all testing of the repo
 
 **Member 9 (Nabakooza Bridget Maria):** 
 
