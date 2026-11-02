@@ -20,6 +20,7 @@ The objective of this project is to build a reusable numerical computing library
 - [11. Contributions by Group Members](#11-contributions-by-group-members)
 - [12. How We Collaborated as a Team](#12-how-we-collaborated-as-a-team)
 - [13. DOXY Documentation](README.md#13-doxy-documentation)
+- [14. Numcomp app](README.md#14-numcomp-app)
 
 ## 2. Requirements and Dependencies
 
@@ -1308,3 +1309,7 @@ Because we have a large group of 9 people, we had to be very organized so we did
 ## 13. DOXY Documentation
 
 - To learn how to use the Doxywizard to document the project, visit [doxygen_comments_guide](documentation/guides/doxygen_comments_guide.md)
+
+## 14. Numcomp app
+
+- The app we created that utilizes this library has its documentation at [here](documentation/modules/command_line_app.md)
