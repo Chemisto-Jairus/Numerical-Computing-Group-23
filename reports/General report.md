@@ -25,21 +25,21 @@
 
 | Class | Methods | Module guide | 
 | ----- | ----- | ----- | 
-| `BasicRootFinder` | Bisection, Newton-Raphson | [modules/basic_root_finder.md](documentation/modules/basic_root_finder.md) | 
-| `AdvancedRootFinder` | Secant, Fixed-point iteration | [modules/advanced_root_finder.md](documentation/modules/advanced_root_finder.md) | 
-| `Interpolator` | Linear interpolation, Chebyshev nodes, Chebyshev approximation | [modules/interpolator.md](documentation/modules/interpolator.md) | 
-| `CubicSpline` | Natural cubic spline | [modules/cubic_spline.md](documentation/modules/cubic_spline.md) | 
-| `NumericalDifferentiator` | Forward, backward, central differences, second derivative, Richardson | [modules/numerical_differentiator.md](documentation/modules/numerical_differentiator.md) | 
-| `BasicIntegrator` | Trapezoidal, Midpoint | [modules/basic_integrator.md](documentation/modules/basic_integrator.md) | 
-| `AdvancedIntegrator` | Simpson's 1/3, Romberg | [modules/advanced_integrator.md](documentation/modules/advanced_integrator.md) | 
-| `BasicODESolver` | Euler, Heun | [modules/basic_ode_solver.md](documentation/modules/basic_ode_solver.md) | 
-| `AdvancedODESolver` | RK3, RK4 | [modules/advanced_ode_solver.md](documentation/modules/advanced_ode_solver.md) | 
-| `AdamsBashforthSolver` | Adams-Bashforth 2 and 4 | [modules/adams_bashforth_solver.md](documentation/modules/adams_bashforth_solver.md) | 
-| `AdamsMoultonSolver` | Adams-Moulton 2 and 4 | [modules/adams_moulton_solver.md](documentation/modules/adams_moulton_solver.md) | 
-| `RungeKuttaFehlbergSolver` | Adaptive RKF45 | [modules/runge_kutta_fehlberg_solver.md](documentation/modules/runge_kutta_fehlberg_solver.md) | 
-| `FiniteDifferenceSolver` | Finite difference method for boundary value problems | [modules/finite_difference_solver.md](documentation/modules/finite_difference_solver.md) | 
-| `MatrixSolver` | Gaussian elimination, LU decomposition | [modules/matrix_solver.md](documentation/modules/matrix_solver.md) | 
-| `ConjugateGradientSolver` | Conjugate gradient | [modules/conjugate_gradient_solver.md](documentation/modules/conjugate_gradient_solver.md) | 
+| `BasicRootFinder` | Bisection, Newton-Raphson | [modules/basic_root_finder.md](../documentation/modules/basic_root_finder.md) | 
+| `AdvancedRootFinder` | Secant, Fixed-point iteration | [modules/advanced_root_finder.md](../documentation/modules/advanced_root_finder.md) | 
+| `Interpolator` | Linear interpolation, Chebyshev nodes, Chebyshev approximation | [modules/interpolator.md](../documentation/modules/interpolator.md) | 
+| `CubicSpline` | Natural cubic spline | [modules/cubic_spline.md](../documentation/modules/cubic_spline.md) | 
+| `NumericalDifferentiator` | Forward, backward, central differences, second derivative, Richardson | [modules/numerical_differentiator.md](../documentation/modules/numerical_differentiator.md) | 
+| `BasicIntegrator` | Trapezoidal, Midpoint | [modules/basic_integrator.md](../documentation/modules/basic_integrator.md) | 
+| `AdvancedIntegrator` | Simpson's 1/3, Romberg | [modules/advanced_integrator.md](../documentation/modules/advanced_integrator.md) | 
+| `BasicODESolver` | Euler, Heun | [modules/basic_ode_solver.md](../documentation/modules/basic_ode_solver.md) | 
+| `AdvancedODESolver` | RK3, RK4 | [modules/advanced_ode_solver.md](../documentation/modules/advanced_ode_solver.md) | 
+| `AdamsBashforthSolver` | Adams-Bashforth 2 and 4 | [modules/adams_bashforth_solver.md](../documentation/modules/adams_bashforth_solver.md) | 
+| `AdamsMoultonSolver` | Adams-Moulton 2 and 4 | [modules/adams_moulton_solver.md](../documentation/modules/adams_moulton_solver.md) | 
+| `RungeKuttaFehlbergSolver` | Adaptive RKF45 | [modules/runge_kutta_fehlberg_solver.md](../documentation/modules/runge_kutta_fehlberg_solver.md) | 
+| `FiniteDifferenceSolver` | Finite difference method for boundary value problems | [modules/finite_difference_solver.md](../documentation/modules/finite_difference_solver.md) | 
+| `MatrixSolver` | Gaussian elimination, LU decomposition | [modules/matrix_solver.md](../documentation/modules/matrix_solver.md) | 
+| `ConjugateGradientSolver` | Conjugate gradient | [modules/conjugate_gradient_solver.md](../documentation/modules/conjugate_gradient_solver.md) | 
 
 ## Algorithm Implementation Summary [See module reports](../documentation/modules)
 
@@ -898,111 +898,111 @@ g++ -std=c++17 -I "%USERPROFILE%\Group23_Safe_Build\install\include" my_program.
 
 **A. Standard Equations**
 
-[Equation and values tested](<documentation/examples results/results_basic_root_finder.md#equations-and-values-tested>)
+[Equation and values tested](<../documentation/examples results/results_basic_root_finder.md#equations-and-values-tested>)
 
-[Error Handling & Edge Cases](<documentation/examples results/results_basic_root_finder.md#error-handling--edge-cases>)
+[Error Handling & Edge Cases](<../documentation/examples results/results_basic_root_finder.md#error-handling--edge-cases>)
 
 **B. Applied Problems**
 
 
-[Equation and values tested](<documentation/examples results/results_basic_root_finder.md#equations-and-values-tested-applied>)
+[Equation and values tested](<../documentation/examples results/results_basic_root_finder.md#equations-and-values-tested-applied>)
 
 ## Advanced_root_finder
 
 **A. Standard Root Finding**
 
-[Secant Method Baseline](<documentation/examples results/results_advanced_root_finder.md#secant-method-baseline>)
+[Secant Method Baseline](<../documentation/examples results/results_advanced_root_finder.md#secant-method-baseline>)
 
-[Fixed-Point Iteration Baseline](<documentation/examples results/results_advanced_root_finder.md#fixed-point-iteration-baseline>)
+[Fixed-Point Iteration Baseline](<../documentation/examples results/results_advanced_root_finder.md#fixed-point-iteration-baseline>)
 
-[Divergence and Algorithm Stability (Choice of $g$)](<documentation/examples results/results_advanced_root_finder.md#divergence-and-algorithm-stability-choice-of->)
+[Divergence and Algorithm Stability (Choice of $g$)](<../documentation/examples results/results_advanced_root_finder.md#divergence-and-algorithm-stability-choice-of->)
 
-[Invalid Input Exceptions](<documentation/examples results/results_advanced_root_finder.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/examples results/results_advanced_root_finder.md#invalid-input-exceptions>)
 
 **B. Applied Problems**
 
-[Loan Interest Rate](<documentation/examples results/results_advanced_root_finder.md#loan-interest-rate>)
+[Loan Interest Rate](<../documentation/examples results/results_advanced_root_finder.md#loan-interest-rate>)
 
-[Babylonian Square Roots](<documentation/examples results/results_advanced_root_finder.md#babylonian-square-roots>)
+[Babylonian Square Roots](<../documentation/examples results/results_advanced_root_finder.md#babylonian-square-roots>)
 
-[Spherical Tank Water Depth](<documentation/examples results/results_advanced_root_finder.md#spherical-tank-water-depth>)
+[Spherical Tank Water Depth](<../documentation/examples results/results_advanced_root_finder.md#spherical-tank-water-depth>)
 
 ## Basic integrator
 
 **A. Standard Integrals**
 
-[Trapezoidal and Midpoint Baselines](<documentation/examples results/results_basic_integrator.md#trapezoidal-and-midpoint-baselines>)
+[Trapezoidal and Midpoint Baselines](<../documentation/examples results/results_basic_integrator.md#trapezoidal-and-midpoint-baselines>)
 
-[Second-Order Convergence](<documentation/examples results/results_basic_integrator.md#second-order-convergence>)
+[Second-Order Convergence](<../documentation/examples results/results_basic_integrator.md#second-order-convergence>)
 
-[Reversed Limits](<documentation/examples results/results_basic_integrator.md#reversed-limits>)
+[Reversed Limits](<../documentation/examples results/results_basic_integrator.md#reversed-limits>)
 
-[Invalid Input Exceptions](<documentation/examples results/results_basic_integrator.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/examples results/results_basic_integrator.md#invalid-input-exceptions>)
 
 **B. Applied Integrals**
 
-[Distance from Velocity](<documentation/examples results/results_basic_integrator.md#distance-from-velocity>)
+[Distance from Velocity](<../documentation/examples results/results_basic_integrator.md#distance-from-velocity>)
 
-[Normal Distribution Probability](<documentation/examples results/results_basic_integrator.md#normal-distribution-probability>)
+[Normal Distribution Probability](<../documentation/examples results/results_basic_integrator.md#normal-distribution-probability>)
 
-[Work Done by a Spring](<documentation/examples results/results_basic_integrator.md#work-done-by-a-spring>)
+[Work Done by a Spring](<../documentation/examples results/results_basic_integrator.md#work-done-by-a-spring>)
 
 
 ## Advanced integrator
 
 **A. Standard Integrals**
 
-[Simpson's Rule Baseline Tests](<documentation/examples results/results_advanced_integrator.md#simpsons-rule-baseline-tests>)
+[Simpson's Rule Baseline Tests](<../documentation/examples results/results_advanced_integrator.md#simpsons-rule-baseline-tests>)
 
-[Simpson's Rule Convergence](<documentation/examples results/results_advanced_integrator.md#simpsons-rule-convergence>)
+[Simpson's Rule Convergence](<../documentation/examples results/results_advanced_integrator.md#simpsons-rule-convergence>)
 
-[Romberg Integration Accuracy](<documentation/examples results/results_advanced_integrator.md#romberg-integration-accuracy>)
+[Romberg Integration Accuracy](<../documentation/examples results/results_advanced_integrator.md#romberg-integration-accuracy>)
 
-[Invalid Input Exceptions](<documentation/examples results/results_advanced_integrator.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/examples results/results_advanced_integrator.md#invalid-input-exceptions>)
 
 **B. Applied Integrals**
 
-[Error Function $\text{erf}(1)$](<documentation/examples results/results_advanced_integrator.md#error-function>)
+[Error Function $\text{erf}(1)$](<../documentation/examples results/results_advanced_integrator.md#error-function>)
 
-[Arc Length of Parabola $y = x^2$](<documentation/examples results/results_advanced_integrator.md#arc-length-of-parabola>)
+[Arc Length of Parabola $y = x^2$](<../documentation/examples results/results_advanced_integrator.md#arc-length-of-parabola>)
 
-[Algorithm Cost Comparison](<documentation/examples results/results_advanced_integrator.md#algorithm-cost-comparison>)
+[Algorithm Cost Comparison](<../documentation/examples results/results_advanced_integrator.md#algorithm-cost-comparison>)
 
 ## Basic_ode_solver
 
 **A. Standard ODE Solving**
 
-[Exponential Growth Baseline](<documentation/examples results/results_basic_ode_solver.md#exponential-growth-baseline>)
+[Exponential Growth Baseline](<../documentation/examples results/results_basic_ode_solver.md#exponential-growth-baseline>)
 
-[Order of Accuracy](<documentation/examples results/results_basic_ode_solver.md#order-of-accuracy>)
+[Order of Accuracy](<../documentation/examples results/results_basic_ode_solver.md#order-of-accuracy>)
 
-[Additional Right-Hand Sides](<documentation/examples results/results_basic_ode_solver.md#additional-right-hand-sides>)
+[Additional Right-Hand Sides](<../documentation/examples results/results_basic_ode_solver.md#additional-right-hand-sides>)
 
-[Invalid Input Exceptions](<documentation/examples results/results_basic_ode_solver.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/examples results/results_basic_ode_solver.md#invalid-input-exceptions>)
 
 **B. Applied Models**
 
-[Newton's Law of Cooling](<documentation/examples results/results_basic_ode_solver.md#newtons-law-of-cooling>)
+[Newton's Law of Cooling](<../documentation/examples results/results_basic_ode_solver.md#newtons-law-of-cooling>)
 
-[Logistic Population Growth](<documentation/examples results/results_basic_ode_solver.md#logistic-population-growth>)
+[Logistic Population Growth](<../documentation/examples results/results_basic_ode_solver.md#logistic-population-growth>)
 
 ## Advanced ode solver
 
 **A. Standard Runge-Kutta Methods**
 
-[Exponential Decay Baseline](<documentation/examples results/results_advanced_ode_solver.md#exponential-decay-baseline>)
+[Exponential Decay Baseline](<../documentation/examples results/results_advanced_ode_solver.md#exponential-decay-baseline>)
 
-[Order of Accuracy Verification](<documentation/examples results/results_advanced_ode_solver.md#order-of-accuracy-verification>)
+[Order of Accuracy Verification](<../documentation/examples results/results_advanced_ode_solver.md#order-of-accuracy-verification>)
 
-[Alternative Right-Hand Sides](<documentation/examples results/results_advanced_ode_solver.md#alternative-right-hand-sides>)
+[Alternative Right-Hand Sides](<../documentation/examples results/results_advanced_ode_solver.md#alternative-right-hand-sides>)
 
-[Invalid Input Exceptions](<documentation/examples results/results_advanced_ode_solver.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/examples results/results_advanced_ode_solver.md#invalid-input-exceptions>)
 
 **B. Applied ODE Models**
 
-[RC Circuit Charging](<documentation/examples results/results_advanced_ode_solver.md#rc-circuit-charging>)
+[RC Circuit Charging](<../documentation/examples results/results_advanced_ode_solver.md#rc-circuit-charging>)
 
-[Pharmacokinetics (Drug Infusion)](<documentation/examples results/results_advanced_ode_solver.md#pharmacokinetics-drug-infusion>)
+[Pharmacokinetics (Drug Infusion)](<../documentation/examples results/results_advanced_ode_solver.md#pharmacokinetics-drug-infusion>)
 
 
 
@@ -1010,172 +1010,172 @@ g++ -std=c++17 -I "%USERPROFILE%\Group23_Safe_Build\install\include" my_program.
 
 **A. Standard Cubic Spline**
 
-[Hand-Checkable Case](<documentation/examples results/results_cubic_spline.md#hand-checkable-case>)
+[Hand-Checkable Case](<../documentation/examples results/results_cubic_spline.md#hand-checkable-case>)
 
-[Spline vs Linear Interpolation](<documentation/examples results/results_cubic_spline.md#spline-vs-linear-interpolation>)
+[Spline vs Linear Interpolation](<../documentation/examples results/results_cubic_spline.md#spline-vs-linear-interpolation>)
 
-[Straight Line Reproduction](<documentation/examples results/results_cubic_spline.md#straight-line-reproduction>)
+[Straight Line Reproduction](<../documentation/examples results/results_cubic_spline.md#straight-line-reproduction>)
 
-[Invalid Input Exceptions](<documentation/examples results/results_cubic_spline.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/examples results/results_cubic_spline.md#invalid-input-exceptions>)
 
 **B. Applied Cubic Spline** 
 
-[Speedometer Data Smoothing](<documentation/examples results/results_cubic_spline.md#speedometer-data-smoothing>)
+[Speedometer Data Smoothing](<../documentation/examples results/results_cubic_spline.md#speedometer-data-smoothing>)
 
-[Convergence Study (Fourth-Order Accuracy)](<documentation/examples results/results_cubic_spline.md#convergence-study-fourth-order-accuracy>)
+[Convergence Study (Fourth-Order Accuracy)](<../documentation/examples results/results_cubic_spline.md#convergence-study-fourth-order-accuracy>)
 
 ## Interpolator
 
 **A. Standard Interpolation**
 
-[Linear Interpolation Baseline](<documentation/examples results/results_interpolator.md#linear-interpolation-baseline>)
+[Linear Interpolation Baseline](<../documentation/examples results/results_interpolator.md#linear-interpolation-baseline>)
 
-[Uneven Spacing and Negative Values](<documentation/examples results/results_interpolator.md#uneven-spacing-and-negative-values>)
+[Uneven Spacing and Negative Values](<../documentation/examples results/results_interpolator.md#uneven-spacing-and-negative-values>)
 
-[Chebyshev Nodes Generation](<documentation/examples results/results_interpolator.md#chebyshev-nodes-generation>)
+[Chebyshev Nodes Generation](<../documentation/examples results/results_interpolator.md#chebyshev-nodes-generation>)
 
-[Invalid Input Exceptions](<documentation/examples results/results_interpolator.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/examples results/results_interpolator.md#invalid-input-exceptions>)
 
 
 **B. Applied Interpolation** 
 
-[Temperature Table Look-up](<documentation/examples results/results_interpolator.md#temperature-table-look-up>)
+[Temperature Table Look-up](<../documentation/examples results/results_interpolator.md#temperature-table-look-up>)
 
-[Node Distribution Error Comparison (Runge's Phenomenon)](<documentation/examples results/results_interpolator.md#node-distribution-error-comparison-runges-phenomenon>)
+[Node Distribution Error Comparison (Runge's Phenomenon)](<../documentation/examples results/results_interpolator.md#node-distribution-error-comparison-runges-phenomenon>)
 
 ## Matrix_solver
 
 **A. Standard Linear Systems**
 
-[3x3 System Baseline](<documentation/examples results/results_matrix_solver.md#3x3-system-baseline>)
+[3x3 System Baseline](<../documentation/examples results/results_matrix_solver.md#3x3-system-baseline>)
 
-[Zero Pivot Handling (Automatic Row Swapping)](<documentation/examples results/results_matrix_solver.md#zero-pivot-handling-automatic-row-swapping>)
+[Zero Pivot Handling (Automatic Row Swapping)](<../documentation/examples results/results_matrix_solver.md#zero-pivot-handling-automatic-row-swapping>)
 
-[4x4 System Reversing](<documentation/examples results/results_matrix_solver.md#4x4-system-reversing>)
+[4x4 System Reversing](<../documentation/examples results/results_matrix_solver.md#4x4-system-reversing>)
 
-[Invalid Input Exceptions](<documentation/examples results/results_matrix_solver.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/examples results/results_matrix_solver.md#invalid-input-exceptions>)
 
 **B. Applied Linear Systems** 
 
-[Kirchhoff's Voltage Law (3-Loop Circuit)](<documentation/examples results/results_matrix_solver.md#kirchhoffs-voltage-law-3-loop-circuit>)
+[Kirchhoff's Voltage Law (3-Loop Circuit)](<../documentation/examples results/results_matrix_solver.md#kirchhoffs-voltage-law-3-loop-circuit>)
 
-[Curve Fitting (Parabola through 3 points)](<documentation/examples results/results_matrix_solver.md#curve-fitting-parabola-through-3-points>)
+[Curve Fitting (Parabola through 3 points)](<../documentation/examples results/results_matrix_solver.md#curve-fitting-parabola-through-3-points>)
 
-[Alloy Mixing Problem](<documentation/examples results/results_matrix_solver.md#alloy-mixing-problem>)
+[Alloy Mixing Problem](<../documentation/examples results/results_matrix_solver.md#alloy-mixing-problem>)
 
 ## NumericalDifferentiator
 
 **A. Standard Differentiation Formulas**
 
-[First and Second Derivatives Baseline](<documentation/examples results/results_numerical_differentiator.md#first-and-second-derivatives-baseline>)
+[First and Second Derivatives Baseline](<../documentation/examples results/results_numerical_differentiator.md#first-and-second-derivatives-baseline>)
 
-[Order of Accuracy](<documentation/examples results/results_numerical_differentiator.md#order-of-accuracy>)
+[Order of Accuracy](<../documentation/examples results/results_numerical_differentiator.md#order-of-accuracy>)
 
-[Rounding Error Limits](<documentation/examples results/results_numerical_differentiator.md#rounding-error-limits>)
+[Rounding Error Limits](<../documentation/examples results/results_numerical_differentiator.md#rounding-error-limits>)
 
-[Non-Differentiable Corners](<documentation/examples results/results_numerical_differentiator.md#non-differentiable-corners>)
+[Non-Differentiable Corners](<../documentation/examples results/results_numerical_differentiator.md#non-differentiable-corners>)
 
-[Invalid Input Exceptions](<documentation/examples results/results_numerical_differentiator.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/examples results/results_numerical_differentiator.md#invalid-input-exceptions>)
 
 **B. Applied Problems** 
 
-[Kinematics (Velocity and Acceleration)](<documentation/examples results/results_numerical_differentiator_documentation.md#kinematics-velocity-and-acceleration>)
+[Kinematics (Velocity and Acceleration)](<../documentation/examples results/results_numerical_differentiator_documentation.md#kinematics-velocity-and-acceleration>)
 
-[Economics (Marginal Cost)](<documentation/examples results/results_numerical_differentiator_documentation.md#economics-marginal-cost>)
+[Economics (Marginal Cost)](<../documentation/examples results/results_numerical_differentiator_documentation.md#economics-marginal-cost>)
 
-[Derivative-Free Newton-Raphson](<documentation/examples results/results_numerical_differentiator_documentation.md#derivative-free-newton-raphson>)
+[Derivative-Free Newton-Raphson](<../documentation/examples results/results_numerical_differentiator_documentation.md#derivative-free-newton-raphson>)
 
 ## AdamsBashforthSolver
 
 **A. Standard Implicit Multistep Methods**
 
-[Exponential Decay Baseline](<documentation/examples results/results_adams_bashforth_solver.md#exponential-decay-baseline>)
+[Exponential Decay Baseline](<../documentation/examples results/results_adams_bashforth_solver.md#exponential-decay-baseline>)
 
-[Order of Accuracy](<documentation/examples results/results_adams_bashforth_solver.md#order-of-accuracy>)
+[Order of Accuracy](<../documentation/examples results/results_adams_bashforth_solver.md#order-of-accuracy>)
 
-[Computational Cost Comparison (AB4 vs. RK4)](<documentation/examples results/results_adams_bashforth_solver.md#computational-cost-comparison-ab4-vs-rk4>)
+[Computational Cost Comparison (AB4 vs. RK4)](<../documentation/examples results/results_adams_bashforth_solver.md#computational-cost-comparison-ab4-vs-rk4>)
 
-[Invalid Input Exceptions](<documentation/examples results/results_adams_bashforth_solver.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/examples results/results_adams_bashforth_solver.md#invalid-input-exceptions>)
 
 **B. Applied Models** 
 
-[Skydiver with Air Resistance](<documentation/examples results/results_adams_bashforth_solver.md#skydiver-with-air-resistance>)
+[Skydiver with Air Resistance](<../documentation/examples results/results_adams_bashforth_solver.md#skydiver-with-air-resistance>)
 
-[Bacterial Growth (Logistic Model)](<documentation/examples results/results_adams_bashforth_solver.md#bacterial-growth-logistic-model>)
+[Bacterial Growth (Logistic Model)](<../documentation/examples results/results_adams_bashforth_solver.md#bacterial-growth-logistic-model>)
 
 ## AdamsMoultonSolver
 
 **A. Standard Implicit Multistep Methods**
 
-[Exponential Decay Baseline](<documentation/examples results/results_adams_moulton_solver.md#exponential-decay-baseline>)
+[Exponential Decay Baseline](<vdocumentation/examples results/results_adams_moulton_solver.md#exponential-decay-baseline>)
 
-[Implicit vs. Explicit Error Comparison](<documentation/examples results/results_adams_moulton_solver.md#implicit-vs-explicit-error-comparison>)
+[Implicit vs. Explicit Error Comparison](<../documentation/examples results/results_adams_moulton_solver.md#implicit-vs-explicit-error-comparison>)
 
-[Fast-Decaying (Stiff) Problem Stability](<documentation/examples results/results_adams_moulton_solver.md#fast-decaying-stiff-problem-stability>)
+[Fast-Decaying (Stiff) Problem Stability](<../documentation/examples results/results_adams_moulton_solver.md#fast-decaying-stiff-problem-stability>)
 
-[Invalid Input Exceptions](<documentation/examples results/results_adams_moulton_solver.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/examples results/results_adams_moulton_solver.md#invalid-input-exceptions>)
 
 **B. Applied Models** 
 
-[Second-Order Chemical Reaction](<documentation/examples results/results_adams_moulton_solver.md#second-order-chemical-reaction>)
+[Second-Order Chemical Reaction](<../documentation/examples results/results_adams_moulton_solver.md#second-order-chemical-reaction>)
 
-[Draining Tank (Torricelli's Law)](<documentation/examples results/results_adams_moulton_solver.md#draining-tank-torricellis-law>)
+[Draining Tank (Torricelli's Law)](<../documentation/examples results/results_adams_moulton_solver.md#draining-tank-torricellis-law>)
 
 ## RungeKuttaFehlbergSolver
 
 **A. Adaptive Step Size Control**
 
-[Tolerance-Based Error Control](<documentation/examples results/results_runge_kutta_fehlberg_solver.md#tolerance-based-error-control>)
+[Tolerance-Based Error Control](<../documentation/examples results/results_runge_kutta_fehlberg_solver.md#tolerance-based-error-control>)
 
-[Dynamic Step Adjustment](<documentation/examples results/results_runge_kutta_fehlberg_solver.md#dynamic-step-adjustment>)
+[Dynamic Step Adjustment](<../documentation/examples results/results_runge_kutta_fehlberg_solver.md#dynamic-step-adjustment>)
 
-[Direct Value Extraction (`rkf45_value`)](<documentation/examples results/results_runge_kutta_fehlberg_solver.md#direct-value-extraction-rkf45_value>)
+[Direct Value Extraction (`rkf45_value`)](<../documentation/examples results/results_runge_kutta_fehlberg_solver.md#direct-value-extraction-rkf45_value>)
 
-[Invalid Input Exceptions](<documentation/examples results/results_runge_kutta_fehlberg_solver.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/examples results/results_runge_kutta_fehlberg_solver.md#invalid-input-exceptions>)
 
 **B. Applied Models** 
 
-[Skydiver with Rapidly Opening Parachute](<documentation/examples results/results_runge_kutta_fehlberg_solver.md#skydiver-with-rapidly-opening-parachute>)
+[Skydiver with Rapidly Opening Parachute](<../documentation/examples results/results_runge_kutta_fehlberg_solver.md#skydiver-with-rapidly-opening-parachute>)
 
-[Drug Elimination (Michaelis-Menten Kinetics)](<documentation/examples results/results_runge_kutta_fehlberg_solver.md#drug-elimination-michaelis-menten-kinetics>)
+[Drug Elimination (Michaelis-Menten Kinetics)](<../documentation/examples results/results_runge_kutta_fehlberg_solver.md#drug-elimination-michaelis-menten-kinetics>)
 
 ## ConjugateGradientSolver
 
 **A. Standard Iterative Solving**
 
-[3x3 Symmetric Positive Definite (SPD) System Baseline](<documentation/examples results/results_conjugate_gradient_solver.md#3x3-symmetric-positive-definite-spd-system-baseline>)
+[3x3 Symmetric Positive Definite (SPD) System Baseline](<../documentation/examples results/results_conjugate_gradient_solver.md#3x3-symmetric-positive-definite-spd-system-baseline>)
 
-[Tridiagonal System Convergence Rate](<documentation/examples results/results_conjugate_gradient_solver.md#tridiagonal-system-convergence-rate>)
+[Tridiagonal System Convergence Rate](<../documentation/examples results/results_conjugate_gradient_solver.md#tridiagonal-system-convergence-rate>)
 
-[Comparison with Direct Gaussian Elimination](<documentation/examples results/results_conjugate_gradient_solver.md>)
+[Comparison with Direct Gaussian Elimination](<../documentation/examples results/results_conjugate_gradient_solver.md>)
 
-[Invalid Input Exceptions](<documentation/examples results/results_conjugate_gradient_solver.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/examples results/results_conjugate_gradient_solver.md#invalid-input-exceptions>)
 
 **B. Applied SPD Systemss**
 
-[Spring Chain Displacements (Stiffness Matrix)](<documentation/examples results/results_conjugate_gradient_solver.md#spring-chain-displacements-stiffness-matrix>)
+[Spring Chain Displacements (Stiffness Matrix)](<../documentation/examples results/results_conjugate_gradient_solver.md#spring-chain-displacements-stiffness-matrix>)
 
-[Heated Rod (Steady Temperature Distribution)](<documentation/examples results/results_conjugate_gradient_solver.md#heated-rod-steady-temperature-distribution>)
+[Heated Rod (Steady Temperature Distribution)](<../documentation/examples results/results_conjugate_gradient_solver.md#heated-rod-steady-temperature-distribution>)
 
-[Line of Best Fit (Linear Regression)](<documentation/examples results/results_conjugate_gradient_solver.md#line-of-best-fit-linear-regression>)
+[Line of Best Fit (Linear Regression)](<../documentation/examples results/results_conjugate_gradient_solver.md#line-of-best-fit-linear-regression>)
 
 ## FiniteDifferenceSolver
 
 **A. Linear Two-Point Boundary Value Problems**
 
-[Poisson Equation Baseline](<documentation/examples results/results_finite_difference_solver.md#poisson-equation-baseline>)
+[Poisson Equation Baseline](<../documentation/examples results/results_finite_difference_solver.md#poisson-equation-baseline>)
 
-[Order of Accuracy](<documentation/examples results/results_finite_difference_solver.md#order-of-accuracy>)
+[Order of Accuracy](<../documentation/examples results/results_finite_difference_solver.md#order-of-accuracy>)
 
-[Variable Coefficients BVP](<documentation/examples results/results_finite_difference_solver.md#variable-coefficients-bvp>)
+[Variable Coefficients BVP](<../documentation/examples results/results_finite_difference_solver.md#variable-coefficients-bvp>)
 
-[Invalid Input Exceptions](<documentation/examples results/results_finite_difference_solver.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/examples results/results_finite_difference_solver.md#invalid-input-exceptions>)
 
 **B. Applied Boundary Value Problems** 
 
-[Cooling Fin Heat Transfer](<documentation/examples results/results_finite_difference_solver.md#cooling-fin-heat-transfer>)
+[Cooling Fin Heat Transfer](<../documentation/examples results/results_finite_difference_solver.md#cooling-fin-heat-transfer>)
 
-[Hanging Cable Sag](<documentation/examples results/results_finite_difference_solver.md#hanging-cable-sag>)
+[Hanging Cable Sag](<../documentation/examples results/results_finite_difference_solver.md#hanging-cable-sag>)
 
 
 ## Additional Documentation & Links
