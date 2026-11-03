@@ -40,11 +40,11 @@ Supporting parts:
 
 ## Examples Results
 
-The examples results were documented and added to [examples results](<examples results>)
+The examples results were documented and added to [examples results](examples%20results)
 
 ## Tests Results
 
-The test results were documented and added to [tests results](<tests results>)
+The test results were documented and added to [tests results](tests%20results)
 
 ## Configuration
 
