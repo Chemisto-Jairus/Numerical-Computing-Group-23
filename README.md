@@ -1290,14 +1290,14 @@ echo "✅ Finished! All tests have been executed inside $SAFE_DIR/build."
 | Name | Student Number | Project Role / Assigned Module | 
 | ----- | ----- | ----- | 
 | CHEMISTO JAIRUS | 25/U/07928/PS | Member 1 (Lead) / BasicRootFinder / NumericalDifferentiator / shared helpers incl. the multistep loop and tridiagonal solver, CMake, merges, reports | 
-| BATTE DERRICK CALVIN | 25/U/0717 | Member 2 / Interpolator incl. Chebyshev approximation, CubicSpline, MatrixSolver | 
+| BATTE DERRICK CALVIN | 25/U/0717 | Member 2 / Interpolator incl. Chebyshev approximation, CubicSpline / MatrixSolver / Documentation of project / Building and Installing the project| 
 | Aogon Sharon | 25/U/08690/PS | Member 3 / BasicIntegrator / FiniteDifferenceSolver / Class layouts(pdf) | 
-| BAKALU VALERIA | 25/U/07924/PS | Member 4 / AdvancedRootFinder, ConjugateGradientSolver, Inheritance of the librabry(jpg) | 
+| BAKALU VALERIA | 25/U/07924/PS | Member 4 / AdvancedRootFinder / ConjugateGradientSolver / Inheritance of the librabry(jpg) | 
 | WASSWA GEORGE MPANGA | 25/U/08793/PS | Member 5 / AdvancedIntegrator / RungeKuttaFehlbergSolver | 
 | MWANJE IAN | 25/U/08757/PS | Member 6 / BasicODESolver / AdamsBashforthSolver / ODE stepper | 
 | MUWANGUZI SAMUEL | 25/U/0843 | Member 7 / AdvancedODESolver / AdamsMoultonSolver / ODE stepper | 
 | KYEYUNE PRAISE PAULINE | 25/U/07943/PS | Member 8 / test framework/  test runner / Matrix Solver tests / QA; not linear algebra | 
-| Nabakooza Bridget Maria | 25/U/07592/PS | Member 9 /  numcomp_app / examples build / example helpers | 
+| Nabakooza Bridget Maria | 25/U/07592/PS | Member 9 /  numcomp_app / examples build / example helpers / Relationship between Shared helpers and classes | 
 
 ## 12. How We Collaborated as a Team
 

@@ -16,7 +16,17 @@
 
 [Project Structure](<General report.md#project-structure>)
 
-[Concepts  used in our library](<General report.md#concepts--used-in-our-library>)
+[OOP Concepts  used in our library](<General report.md#oop-concepts--used-in-our-library>)
+
+[Building the library](<General report.md#building-the-library>)
+
+[Install the Library (if your CMake supports it) ](<General report.md#install-the-library-if-your-cmake-supports-it>)
+
+[Run the Tests and Documentation](<General report.md#run-the-tests-and-documentation>)
+
+[Examples](<General report.md#examples>)
+
+[Limitations](<General report.md#limitations>)
 
 [Additional Documentation & Links](<General report.md#additional-documentation--links>)
 
@@ -29,14 +39,14 @@
 | Name | Student Number | Project Role / Assigned Module | 
 | ----- | ----- | ----- | 
 | CHEMISTO JAIRUS | 25/U/07928/PS | Member 1 (Lead) / BasicRootFinder / NumericalDifferentiator / shared helpers incl. the multistep loop and tridiagonal solver, CMake, merges, reports | 
-| BATTE DERRICK CALVIN | 25/U/0717 | Member 2 / Interpolator incl. Chebyshev approximation, CubicSpline, MatrixSolver | 
+| BATTE DERRICK CALVIN | 25/U/0717 | Member 2 / Interpolator incl. Chebyshev approximation, CubicSpline / MatrixSolver / Documentation of project / Building and Installing the project| 
 | Aogon Sharon | 25/U/08690/PS | Member 3 / BasicIntegrator / FiniteDifferenceSolver / Class layouts(pdf) | 
-| BAKALU VALERIA | 25/U/07924/PS | Member 4 / AdvancedRootFinder, ConjugateGradientSolver, Inheritance of the librabry(jpg) | 
+| BAKALU VALERIA | 25/U/07924/PS | Member 4 / AdvancedRootFinder / ConjugateGradientSolver / Inheritance of the librabry(jpg) | 
 | WASSWA GEORGE MPANGA | 25/U/08793/PS | Member 5 / AdvancedIntegrator / RungeKuttaFehlbergSolver | 
 | MWANJE IAN | 25/U/08757/PS | Member 6 / BasicODESolver / AdamsBashforthSolver / ODE stepper | 
 | MUWANGUZI SAMUEL | 25/U/0843 | Member 7 / AdvancedODESolver / AdamsMoultonSolver / ODE stepper | 
 | KYEYUNE PRAISE PAULINE | 25/U/07943/PS | Member 8 / test framework/  test runner / Matrix Solver tests / QA; not linear algebra | 
-| Nabakooza Bridget Maria | 25/U/07592/PS | Member 9 /  numcomp_app / examples build / example helpers | 
+| Nabakooza Bridget Maria | 25/U/07592/PS | Member 9 /  numcomp_app / examples build / example helpers / Relationship between Shared helpers and classes |  
 
 ## Commit history proof of contribution
 
@@ -399,20 +409,88 @@ Numerical-Computing-Group-23/
 
 ```
 
-## Concepts  used in our library
+## OOP Concepts  used in our library
 
 ### Inheritance of our library
 
 ![See this image](<../documentation/Inheritance of Numcomp2 by Valeria.jpg>)
 
-### Class layous of our library
+### Relationship between Shared helpers and classes by Bridget
+
+![see this image](<../documentation/Relationship between Shared helpers and classes by Bridget.png>)
+
+### Class layouts
 
 ![layout 1](<../documentation/class layouts 1 by Sharon .png>)
 ![layout 2](<../documentation/class layouts 2 by Sharon.png>)
 
-### Relationship between Shared helpers and classes by Bridget
+| Class | Owner | Data members | Member functions (all `public`) |
+| :--- | :--- | :--- | :--- |
+| **BasicRootFinder** | Jairus | none | `double bisection(std::function<double(double)> f, double a, double b, double tol, int max_iter)`<br>`double newton_raphson(std::function<double(double)> f, std::function<double(double)> df, double x0, double tol, int max_iter)` |
+| **AdvancedRootFinder** | Valeria | none | `double secant_method(f, double x0, double x1, double tol, int max_iter)`<br>`double fixed_point_iteration(g, double x0, double tol, int max_iter)` |
+| **NumericalDifferentiator** | Jairus | none | `double forward_difference(f, double x, double h)`<br>`double backward_difference(f, double x, double h)`<br>`double central_difference(f, double x, double h)`<br>`double second_derivative(f, double x, double h)`<br>`double richardson_extrapolation(f, double x, double h)` |
+| **Interpolator** | Derrick | none | `double linear_interpolate(double x, const std::vector<double>& x_vals, const std::vector<double>& y_vals)`<br>`std::vector<double> chebyshev_nodes(double a, double b, int n)`<br>`std::vector<double> chebyshev_coefficients(f, double a, double b, int n)`<br>`double chebyshev_approximate(const std::vector<double>& coeffs, double a, double b, double x)` |
+| **CubicSpline** | Derrick | none | `std::vector<double> second_derivatives(const std::vector<double>& x_vals, const std::vector<double>& y_vals)`<br>`double interpolate(double x, const std::vector<double>& x_vals, const std::vector<double>& y_vals)` |
+| **BasicIntegrator** | Sharon | none | `double trapezoidal_rule(f, double a, double b, int n)`<br>`double midpoint_rule(f, double a, double b, int n)` |
+| **AdvancedIntegrator** | George | none | `double simpsons_rule(f, double a, double b, int n)`<br>`double romberg_integration(f, double a, double b, int max_iter)` |
+| **MatrixSolver** | Derrick | none | `std::vector<double> gaussian_elimination(const std::vector<std::vector<double>>& A, const std::vector<double>& b)`<br>`std::vector<double> lu_solve(same parameters)` |
+| **BasicODESolver** | Ian | none | `std::vector<std::pair<double,double>> euler(std::function<double(double,double)> f, double t0, double y0, double t_end, double h)`<br>`... heun(same parameters)` |
+| **AdvancedODESolver** | Samuel | none | `std::vector<std::pair<double,double>> rk4(f, double t0, double y0, double t_end, double h)`<br>`... rk3(same parameters)` |
+| **AdamsBashforthSolver** | Ian  | none | `std::vector<std::pair<double,double>> ab2(f, double t0, double y0, double t_end, double h)`<br>`... ab4(same parameters)` |
+| **AdamsMoultonSolver** | Samuel | none | `std::vector<std::pair<double,double>> am2(f, double t0, double y0, double t_end, double h)`<br>`... am4(same parameters)` |
+| **RungeKuttaFehlbergSolver** | George | none | `std::vector<std::pair<double,double>> rkf45(f, double t0, double y0, double t_end, double h_initial, double tol)`<br>`double rkf45_value(f, double t0, double y0, double t_end, double tol)` |
+| **FiniteDifferenceSolver** | Sharon | none | `std::vector<std::pair<double,double>> linear_bvp(p, q, r, double a, double b, double alpha, double beta, int n)`<br>`... poisson(r, double a, double b, double alpha, double beta, int n)` |
+| **ConjugateGradientSolver** | Valeria | none | `std::vector<double> solve(const std::vector<std::vector<double>>& A, const std::vector<double>& b, double tol, int max_iter)`<br>`std::vector<double> solve_from(A, b, const std::vector<double>& x0, double tol, int max_iter)` |
 
-![see this image](<../documentation/Relationship between Shared helpers and classes by Bridget.png>)
+##  Encapsulation
+
+*   **Related behaviour is grouped in a class.** For example, `BasicIntegrator` holds the trapezoidal and midpoint rules.
+*   **Interface and implementation are separate.** Declarations are in `include/numerical-computing/*.hpp` and the working code is in `src/*.cpp`, so a user needs only the header. Everything sits in `namespace numcomp`.
+*   **Implementation details are hidden (new with the helpers).** The shared rules live in `src/internal/`. They are compiled into the library but their headers are not installed, so users cannot depend on them. Helpers used by only one file (`find_pivot_row`, `back_substitution`, `euler_step`, `rk4_step`, `ab4_step`, `solve_corrector`, `fehlberg_step`, `dot`, …) are `static`, which makes them private to that file.
+*   **The caller's data is protected.** Data is taken as `const&`, so it cannot be changed. `MatrixSolver` copies `A` and `b` before eliminating, so the caller's matrix is unchanged after solving (this is tested).
+*   **Bad input is rejected at the boundary.** Each method throws `invalid_argument`, `out_of_range` or `runtime_error` instead of working with invalid values. With the helpers, one rule gives one check and one message everywhere. A result that is not a finite number is never returned silently (`check_finite_result`).
+*   **Limitation to state honestly:** there are no `private` members, because the classes keep no state, so there is nothing to hide inside an object. A class that stores data (for example a spline that keeps its coefficients after a `fit()`) would make that data `private`.
+
+## Polymorphism
+
+*   **Exceptions (real runtime polymorphism).** `what()` is a virtual function of `std::exception`. The app (`run_safely`), every example (`demo::section`) and the test framework catch through `const std::exception&` as the last handler. The call to `what()` runs the version belonging to the actual object:
+    ```cpp
+    catch (const std::exception& e) {
+        ui::print_error("Unexpected error", e.what());
+    }
+    ```
+*   **Function-pointer strategy (new, runtime).** `ode::run_fixed_steps` receives the step formula as a function pointer (`ode::StepRule`). The same loop behaves as Euler, Heun, RK3 or RK4 depending on which function is passed in. This is the _strategy_ idea without class inheritance:
+    ```cpp
+    return ode::run_fixed_steps(f, t0, y0, t_end, h, rk4_step);   // or euler_step, heun_step, rk3_step
+    ```
+    The multistep methods use the same idea with a second loop and a second pointer type, `ode::MultistepRule`:
+    ```cpp
+    return ode::run_multistep(f, t0, y0, t_end, h, 4, ab4_step);  // or ab2_step, am2_step, am4_step
+    ```
+*   **Templates (new, compile-time / parametric polymorphism).** One template works for many types: `test::expect_throw<std::invalid_argument>` and `test::expect_throw<std::runtime_error>`, `demo::section<Code>` for any lambda, and `catalog::names<Entry>` for any catalog list. These are in the helpers, tests, examples and app, not in the library's public classes.
+*   **Interchangeable functions (a looser form).** The maths functions are passed as `std::function`, so a plain function, a lambda or a function object can be given to the same method.
+*   **Not implemented:** our own virtual functions, abstract classes and function overloading.
+
+## Templates
+
+### 1. Templates we have
+
+| Template | File | Parameter | What it does |
+| :--- | :--- | :--- | :--- |
+| `run_safely<Code>` | `src/app/module_menus.cpp` | Code = any callable | Runs any lambda inside one try/catch, so 18 menu calls share one error handler |
+| `names<Entry>` | `src/app/catalog.hpp` | Entry = any struct with a name | Builds menu labels for all eight problem tables |
+| `demo::section<Code>` | `examples/example_helpers.hpp` | Code = any callable | Runs the body of one demo section |
+| `demo::show_rejected<Code>` | `examples/example_helpers.hpp` | Code = any callable | Runs a call that should throw and prints the error |
+| `test::expect_throw<Expected, Code>` | `tests/test_helpers.hpp` | Expected = exception type, Code = callable | One function checks every exception type |
+| `test::expect_no_throw<Code>` | `tests/test_helpers.hpp` | Code = any callable | Checks that a call does not throw |
+| `max_linear_error<F>` | `examples/example_interpolator_applied.cpp` | F = any callable | A local helper that measures an interpolation error for any function |
+
+### 2. Why we use templates here
+
+* **Code Reusability:** Instead of rewriting the same `try/catch` error-handling blocks or testing assertions for every single menu item or test case, a single template (like `run_safely` or `test::expect_throw`) handles all of them.
+* **Flexibility with Callables:** By using template parameters like `Code` or `F`, the helper functions can accept any type of callable. This means we can pass in raw function pointers, lambdas (even with captured state), or functors without restriction.
+* **Compile-Time Type Safety:** Templates like `test::expect_throw<Expected, Code>` allow us to specify the exact exception type (e.g., `std::invalid_argument`) at compile time. The compiler ensures we are checking for the precise error type we expect.
+* **Performance without Overhead:** Passing a mathematical function or test execution as a template parameter allows the compiler to fully inline the code. This is much faster and requires less memory overhead than wrapping the code in a standard `std::function`.
 
 
 ## Shared internal helpers: input checks, ODE loops and the tridiagonal solver
@@ -945,6 +1023,320 @@ g++ -std=c++17 -I "%USERPROFILE%\Group23_Safe_Build\install\include" my_program.
 
 ```
 
+## Run the Tests and Documentation
+
+**The documentation of the testing framework can be found**  [here](documentation/modules/test_framework.md)
+
+## Basic root finder
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_basic_root_finder.md#accuracy-on-standard-problems>)
+
+[Boundaries and Edge Cases](<documentation/tests results/test_results_basic_root_finder.md#boundaries-and-edge-cases>)
+
+[Invalid Input and Divergence Exceptions](<documentation/tests results/test_results_basic_root_finder.md#invalid-input-and-divergence-exceptions>)
+
+## Advanced_root_finder
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_advanced_root_finder.md#accuracy-on-standard-problems>)
+
+[Boundaries and Edge Cases](<documentation/tests results/test_results_advanced_root_finder.md#boundaries-and-edge-cases>)
+
+[Invalid Input and Divergence Exceptions](<documentation/tests results/test_results_advanced_root_finder.md#invalid-input-and-divergence-exceptions>)
+
+## Basic integrator
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_basic_integrator.md#accuracy-on-standard-problems>)
+
+[Exactness Properties and Known Errors](<documentation/tests results/test_results_basic_integrator.md#exactness-properties-and-known-errors>)
+
+[Boundaries and Edge Cases](<documentation/tests results/test_results_basic_integrator.md#boundaries-and-edge-cases>)
+
+[Invalid Input Exceptions](<documentation/tests results/test_results_basic_integrator.md#invalid-input-exceptions>)
+
+## Advanced integrator
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_advanced_integrator.md#accuracy-on-standard-problems>)
+
+[Exactness Properties](<documentation/tests results/test_results_advanced_integrator.md#exactness-properties>)
+
+[Edge Cases and Boundaries](<documentation/tests results/test_results_advanced_integrator.md#edge-cases-and-boundaries>)
+
+[Invalid Input Exceptions](<documentation/tests results/test_results_advanced_integrator.md#invalid-input-exceptions>)
+
+## Basic_ode_solver
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_basic_ode_solver.md#accuracy-on-standard-problems>)
+
+[Observed Order of Convergence](<documentation/tests results/test_results_basic_ode_solver.md#observed-order-of-convergence>)
+
+[Boundaries and Curve Shape](<documentation/tests results/test_results_basic_ode_solver.md#boundaries-and-curve-shape>)
+
+[Invalid Input Exceptions](<documentation/tests results/test_results_basic_ode_solver.md#invalid-input-exceptions>)
+
+## Advanced ode solver
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_advanced_ode_solver.md#accuracy-on-standard-problems>)
+
+[Observed Order of Convergence](<documentation/tests results/test_results_advanced_ode_solver.md#observed-order-of-convergence>)
+
+[Boundaries and Curve Shape](<documentation/tests results/test_results_advanced_ode_solver.md#boundaries-and-curve-shape>)
+
+[Invalid Input Exceptions](<documentation/tests results/test_results_advanced_ode_solver.md#invalid-input-exceptions>)
+
+## Cubic_spline
+[Accuracy on Standard Problems](<documentation/tests results/test_results_cubic_spline.md#accuracy-on-standard-problems>)
+
+[Boundaries and Edge Cases](<documentation/tests results/test_results_cubic_spline.md#boundaries-and-edge-cases>)
+
+[Invalid Input and Extrapolation Exceptions](<documentation/tests results/test_results_cubic_spline.md#invalid-input-and-extrapolation-exceptions>)
+
+## Interpolator
+
+[Linear Interpolation](<documentation/tests results/test_results_interpolator.md#linear-interpolation>)
+
+[Chebyshev Nodes](<documentation/tests results/test_results_interpolator.md#chebyshev-nodes>)
+
+[Chebyshev Approximation](<documentation/tests results/test_results_interpolator.md#chebyshev-nodes>)
+
+## Matrix_solver
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_matrix_solver.md#accuracy-on-standard-problems>)
+
+[Boundaries and Edge Cases](<documentation/tests results/test_results_matrix_solver.md#boundaries-and-edge-cases>)
+
+[Invalid Input and Singularity Exceptions](<documentation/tests results/test_results_matrix_solver.md#invalid-input-and-singularity-exceptions>)
+
+## NumericalDifferentiator
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_numerical_differentiator.md#accuracy-on-standard-problems>)
+
+[Exactness and Observed Order of Convergence](<documentation/tests results/test_results_numerical_differentiator.md#exactness-and-observed-order-of-convergence>)
+
+[Boundaries and Edge Cases](<documentation/tests results/test_results_numerical_differentiator.md#boundaries-and-edge-cases>)
+
+[Invalid Input and Mathematical Exceptions](<documentation/tests results/test_results_numerical_differentiator.md#invalid-input-and-mathematical-exceptions>)
+
+## AdamsBashforthSolver
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_adams_bashforth_solver.md#accuracy-on-standard-problems>)
+
+[Observed Order of Accuracy](<documentation/tests results/test_results_adams_bashforth_solver.md#observed-order-of-accuracy>)
+
+[Boundaries and Curve Shape](<documentation/tests results/test_results_adams_bashforth_solver.md#boundaries-and-curve-shape>)
+
+[Invalid Input Exceptions](<documentation/tests results/test_results_adams_bashforth_solver.md#invalid-input-exceptions>)
+
+## AdamsMoultonSolver
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_adams_moulton_solver.md#accuracy-on-standard-problems>)
+
+[Observed Order of Accuracy](<documentation/tests results/test_results_adams_moulton_solver.md#observed-order-of-accuracy>)
+
+[Boundaries and Curve Shape](<documentation/tests results/test_results_adams_moulton_solver.md#boundaries-and-curve-shape>)
+
+[Invalid Input Exceptions & Corrector Convergence](<documentation/tests results/test_results_adams_moulton_solver.md#invalid-input-exceptions--corrector-convergence>)
+
+## RungeKuttaFehlbergSolver
+
+[Accuracy and Adaptive Tolerance](<documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#accuracy-and-adaptive-tolerance>)
+
+[Exactness and Step-Size Adaptation](<documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#exactness-and-step-size-adaptation>)
+
+[Boundaries and Curve Shape](<documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#boundaries-and-curve-shape>)
+
+[Invalid Input and Mathematical Blow-up](<documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#invalid-input-and-mathematical-blow-up>)
+
+## ConjugateGradientSolver
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_conjugate_gradient_solver.md#accuracy-on-standard-problems>)
+
+[Initial Guess Behaviors (`solve_from`)](<documentation/tests results/test_results_conjugate_gradient_solver.md#initial-guess-behaviors-solve_from>)
+
+[Boundaries and Edge Cases](<documentation/tests results/test_results_conjugate_gradient_solver.md#boundaries-and-edge-cases>)
+
+[Invalid Input and Divergence Exceptions](<documentation/tests results/test_results_conjugate_gradient_solver.md#invalid-input-and-divergence-exceptions>)
+
+
+## FiniteDifferenceSolver
+
+[Accuracy on Standard Problems](<documentation/tests results/test_results_finite_difference_solver.md#accuracy-on-standard-problems>)
+
+[Observed Order of Convergence](<documentation/tests results/test_results_finite_difference_solver.md#observed-order-of-convergence>)
+
+[Boundaries and Grid Structure](<documentation/tests results/test_results_finite_difference_solver.md#boundaries-and-grid-structure>)
+
+[Invalid Input and Singular Systems](<documentation/tests results/test_results_finite_difference_solver.md#invalid-input-and-singular-systems>)
+
+## HOW TO RUN THE TESTS INDIVIDUALLY
+
+- If you want to run the tests individually, go to the tests folder in the build folder, right click anywhere inside and select open in terminal. It will open windows powershell and paste this code inside.
+
+```shell 
+
+.\test_(module name).exe
+
+```
+
+- For example for the matrix solver test, paste this in the powershell terminal.
+
+```shell 
+
+.\test_matrix_solver.exe
+
+```
+
+
+## RUNNING ALL TESTS AND EXAMPLES AT ONCE (USING Cmake/Git bash)
+
+**1. How to install Cmake**
+
+- Open Command prompt on your pc and enter this code
+
+```bash
+
+winget install -e --id Kitware.CMake
+
+``` 
+
+**2. Building the library and testing**
+
+### WINDOWS
+
+- Run Git bash as administrator and right click on the repository folder and select open git bash here
+- Paste the code below in your git bash terminal. (do not use Ctrl + V. Right click in terminal and select paste)
+- It should show all tests passed and open the folder with the full build having the tests and examples executables.
+
+```bash
+
+#!/bin/bash
+
+# ==========================================
+# 1. SETUP SAFE ENVIRONMENT
+# ==========================================
+ORIGINAL_DIR=$(pwd)
+SAFE_DIR="$HOME/Group23_Safe_Build"
+
+echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
+rm -rf "$SAFE_DIR"
+mkdir -p "$SAFE_DIR"
+cp -r . "$SAFE_DIR"
+cd "$SAFE_DIR" || exit 1
+
+# ==========================================
+# 2. CHECK FILES & ADJUST FOR CMAKE
+# ==========================================
+LIB="src/adams_bashforth_solver.cpp \
+src/adams_moulton_solver.cpp \
+src/advanced_integrator.cpp \
+src/advanced_ode_solver.cpp \
+src/advanced_root_finder.cpp \
+src/basic_integrator.cpp \
+src/basic_ode_solver.cpp \
+src/basic_root_finder.cpp \
+src/conjugate_gradient_solver.cpp \
+src/cubic_spline.cpp \
+src/finite_difference_solver.cpp \
+src/interpolator.cpp \
+src/matrix_solver.cpp \
+src/numerical_differentiator.cpp \
+src/runge_kutta_fehlberg_solver.cpp"
+
+echo ">>> Checking for missing source files..."
+for file in $LIB; do
+    if [ ! -f "$file" ]; then
+        echo "⚠️ Warning: Source file '$file' is missing. Creating a dummy file to prevent CMake errors..."
+        touch "$file"
+    fi
+done
+
+# ==========================================
+# 3. CMAKE BUILD & RUN TESTS
+# ==========================================
+mkdir -p build
+cd build || exit 1
+
+echo ">>> Configuring CMake..."
+cmake -G "MinGW Makefiles" ..
+
+echo ">>> Compiling with CMake..."
+cmake --build .
+
+echo ">>> Executing Test Suite..."
+ctest --output-on-failure
+
+# ==========================================
+# 4. FINISH
+# ==========================================
+cd "$ORIGINAL_DIR" || exit 1
+echo "✅ Finished! All tests have been executed inside $SAFE_DIR/build."
+
+```
+
+### MacOS
+
+```bash
+
+#!/bin/bash
+
+# ==========================================
+# 1. SETUP SAFE ENVIRONMENT
+# ==========================================
+ORIGINAL_DIR=$(pwd)
+SAFE_DIR="$HOME/Group23_Safe_Build"
+
+echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
+rm -rf "$SAFE_DIR"
+mkdir -p "$SAFE_DIR"
+cp -R . "$SAFE_DIR"
+cd "$SAFE_DIR" || exit 1
+
+# ==========================================
+# 2. CHECK FILES & ADJUST FOR CMAKE
+# ==========================================
+LIB="src/adams_bashforth_solver.cpp \
+src/adams_moulton_solver.cpp \
+src/advanced_integrator.cpp \
+src/advanced_ode_solver.cpp \
+src/advanced_root_finder.cpp \
+src/basic_integrator.cpp \
+src/basic_ode_solver.cpp \
+src/basic_root_finder.cpp \
+src/conjugate_gradient_solver.cpp \
+src/cubic_spline.cpp \
+src/finite_difference_solver.cpp \
+src/interpolator.cpp \
+src/matrix_solver.cpp \
+src/numerical_differentiator.cpp \
+src/runge_kutta_fehlberg_solver.cpp"
+
+echo ">>> Checking for missing source files..."
+for file in $LIB; do
+    if [ ! -f "$file" ]; then
+        echo "⚠️ Warning: Source file '$file' is missing. Creating a dummy file to prevent CMake errors..."
+        touch "$file"
+    fi
+done
+
+# ==========================================
+# 3. CMAKE BUILD & RUN TESTS (macOS)
+# ==========================================
+mkdir -p build
+cd build || exit 1
+
+echo ">>> Configuring CMake..."
+cmake -G "Unix Makefiles" ..
+
+echo ">>> Compiling with CMake (Multi-core)..."
+cmake --build . -j$(sysctl -n hw.ncpu)
+
+echo ">>> Executing Test Suite..."
+ctest --output-on-failure
+
+# ==========================================
+# 4. FINISH
+# ==========================================
+cd "$ORIGINAL_DIR" || exit 1
+echo "✅ Finished! All tests have been executed inside $SAFE_DIR/build."
 
 
 ##  Examples 
@@ -1233,6 +1625,24 @@ g++ -std=c++17 -I "%USERPROFILE%\Group23_Safe_Build\install\include" my_program.
 [Cooling Fin Heat Transfer](<../documentation/examples results/results_finite_difference_solver.md#cooling-fin-heat-transfer>)
 
 [Hanging Cable Sag](<../documentation/examples results/results_finite_difference_solver.md#hanging-cable-sag>)
+
+## Limitations
+
+- Basic root finder [See module report](documentation/modules/basic_root_finder.md#6-limitations)
+- Interpolator [See module report](documentation/modules/interpolator.md#7-limitations)
+- Cubic spline [See module report](documentation/modules/cubic_spline.md#6-limitations)
+- Matrix solver [See module report](documentation/modules/matrix_solver.md#7-limitations)
+- Advanced root finder [See module report](documentation/modules/advanced_root_finder.md#6-limitations)
+- Basic Integrator [See module report](documentation/modules/basic_integrator.md#6-limitations)
+- Advanced ODE solver [See module report](documentation/modules/advanced_ode_solver.md#6-limitations)
+- Advanced Integrator [See module report](documentation/modules/advanced_integrator.md#6-limitations)
+- Basic ODE solver  [See module report](documentation/modules/basic_ode_solver.md#6-limitations)
+- Numerical Differentiation [See module report](documentation/modules/numerical_differentiator.md#6-limitations)
+- Finite Difference Method [See module report](documentation/modules/finite_difference_solver.md#5-limitations)
+- Conjugate Gradient [See module report](documentation/modules/conjugate_gradient_solver.md#5-limitations)
+- Runge-Kutta-Fehlberg [See module report](documentation/modules/runge_kutta_fehlberg_solver.md#5-limitations)
+- Adams-Bashforth [See module report](documentation/modules/adams_bashforth_solver.md#5-limitations)
+- Adams-Moulton [See module repor](documentation/modules/adams_moulton_solver.md#5-limitations)
 
 
 ## Additional Documentation & Links
