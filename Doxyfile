@@ -10,10 +10,12 @@ OUTPUT_DIRECTORY       = documentation/api
 CREATE_SUBDIRS         = NO
 
 # ---- What to read ----------------------------------------------------
-INPUT                  = include src tests examples documentation/modules documentation/README.md documentation/algorithm-report.md documentation/testing.md
+INPUT                  = include src tests examples documentation
 FILE_PATTERNS          = *.hpp *.cpp *.md
 RECURSIVE              = YES
+EXCLUDE                = documentation/api "documentation/tests results" "documentation/examples results" documentation/guides
 EXCLUDE_PATTERNS       = */build/* */build-gpp/*
+IMAGE_PATH             = documentation
 USE_MDFILE_AS_MAINPAGE = documentation/README.md
 FULL_PATH_NAMES        = YES
 STRIP_FROM_PATH        = .

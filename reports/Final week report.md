@@ -22,7 +22,7 @@ I made the following changes to my modules
 - Sources, tests and examples: file headers and comments that explain the algorithm steps.
 - I helped Pauline check the build on macOS as these were not easily available. (macOS machines)
 - I built the Doxyfile that easily documents the project for other programmers to understand.
-
+- I completed documenting the entire project
 
 **Member 3 (Aogon Sharon):** 
 
