@@ -2,7 +2,7 @@
 
 ## Class layouts
 
-![layout 1](<class_layouts_1_by_Sharon .png>)
+![layout 1](<class_layouts_1_by_Sharon.png>)
 ![layout 2](class_layouts_2_by_Sharon.png)
 
 | Class | Owner | Data members | Member functions (all `public`) |
