@@ -1,0 +1,6 @@
+# Store every text file with LF line endings in the repo.
+# Stops CRLF/LF mix-ups between Windows and Linux machines.
+* text=auto
+
+# Shell scripts must keep LF, or bash on Linux/macOS fails with "\r: command not found"
+*.sh text eol=lf

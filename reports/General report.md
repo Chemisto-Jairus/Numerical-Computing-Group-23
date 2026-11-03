@@ -202,8 +202,6 @@ cmake --build build
 ./build/numcomp_app.exe
 ```
 
-With g++ only, see `docs/guides/build-guide.html`.
-
 
 ## Project Structure
 
@@ -337,8 +335,9 @@ Numerical-Computing-Group-23/
 │   ├── week-02.md
 │   ├── week-03.md
 │   ├── week-04.md
-│   ├── Final week report 
-│   └── General report 
+│   ├── Final week report.md
+│   ├── debug report (week 01 to week 03).md 
+│   └── General report.md 
 ├── src/
 │   ├── app/ 
 │   │   ├── catalog.cpp
@@ -391,6 +390,7 @@ Numerical-Computing-Group-23/
 │   ├── test_matrix_solver.cpp
 │   ├── test_numerical_differentiator.cpp 
 │   └── test_runge_kutta_fehlberg_solver.cpp 
+├── .gitattributes
 ├── .gitignore
 ├── CMakeLists.txt
 ├── Doxyfile
