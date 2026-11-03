@@ -46,27 +46,34 @@
 The `numcomp2` library implements eighteen core algorithms and five related methods across seven mathematical areas. All logic is implemented in stateless classes, sharing central helpers (like tridiagonal solvers and generic ODE loops) to keep code DRY.
 
 ### 1. Root Finding
+
 Implements Bisection ($O(N)$), Newton-Raphson (quadratic), Secant (superlinear $1.618$), and Fixed-Point iteration. Safeguards include bracket checking, zero-derivative exceptions, and strict maximum iteration cutoffs.
 
 ### 2. Interpolation & Approximation
+
 Features Piecewise Linear Interpolation and Natural Cubic Spline (solved in $O(N)$ without pivoting via the Thomas algorithm). It mitigates Runge's phenomenon using Chebyshev nodes and evaluates minimax polynomials via Clenshaw's recurrence algorithm in $O(N)$.
 
 ### 3. Differentiation
+
 Evaluates derivatives using Forward/Backward (1st order) and Central/Second differences (2nd order). Utilizes Richardson Extrapolation for 4th-order accuracy, with safeguards addressing rounding errors at extremely small step sizes.
 
 ### 4. Integration
+
 Implements Trapezoidal and Midpoint (2nd order), and Simpson's 1/3 rule (4th order). Utilizes Romberg integration to systematically eliminate even-powered error terms.
 
 ### 5. ODE Solvers (Initial Value Problems)
+
 * **One-step:** Euler, Heun, RK3, and RK4.
 * **Multistep:** Explicit Adams-Bashforth (AB2, AB4) and implicit Adams-Moulton (AM2, AM4). Implicit methods are resolved using fixed-point iteration on an Euler predictor.
 * **Adaptive:** Runge-Kutta-Fehlberg (RKF45), which scales step size dynamically based on embedded error estimates bounded by user tolerance.
 
 ## 6. Linear & Boundary Value Systems
+
 * **Linear Systems:** Gaussian Elimination and LU Decomposition using partial pivoting. Conjugate Gradient iterative solving for symmetric positive definite (SPD) systems.
 * **BVPs:** Solves linear continuous models using the finite difference method, mapping central difference approximations onto a tridiagonal matrix to yield $O(h^2)$ precision.
 
 ## 7. Verification and Limitations
+
 Verified via 15 standard test programs executing 335 rigorous checks. Exactness and expected theoretical convergence orders (e.g., halving step sizes yielding error reductions of 2, 4, or 16) have been mathematically verified across all methods. Identified limitations (such as explicit ODE instability on stiff problems, or lack of preconditioning in Conjugate Gradient) are thoroughly documented in individual module guides.
 
 ## Command-line app: numcomp_app
@@ -1188,3 +1195,12 @@ For an in-depth look at our testing framework, example results, and API document
 
 * **Examples Documentation:** [Examples Guide](../documentation/modules/examples.md)
 
+## AI clause for entire project
+
+ The help from AI in each week was documented in each weekly report. See this at
+
+- Week 1 help [AI clause](week-01.md#ai-use)
+- Week 2 help [AI clause](week-02.md#ai-use)
+- Week 3 help [AI clause](week-03.md#ai-use)
+- Week 4 help [AI clause](week-04.md#ai-use)
+- Final Week help [AI clause](<Final week report.md#ai-use>)
