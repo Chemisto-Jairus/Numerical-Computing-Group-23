@@ -70,6 +70,59 @@ and the known y₀ = α and y<sub>n</sub> = β move to the right-hand side. The 
 
 ## 9. Implementation design
 
+## Stateless Design in Numerical Computing
+
+The stateless design was a highly effective architectural choice for the scope of this project because it heavily prioritizes code safety, predictability, and simplicity over extreme optimization. Software design is always a trade-off, and for a general-purpose numerical library aimed at small-to-medium datasets, this approach offers distinct advantages alongside a few performance penalties.
+
+### Why it was a good idea
+
+* **Guaranteed Safety:** Because the classes hold no private data, there is zero risk of stale variables corrupting subsequent calculations. Every function call starts with a clean slate, and inputs are safely passed by constant reference and copied internally so the caller's original data is never altered.
+
+* **Architectural Uniformity:** All 15 classes in the library follow the exact same predictable pattern. Users only ever need to initialize a default constructor and pass their data directly to the method, making the API exceptionally easy to learn and test.
+
+* **Aligned with the Scope:** The library is explicitly meant for small, dense systems (tens to a few hundreds of unknowns). At this scale, the CPU overhead required to recalculate an O(n) tridiagonal system or an O(n³) matrix from scratch is negligible.
+
+### Where it sacrifices efficiency
+
+* **Redundant LU Factorization:** The primary mathematical advantage of LU decomposition is factoring matrix A into L and U just once, which allows you to solve for many different b vectors in O(n²) time rather than O(n³). Because `MatrixSolver` is stateless, it discards L and U after every call, forcing a full refactorization every time the method is used.
+
+* **Repeated Spline Generation:** The `CubicSpline` module must re-run the Thomas algorithm to calculate the second derivatives (M) from scratch on every single interpolate call. Evaluating 1,000 points on the same curve forces the O(n) algorithm to run 1,000 redundant times instead of just once.
+
+### How Industry Libraries Handle This
+
+Most industry-standard numerical computing libraries on the internet—such as SciPy, Eigen, and scikit-learn—primarily use a **stateful design** to maximize performance on large datasets. While stateless utility functions exist for one-off calculations, professional libraries store expensive intermediate mathematical results in memory to avoid redundant computation.
+
+* **Python's SciPy:** In `scipy.interpolate.CubicSpline`, creating the spline object calculates and stores the polynomial coefficients as its state. When you evaluate the curve later, it strictly performs the fast O(log n) lookup and evaluation, bypassing the tridiagonal matrix math entirely.
+
+* **C++ Eigen Library:** For linear algebra, Eigen uses stateful solver objects. If you initialize `Eigen::PartialPivLU`, the object computes and stores the LU decomposition. You can then call `.solve(b)` thousands of times in O(n²) time without ever repeating the heavy O(n³) factorization.
+
+* **Scikit-Learn:** Data modeling libraries rely almost entirely on the stateful `fit()` and `predict()` pattern. The training phase saves the calculated weights as the object's state, which the prediction phase then applies to new inputs.
+
+While a stateless approach guarantees safe memory handling and prevents side effects, real-world libraries accept the complexity of managing state because recalculating massive mathematical systems from scratch is computationally prohibitive.
+
+### When do they choose which?
+
+Real-world libraries do not use stateful classes for absolutely every module. They take a pragmatic, mixed approach, reserving stateful design specifically for the modules where it provides a mathematical or performance benefit.
+
+### 1. When they use Stateful Classes
+
+Libraries use stateful classes when a calculation involves an expensive "setup" phase that can be reused later.
+
+* **Matrix Solvers:** Factorizing a matrix (like LU or Cholesky decomposition) is computationally heavy (O(n³)). Libraries use objects to store those factored matrices in memory so subsequent solves against new vectors are extremely fast (O(n²)).
+
+* **Machine Learning Models:** Training a model takes significant time and computes thousands of weights and coefficients. Those weights *are* the state.
+
+* **Spline Interpolation:** Calculating the second derivatives takes O(n) time. Spline objects calculate these once and save them so that looking up 10,000 different curve points later is instantaneous.
+
+### 2. When they use Stateless Functions
+
+They stick to simple, stateless functions when the calculation is a one-off operation or where there is no "setup" phase to save (exactly like your library's approach).
+
+* **Root Finding (Bisection/Newton):** Finding the root of an equation is a one-time iterative loop. There are no heavy matrices to decompose and save, so SciPy just provides a standard function (`scipy.optimize.root_scalar`), which works exactly like your stateless `BasicRootFinder`.
+
+* **Basic Numerical Integration:** Calculating the area under a curve using Simpson's or the Trapezoidal rule does not require saving intermediate states. SciPy provides functions like `scipy.integrate.simpson` that calculate the area from scratch and return the answer, leaving no memory trace behind (exactly like your `BasicIntegrator`).
+
+
 Every class is stateless, and functions are passed as `std::function`, so any callable can be used. Logic used by more than one algorithm is written once:
 
 - input checks and finite-result checks;
@@ -110,3 +163,11 @@ The ODE solvers handle single equations, and the multistep and RKF45 methods are
 1. R. L. Burden, J. D. Faires and A. M. Burden, *Numerical Analysis*, 10th ed., Cengage Learning, 2016.
 2. S. C. Chapra and R. P. Canale, *Numerical Methods for Engineers*, 7th ed., McGraw-Hill, 2015.
 3. W. H. Press et al., *Numerical Recipes: The Art of Scientific Computing*, 3rd ed., Cambridge University Press, 2007.
+
+## References for state design
+
+* SciPy Documentation - Cubic Spline Interpolation: *scipy.interpolate.CubicSpline*
+* SciPy Documentation - Root Finding: *scipy.optimize.root_scalar*
+* SciPy Documentation - Integration: *scipy.integrate.simpson*
+* Eigen C++ Library Documentation - Linear Algebra and Decompositions (PartialPivLU)
+* Scikit-Learn API Reference - The Estimator API (fit and predict pattern)
