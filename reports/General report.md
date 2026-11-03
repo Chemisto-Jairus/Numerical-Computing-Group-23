@@ -1338,6 +1338,8 @@ ctest --output-on-failure
 cd "$ORIGINAL_DIR" || exit 1
 echo "✅ Finished! All tests have been executed inside $SAFE_DIR/build."
 
+```
+
 
 ##  Examples 
 
