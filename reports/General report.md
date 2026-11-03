@@ -382,7 +382,8 @@ Numerical-Computing-Group-23/
 ![See this image](<../documentation/Inheritance of Numcomp2 by Valeria.jpg>)
 
 **Class layous of our library**
-[see this pdf](<../documentation/Class layouts by Sharon.pdf>)
+![layout 1](<../documentation/class layouts 1 by Sharon .png>)
+![layout 2](<../documentation/class layouts 2 by Sharon.png>)
 
 **Relationship between Shared helpers and classes by Bridget**
 ![see this image](<../documentation/Relationship between Shared helpers and classes by Bridget.png>)
