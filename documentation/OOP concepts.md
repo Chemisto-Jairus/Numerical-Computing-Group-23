@@ -2,8 +2,8 @@
 
 ## Class layouts
 
-![layout 1](<../documentation/class layouts 1 by Sharon .png>)
-![layout 2](<../documentation/class layouts 2 by Sharon.png>)
+![layout 1](<class_layouts_1_by_Sharon .png>)
+![layout 2](class_layouts_2_by_Sharon.png)
 
 | Class | Owner | Data members | Member functions (all `public`) |
 | :--- | :--- | :--- | :--- |
@@ -54,7 +54,7 @@
 
 ## Inheritance
 
-![see the image](<Inheritance of Numcomp2 by Valeria.jpg>)
+![see the image](Inheritance_of_Numcomp2_by_Valeria.jpg)
 
 ## Templates
 
