@@ -4,6 +4,8 @@
 
 [Group Members and Contributions](<General report.md#group-members-and-contributions>)
 
+[Commit history proof of contribution](<General report.md#commit-history-proof-of-contribution>)
+
 [Requirements and Dependencies](<General report.md#requirements-and-dependencies>)
 
 [The Library at a Glance](<General report.md#the-library-at-a-glance>)
@@ -19,6 +21,7 @@
 [Additional Documentation & Links](<General report.md#additional-documentation--links>)
 
 [AI clause for entire project](<General report.md#ai-clause-for-entire-project>)
+
 
 
 ## Group Members and Contributions
@@ -37,15 +40,23 @@
 
 ## Commit history proof of contribution
 
-You can view the contributions made by [Member 1()](commits?author=username).
-You can view the contributions made by [Member 2(Batte Derrick Calvin)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=itsBDC).
-You can view the contributions made by [Member 3()](commits?author=username).
-You can view the contributions made by [Member 4()](commits?author=username).
-You can view the contributions made by [Member 5()](commits?author=username).
-You can view the contributions made by [Member 6()](commits?author=username).
-You can view the contributions made by [Member 7()](commits?author=username).
-You can view the contributions made by [Member 8()](commits?author=username).
-You can view the contributions made by [Member 9()](commits?author=username).
+You can view the contributions made by [Member 1(CHEMISTO JAIRUS)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=Chemisto-Jairus).
+
+You can view the contributions made by [Member 2(BATTE DERRICK CALVIN)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=itsBDC).
+
+You can view the contributions made by [Member 3(Aogon Sharon)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=Sharon17-cloud).
+
+You can view the contributions made by [Member 4(BAKALU VALERIA)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=Bakaluvaleria).
+
+You can view the contributions made by [Member 5(WASSWA GEORGE MPANGA)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=WASSWAGEORGE).
+
+You can view the contributions made by [Member 6(MWANJE IAN)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=mwanjeian).
+
+You can view the contributions made by [Member 7(MUWANGUZI SAMUEL)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=samvic292).
+
+You can view the contributions made by [Member 8(KYEYUNE PRAISE PAULINE)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=kpraisepauline-hash).
+
+You can view the contributions made by [Member 9(Nabakooza Bridget Maria)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=nabakoozabridgetmaria).
 
 ## Requirements and Dependencies
 
