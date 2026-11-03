@@ -73,9 +73,8 @@ Results are computed **before** anything is printed, so an error never leaves a 
 ## 6. Building and running
 
 ```bash
-cmake -S . -B build
+cmake -G "MinGW Makefiles" -S . -B build
 cmake --build build
-./build/numcomp_app          # Windows: build\numcomp_app.exe
+./build/numcomp_app.exe
 ```
 
-With g++ only, see `docs/guides/build-guide.html`.
