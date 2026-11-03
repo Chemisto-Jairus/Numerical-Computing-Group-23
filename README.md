@@ -262,6 +262,7 @@ winget install -e --id Kitware.CMake
 
 - Run Git bash as administrator and right click on the repository folder and select open git bash here
 - Paste the code below in your git bash terminal
+- It should open the folder where the build was created and you can run the numcomp_app.
 
 ```bash
 
@@ -326,8 +327,6 @@ cd "$ORIGINAL_DIR"
 echo "✅ Finished! The library has been built inside $SAFE_DIR/build."
 
 ```
-
-- It should open the folder where the build was created and you can run the numcomp_app.
 
 
 ## macOS/Linux build
@@ -1313,3 +1312,4 @@ Because we have a large group of 9 people, we had to be very organized so we did
 ## 14. Numcomp app
 
 - The app we created that utilizes this library has its documentation at [here](documentation/modules/command_line_app.md)
+![See the UI](documentation/Numcomp_app.png)
