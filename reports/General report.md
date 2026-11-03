@@ -35,6 +35,18 @@
 | KYEYUNE PRAISE PAULINE | 25/U/07943/PS | Member 8 / test framework/  test runner / Matrix Solver tests / QA; not linear algebra | 
 | Nabakooza Bridget Maria | 25/U/07592/PS | Member 9 /  numcomp_app / examples build / example helpers | 
 
+## Commit history proof of contribution
+
+You can view the contributions made by [Member 1()](commits?author=username).
+You can view the contributions made by [Member 2(Batte Derrick Calvin)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=itsBDC).
+You can view the contributions made by [Member 3()](commits?author=username).
+You can view the contributions made by [Member 4()](commits?author=username).
+You can view the contributions made by [Member 5()](commits?author=username).
+You can view the contributions made by [Member 6()](commits?author=username).
+You can view the contributions made by [Member 7()](commits?author=username).
+You can view the contributions made by [Member 8()](commits?author=username).
+You can view the contributions made by [Member 9()](commits?author=username).
+
 ## Requirements and Dependencies
 
 - **Compiler:** needs C++17 support. 
