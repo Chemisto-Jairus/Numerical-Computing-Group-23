@@ -1,5 +1,18 @@
 # General Report - Numerical Computing 2 (Group 23)
 
+## Table of contents
+
+[Group Members and Contributions](<General report.md#group-members-and-contributions>)
+[Requirements and Dependencies](<General report.md#requirements-and-dependencies>)
+[The Library at a Glance](<General report.md#the-library-at-a-glance>)
+[Algorithm Implementation Summary](<General report.md#algorithm-implementation-summary-see-module-reports>)
+[Command-line app: numcomp_app](<General report.md#command-line-app-numcomp_app>)
+[Project Structure](<General report.md#project-structure>)
+[Concepts  used in our library](<General report.md#concepts--used-in-our-library>)
+[Additional Documentation & Links](<General report.md#additional-documentation--links>)
+[AI clause for entire project](<General report.md#ai-clause-for-entire-project>)
+
+
 ## Group Members and Contributions
 
 | Name | Student Number | Project Role / Assigned Module | 
@@ -83,6 +96,8 @@ Verified via 15 standard test programs executing 335 rigorous checks. Exactness 
 | Owners | Nabakooza Bridget Maria (Member 9), with Chemisto Jairus (Member 1) |
 | Files | `src/main.cpp`, `src/app/console_ui.*`, `src/app/catalog.*`, `src/app/module_menus.*` |
 | Build target | `numcomp_app` (linked against the `numcomp2` library) |
+
+![SEE THE UI](../documentation/Numcomp_app.png)
 
 ### 1. What it does
 
@@ -361,8 +376,8 @@ Numerical-Computing-Group-23/
 **Class layous of our library**
 [see this pdf](<../documentation/Class layouts by Sharon.pdf>)
 
-**Shared helpers of our library**
-[see this pdf](<../documentation/Shared helpers by Bridget.pdf>)
+**Relationship between Shared helpers and classes by Bridget**
+![see this image](<../documentation/Relationship between Shared helpers and classes by Bridget.png>)
 
 
 ## Shared internal helpers: input checks, ODE loops and the tridiagonal solver

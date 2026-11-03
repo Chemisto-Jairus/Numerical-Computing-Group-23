@@ -261,7 +261,7 @@ winget install -e --id Kitware.CMake
 **2. Building the library**
 
 - Run Git bash as administrator and right click on the repository folder and select open git bash here
-- Paste the code below in your git bash terminal
+- Paste the code below in your git bash terminal (do not use Ctrl + V. right click inside the terminal and select paste)
 - It should open the folder where the build was created and you can run the numcomp_app.
 
 ```bash
@@ -437,7 +437,7 @@ winget install -e --id Kitware.CMake
 ``` 
 
 - Download the repository and save it anywhere on your pc
-- Right click on it and select open Git bash here and paste the code below. 
+- Right click on it and select open Git bash here and paste the code below (right click in terminal. Do not use Ctrl + V). 
 - It should open the folder where the library that can be used it located 
 
 ```bash
@@ -1127,7 +1127,7 @@ winget install -e --id Kitware.CMake
 ### WINDOWS
 
 - Run Git bash as administrator and right click on the repository folder and select open git bash here
-- Paste the code below in your git bash terminal.
+- Paste the code below in your git bash terminal. (do not use Ctrl + V. Right click in terminal and select paste)
 - It should show all tests passed and open the folder with the full build having the tests and examples executables.
 
 ```bash
