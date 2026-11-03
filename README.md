@@ -21,6 +21,7 @@ The objective of this project is to build a reusable numerical computing library
 - [12. How We Collaborated as a Team](#12-how-we-collaborated-as-a-team)
 - [13. DOXY Documentation](README.md#13-doxy-documentation)
 - [14. Numcomp app](README.md#14-numcomp-app)
+- [15. Commit history proof of contribution](README.md#15-commit-history-proof-of-contribution)
 
 ## 2. Requirements and Dependencies
 
@@ -1314,3 +1315,22 @@ Because we have a large group of 9 people, we had to be very organized so we did
 - The app we created that utilizes this library has its documentation at [here](documentation/modules/command_line_app.md)
 ![See the UI](documentation/Numcomp_app.png)
 
+## 15. Commit history proof of contribution
+
+You can view the contributions made by [Member 1(CHEMISTO JAIRUS)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=Chemisto-Jairus).
+
+You can view the contributions made by [Member 2(BATTE DERRICK CALVIN)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=itsBDC).
+
+You can view the contributions made by [Member 3(Aogon Sharon)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=Sharon17-cloud).
+
+You can view the contributions made by [Member 4(BAKALU VALERIA)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=Bakaluvaleria).
+
+You can view the contributions made by [Member 5(WASSWA GEORGE MPANGA)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=WASSWAGEORGE).
+
+You can view the contributions made by [Member 6(MWANJE IAN)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=mwanjeian).
+
+You can view the contributions made by [Member 7(MUWANGUZI SAMUEL)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=samvic292).
+
+You can view the contributions made by [Member 8(KYEYUNE PRAISE PAULINE)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=kpraisepauline-hash).
+
+You can view the contributions made by [Member 9(Nabakooza Bridget Maria)](https://github.com/Chemisto-Jairus/Numerical-Computing-Group-23/commits/main/?author=nabakoozabridgetmaria).
