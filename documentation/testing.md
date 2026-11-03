@@ -62,10 +62,10 @@ From the Week 3 debugs : the bisection reversed-interval bug, NaN inputs passing
 
 ## 4. How to reproduce
 
-From a fresh clone, in the repository root:
+From a fresh clone, in the repository root(using git bash) on windows:
 
 ```bash
-cmake -S . -B build
+cmake -G "MinGW Makefiles" -S . -B build
 cmake --build build
 cd build && ctest --output-on-failure
 cd .. && bash tests/run_all_tests.sh
