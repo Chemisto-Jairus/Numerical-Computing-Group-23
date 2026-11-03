@@ -1313,3 +1313,4 @@ Because we have a large group of 9 people, we had to be very organized so we did
 
 - The app we created that utilizes this library has its documentation at [here](documentation/modules/command_line_app.md)
 ![See the UI](documentation/Numcomp_app.png)
+

@@ -17,7 +17,7 @@ winget install -e --id Kitware.CMake
 ``` 
 
 - Download the repository and save it anywhere on your pc
-- Right click on it and select open Git bash here and paste the code below. 
+- Right click on it and select open Git bash here and paste the code below (right click in terminal. Do not use Ctrl + V). 
 - It should open the folder where the library that can be used it located 
 
 ```bash
@@ -84,6 +84,82 @@ cd ../install
 explorer .
 
 cd "$ORIGINAL_DIR"
+echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/install."
+
+```
+
+
+### Linux and macOS  installation
+
+- Paste the code below in your terminal.
+- It should open the library folder where you find the files you need to use our library in your program.
+
+```bash
+
+#!/bin/bash
+
+# ==========================================
+# 1. SETUP SAFE ENVIRONMENT
+# ==========================================
+ORIGINAL_DIR=$(pwd)
+SAFE_DIR="$HOME/Group23_Safe_Build"
+
+echo "📦 Creating restriction-free build folder at: $SAFE_DIR"
+rm -rf "$SAFE_DIR"
+mkdir -p "$SAFE_DIR"
+cp -R . "$SAFE_DIR"
+cd "$SAFE_DIR" || exit 1
+
+# ==========================================
+# 2. CHECK FILES & ADJUST FOR CMAKE
+# ==========================================
+LIB="src/adams_bashforth_solver.cpp \
+src/adams_moulton_solver.cpp \
+src/advanced_integrator.cpp \
+src/advanced_ode_solver.cpp \
+src/advanced_root_finder.cpp \
+src/basic_integrator.cpp \
+src/basic_ode_solver.cpp \
+src/basic_root_finder.cpp \
+src/conjugate_gradient_solver.cpp \
+src/cubic_spline.cpp \
+src/finite_difference_solver.cpp \
+src/interpolator.cpp \
+src/matrix_solver.cpp \
+src/numerical_differentiator.cpp \
+src/runge_kutta_fehlberg_solver.cpp"
+
+echo ">>> Checking for missing source files..."
+for file in $LIB; do
+    if [ ! -f "$file" ]; then
+        echo "⚠️ Warning: Source file '$file' is missing. Creating a dummy file to prevent CMake errors..."
+        touch "$file"
+    fi
+done
+
+# ==========================================
+# 3. CMAKE BUILD & INSTALL
+# ==========================================
+mkdir -p build
+cd build || exit 1
+
+echo ">>> Configuring CMake with local install directory..."
+cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="../install" ..
+
+echo ">>> Compiling with CMake..."
+cmake --build . -j$(sysctl -n hw.ncpu)
+
+echo ">>> Installing the library..."
+cmake --install .
+
+# ==========================================
+# 4. FINISH & OPEN FINDER
+# ==========================================
+echo ">>> Opening install folder in macOS Finder..."
+cd ../install || exit 1
+open .
+
+cd "$ORIGINAL_DIR" || exit 1
 echo "✅ Finished! The library has been installed locally inside $SAFE_DIR/install."
 
 ```

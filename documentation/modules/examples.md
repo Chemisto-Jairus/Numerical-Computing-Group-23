@@ -42,13 +42,15 @@ Every example includes its module header and `example_helpers.hpp`, and uses the
 
 Following the group rules, each example has its own `main()`, uses valid inputs (except in the clearly labelled "rejected" demonstrations), keeps library calls inside try/catch, and prints labelled results.
 
-## 3. Building and running
+## 3. Building and running 
+
+### On windows (using git bash)
 
 `examples/CMakeLists.txt` builds one executable per example (each wrapped in `if(EXISTS …)`) and registers each with ctest:
 
 ```bash
-cmake -S . -B build && cmake --build build
-./build/examples/example_cubic_spline
-cd build && ctest -R example      # run only the examples
-bash tests/run_all_tests.sh       # tests, then examples, from the repository root
+cmake -G "MinGW Makefiles" -S . -B build && cmake --build build
+./build/examples/example_cubic_spline.exe
+cd build && ctest -R example
+cd .. && bash tests/run_all_tests.sh
 ```

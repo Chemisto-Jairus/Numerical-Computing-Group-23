@@ -3,13 +3,21 @@
 ## Table of contents
 
 [Group Members and Contributions](<General report.md#group-members-and-contributions>)
+
 [Requirements and Dependencies](<General report.md#requirements-and-dependencies>)
+
 [The Library at a Glance](<General report.md#the-library-at-a-glance>)
+
 [Algorithm Implementation Summary](<General report.md#algorithm-implementation-summary-see-module-reports>)
+
 [Command-line app: numcomp_app](<General report.md#command-line-app-numcomp_app>)
+
 [Project Structure](<General report.md#project-structure>)
+
 [Concepts  used in our library](<General report.md#concepts--used-in-our-library>)
+
 [Additional Documentation & Links](<General report.md#additional-documentation--links>)
+
 [AI clause for entire project](<General report.md#ai-clause-for-entire-project>)
 
 
