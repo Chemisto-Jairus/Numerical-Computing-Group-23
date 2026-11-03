@@ -97,7 +97,7 @@ You can view the contributions made by [Member 9(Nabakooza Bridget Maria)](https
 | `MatrixSolver` | Gaussian elimination, LU decomposition | [modules/matrix_solver.md](../documentation/modules/matrix_solver.md) | 
 | `ConjugateGradientSolver` | Conjugate gradient | [modules/conjugate_gradient_solver.md](../documentation/modules/conjugate_gradient_solver.md) | 
 
-## Algorithm Implementation Summary [See module reports](../documentation/modules)
+## Algorithm Implementation Summary [See algorithm report](../documentation/algorithm-report.md)
 
 The `numcomp2` library implements eighteen core algorithms and five related methods across seven mathematical areas. All logic is implemented in stateless classes, sharing central helpers (like tridiagonal solvers and generic ODE loops) to keep code DRY.
 
@@ -467,16 +467,16 @@ Numerical-Computing-Group-23/
 
 ### Inheritance of our library
 
-![See this image](<../documentation/Inheritance of Numcomp2 by Valeria.jpg>)
+![See this image](../documentation/Inheritance_of_Numcomp2_by_Valeria.jpg)
 
 ### Relationship between Shared helpers and classes by Bridget
 
-![see this image](<../documentation/Relationship between Shared helpers and classes by Bridget.png>)
+![See this image](../documentation/Relationship_between_Shared_helpers_and_classes_by_Bridget.png)
 
 ### Class layouts
 
-![layout 1](<../documentation/class layouts 1 by Sharon .png>)
-![layout 2](<../documentation/class layouts 2 by Sharon.png>)
+![layout 1](<../documentation/class_layouts_1_by_Sharon .png>)
+![layout 2](../documentation/class_layouts_2_by_Sharon.png)
 
 | Class | Owner | Data members | Member functions (all `public`) |
 | :--- | :--- | :--- | :--- |
@@ -1729,8 +1729,12 @@ For an in-depth look at our testing framework, example results, and API document
 
 ## References for state design
 
-* SciPy Documentation - Cubic Spline Interpolation: *scipy.interpolate.CubicSpline*
-* SciPy Documentation - Root Finding: *scipy.optimize.root_scalar*
-* SciPy Documentation - Integration: *scipy.integrate.simpson*
-* Eigen C++ Library Documentation - Linear Algebra and Decompositions (PartialPivLU)
+* SciPy Documentation - Cubic Spline Interpolation: [scipy.interpolate.CubicSpline](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.CubicSpline.html)
+
+* SciPy Documentation - Root Finding: [scipy.optimize.root_scalar](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root_scalar.html)
+
+* SciPy Documentation - Integration: [scipy.integrate.simpson](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.simpson.html)
+
+* Eigen C++ Library Documentation - [Linear Algebra and Decompositions (PartialPivLU)](https://libeigen.gitlab.io/eigen/docs-nightly/classEigen_1_1PartialPivLU.html)
+
 * Scikit-Learn API Reference - The Estimator API (fit and predict pattern)

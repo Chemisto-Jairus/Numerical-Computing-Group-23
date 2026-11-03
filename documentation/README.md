@@ -35,7 +35,7 @@ Supporting parts:
 
 | File | Contents |
 |---|---|
-| [algorithm-report.pdf](algorithm-report.pdf) / [.md](algorithm-report.md) | The algorithms implemented |
+| [algorithm-report.md](algorithm-report.md) | The algorithms implemented |
 | [testing.md](testing.md) | Testing approach and results |
 
 ## Examples Results
