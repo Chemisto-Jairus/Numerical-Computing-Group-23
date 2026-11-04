@@ -35,21 +35,8 @@ With the natural conditions $M_0 = M_{n-1} = 0$, that is $n - 2$ equations in $n
 
 **Step 3: solve with the Thomas algorithm.** Each equation involves only three neighbouring unknowns, so the matrix is *tridiagonal*. The Thomas algorithm is Gaussian elimination specialised to that shape. It is written once, in the shared helper `linalg::solve_tridiagonal` (`src/internal/tridiagonal`), because `FiniteDifferenceSolver` solves the same kind of system:
 
-- *Forward sweep:* for $k = 1 \dots m-1$, 
-  
-  $$ \text{factor} = \frac{\text{lower}_k}{\text{diag}_{k-1}} $$
-  
-  $$ \text{diag}_k \leftarrow \text{diag}_k - (\text{factor} \cdot \text{upper}_{k-1}) $$
-  
-  $$ \text{rhs}_k \leftarrow \text{rhs}_k - (\text{factor} \cdot \text{rhs}_{k-1}) $$
-
-- *Back substitution:* 
-  
-  $$ M_{\text{last}} = \frac{\text{rhs}_{\text{last}}}{\text{diag}_{\text{last}}} $$
-  
-  then upwards:
-  
-  $$ M_k = \frac{\text{rhs}_k - (\text{upper}_k \cdot M_{k+1})}{\text{diag}_k} $$
+- *Forward sweep:* for $k = 1 \dots m-1$, $\text{factor} = \frac{\text{lower}[k]}{\text{diag}[k-1]}$; $\text{diag}[k] \leftarrow \text{diag}[k] - \text{factor} \cdot \text{upper}[k-1]$; $\text{rhs}[k] \leftarrow \text{rhs}[k] - \text{factor} \cdot \text{rhs}[k-1]$.
+- *Back substitution:* $M[\text{last}] = \frac{\text{rhs}[\text{last}]}{\text{diag}[\text{last}]}$, then upwards $M[k] = \frac{\text{rhs}[k] - \text{upper}[k] M[k+1]}{\text{diag}[k]}$.
 
 It costs $O(n)$ operations instead of $O(n^3)$. The diagonal $2(h_{i-1} + h_i)$ is larger than the two off-diagonal entries together (strict diagonal dominance), so no pivoting is needed and no division by zero can happen.
 
@@ -80,7 +67,7 @@ For smooth data the spline error is about $h^4$. Example 2 shows this for $\sin 
 | Exception | When |
 |---|---|
 | `std::invalid_argument` | sizes differ, fewer than 2 points, $x$ not strictly increasing (or NaN) |
-| `std::out_of_range` | $x$ outside $[x\_vals.front(), x\_vals.back()]$ |
+| `std::out_of_range` | $x$ outside `[x_vals.front(), x_vals.back()]` |
 
 ## 6. Limitations
 
