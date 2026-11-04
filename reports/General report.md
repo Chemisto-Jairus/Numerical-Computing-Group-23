@@ -475,7 +475,7 @@ Numerical-Computing-Group-23/
 
 ### Class layouts
 
-![layout 1](<../documentation/class_layouts_1_by_Sharon .png>)
+![layout 1](../documentation/class_layouts_1_by_Sharon.png)
 ![layout 2](../documentation/class_layouts_2_by_Sharon.png)
 
 | Class | Owner | Data members | Member functions (all `public`) |
