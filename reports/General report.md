@@ -28,6 +28,8 @@
 
 [Limitations](<General report.md#limitations>)
 
+[Debug report](<General report.md#debug-report-had-help--from-ai>)
+
 [Additional Documentation & Links](<General report.md#additional-documentation--links>)
 
 [AI clause for entire project](<General report.md#ai-clause-for-entire-project>)
@@ -1700,6 +1702,23 @@ echo "✅ Finished! All tests have been executed inside $SAFE_DIR/build."
 - Adams-Bashforth [See module report](../documentation/modules/adams_bashforth_solver.md#5-limitations)
 - Adams-Moulton [See module repor](../documentation/modules/adams_moulton_solver.md#5-limitations)
 
+## Debug report (Had help  from AI)
+
+| ID | Where | What was wrong | Fixes we made | 
+| ----- | ----- | ----- | ----- | 
+| **B1** | `src/basic_root_finder.cpp` | Bisection gives a wrong root when the interval is typed backwards (a > b) because the tolerance check becomes negative and always true. Proof: `bisection(x - 0.5, 3, 0, 1e-8, 100)` returned 1.5 instead of 0.5. | Swap a and b when a > b before anything else. Now returns 2 for \[3, 0\] and is guarded by a new test. | 
+| **B2** | `src/basic_root_finder.cpp` | If f(a) or f(b) is NaN, the sign check evaluates as false, causing bisection to continue and return an invalid root. Proof: f(x) = NaN on \[0, 1\] returned 0.99999999. | Calculate f(a) and f(b) once, throwing `invalid_argument` if either is NaN. Now guarded by a test. | 
+| **B3** | `src/interpolator.cpp` | `chebyshev_nodes` lacks an upper limit for `n`, allowing massive memory allocation attempts that crash the program before exceptions can be caught. | Reject n > 1,000,000 with `invalid_argument`. Now guarded by a test check. | 
+| **B4** | `src/main.cpp` | The `BasicRootFinder` module is excluded from the menu and its header is missing, leaving the entire module unreachable. | Added Bisection and Newton-Raphson to the application menu. | 
+| **B5** | `src/main.cpp` | The program only catches `invalid_argument`, `out_of_range`, and `runtime_error`, meaning other exceptions like `std::bad_alloc` crash the app. | Added a final `catch (const std::exception& e)` block to gracefully print "Unexpected error" and return to the menu. | 
+| **B6** | `tests/run_all_tests.sh` | The script lacks Git executable permissions, requires running from a specific build folder, has commented-out test lines, and misses Visual Studio `Debug/` directories. | Rewrote the script to run from the repository root, locate all builds, skip unbuilt tests, and print a final summary. | 
+| **B7** | `tests/*.cpp` | The test files only verify the happy path and use `assert`, which stops execution on the first failure. They missed all the bugs in the report. | Added normal, edge, and invalid-input tests across 9 programs (186 total checks) that print PASS/FAIL and return 1 on any failure. | 
+| **B8** | `src/basic_root_finder.cpp`<br>`src/advanced_root_finder.cpp` | The condition `tol <= 0` allows `NaN` to pass, causing the method to execute and incorrectly throw a convergence runtime error. | Changed the condition to `!(tol > 0)`, which properly catches NaN and throws `invalid_argument`. | 
+| **B9** | `src/basic_ode_solver.cpp`<br>`src/advanced_ode_solver.cpp` | The condition `h <= 0` allows `NaN` to pass, preventing the loop from running and returning a single point with no error. | Updated the condition to `!(h > 0) \|\| !(t_end > t0)`, which correctly throws `invalid_argument` across all four ODE methods. | 
+| **B10** | `src/basic_integrator.cpp`<br>`src/advanced_integrator.cpp` | If limits `a` or `b` are NaN or infinity, the integration methods silently return `nan`. | Validates using `std::isfinite(a)` and `std::isfinite(b)`, throwing `invalid_argument` if they fail. | 
+| **B11** | `src/interpolator.cpp` | A NaN value in `x_vals` slips past the strictly increasing check and throws the wrong exception (`out_of_range`). A NaN limit also bypasses the `a >= b` check in `chebyshev_nodes`. | Updated conditions to `!(x[i] < x[i+1])` and `!(a < b)` to throw `invalid_argument`. | 
+| **B12** | `src/main.cpp` | The output label is printed before the calculation runs. If the function throws an error, an incomplete line of text is left on the screen. | Calculates the result first before printing it, preventing broken output lines. | 
+| **B13** | `tests/test_advanced_root_finder.cpp` | The file contains Windows (CRLF) line endings without a `.gitattributes` configuration, which breaks bash scripts on Linux and macOS. | Added a `.gitattributes` file and saved all files with LF line endings. | 
 
 ## Additional Documentation & Links
 

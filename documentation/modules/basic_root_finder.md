@@ -31,17 +31,17 @@ double r2 = finder.newton_raphson(f, df, 1.0, 1e-12, 50);   // 1.4142135623...
 
 The idea comes from the **intermediate value theorem**: if $f$ is continuous and $f(a)$, $f(b)$ have opposite signs, $f$ must cross zero somewhere between them.
 
-1. Check the settings: $\text{tol} > 0$, $\text{max\_iter} > 0$ (shared helper `checks::check_tolerance`).
+1. Check the settings: `tol` > 0, `max_iter` > 0 (shared helper `checks::check_tolerance`).
 2. If $a > b$, swap them, so that $\frac{b - a}{2}$ is always the real half-width.
-3. Evaluate $f(a)$ and $f(b)$ once. Reject NaN. If either is already within $\text{tol}$ of zero, return that end point.
+3. Evaluate $f(a)$ and $f(b)$ once. Reject NaN. If either is already within `tol` of zero, return that end point.
 4. If $f(a) f(b) > 0$ there is no guaranteed root: throw `invalid_argument`.
-5. Repeat up to $\text{max\_iter}$ times:
+5. Repeat up to `max_iter` times:
    - $c = \frac{a + b}{2}$, evaluate $f(c)$.
-   - If $|f(c)| < \text{tol}$ **or** $\frac{b - a}{2} < \text{tol}$, return $c$.
+   - If $|f(c)| <$ `tol` **or** $\frac{b - a}{2} <$ `tol`, return $c$.
    - Keep the half where the sign still changes: if $f(c) f(a) < 0$ then $b = c$, otherwise $a = c$ (and $f(a) = f(c)$).
 6. If the loop ends, throw `runtime_error("Bisection method failed to converge.")`.
 
-After $k$ steps the interval is $\frac{b - a}{2^k}$ wide, so reaching tolerance $\text{tol}$ needs about $\log_2\left(\frac{b - a}{\text{tol}}\right)$ steps. For $[0, 2]$ and $\text{tol} = 10^{-12}$ that is about 41 steps.
+After $k$ steps the interval is $\frac{b - a}{2^k}$ wide, so reaching tolerance `tol` needs about $\log_2\left(\frac{b - a}{\mathrm{tol}}\right)$ steps. For $[0, 2]$ and `tol` = $10^{-12}$ that is about 41 steps.
 
 ## 3. How Newton-Raphson works
 
@@ -49,13 +49,13 @@ Near a point $x$, $f$ looks like its tangent line: $f(x + \Delta) \approx f(x) +
 
   $x_{\text{new}} = x - \frac{f(x)}{f'(x)}$
 
-1. Check $\text{tol}$ and $\text{max\_iter}$.
-2. Repeat up to $\text{max\_iter}$ times:
+1. Check `tol` and `max_iter`.
+2. Repeat up to `max_iter` times:
    - Evaluate $f'(x)$. If $|f'(x)| < 10^{-12}$ the tangent is flat and never meets the axis: throw `runtime_error`.
-   - Compute $x_{\text{new}}$. If $|x_{\text{new}} - x| < \text{tol}$, return $x_{\text{new}}$.
+   - Compute $x_{\text{new}}$. If $|x_{\text{new}} - x| <$ `tol`, return $x_{\text{new}}$.
 3. If the loop ends, throw `runtime_error("Newton-Raphson failed to converge.")`.
 
-For a simple root the error obeys $e_{k+1} \approx C \cdot e_k^2$, so the number of correct digits roughly doubles each step. In the applied example ($\text{tol} = 10^{-12}$ on $x^2 - 2$), Newton has converged by 10 iterations; bisection needs about 41 and is still running at 30.
+For a simple root the error obeys $e_{k+1} \approx C \cdot e_k^2$, so the number of correct digits roughly doubles each step. In the applied example (`tol` = $10^{-12}$ on $x^2 - 2$), Newton has converged by 10 iterations; bisection needs about 41 and is still running at 30.
 
 ## 4. Why it is written this way
 
@@ -75,8 +75,8 @@ For a simple root the error obeys $e_{k+1} \approx C \cdot e_k^2$, so the number
 
 | Exception | When |
 |---|---|
-| `std::invalid_argument` | $\text{tol} \le 0$ or NaN, $\text{max\_iter} \le 0$, $f(a)$ or $f(b)$ is NaN, or $f(a)$ and $f(b)$ have the same sign (bisection) |
-| `std::runtime_error` | no convergence within $\text{max\_iter}$, or $|f'(x)| < 10^{-12}$ (Newton) |
+| `std::invalid_argument` | `tol` $\le 0$ or NaN, `max_iter` $\le 0$, $f(a)$ or $f(b)$ is NaN, or $f(a)$ and $f(b)$ have the same sign (bisection) |
+| `std::runtime_error` | no convergence within `max_iter`, or $|f'(x)| < 10^{-12}$ (Newton) |
 
 ## 6. Limitations
 
