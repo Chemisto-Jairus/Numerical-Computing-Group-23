@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['layouts_0',['Class layouts',['../md_documentation_2_o_o_p_01concepts.html#autotoc_md144',1,'']]],
+  ['library_1',['Templates used in our library',['../md_documentation_2templates.html',1,'']]],
+  ['library_20at_20a_20glance_2',['The library at a glance',['../index.html#autotoc_md152',1,'']]],
+  ['limitations_3',['Limitations',['../md_documentation_2modules_2adams__bashforth__solver.html#autotoc_md5',1,'5. Limitations'],['../md_documentation_2modules_2adams__moulton__solver.html#autotoc_md12',1,'5. Limitations'],['../md_documentation_2modules_2conjugate__gradient__solver.html#autotoc_md75',1,'5. Limitations'],['../md_documentation_2modules_2finite__difference__solver.html#autotoc_md95',1,'5. Limitations'],['../md_documentation_2modules_2runge__kutta__fehlberg__solver.html#autotoc_md128',1,'5. Limitations'],['../md_documentation_2modules_2advanced__integrator.html#autotoc_md20',1,'6. Limitations'],['../md_documentation_2modules_2advanced__ode__solver.html#autotoc_md28',1,'6. Limitations'],['../md_documentation_2modules_2advanced__root__finder.html#autotoc_md36',1,'6. Limitations'],['../md_documentation_2modules_2basic__integrator.html#autotoc_md44',1,'6. Limitations'],['../md_documentation_2modules_2basic__ode__solver.html#autotoc_md52',1,'6. Limitations'],['../md_documentation_2modules_2basic__root__finder.html#autotoc_md60',1,'6. Limitations'],['../md_documentation_2modules_2cubic__spline.html#autotoc_md83',1,'6. Limitations'],['../md_documentation_2modules_2numerical__differentiator.html#autotoc_md121',1,'6. Limitations'],['../md_documentation_2modules_2interpolator.html#autotoc_md104',1,'7. Limitations'],['../md_documentation_2modules_2matrix__solver.html#autotoc_md113',1,'7. Limitations']]],
+  ['line_4',['line',['../test__basic__integrator_8cpp.html#a94b390b539749d032d7f7aa24b8f8615',1,'test_basic_integrator.cpp']]],
+  ['line_20app_3a_20numcomp_5fapp_5',['Command-line app: numcomp_app',['../md_documentation_2modules_2command__line__app.html',1,'']]],
+  ['linear_20interpolation_20chebyshev_20nodes_20and_20chebyshev_20approximation_6',['Interpolator: linear interpolation, Chebyshev nodes and Chebyshev approximation',['../md_documentation_2modules_2interpolator.html',1,'']]],
+  ['linear_20interpolation_20works_7',['2. How linear interpolation works',['../md_documentation_2modules_2interpolator.html#autotoc_md99',1,'']]],
+  ['linear_20systems_8',['ConjugateGradientSolver: iterative solution of SPD linear systems',['../md_documentation_2modules_2conjugate__gradient__solver.html',1,'']]],
+  ['linear_20two_20point_20boundary_20value_20problems_9',['FiniteDifferenceSolver: linear two-point boundary value problems',['../md_documentation_2modules_2finite__difference__solver.html',1,'']]],
+  ['linear_5fbvp_10',['linear_bvp',['../classnumcomp_1_1_finite_difference_solver.html#ab7faaf455b37489ea44dd68b9ca30105',1,'numcomp::FiniteDifferenceSolver']]],
+  ['linear_5finterpolate_11',['linear_interpolate',['../classnumcomp_1_1_interpolator.html#a384c3e6789292891a718bb8dbe6865fe',1,'numcomp::Interpolator']]],
+  ['linear_5finvalid_12',['linear_invalid',['../test__interpolator_8cpp.html#a6f704726585101eaeccca9a42af448e7',1,'test_interpolator.cpp']]],
+  ['linear_5fnormal_5fand_5fedge_13',['linear_normal_and_edge',['../test__interpolator_8cpp.html#a2ba5c0e434b0acef7c48f225c85b6cb6',1,'test_interpolator.cpp']]],
+  ['linear_5frhs_14',['linear_rhs',['../test__adams__bashforth__solver_8cpp.html#a4854b13bf3bad11872dcff706d6b5160',1,'linear_rhs(double t, double):&#160;test_adams_bashforth_solver.cpp'],['../test__adams__moulton__solver_8cpp.html#a4854b13bf3bad11872dcff706d6b5160',1,'linear_rhs(double t, double):&#160;test_adams_moulton_solver.cpp'],['../test__basic__ode__solver_8cpp.html#a4854b13bf3bad11872dcff706d6b5160',1,'linear_rhs(double t, double):&#160;test_basic_ode_solver.cpp']]],
+  ['linear_5fsystems_15',['linear_systems',['../namespaceapp_1_1catalog.html#a449376f666bfcbd9d1626f25cb726763',1,'app::catalog']]],
+  ['linear_5fsystems_5fmenu_16',['linear_systems_menu',['../module__menus_8cpp.html#af8fd06a4b5038548702dfb18bedcd4bf',1,'app']]],
+  ['linearsystem_17',['LinearSystem',['../structapp_1_1catalog_1_1_linear_system.html',1,'app::catalog']]],
+  ['list_18',['1. The list',['../md_documentation_2modules_2examples.html#autotoc_md86',1,'']]],
+  ['loops_20and_20the_20tridiagonal_20solver_19',['Shared internal helpers: input checks, ODE loops and the tridiagonal solver',['../md_documentation_2modules_2shared__helpers.html',1,'']]],
+  ['lu_20decomposition_20',['MatrixSolver: Gaussian elimination and LU decomposition',['../md_documentation_2modules_2matrix__solver.html',1,'']]],
+  ['lu_20decomposition_20works_21',['3. How LU decomposition works',['../md_documentation_2modules_2matrix__solver.html#autotoc_md109',1,'']]],
+  ['lu_5fsolve_22',['lu_solve',['../classnumcomp_1_1_matrix_solver.html#a2ea22fe91f149bf4e82a345ac25001f2',1,'numcomp::MatrixSolver']]]
+];

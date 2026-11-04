@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['p_0',['p',['../structapp_1_1catalog_1_1_b_v_p_problem.html#a4521d41b640e04dd998f56e42ae73037',1,'app::catalog::BVPProblem']]],
+  ['passed_1',['passed',['../namespacetest.html#ae18130af179f32a0cf6a3934721b0bb8',1,'test']]],
+  ['pi_2',['PI',['../namespaceapp_1_1catalog.html#a71e13a5bb3d2a915f49207076b8a1521',1,'app::catalog']]],
+  ['point_20boundary_20value_20problems_3',['FiniteDifferenceSolver: linear two-point boundary value problems',['../md_documentation_2modules_2finite__difference__solver.html',1,'']]],
+  ['point_20iteration_4',['AdvancedRootFinder: Secant method and Fixed-Point Iteration',['../md_documentation_2modules_2advanced__root__finder.html',1,'']]],
+  ['point_20iteration_20works_5',['3. How Fixed-Point Iteration works',['../md_documentation_2modules_2advanced__root__finder.html#autotoc_md33',1,'']]],
+  ['poisson_6',['poisson',['../classnumcomp_1_1_finite_difference_solver.html#a319bc6b5981bea979297b4beb36cca08',1,'numcomp::FiniteDifferenceSolver']]],
+  ['polymorphism_7',['Polymorphism',['../md_documentation_2_o_o_p_01concepts.html#autotoc_md146',1,'']]],
+  ['print_5fbanner_8',['print_banner',['../namespaceapp_1_1ui.html#a3fdf8f2eec943b2eabe4deb75866f15d',1,'app::ui']]],
+  ['print_5fcompare_9',['print_compare',['../namespaceapp_1_1ui.html#a60b00c9060b86c8c0546c93ef4f1065a',1,'app::ui']]],
+  ['print_5fcurve_10',['print_curve',['../module__menus_8cpp.html#a53da0b467656529dc2b7f9ecc8a53e0f',1,'app']]],
+  ['print_5ferror_11',['print_error',['../namespaceapp_1_1ui.html#ac0ad67269916c974e676e4de254fadd8',1,'app::ui']]],
+  ['print_5fheader_12',['print_header',['../namespaceapp_1_1ui.html#a5c9be2522dcb514086457d6977696c61',1,'app::ui']]],
+  ['print_5finfo_13',['print_info',['../namespaceapp_1_1ui.html#a835a0f785030ac09d75291685e3aa09f',1,'app::ui']]],
+  ['print_5frule_14',['print_rule',['../namespaceapp_1_1ui.html#a2338d5e0b25dd7310d73c6588c2be09b',1,'app::ui']]],
+  ['print_5fsolution_15',['print_solution',['../example__matrix__solver_8cpp.html#a0d3b60efed8be1e5e2856f8ed166c920',1,'example_matrix_solver.cpp']]],
+  ['print_5ftable_5fheader_16',['print_table_header',['../namespaceapp_1_1ui.html#aa6282888fb45ed771559f2620eb7ebb3',1,'app::ui']]],
+  ['print_5ftable_5frow_17',['print_table_row',['../namespaceapp_1_1ui.html#a1418701c11a7aedc1cc89d427305f09a',1,'app::ui']]],
+  ['print_5fvalue_18',['print_value',['../namespaceapp_1_1ui.html#a8120752980a227b2d0184041cb4ed360',1,'app::ui']]],
+  ['print_5fvector_19',['print_vector',['../example__conjugate__gradient__solver_8cpp.html#ac83d93bcb5f90b4ed5de340be479b9d7',1,'example_conjugate_gradient_solver.cpp']]],
+  ['problems_20',['FiniteDifferenceSolver: linear two-point boundary value problems',['../md_documentation_2modules_2finite__difference__solver.html',1,'']]],
+  ['program_20works_21',['1. How a test program works',['../md_documentation_2modules_2test__framework.html#autotoc_md139',1,'']]],
+  ['programs_22',['programs',['../md_documentation_2modules_2examples.html',1,'Example programs'],['../md_documentation_2modules_2test__framework.html',1,'Test framework and test programs']]]
+];

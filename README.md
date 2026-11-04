@@ -58,11 +58,13 @@ We used the following structure for our project:
 Numerical-Computing-Group-23/
 ├── documentation/
 │   │
-│   │   
-│   │ 
+│   ├── api/ 
+│   │    └── html/ **
+│   │
 │   ├── guides/
 │   │       ├── doxygen_comments_guide.md
 │   │       ├── install_guide.md
+│   │       ├── using_library_in_programs.md
 │   │       └── build_guide.md
 │   │
 │   │
@@ -120,12 +122,19 @@ Numerical-Computing-Group-23/
 │   │       ├── test_results_matrix_solver.md
 │   │       ├── test_results_numerical_differentiator.md
 │   │       └── test_results_runge_kutta_fehlberg_solver.md
-│   ├── README.md 
+│   │
 │   ├── algorithm-report.md 
-│   ├── Inheritance of Numcomp2 by Valeria.jpg
-│   ├── Shared helpers by Bridget.pdf
+│   ├── class_layouts_1_by_Sharon.png
+│   ├── class_layouts_2_by_Sharon.png
 │   ├── Class layouts by Sharon.pdf
+│   ├── Inheritance_of_Numcomp2_by_Valeria.jpg
+│   ├── Numcomp_app.png
+│   ├── OOP concepts.md
+│   ├── README.md 
+│   ├── Relationship_between_Shared_helpers_and_classes_by_Bridget.png
+│   ├── templates.md
 │   └── testing.md 
+│   
 ├── examples/
 │   ├── CMakeLists.txt
 │   ├── example_adams_bashforth_solver.cpp
@@ -1266,6 +1275,7 @@ cd "$ORIGINAL_DIR" || exit 1
 echo "✅ Finished! All tests have been executed inside $SAFE_DIR/build."
 
 ```
+
 ## 10. Limitations
 
 - Basic root finder [See module report](documentation/modules/basic_root_finder.md#6-limitations)
@@ -1282,7 +1292,7 @@ echo "✅ Finished! All tests have been executed inside $SAFE_DIR/build."
 - Conjugate Gradient [See module report](documentation/modules/conjugate_gradient_solver.md#5-limitations)
 - Runge-Kutta-Fehlberg [See module report](documentation/modules/runge_kutta_fehlberg_solver.md#5-limitations)
 - Adams-Bashforth [See module report](documentation/modules/adams_bashforth_solver.md#5-limitations)
-- Adams-Moulton [See module repor](documentation/modules/adams_moulton_solver.md#5-limitations)
+- Adams-Moulton [See module report](documentation/modules/adams_moulton_solver.md#5-limitations)
 
 
 ## 11. Contributions by Group Members
@@ -1303,14 +1313,15 @@ echo "✅ Finished! All tests have been executed inside $SAFE_DIR/build."
 
 Because we have a large group of 9 people, we had to be very organized so we didn't overwrite each other's code. Here is how we divided the work and collaborated:
 
-- **Division of Work:** We broke the project into logical modules and divided the workload across all 9 group members. We assigned 7 members to write the core C++ math modules, 1 member to build the unit testing framework, and 1 member to handle the final examples and documentation.
+- **Division of Work:** We broke the project into logical modules and divided the workload across all 9 group members. We assigned 7 members to write the core C++ math modules, 1 member to build the unit testing framework, and 1 member to handle the final examples and documentation and 1 member to build the app.
 - **Version Control Strategy:** We used Git and GitHub. Our Project Lead (Chemisto Jairus) set up the initial repository, the empty folder structure (`include`, `src`, `tests`, `examples`, `reports`), and the basic `CMakeLists.txt` on the `main` branch. 
 - **Branching and Pull Requests:** The rest of the team cloned the repository to their local machines. Nobody is allowed to push code directly to `main`. Instead, everyone creates a new branch for their specific assigned module (for example, `feature-interp` for interpolation). Once their C++ code works locally, they push their branch to GitHub and open a Pull Request (PR).
-- **Code Review:** Before a PR is merged into the main branch, at least one other group member reviews the code on GitHub, leaves a comment confirming it looks correct, and then hits the merge button. This ensures everyone understands how the whole library is coming together, not just their own part.
+- **Code Review:** Before a PR is merged into the main branch, at least one other group member reviews the code on GitHub, and then hits the merge button. This ensures everyone understands how the whole library is coming together, not just their own part.
 
 ## 13. DOXY Documentation
 
 - To learn how to use the Doxywizard to document the project, visit [doxygen_comments_guide](documentation/guides/doxygen_comments_guide.md)
+- Find the documenation [here](documentation/api/html)
 
 ## 14. Numcomp app
 

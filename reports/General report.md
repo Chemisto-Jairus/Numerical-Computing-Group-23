@@ -22,6 +22,8 @@
 
 [Install the Library (if your CMake supports it) ](<General report.md#install-the-library-if-your-cmake-supports-it>)
 
+[Use the Library in Your Own Program](<General report.md#use-the-library-in-your-own-program>)
+
 [Run the Tests and Documentation](<General report.md#run-the-tests-and-documentation>)
 
 [Examples](<General report.md#examples>)
@@ -35,8 +37,6 @@
 [AI clause for entire project](<General report.md#ai-clause-for-entire-project>)
 
 [References](<General report.md#references>)
-
-
 
 ## Group Members and Contributions
 
@@ -278,11 +278,13 @@ We used the following structure for our project:
 Numerical-Computing-Group-23/
 ├── documentation/
 │   │
-│   │   
+│   ├── api/ 
+│   │    └── html/ **
 │   │ 
 │   ├── guides/
 │   │       ├── doxygen_comments_guide.md
 │   │       ├── install_guide.md
+│   │       ├── using_library_in_programs.md
 │   │       └── build_guide.md
 │   │
 │   │
@@ -340,12 +342,19 @@ Numerical-Computing-Group-23/
 │   │       ├── test_results_matrix_solver.md
 │   │       ├── test_results_numerical_differentiator.md
 │   │       └── test_results_runge_kutta_fehlberg_solver.md
-│   ├── README.md 
+│   │
 │   ├── algorithm-report.md 
-│   ├── Inheritance of Numcomp2 by Valeria.jpg
-│   ├── Shared helpers by Bridget.pdf
+│   ├── class_layouts_1_by_Sharon.png
+│   ├── class_layouts_2_by_Sharon.png
 │   ├── Class layouts by Sharon.pdf
+│   ├── Inheritance_of_Numcomp2_by_Valeria.jpg
+│   ├── Numcomp_app.png
+│   ├── OOP concepts.md
+│   ├── README.md 
+│   ├── Relationship_between_Shared_helpers_and_classes_by_Bridget.png
+│   ├── templates.md
 │   └── testing.md 
+│   
 ├── examples/
 │   ├── CMakeLists.txt
 │   ├── example_adams_bashforth_solver.cpp
@@ -370,6 +379,7 @@ Numerical-Computing-Group-23/
 │   ├── example_cubic_spline_applied.cpp
 │   ├── example_finite_difference_solver.cpp
 │   ├── example_finite_difference_solver_applied.cpp
+│   ├── example_helpers.hpp
 │   ├── example_interpolator.cpp
 │   ├── example_interpolator_applied.cpp
 │   ├── example_matrix_solver.cpp
@@ -1739,6 +1749,12 @@ For an in-depth look at our testing framework, example results, and API document
 - Week 3 help [AI clause](week-03.md#ai-use)
 - Week 4 help [AI clause](week-04.md#ai-use)
 - Final Week help [AI clause](<Final week report.md#ai-use>)
+
+## DOXY Documentation
+
+- To learn how to use the Doxywizard to document the project, visit [doxygen_comments_guide](../documentation/guides/doxygen_comments_guide.md)
+- Find the documenation [html docs](../documentation/api/html)
+
 
 ## References
 

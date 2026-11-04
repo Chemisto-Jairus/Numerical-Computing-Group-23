@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['d2f_0',['d2f',['../structapp_1_1catalog_1_1_derivative_problem.html#acb4c7d106f2b893933d191406072c773',1,'app::catalog::DerivativeProblem']]],
+  ['data_5fsets_1',['data_sets',['../namespaceapp_1_1catalog.html#a0c2607118b8fdfee27b2aaef02c67ec2',1,'app::catalog']]],
+  ['dataset_2',['DataSet',['../structapp_1_1catalog_1_1_data_set.html',1,'app::catalog']]],
+  ['decay_5frhs_3',['decay_rhs',['../test__adams__bashforth__solver_8cpp.html#afc4856a8c735595433b083214849292c',1,'decay_rhs(double, double y):&#160;test_adams_bashforth_solver.cpp'],['../test__adams__moulton__solver_8cpp.html#afc4856a8c735595433b083214849292c',1,'decay_rhs(double, double y):&#160;test_adams_moulton_solver.cpp'],['../test__advanced__ode__solver_8cpp.html#afc4856a8c735595433b083214849292c',1,'decay_rhs(double, double y):&#160;test_advanced_ode_solver.cpp'],['../test__runge__kutta__fehlberg__solver_8cpp.html#afc4856a8c735595433b083214849292c',1,'decay_rhs(double, double y):&#160;test_runge_kutta_fehlberg_solver.cpp']]],
+  ['decomposition_4',['MatrixSolver: Gaussian elimination and LU decomposition',['../md_documentation_2modules_2matrix__solver.html',1,'']]],
+  ['decomposition_20works_5',['3. How LU decomposition works',['../md_documentation_2modules_2matrix__solver.html#autotoc_md109',1,'']]],
+  ['demo_6',['demo',['../namespacedemo.html',1,'']]],
+  ['derivative_5fproblems_7',['derivative_problems',['../namespaceapp_1_1catalog.html#a927adc177d41246b2bb2fbf64d735598',1,'app::catalog']]],
+  ['derivativeproblem_8',['DerivativeProblem',['../structapp_1_1catalog_1_1_derivative_problem.html',1,'app::catalog']]],
+  ['derivatives_9',['NumericalDifferentiator: finite difference formulas for derivatives',['../md_documentation_2modules_2numerical__differentiator.html',1,'']]],
+  ['df_10',['df',['../structapp_1_1catalog_1_1_root_problem.html#a2a116fb0e5994821927f77e2742ab944',1,'app::catalog::RootProblem::df'],['../structapp_1_1catalog_1_1_derivative_problem.html#ae8c6bb1466d9bdd101f08bcb31957f3b',1,'app::catalog::DerivativeProblem::df']]],
+  ['df_5fcos_11',['df_cos',['../test__basic__root__finder_8cpp.html#afc16d1ec59433693a33f80134a13199a',1,'test_basic_root_finder.cpp']]],
+  ['df_5fcubic_12',['df_cubic',['../test__basic__root__finder_8cpp.html#ac33022923a4cfc63b4117f31100d1163',1,'test_basic_root_finder.cpp']]],
+  ['df_5fsquare_13',['df_square',['../test__basic__root__finder_8cpp.html#a0cffe131d626b7e4ab365b73bdb12615',1,'test_basic_root_finder.cpp']]],
+  ['difference_20formulas_20for_20derivatives_14',['NumericalDifferentiator: finite difference formulas for derivatives',['../md_documentation_2modules_2numerical__differentiator.html',1,'']]],
+  ['differentiation_5fmenu_15',['differentiation_menu',['../module__menus_8cpp.html#a3abadac5bf481f790b93af730b946576',1,'app']]],
+  ['documentation_16',['Group 23 Numerical Computing 2: documentation',['../index.html',1,'']]],
+  ['does_17',['does',['../md_documentation_2modules_2adams__bashforth__solver.html#autotoc_md1',1,'1. What it does'],['../md_documentation_2modules_2adams__moulton__solver.html#autotoc_md8',1,'1. What it does'],['../md_documentation_2modules_2advanced__integrator.html#autotoc_md15',1,'1. What it does'],['../md_documentation_2modules_2advanced__ode__solver.html#autotoc_md23',1,'1. What it does'],['../md_documentation_2modules_2advanced__root__finder.html#autotoc_md31',1,'1. What it does'],['../md_documentation_2modules_2basic__integrator.html#autotoc_md39',1,'1. What it does'],['../md_documentation_2modules_2basic__ode__solver.html#autotoc_md47',1,'1. What it does'],['../md_documentation_2modules_2basic__root__finder.html#autotoc_md55',1,'1. What it does'],['../md_documentation_2modules_2command__line__app.html#autotoc_md63',1,'1. What it does'],['../md_documentation_2modules_2conjugate__gradient__solver.html#autotoc_md71',1,'1. What it does'],['../md_documentation_2modules_2cubic__spline.html#autotoc_md78',1,'1. What it does'],['../md_documentation_2modules_2finite__difference__solver.html#autotoc_md91',1,'1. What it does'],['../md_documentation_2modules_2interpolator.html#autotoc_md98',1,'1. What it does'],['../md_documentation_2modules_2matrix__solver.html#autotoc_md107',1,'1. What it does'],['../md_documentation_2modules_2numerical__differentiator.html#autotoc_md116',1,'1. What it does'],['../md_documentation_2modules_2runge__kutta__fehlberg__solver.html#autotoc_md124',1,'1. What it does']]],
+  ['dot_18',['dot',['../namespacenumcomp.html#af3bba1fe6c7f6f928d4740b97f5b87b4',1,'numcomp']]]
+];
