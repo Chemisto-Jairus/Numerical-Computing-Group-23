@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['names_0',['names',['../namespaceapp_1_1catalog.html#a0ba7e57a78f8e5fb7b199df7f01a7dd5',1,'app::catalog']]],
+  ['newton_5fraphson_1',['newton_raphson',['../classnumcomp_1_1_basic_root_finder.html#a123646a61dca7093aacf00f042965975',1,'numcomp::BasicRootFinder']]],
+  ['normal_5fcases_2',['normal_cases',['../test__advanced__integrator_8cpp.html#a5356d4efedd0bc75dd35f599e35c842b',1,'normal_cases():&#160;test_advanced_integrator.cpp'],['../test__advanced__root__finder_8cpp.html#a5356d4efedd0bc75dd35f599e35c842b',1,'normal_cases():&#160;test_advanced_root_finder.cpp'],['../test__basic__integrator_8cpp.html#a5356d4efedd0bc75dd35f599e35c842b',1,'normal_cases():&#160;test_basic_integrator.cpp'],['../test__basic__root__finder_8cpp.html#a5356d4efedd0bc75dd35f599e35c842b',1,'normal_cases():&#160;test_basic_root_finder.cpp'],['../test__conjugate__gradient__solver_8cpp.html#a5356d4efedd0bc75dd35f599e35c842b',1,'normal_cases():&#160;test_conjugate_gradient_solver.cpp'],['../test__cubic__spline_8cpp.html#a5356d4efedd0bc75dd35f599e35c842b',1,'normal_cases():&#160;test_cubic_spline.cpp'],['../test__matrix__solver_8cpp.html#a5356d4efedd0bc75dd35f599e35c842b',1,'normal_cases():&#160;test_matrix_solver.cpp']]],
+  ['numericaldifferentiator_3',['NumericalDifferentiator',['../classnumcomp_1_1_numerical_differentiator.html#af54536faeda6f86ef53e23cba789449f',1,'numcomp::NumericalDifferentiator']]]
+];

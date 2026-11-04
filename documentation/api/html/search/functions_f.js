@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['read_5fdouble_0',['read_double',['../namespaceapp_1_1ui.html#a22041c753640b3fbf859c47a64fef853',1,'app::ui']]],
+  ['read_5fint_1',['read_int',['../namespaceapp_1_1ui.html#a79eadf5a8f1a2d4f83a7e64f9b171db8',1,'app::ui']]],
+  ['read_5fline_2',['read_line',['../namespaceapp_1_1ui.html#afccb55cca581de2e7acec8254616cb1c',1,'app::ui']]],
+  ['richardson_5fextrapolation_3',['richardson_extrapolation',['../classnumcomp_1_1_numerical_differentiator.html#ae96b94701936e98ff1b9afb724a959bf',1,'numcomp::NumericalDifferentiator']]],
+  ['rk3_4',['rk3',['../classnumcomp_1_1_advanced_o_d_e_solver.html#abfc520e50ca64a7b5f1ed3ab56b0f717',1,'numcomp::AdvancedODESolver']]],
+  ['rk3_5fstep_5',['rk3_step',['../namespacenumcomp.html#a05e537bfc8fe517abc001e5897272186',1,'numcomp']]],
+  ['rk4_6',['rk4',['../classnumcomp_1_1_advanced_o_d_e_solver.html#ad9274ec602c700b75025008ea43273bf',1,'numcomp::AdvancedODESolver']]],
+  ['rk4_5fsingle_5fstep_7',['rk4_single_step',['../namespacenumcomp_1_1ode.html#a883c3844d6912e0b09654aa2f457491d',1,'numcomp::ode']]],
+  ['rk4_5fstep_8',['rk4_step',['../namespacenumcomp.html#aaf5e4367f240e5b67890834452b966b3',1,'numcomp']]],
+  ['rkf45_9',['rkf45',['../classnumcomp_1_1_runge_kutta_fehlberg_solver.html#a4f640115a60d534eb4b9fd7652cc8af7',1,'numcomp::RungeKuttaFehlbergSolver']]],
+  ['rkf45_5fvalue_10',['rkf45_value',['../classnumcomp_1_1_runge_kutta_fehlberg_solver.html#a42157e1f910f58d1e93e06e1cbaabbd8',1,'numcomp::RungeKuttaFehlbergSolver']]],
+  ['romberg_5fintegration_11',['romberg_integration',['../classnumcomp_1_1_advanced_integrator.html#a96eb02dfc50fbd357904e42fdd0d3078',1,'numcomp::AdvancedIntegrator']]],
+  ['root_5ffinding_5fmenu_12',['root_finding_menu',['../module__menus_8cpp.html#af118b76d886882a03d5f105751b3d408',1,'app']]],
+  ['root_5fproblems_13',['root_problems',['../namespaceapp_1_1catalog.html#a24bd538eebc959c4f2ffd56be99cfd66',1,'app::catalog']]],
+  ['run_5ffixed_5fsteps_14',['run_fixed_steps',['../namespacenumcomp_1_1ode.html#a1e91546f9d8cc4dc97f3d773b265ba1c',1,'numcomp::ode']]],
+  ['run_5fmultistep_15',['run_multistep',['../namespacenumcomp_1_1ode.html#a4492d0c6e38ffa59a566b1cf0be9cd58',1,'numcomp::ode']]],
+  ['run_5fsafely_16',['run_safely',['../module__menus_8cpp.html#a7b88a320b8ffad60fcee653dd752cfad',1,'app']]],
+  ['rungekuttafehlbergsolver_17',['RungeKuttaFehlbergSolver',['../classnumcomp_1_1_runge_kutta_fehlberg_solver.html#aa7ea625fa25832d394ac691ae40a0241',1,'numcomp::RungeKuttaFehlbergSolver']]]
+];

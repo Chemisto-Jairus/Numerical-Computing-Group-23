@@ -2,7 +2,7 @@
 
 - (Installing means copy the three things another program needs into one folder (the prefix): the public headers, the static library, and the app. A program elsewhere on the computer can then #include the headers and link the library, without the source code.)
 
-##  NB (To install the library you must build it) 
+## NB (To install the library you must build it) 
 
 ### Windows Installation
 

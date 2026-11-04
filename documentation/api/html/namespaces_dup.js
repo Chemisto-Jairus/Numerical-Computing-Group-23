@@ -1,0 +1,57 @@
+var namespaces_dup =
+[
+    [ "app", null, [
+      [ "catalog", "namespaceapp_1_1catalog.html", "namespaceapp_1_1catalog" ],
+      [ "ui", "namespaceapp_1_1ui.html", "namespaceapp_1_1ui" ],
+      [ "Function1D", "module__menus_8cpp.html#af229944ff011d22da20d226c7196a538", null ],
+      [ "Function2D", "module__menus_8cpp.html#a4acbaff1592393c1267cc5bfc68c127c", null ],
+      [ "run_safely", "module__menus_8cpp.html#a7b88a320b8ffad60fcee653dd752cfad", null ],
+      [ "show_result", "module__menus_8cpp.html#ae396facaa10240fac031407c02304250", null ],
+      [ "counted", "module__menus_8cpp.html#a4d0449059b939377b2078892e9e236ac", null ],
+      [ "choose_root_problem", "module__menus_8cpp.html#a08ca1161ef29e6accf73ceaabb597524", null ],
+      [ "show_root", "module__menus_8cpp.html#a77f11f3efcbc9c312b2459001abac8ce", null ],
+      [ "root_finding_menu", "module__menus_8cpp.html#af118b76d886882a03d5f105751b3d408", null ],
+      [ "choose_data", "module__menus_8cpp.html#a7c79bc2ecd34dc4c7e6bc54149c9da8e", null ],
+      [ "chebyshev_approximation_screen", "module__menus_8cpp.html#a75b40154492bab8e8f7f201d4fbd7f4d", null ],
+      [ "interpolation_menu", "module__menus_8cpp.html#af956b51da8695bcbe9e76fcfbeb8f979", null ],
+      [ "choose_integral", "module__menus_8cpp.html#abfee3ecbac9b0daf0dbc11a0b307c3b0", null ],
+      [ "integration_menu", "module__menus_8cpp.html#a259ad94eefbf3f37e3c7f695bbf44b74", null ],
+      [ "choose_ode", "module__menus_8cpp.html#acb02ae8f3efc3532dc3cd76ab487d3e6", null ],
+      [ "solve_ode", "module__menus_8cpp.html#a94157f7410b38fc226582ef149a29bec", null ],
+      [ "print_curve", "module__menus_8cpp.html#a53da0b467656529dc2b7f9ecc8a53e0f", null ],
+      [ "ode_menu", "module__menus_8cpp.html#a5d2737b62cf69badaa1ee2f54c4c689d", null ],
+      [ "choose_system", "module__menus_8cpp.html#a96bba1acebf5a25d01f4fe99918c5e2e", null ],
+      [ "show_solution", "module__menus_8cpp.html#a024b76ed9302a18b9d73f79d6d6714a7", null ],
+      [ "linear_systems_menu", "module__menus_8cpp.html#af8fd06a4b5038548702dfb18bedcd4bf", null ],
+      [ "choose_derivative_problem", "module__menus_8cpp.html#a5c82e9171f0a1811b9cccf211a6928e3", null ],
+      [ "differentiation_menu", "module__menus_8cpp.html#a3abadac5bf481f790b93af730b946576", null ],
+      [ "choose_bvp", "module__menus_8cpp.html#a0963b8725eb746b8e4a82f5b7b0fa450", null ],
+      [ "max_grid_error", "module__menus_8cpp.html#acfde96df19f22aa2f2de6a4266d29f33", null ],
+      [ "bvp_menu", "module__menus_8cpp.html#a2624e781d74078a7b90695708c7ae4b1", null ],
+      [ "about_screen", "module__menus_8cpp.html#a028cca93f6d22a7fe2617976182b79a3", null ],
+      [ "UNKNOWN", "module__menus_8cpp.html#a6a2577d5669527d175f572c3f3f9f5d1", null ],
+      [ "ODE_METHODS", "module__menus_8cpp.html#a74f6cba2048378e1764c23a394450218", null ]
+    ] ],
+    [ "demo", "namespacedemo.html", [
+      [ "title", "namespacedemo.html#aa35c1d2d31ac7bb9fb39d4ef0f3a9c19", null ],
+      [ "section", "namespacedemo.html#af7b8d1421a1d8afa605927fd78fe736d", null ],
+      [ "value", "namespacedemo.html#a4a5c873de9ded92ae4c8b2a3fe3f3804", null ],
+      [ "compare", "namespacedemo.html#a35f72a189c0c112bfeb20491641103aa", null ],
+      [ "table_header", "namespacedemo.html#a3e2e0d14ccb1cfb2f45401f37613a0d7", null ],
+      [ "table_row", "namespacedemo.html#a7f575015a1a21759f0ae5055db1c9598", null ],
+      [ "show_rejected", "namespacedemo.html#a577d90bff15b2fcf12cb0fa63ee10ec6", null ],
+      [ "finish", "namespacedemo.html#adf941e2c3fc6534d937df6cd4925cea6", null ],
+      [ "failed_sections", "namespacedemo.html#ae04228e5d472976db67f87056454e364", null ],
+      [ "WIDTH", "namespacedemo.html#a55e7415facfc87c7d00b91b422ce5012", null ]
+    ] ],
+    [ "numcomp", "namespacenumcomp.html", "namespacenumcomp" ],
+    [ "test", "namespacetest.html", [
+      [ "check", "namespacetest.html#ac53396925a1d9438bd5b211b89237d44", null ],
+      [ "close", "namespacetest.html#a800f99cedeaf9b16dd025024d036b100", null ],
+      [ "expect_throw", "namespacetest.html#afa32425f076d68a9f1ffae114639d288", null ],
+      [ "expect_no_throw", "namespacetest.html#ae60fb81a296175ca42d747fab7eed376", null ],
+      [ "finish", "namespacetest.html#a4190082656c316d0f53f036f9ef389ed", null ],
+      [ "passed", "namespacetest.html#ae18130af179f32a0cf6a3934721b0bb8", null ],
+      [ "failed", "namespacetest.html#a9e8ca42071b778d3e3ac607f6396ff7b", null ]
+    ] ]
+];

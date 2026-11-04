@@ -9,7 +9,7 @@ Every style and tag, where each is used, with real examples, and how to generate
 * **371**: `@param` lines (every parameter documented)
 * **82**: `@throws` lines (every exception documented)
 
-> **Why:** Section 5 of the project instructions says "each major module should also be sufficiently documented so that another C++ programmer can understand how to use it". Doxygen turns these comments into browsable HTML documentation (`docs/api/html`).
+> **Why:** Section 5 of the project instructions says "each major module should also be sufficiently documented so that another C++ programmer can understand how to use it". Doxygen turns these comments into browsable HTML documentation (`documentation/api/html`).
 
 ---
 
