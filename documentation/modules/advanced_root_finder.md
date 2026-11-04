@@ -15,7 +15,7 @@ Both methods find a root **without the derivative**, which is useful when $f'(x)
 | Method | Solves | Needs | Convergence |
 |---|---|---|---|
 | `secant_method(f, x0, x1, tol, max_iter)` | $f(x) = 0$ | two starting guesses | superlinear, order $\approx 1.618$ (the golden ratio) |
-| `fixed_point_iteration(g, x0, tol, max_iter)` | $x = g(x)$ | one starting guess and a "contracting" $g$ | linear, rate = $|g'(x^*)|$ |
+| `fixed_point_iteration(g, x0, tol, max_iter)` | $x = g(x)$ | one starting guess and a "contracting" $g$ | linear, rate = $|g'(x^{\ast})|$ |
 
 ```cpp
 numcomp::AdvancedRootFinder finder;
@@ -46,7 +46,7 @@ Rewrite $f(x) = 0$ as $x = g(x)$. For example, $x^2 - x - 2 = 0$ can become $x =
 2. Repeat up to `max_iter` times: compute $x_{\text{next}} = g(x)$. If $|x_{\text{next}} - x| < \text{tol}$, return $x_{\text{next}}$.
 3. Throw `runtime_error` if the loop ends.
 
-**When it converges:** near the answer $x^*$, the error is multiplied by about $|g'(x^*)|$ each step. So the iteration converges if $|g'(x^*)| < 1$ and diverges if it is $> 1$. The way $f$ is rearranged matters:
+**When it converges:** near the answer $x^{\ast}$, the error is multiplied by about $|g'(x^{\ast})|$ each step. So the iteration converges if $|g'(x^{\ast})| < 1$ and diverges if it is $> 1$. The way $f$ is rearranged matters:
 
 | Rearrangement of $x^2 - x - 2 = 0$ | $g'(2)$ | Result |
 |---|---|---|

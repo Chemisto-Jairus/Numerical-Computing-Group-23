@@ -36,12 +36,20 @@ With the natural conditions $M_0 = M_{n-1} = 0$, that is $n - 2$ equations in $n
 **Step 3: solve with the Thomas algorithm.** Each equation involves only three neighbouring unknowns, so the matrix is *tridiagonal*. The Thomas algorithm is Gaussian elimination specialised to that shape. It is written once, in the shared helper `linalg::solve_tridiagonal` (`src/internal/tridiagonal`), because `FiniteDifferenceSolver` solves the same kind of system:
 
 - *Forward sweep:* for $k = 1 \dots m-1$, 
-  - $\text{factor} = \frac{\text{lower}_k}{\text{diag}_{k-1}}$
-  - $\text{diag}_k \leftarrow \text{diag}_k - (\text{factor} \cdot \text{upper}_{k-1})$
-  - $\text{rhs}_k \leftarrow \text{rhs}_k - (\text{factor} \cdot \text{rhs}_{k-1})$
+  
+  $$ \text{factor} = \frac{\text{lower}_k}{\text{diag}_{k-1}} $$
+  
+  $$ \text{diag}_k \leftarrow \text{diag}_k - (\text{factor} \cdot \text{upper}_{k-1}) $$
+  
+  $$ \text{rhs}_k \leftarrow \text{rhs}_k - (\text{factor} \cdot \text{rhs}_{k-1}) $$
+
 - *Back substitution:* 
-  - $M_{\text{last}} = \frac{\text{rhs}_{\text{last}}}{\text{diag}_{\text{last}}}$
-  - then upwards $M_k = \frac{\text{rhs}_k - (\text{upper}_k \cdot M_{k+1})}{\text{diag}_k}$
+  
+  $$ M_{\text{last}} = \frac{\text{rhs}_{\text{last}}}{\text{diag}_{\text{last}}} $$
+  
+  then upwards:
+  
+  $$ M_k = \frac{\text{rhs}_k - (\text{upper}_k \cdot M_{k+1})}{\text{diag}_k} $$
 
 It costs $O(n)$ operations instead of $O(n^3)$. The diagonal $2(h_{i-1} + h_i)$ is larger than the two off-diagonal entries together (strict diagonal dominance), so no pivoting is needed and no division by zero can happen.
 
