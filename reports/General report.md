@@ -135,7 +135,7 @@ While a stateless approach guarantees safe memory handling and prevents side eff
 
 Real-world libraries do not use stateful classes for absolutely every module. They take a pragmatic, mixed approach, reserving stateful design specifically for the modules where it provides a mathematical or performance benefit.
 
-### 1. When they use Stateful Classes
+### When they use Stateful Classes
 
 Libraries use stateful classes when a calculation involves an expensive "setup" phase that can be reused later.
 
@@ -145,7 +145,7 @@ Libraries use stateful classes when a calculation involves an expensive "setup" 
 
 * **Spline Interpolation:** Calculating the second derivatives takes O(n) time. Spline objects calculate these once and save them so that looking up 10,000 different curve points later is instantaneous.
 
-### 2. When they use Stateless Functions
+### When they use Stateless Functions
 
 They stick to simple, stateless functions when the calculation is a one-off operation or where there is no "setup" phase to save (exactly like your library's approach).
 
@@ -1079,147 +1079,147 @@ g++ -std=c++17 -I "%USERPROFILE%\Group23_Safe_Build\install\include" my_program.
 
 ## Run the Tests and Documentation
 
-**The documentation of the testing framework can be found**  [here](documentation/modules/test_framework.md)
+**The documentation of the testing framework can be found**  [here](../documentation/modules/test_framework.md)
 
 ## Basic root finder
 
-[Accuracy on Standard Problems](<documentation/tests results/test_results_basic_root_finder.md#accuracy-on-standard-problems>)
+[Accuracy on Standard Problems](<../documentation/tests results/test_results_basic_root_finder.md#accuracy-on-standard-problems>)
 
-[Boundaries and Edge Cases](<documentation/tests results/test_results_basic_root_finder.md#boundaries-and-edge-cases>)
+[Boundaries and Edge Cases](<../documentation/tests results/test_results_basic_root_finder.md#boundaries-and-edge-cases>)
 
-[Invalid Input and Divergence Exceptions](<documentation/tests results/test_results_basic_root_finder.md#invalid-input-and-divergence-exceptions>)
+[Invalid Input and Divergence Exceptions](<../documentation/tests results/test_results_basic_root_finder.md#invalid-input-and-divergence-exceptions>)
 
 ## Advanced_root_finder
 
-[Accuracy on Standard Problems](<documentation/tests results/test_results_advanced_root_finder.md#accuracy-on-standard-problems>)
+[Accuracy on Standard Problems](<../documentation/tests results/test_results_advanced_root_finder.md#accuracy-on-standard-problems>)
 
-[Boundaries and Edge Cases](<documentation/tests results/test_results_advanced_root_finder.md#boundaries-and-edge-cases>)
+[Boundaries and Edge Cases](<../documentation/tests results/test_results_advanced_root_finder.md#boundaries-and-edge-cases>)
 
-[Invalid Input and Divergence Exceptions](<documentation/tests results/test_results_advanced_root_finder.md#invalid-input-and-divergence-exceptions>)
+[Invalid Input and Divergence Exceptions](<../documentation/tests results/test_results_advanced_root_finder.md#invalid-input-and-divergence-exceptions>)
 
 ## Basic integrator
 
-[Accuracy on Standard Problems](<documentation/tests results/test_results_basic_integrator.md#accuracy-on-standard-problems>)
+[Accuracy on Standard Problems](<../documentation/tests results/test_results_basic_integrator.md#accuracy-on-standard-problems>)
 
-[Exactness Properties and Known Errors](<documentation/tests results/test_results_basic_integrator.md#exactness-properties-and-known-errors>)
+[Exactness Properties and Known Errors](<../documentation/tests results/test_results_basic_integrator.md#exactness-properties-and-known-errors>)
 
-[Boundaries and Edge Cases](<documentation/tests results/test_results_basic_integrator.md#boundaries-and-edge-cases>)
+[Boundaries and Edge Cases](<../documentation/tests results/test_results_basic_integrator.md#boundaries-and-edge-cases>)
 
-[Invalid Input Exceptions](<documentation/tests results/test_results_basic_integrator.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/tests results/test_results_basic_integrator.md#invalid-input-exceptions>)
 
 ## Advanced integrator
 
-[Accuracy on Standard Problems](<documentation/tests results/test_results_advanced_integrator.md#accuracy-on-standard-problems>)
+[Accuracy on Standard Problems](<../documentation/tests results/test_results_advanced_integrator.md#accuracy-on-standard-problems>)
 
-[Exactness Properties](<documentation/tests results/test_results_advanced_integrator.md#exactness-properties>)
+[Exactness Properties](<../documentation/tests results/test_results_advanced_integrator.md#exactness-properties>)
 
-[Edge Cases and Boundaries](<documentation/tests results/test_results_advanced_integrator.md#edge-cases-and-boundaries>)
+[Edge Cases and Boundaries](<../documentation/tests results/test_results_advanced_integrator.md#edge-cases-and-boundaries>)
 
-[Invalid Input Exceptions](<documentation/tests results/test_results_advanced_integrator.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/tests results/test_results_advanced_integrator.md#invalid-input-exceptions>)
 
 ## Basic_ode_solver
 
-[Accuracy on Standard Problems](<documentation/tests results/test_results_basic_ode_solver.md#accuracy-on-standard-problems>)
+[Accuracy on Standard Problems](<../documentation/tests results/test_results_basic_ode_solver.md#accuracy-on-standard-problems>)
 
-[Observed Order of Convergence](<documentation/tests results/test_results_basic_ode_solver.md#observed-order-of-convergence>)
+[Observed Order of Convergence](<../documentation/tests results/test_results_basic_ode_solver.md#observed-order-of-convergence>)
 
-[Boundaries and Curve Shape](<documentation/tests results/test_results_basic_ode_solver.md#boundaries-and-curve-shape>)
+[Boundaries and Curve Shape](<../documentation/tests results/test_results_basic_ode_solver.md#boundaries-and-curve-shape>)
 
-[Invalid Input Exceptions](<documentation/tests results/test_results_basic_ode_solver.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/tests results/test_results_basic_ode_solver.md#invalid-input-exceptions>)
 
 ## Advanced ode solver
 
-[Accuracy on Standard Problems](<documentation/tests results/test_results_advanced_ode_solver.md#accuracy-on-standard-problems>)
+[Accuracy on Standard Problems](<../documentation/tests results/test_results_advanced_ode_solver.md#accuracy-on-standard-problems>)
 
-[Observed Order of Convergence](<documentation/tests results/test_results_advanced_ode_solver.md#observed-order-of-convergence>)
+[Observed Order of Convergence](<../documentation/tests results/test_results_advanced_ode_solver.md#observed-order-of-convergence>)
 
-[Boundaries and Curve Shape](<documentation/tests results/test_results_advanced_ode_solver.md#boundaries-and-curve-shape>)
+[Boundaries and Curve Shape](<../documentation/tests results/test_results_advanced_ode_solver.md#boundaries-and-curve-shape>)
 
-[Invalid Input Exceptions](<documentation/tests results/test_results_advanced_ode_solver.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/tests results/test_results_advanced_ode_solver.md#invalid-input-exceptions>)
 
 ## Cubic_spline
-[Accuracy on Standard Problems](<documentation/tests results/test_results_cubic_spline.md#accuracy-on-standard-problems>)
+[Accuracy on Standard Problems](<../documentation/tests results/test_results_cubic_spline.md#accuracy-on-standard-problems>)
 
-[Boundaries and Edge Cases](<documentation/tests results/test_results_cubic_spline.md#boundaries-and-edge-cases>)
+[Boundaries and Edge Cases](<../documentation/tests results/test_results_cubic_spline.md#boundaries-and-edge-cases>)
 
-[Invalid Input and Extrapolation Exceptions](<documentation/tests results/test_results_cubic_spline.md#invalid-input-and-extrapolation-exceptions>)
+[Invalid Input and Extrapolation Exceptions](<../documentation/tests results/test_results_cubic_spline.md#invalid-input-and-extrapolation-exceptions>)
 
 ## Interpolator
 
-[Linear Interpolation](<documentation/tests results/test_results_interpolator.md#linear-interpolation>)
+[Linear Interpolation](<../documentation/tests results/test_results_interpolator.md#linear-interpolation>)
 
-[Chebyshev Nodes](<documentation/tests results/test_results_interpolator.md#chebyshev-nodes>)
+[Chebyshev Nodes](<../documentation/tests results/test_results_interpolator.md#chebyshev-nodes>)
 
-[Chebyshev Approximation](<documentation/tests results/test_results_interpolator.md#chebyshev-nodes>)
+[Chebyshev Approximation](<../documentation/tests results/test_results_interpolator.md#chebyshev-nodes>)
 
 ## Matrix_solver
 
-[Accuracy on Standard Problems](<documentation/tests results/test_results_matrix_solver.md#accuracy-on-standard-problems>)
+[Accuracy on Standard Problems](<../documentation/tests results/test_results_matrix_solver.md#accuracy-on-standard-problems>)
 
-[Boundaries and Edge Cases](<documentation/tests results/test_results_matrix_solver.md#boundaries-and-edge-cases>)
+[Boundaries and Edge Cases](<../documentation/tests results/test_results_matrix_solver.md#boundaries-and-edge-cases>)
 
-[Invalid Input and Singularity Exceptions](<documentation/tests results/test_results_matrix_solver.md#invalid-input-and-singularity-exceptions>)
+[Invalid Input and Singularity Exceptions](<../documentation/tests results/test_results_matrix_solver.md#invalid-input-and-singularity-exceptions>)
 
 ## NumericalDifferentiator
 
-[Accuracy on Standard Problems](<documentation/tests results/test_results_numerical_differentiator.md#accuracy-on-standard-problems>)
+[Accuracy on Standard Problems](<../documentation/tests results/test_results_numerical_differentiator.md#accuracy-on-standard-problems>)
 
-[Exactness and Observed Order of Convergence](<documentation/tests results/test_results_numerical_differentiator.md#exactness-and-observed-order-of-convergence>)
+[Exactness and Observed Order of Convergence](<../documentation/tests results/test_results_numerical_differentiator.md#exactness-and-observed-order-of-convergence>)
 
-[Boundaries and Edge Cases](<documentation/tests results/test_results_numerical_differentiator.md#boundaries-and-edge-cases>)
+[Boundaries and Edge Cases](<../documentation/tests results/test_results_numerical_differentiator.md#boundaries-and-edge-cases>)
 
-[Invalid Input and Mathematical Exceptions](<documentation/tests results/test_results_numerical_differentiator.md#invalid-input-and-mathematical-exceptions>)
+[Invalid Input and Mathematical Exceptions](<../documentation/tests results/test_results_numerical_differentiator.md#invalid-input-and-mathematical-exceptions>)
 
 ## AdamsBashforthSolver
 
-[Accuracy on Standard Problems](<documentation/tests results/test_results_adams_bashforth_solver.md#accuracy-on-standard-problems>)
+[Accuracy on Standard Problems](<../documentation/tests results/test_results_adams_bashforth_solver.md#accuracy-on-standard-problems>)
 
-[Observed Order of Accuracy](<documentation/tests results/test_results_adams_bashforth_solver.md#observed-order-of-accuracy>)
+[Observed Order of Accuracy](<../documentation/tests results/test_results_adams_bashforth_solver.md#observed-order-of-accuracy>)
 
-[Boundaries and Curve Shape](<documentation/tests results/test_results_adams_bashforth_solver.md#boundaries-and-curve-shape>)
+[Boundaries and Curve Shape](<../documentation/tests results/test_results_adams_bashforth_solver.md#boundaries-and-curve-shape>)
 
-[Invalid Input Exceptions](<documentation/tests results/test_results_adams_bashforth_solver.md#invalid-input-exceptions>)
+[Invalid Input Exceptions](<../documentation/tests results/test_results_adams_bashforth_solver.md#invalid-input-exceptions>)
 
 ## AdamsMoultonSolver
 
-[Accuracy on Standard Problems](<documentation/tests results/test_results_adams_moulton_solver.md#accuracy-on-standard-problems>)
+[Accuracy on Standard Problems](<../documentation/tests results/test_results_adams_moulton_solver.md#accuracy-on-standard-problems>)
 
-[Observed Order of Accuracy](<documentation/tests results/test_results_adams_moulton_solver.md#observed-order-of-accuracy>)
+[Observed Order of Accuracy](<../documentation/tests results/test_results_adams_moulton_solver.md#observed-order-of-accuracy>)
 
-[Boundaries and Curve Shape](<documentation/tests results/test_results_adams_moulton_solver.md#boundaries-and-curve-shape>)
+[Boundaries and Curve Shape](<../documentation/tests results/test_results_adams_moulton_solver.md#boundaries-and-curve-shape>)
 
-[Invalid Input Exceptions & Corrector Convergence](<documentation/tests results/test_results_adams_moulton_solver.md#invalid-input-exceptions--corrector-convergence>)
+[Invalid Input Exceptions & Corrector Convergence](<../documentation/tests results/test_results_adams_moulton_solver.md#invalid-input-exceptions--corrector-convergence>)
 
 ## RungeKuttaFehlbergSolver
 
-[Accuracy and Adaptive Tolerance](<documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#accuracy-and-adaptive-tolerance>)
+[Accuracy and Adaptive Tolerance](<../documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#accuracy-and-adaptive-tolerance>)
 
-[Exactness and Step-Size Adaptation](<documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#exactness-and-step-size-adaptation>)
+[Exactness and Step-Size Adaptation](<../documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#exactness-and-step-size-adaptation>)
 
-[Boundaries and Curve Shape](<documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#boundaries-and-curve-shape>)
+[Boundaries and Curve Shape](<../documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#boundaries-and-curve-shape>)
 
-[Invalid Input and Mathematical Blow-up](<documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#invalid-input-and-mathematical-blow-up>)
+[Invalid Input and Mathematical Blow-up](<../documentation/tests results/test_results_runge_kutta_fehlberg_solver.md#invalid-input-and-mathematical-blow-up>)
 
 ## ConjugateGradientSolver
 
-[Accuracy on Standard Problems](<documentation/tests results/test_results_conjugate_gradient_solver.md#accuracy-on-standard-problems>)
+[Accuracy on Standard Problems](<../documentation/tests results/test_results_conjugate_gradient_solver.md#accuracy-on-standard-problems>)
 
-[Initial Guess Behaviors (`solve_from`)](<documentation/tests results/test_results_conjugate_gradient_solver.md#initial-guess-behaviors-solve_from>)
+[Initial Guess Behaviors (`solve_from`)](<../documentation/tests results/test_results_conjugate_gradient_solver.md#initial-guess-behaviors-solve_from>)
 
-[Boundaries and Edge Cases](<documentation/tests results/test_results_conjugate_gradient_solver.md#boundaries-and-edge-cases>)
+[Boundaries and Edge Cases](<../documentation/tests results/test_results_conjugate_gradient_solver.md#boundaries-and-edge-cases>)
 
-[Invalid Input and Divergence Exceptions](<documentation/tests results/test_results_conjugate_gradient_solver.md#invalid-input-and-divergence-exceptions>)
+[Invalid Input and Divergence Exceptions](<../documentation/tests results/test_results_conjugate_gradient_solver.md#invalid-input-and-divergence-exceptions>)
 
 
 ## FiniteDifferenceSolver
 
-[Accuracy on Standard Problems](<documentation/tests results/test_results_finite_difference_solver.md#accuracy-on-standard-problems>)
+[Accuracy on Standard Problems](<../documentation/tests results/test_results_finite_difference_solver.md#accuracy-on-standard-problems>)
 
-[Observed Order of Convergence](<documentation/tests results/test_results_finite_difference_solver.md#observed-order-of-convergence>)
+[Observed Order of Convergence](<../documentation/tests results/test_results_finite_difference_solver.md#observed-order-of-convergence>)
 
-[Boundaries and Grid Structure](<documentation/tests results/test_results_finite_difference_solver.md#boundaries-and-grid-structure>)
+[Boundaries and Grid Structure](<../documentation/tests results/test_results_finite_difference_solver.md#boundaries-and-grid-structure>)
 
-[Invalid Input and Singular Systems](<documentation/tests results/test_results_finite_difference_solver.md#invalid-input-and-singular-systems>)
+[Invalid Input and Singular Systems](<../documentation/tests results/test_results_finite_difference_solver.md#invalid-input-and-singular-systems>)
 
 ## HOW TO RUN THE TESTS INDIVIDUALLY
 
