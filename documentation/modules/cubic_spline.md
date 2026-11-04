@@ -29,19 +29,25 @@ double v = spline.interpolate(0.5, x, y);   // 0.6875
 
 **Step 2: the equations.** Requiring the slope to match at each inner point $i$ gives one linear equation:
 
-  $h_{i-1} M_{i-1} + 2(h_{i-1} + h_i) M_i + h_i M_{i+1} = 6 \left[ \frac{y_{i+1} - y_i}{h_i} - \frac{y_i - y_{i-1}}{h_{i-1}} \right]$
+$$h_{i-1} M_{i-1} + 2(h_{i-1} + h_i) M_i + h_i M_{i+1} = 6 \left[ \frac{y_{i+1} - y_i}{h_i} - \frac{y_i - y_{i-1}}{h_{i-1}} \right]$$
 
 With the natural conditions $M_0 = M_{n-1} = 0$, that is $n - 2$ equations in $n - 2$ unknowns.
 
 **Step 3: solve with the Thomas algorithm.** Each equation involves only three neighbouring unknowns, so the matrix is *tridiagonal*. The Thomas algorithm is Gaussian elimination specialised to that shape. It is written once, in the shared helper `linalg::solve_tridiagonal` (`src/internal/tridiagonal`), because `FiniteDifferenceSolver` solves the same kind of system:
-- *Forward sweep:* for $k = 1 \dots m-1$, $\text{factor} = \frac{\text{lower}_k}{\text{diag}_{k-1}}$; $\text{diag}_k \leftarrow \text{diag}_k - \text{factor} \cdot \text{upper}_{k-1}$; $\text{rhs}_k \leftarrow \text{rhs}_k - \text{factor} \cdot \text{rhs}_{k-1}$.
-- *Back substitution:* $M_{\text{last}} = \frac{\text{rhs}_{\text{last}}}{\text{diag}_{\text{last}}}$, then upwards $M_k = \frac{\text{rhs}_k - \text{upper}_k M_{k+1}}{\text{diag}_k}$.
+
+- *Forward sweep:* for $k = 1 \dots m-1$, 
+  - $\text{factor} = \frac{\text{lower}_k}{\text{diag}_{k-1}}$
+  - $\text{diag}_k \leftarrow \text{diag}_k - (\text{factor} \cdot \text{upper}_{k-1})$
+  - $\text{rhs}_k \leftarrow \text{rhs}_k - (\text{factor} \cdot \text{rhs}_{k-1})$
+- *Back substitution:* 
+  - $M_{\text{last}} = \frac{\text{rhs}_{\text{last}}}{\text{diag}_{\text{last}}}$
+  - then upwards $M_k = \frac{\text{rhs}_k - (\text{upper}_k \cdot M_{k+1})}{\text{diag}_k}$
 
 It costs $O(n)$ operations instead of $O(n^3)$. The diagonal $2(h_{i-1} + h_i)$ is larger than the two off-diagonal entries together (strict diagonal dominance), so no pivoting is needed and no division by zero can happen.
 
 **Step 4: evaluate.** Find the interval containing $x$ (`checks::find_interval`). With $t_0 = x - x_i$ and $t_1 = x_{i+1} - x$:
 
-  $S(x) = \frac{M_i t_1^3}{6h} + \frac{M_{i+1} t_0^3}{6h} + \left(\frac{y_i}{h} - \frac{M_i h}{6}\right)t_1 + \left(\frac{y_{i+1}}{h} - \frac{M_{i+1} h}{6}\right)t_0$
+$$S(x) = \frac{M_i t_1^3}{6h} + \frac{M_{i+1} t_0^3}{6h} + \left(\frac{y_i}{h} - \frac{M_i h}{6}\right)t_1 + \left(\frac{y_{i+1}}{h} - \frac{M_{i+1} h}{6}\right)t_0$$
 
 Hand check from the tests: for $(0,0)$, $(1,1)$, $(2,0)$ the single equation is $4M_1 = -12$, so $M_1 = -3$, and $S(0.5) = 0.6875$.
 
