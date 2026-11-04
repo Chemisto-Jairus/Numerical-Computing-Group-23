@@ -1684,21 +1684,21 @@ echo "✅ Finished! All tests have been executed inside $SAFE_DIR/build."
 
 ## Limitations
 
-- Basic root finder [See module report](documentation/modules/basic_root_finder.md#6-limitations)
-- Interpolator [See module report](documentation/modules/interpolator.md#7-limitations)
-- Cubic spline [See module report](documentation/modules/cubic_spline.md#6-limitations)
-- Matrix solver [See module report](documentation/modules/matrix_solver.md#7-limitations)
-- Advanced root finder [See module report](documentation/modules/advanced_root_finder.md#6-limitations)
-- Basic Integrator [See module report](documentation/modules/basic_integrator.md#6-limitations)
-- Advanced ODE solver [See module report](documentation/modules/advanced_ode_solver.md#6-limitations)
-- Advanced Integrator [See module report](documentation/modules/advanced_integrator.md#6-limitations)
-- Basic ODE solver  [See module report](documentation/modules/basic_ode_solver.md#6-limitations)
-- Numerical Differentiation [See module report](documentation/modules/numerical_differentiator.md#6-limitations)
-- Finite Difference Method [See module report](documentation/modules/finite_difference_solver.md#5-limitations)
-- Conjugate Gradient [See module report](documentation/modules/conjugate_gradient_solver.md#5-limitations)
-- Runge-Kutta-Fehlberg [See module report](documentation/modules/runge_kutta_fehlberg_solver.md#5-limitations)
-- Adams-Bashforth [See module report](documentation/modules/adams_bashforth_solver.md#5-limitations)
-- Adams-Moulton [See module repor](documentation/modules/adams_moulton_solver.md#5-limitations)
+- Basic root finder [See module report](../documentation/modules/basic_root_finder.md#6-limitations)
+- Interpolator [See module report](../documentation/modules/interpolator.md#7-limitations)
+- Cubic spline [See module report](../documentation/modules/cubic_spline.md#6-limitations)
+- Matrix solver [See module report](../documentation/modules/matrix_solver.md#7-limitations)
+- Advanced root finder [See module report](../documentation/modules/advanced_root_finder.md#6-limitations)
+- Basic Integrator [See module report](../documentation/modules/basic_integrator.md#6-limitations)
+- Advanced ODE solver [See module report](../documentation/modules/advanced_ode_solver.md#6-limitations)
+- Advanced Integrator [See module report](../documentation/modules/advanced_integrator.md#6-limitations)
+- Basic ODE solver  [See module report](../documentation/modules/basic_ode_solver.md#6-limitations)
+- Numerical Differentiation [See module report](../documentation/modules/numerical_differentiator.md#6-limitations)
+- Finite Difference Method [See module report](../documentation/modules/finite_difference_solver.md#5-limitations)
+- Conjugate Gradient [See module report](../documentation/modules/conjugate_gradient_solver.md#5-limitations)
+- Runge-Kutta-Fehlberg [See module report](../documentation/modules/runge_kutta_fehlberg_solver.md#5-limitations)
+- Adams-Bashforth [See module report](../documentation/modules/adams_bashforth_solver.md#5-limitations)
+- Adams-Moulton [See module repor](../documentation/modules/adams_moulton_solver.md#5-limitations)
 
 
 ## Additional Documentation & Links
