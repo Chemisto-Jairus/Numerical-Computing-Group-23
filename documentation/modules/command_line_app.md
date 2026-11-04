@@ -12,9 +12,9 @@ An interactive console program that demonstrates every method of the library. It
 
 1. **Topic:** Root finding, Interpolation (and Chebyshev approximation), Differentiation, Integration, Initial value ODEs, Boundary value ODEs, Linear systems, or About. Every one of the 15 library classes is reachable.
 2. **Method:** for example Bisection, Newton-Raphson, Secant, Fixed-point, or *Compare all*. The ODE topic first asks for a **family** (one-step, multistep, adaptive, or compare all nine methods), then for the method in that family.
-3. **Problem:** a preset equation, function, integrand, model, boundary value problem, data set or matrix from the catalog, or the user's own (a custom cubic, custom data points, a custom linear ODE, a custom constant-coefficient BVP, a custom matrix up to 6×6).
+3. **Problem:** a preset equation, function, integrand, model, boundary value problem, data set or matrix from the catalog, or the user's own (a custom cubic, custom data points, a custom linear ODE, a custom constant-coefficient BVP, a custom matrix up to $6 \times 6$).
 
-Suggested parameters are shown in brackets, and **Enter accepts them**. Results appear next to the exact answer with the absolute error. Root finders also show the residual f(root) and the number of function evaluations.
+Suggested parameters are shown in brackets, and **Enter accepts them**. Results appear next to the exact answer with the absolute error. Root finders also show the residual $f(\text{root})$ and the number of function evaluations.
 
 ## 2. Structure
 
@@ -52,10 +52,10 @@ Results are computed **before** anything is printed, so an error never leaves a 
 |---|---|---|
 | Root finding | Bisection, Newton-Raphson, Secant, Fixed-point | compare three methods (with function-evaluation counts) |
 | Interpolation | Linear, cubic spline, Chebyshev nodes, Chebyshev approximation | compare linear and spline; approximation error table |
-| Differentiation | Forward, backward, central, second derivative, Richardson | error table for h = 0.1 … 1e-6 (shows rounding taking over) |
+| Differentiation | Forward, backward, central, second derivative, Richardson | error table for $h = 0.1 \dots 10^{-6}$ (shows rounding taking over) |
 | Integration | Trapezoidal, Midpoint, Simpson, Romberg | compare all four |
-| Initial value ODEs | One-step: Euler, Heun, RK3, RK4; multistep: AB2, AB4, AM2, AM4; adaptive: RKF45 | compare all nine at t_end; RKF45 table shows the step used |
-| Boundary value ODEs | Finite difference method | convergence study n = 10 … 80 with error ratios |
+| Initial value ODEs | One-step: Euler, Heun, RK3, RK4; multistep: AB2, AB4, AM2, AM4; adaptive: RKF45 | compare all nine at $t_{\text{end}}$; RKF45 table shows the step used |
+| Boundary value ODEs | Finite difference method | convergence study $n = 10 \dots 80$ with error ratios |
 | Linear systems | Gaussian elimination, LU, conjugate gradient | compare all three, with residuals |
 
 ## 5. Why it is written this way
@@ -73,8 +73,10 @@ Results are computed **before** anything is printed, so an error never leaves a 
 ## 6. Building and running
 
 ```bash
+
 cmake -G "MinGW Makefiles" -S . -B build
 cmake --build build
 ./build/numcomp_app.exe
+
 ```
 

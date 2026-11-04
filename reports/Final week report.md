@@ -131,6 +131,10 @@ I made the following changes to my modules
 - Purpose: Documenting using Doxy
 - Reason: I asked claude how to efficiently document the project besides what we have done in regards to the rule of documenting, and it reccomended using the Doxyfile. So it taught me how to use it and made the count of how many doxy comments were made.
 
+- Tool: Gemini
+- Purpose: Formatting the reports to show proper symbols and subscripts
+- Reason: I did not know the syntax to correctly write these.
+
 **Member 4 (Bakalu Valeria):** 
 
 - Tool: Claude
